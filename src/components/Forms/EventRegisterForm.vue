@@ -94,6 +94,7 @@
                   nameError[0]
                 }}</small>
               </div>
+
               <div class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px]">
                 <label for="name">Email</label>
                 <input
