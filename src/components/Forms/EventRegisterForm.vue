@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center mt-[120px] relative">
+  <div class="flex justify-center mt-[120px] relative" v-if="currentEvent">
     <div
       class="bg-[url(@/assets/img/scholarship/image.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute top-0"
     ></div>
@@ -23,20 +23,20 @@
                 <div class="xl:text-md md:text-sm xl:font-[600] md:font-[400]">
                   <p>
                     Date :
-                    <span class="ml-3">21st May 2022 (Sat)</span>
+                    <span class="ml-3">2{{ currentEvent.start_date }} </span>
                   </p>
                 </div>
 
                 <div class="xl:text-md md:text-sm xl:font-[600] md:font-[400]">
                   <p>
                     Time :
-                    <span class="ml-3">1 p.m to 3 P.m</span>
+                    <span class="ml-3">{{ currentEvent.start_time }}</span>
                   </p>
                 </div>
                 <div class="xl:text-md md:text-sm xl:font-[600] md:font-[400]">
                   <p>
-                    Vanue :
-                    <span class="ml-3">Zoom Webinar </span>
+                    Venue :
+                    <span class="ml-3">{{ currentEvent.venue }} </span>
                   </p>
                 </div>
               </div>
@@ -193,8 +193,11 @@ import "vue-toast-notification/dist/theme-sugar.css";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import Button from "../partials/Button.vue";
+import { useEventStore } from "../../stores/event";
 const yangon = ref(true);
 const props = defineProps(["id"]);
+const eventStore = useEventStore();
+const currentEvent = ref(null);
 // input data
 const name = ref();
 const phone = ref();
@@ -203,6 +206,7 @@ const address = ref("");
 const education_level = ref();
 const interest_field = ref();
 const interest_country = ref();
+const events = ref(null);
 // validate
 const nameError = ref();
 const phoneError = ref();
@@ -214,6 +218,16 @@ const interest_countryError = ref();
 const event_id = ref();
 const $toast = useToast();
 const registeredEvents = ref(null);
+
+const fetchData = async () => {
+  const res = await eventStore.fetchEvent();
+  events.value = res.data.latestEvent;
+  events.value.map((event) => {
+    if (props.id == event.id) {
+      currentEvent.value = event;
+    }
+  });
+};
 
 const registerList = async () => {
   const res = await axios.get(
@@ -282,6 +296,7 @@ const handleRegister = async () => {
 
 onMounted(() => {
   registerList();
+  fetchData();
 });
 </script>
 
