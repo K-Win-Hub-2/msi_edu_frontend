@@ -1,6 +1,6 @@
 import AwardOne from "@/assets/img/home/Awards/SpaceEggActivity.png";
 import SpaceEggActivity from "@/assets/img/home/Awards/SpaceEggActivity.png";
-import AppreciationAward from "@/assets/img/  /Awards/AppreciationAward.png";
+import AppreciationAward from "@/assets/img/home/Awards/AppreciationAward.png";
 import AppreciationAward2018 from "@/assets/img/home/Awards/AppreciationAward2018.png";
 import BestAgencyinASEANAward from "@/assets/img/home/Awards/BestAgencyinASEANAward.png";
 import BestNewAgentAward2017 from "@/assets/img/home/Awards/BestNewAgentAward2017.png";
