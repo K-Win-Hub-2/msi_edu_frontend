@@ -1,0 +1,175 @@
+<template>
+  <div class="container py-24">
+    <div class="grid grid-cols-12 my-3">
+      <div class="col-span-12 md:col-span-8 mr-7">
+        <img :src="currentEvent.image" class="mb-3" alt="" />
+        <h4>
+          <span class="font-semibold">Date:</span>
+          <span>{{ currentEvent.date }}</span>
+        </h4>
+        <h1 class="text-left my-3 font-mediun text-3xl text-cus-secondary">
+          {{ currentEvent.title }}
+        </h1>
+        <p
+          class="text-left text-gray-500 my-3"
+          v-html="currentEvent.description"
+        ></p>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <!-- Previous Button -->
+            <button
+              class="flex items-center justify-center p-3 bg-white border border-1 rounded-full"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+
+            <!-- Next Button -->
+            <button
+              class="flex items-center justify-center p-3 ml-3 bg-white border border-1 rounded-full"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="">
+            <a
+              @click="toRegisterForm"
+              class="bg-cus-primary text-white px-4 py-3 cursor-pointer hover:bg-gray-500 shadow-lg"
+              >Register</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-span-8 md:col-span-4">
+        <div class="flex flex-col px-3 relative">
+          <form class="mb-3">
+            <label
+              for="default-search"
+              class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+              >Search</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="search"
+                id="default-search"
+                class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Search Mockups, Logos..."
+                required
+              />
+            </div>
+          </form>
+          <h1 class="text-left text-2xl mb-3 text-cus-secondary">
+            More <span class="text-3xl font-bold">Event</span>
+          </h1>
+          <div class="space-y-3">
+            <template v-for="event in moreEvents">
+              <EventCard :event="event" />
+            </template>
+          </div>
+          <div>
+            <div class="relative mt-5 text-end pl-5">
+              <Link type="white" :link="{ name: 'events' }">More Events</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <EventRegisterForm ></EventRegisterForm>
+  <EventRegisterFormSEG></EventRegisterFormSEG>
+  <BookAppointmentForm></BookAppointmentForm>
+  <ConsultationForm></ConsultationForm> -->
+  <!-- <EventSwiper /> -->
+  <MySwiper />
+</template>
+
+<script setup>
+import Link from "@/components/partials/Link.vue";
+import MySwiper from "@/components/MySwiper.vue";
+import EventSwiper from "@/components/Events/EventSwiper.vue";
+import { onBeforeRouteUpdate, useRouter } from "vue-router";
+import { onMounted, ref } from "vue";
+import { events } from "../mocks/events";
+import EventCard from "../components/general/EventCard.vue";
+
+const props = defineProps(["id"]);
+
+const router = useRouter();
+const currentEvent = ref({});
+const moreEvents = ref([]);
+
+const fetchEvents = ({ id }) => {
+  moreEvents.value = [];
+  events.map((event) => {
+    if (id == event.id) {
+      currentEvent.value = event;
+    } else {
+      moreEvents.value.push(event);
+    }
+  });
+};
+
+onMounted(() => {
+  fetchEvents({ id: props.id });
+});
+
+onBeforeRouteUpdate((to, from, next) => {
+  fetchEvents({ id: to.params.id });
+  next();
+});
+
+const toRegisterForm = () => {
+  router.push({
+    name: "event-register-form",
+  });
+};
+</script>
+
+<style lang="scss" scoped></style>

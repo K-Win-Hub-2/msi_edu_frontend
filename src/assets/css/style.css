@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .cus-heading {
+    @apply text-[40px] font-semibold;
+  }
+
+  .cus-shadow-color {
+    @apply shadow-blue-500/50
+  }
+
+  .cus-subheading {
+    @apply text-2xl font-bold;
+  }
+
+  .cus-paragraph {
+    @apply text-[15px] font-extralight
+  }
+
+  .cus-paragraph-title {
+    @apply text-3xl font-semibold uppercase text-cus-secondary
+  }
+
+  .cus-paragraph-subTitle {
+    @apply text-cus-primary text-2xl font-medium
+  }
+
+  .cus-rounded {
+    @apply rounded-xl
+  }
+
+  .cus-shadow {
+    @apply shadow
+  }
+
+  .cus-border {
+    @apply border
+  }
+
+  .cus-standout {
+    @apply shadow-lg rounded-xl drop-shadow-lg
+  }
+
+  .cus-glass-card {
+    @apply bg-[#e8ebf4] rounded-xl border border-white
+  }
+}

@@ -1,0 +1,172 @@
+<template>
+  <div class="py-28 flex justify-center">
+    <section class="space-y-12">
+      <div>
+        <!-- <div class="flex justify-between items-center mb-11">
+          <input
+            type="search"
+            placeholder="search Events"
+            class="w-[900px] border-2 border-black rounded-lg bg-white p-2"
+          />
+          <Button class="px-6 text-right" type="gradient">Search</Button>
+        </div> -->
+
+        <!-- upcoming start -->
+        <div class="w-[987px]">
+          <div class="flex justify-between items-center mt-24 mx-10">
+            <h1 class="text-[48px] text-cus-primary font-extrabold">
+              Upcoming Events
+            </h1>
+            <Button class="px-6 py-2" type="gradient">view All</Button>
+          </div>
+
+          <!-- upcoming event card -->
+          <div class="flex justify-center items-center mt-20">
+            <div
+              class="w-100 h-[598px] p-[23.7px] border-2 rounded-[23.7px] border-[#9F9F9F]"
+            >
+              <img class="w-[699.5px] h-[378px]" :src="upcomingEvent" alt="" />
+              <div class="flex justify-center items-center mt-[43px]">
+                <Button
+                  class="w-[283px] h-[89px] text-[35.2px] flex justify-center items-center"
+                  type="gradient"
+                  >See More</Button
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- upcoming end -->
+      <!-- old event start -->
+      <hr class="text-black w-100" />
+      <div>
+        <div class="flex justify-between items-center mt-[108px]">
+          <h1 class="text-cus-primary text-[48px] font-[700] text-left mb-6">
+            <span class="text-cus-primary font-extrabold">Old</span> Events
+          </h1>
+          <Button class="px-6" type="gradient">view All</Button>
+        </div>
+        <div>
+          <div
+            class="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 z-20"
+          >
+            <router-link
+              :to="{ name: 'eventDetail', params: { id: 1 } }"
+              class="flex justify-center items-center mt-20 oldEventCard"
+            >
+              <div class="w-[313px] h-[254px] p-[23.7px]">
+                <img class="h-[151px]" :src="oldEvent1" alt="" />
+                <div class="flex justify-center">
+                  <Button
+                    class="px-[40px] py-[10px] my-[24px] flex justify-center items-center"
+                    type="gradient"
+                    >See More</Button
+                  >
+                </div>
+              </div>
+            </router-link>
+            <div class="flex justify-center items-center mt-20 oldEventCard">
+              <div class="w-[313px] h-[254px] p-[23.7px]">
+                <img class="h-[151px]" :src="oldEvent2" alt="" />
+                <div class="flex justify-center">
+                  <Button
+                    class="px-[40px] py-[10px] my-[24px] flex justify-center items-center"
+                    type="gradient"
+                    >See More</Button
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-center items-center mt-20 oldEventCard">
+              <div class="w-[313px] h-[254px] p-[23.7px]">
+                <img class="h-[151px]" :src="oldEvent3" alt="" />
+                <div class="flex justify-center">
+                  <Button
+                    class="px-[40px] py-[10px] my-[24px] flex justify-center items-center"
+                    type="gradient"
+                    >See More</Button
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="flex justify-center mt-[50px]">
+            <a
+              href="#"
+              class="flex items-center justify-center px-4 h-10 mr-3 text-base font-medium text-white bg-gray-500 border border-gray-300 rounded-lg"
+            >
+              <svg
+                class="w-3.5 h-3.5 mr-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 5H1m0 0 4 4M1 5l4-4"
+                />
+              </svg>
+              Previous
+            </a>
+            <a
+              href="#"
+              class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-500 border border-gray-300 rounded-lg"
+            >
+              Next
+              <svg
+                class="w-3.5 h-3.5 ml-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </a>
+          </div> -->
+        </div>
+      </div>
+      <!-- old event end -->
+    </section>
+  </div>
+</template>
+
+<script setup>
+import { events } from "../mocks/events";
+import EventCard from "../components/general/EventCard.vue";
+import Button from "../components/partials/Button.vue";
+import upcomingEvent from "@/assets/img/events/upcomingEvent.png";
+import oldEvent1 from "@/assets/img/events/event-1.jpg";
+import oldEvent2 from "@/assets/img/events/event-2.jpg";
+import oldEvent3 from "@/assets/img/events/event-3.jpg";
+import axios from "axios";
+import { onMounted, ref } from "vue";
+import { useEventStore } from "../stores/event";
+// const latestEvent = ref(null);
+// const eventStore = useEventStore();
+// const fetchData = async () => {
+//   const res = await eventStore.fetchEvent();
+//   console.log(res.data.oldEvent);
+//   latestEvent.value = res.data.latestEvent;
+//   oldEvent.value = res.data.oldEvent;
+//   console.log(res.data.oldEvent);
+// };
+
+onMounted(() => {
+  fetchData();
+});
+</script>
+
+<style lang="scss" scoped></style>

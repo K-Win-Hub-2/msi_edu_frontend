@@ -1,0 +1,121 @@
+@import "./style.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+
+* {
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* color: rgba(128, 128, 128, 0.235); */
+}
+
+div.swiper-wrapper {
+  display: flex;
+  align-items: center !important;
+}
+
+/* .router-link-exact-active {
+  color: #dd2f33
+} */
+
+
+.truncate-two {
+  overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+
+/* scholarship */
+
+.shadow-title {
+  text-shadow: 0px 04px 04px rgba(0, 0, 0, 0.15);
+}
+
+.bg-carousel {
+  background: linear-gradient(
+    100deg,
+    #f6fbff 2.14%,
+    rgba(225, 241, 255, 0) 105.75%,
+    rgba(162, 213, 255, 0) 105.75%
+  );
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+/* service */
+.bg-service-card{
+  background: linear-gradient(180deg, #E1EFFF 0%, rgba(225, 239, 255, 0.00) 100%);
+}
+
+.service-title{
+  /* text-[14px] font-[600] text-[#9D0038] */
+  font-size: 18px;
+  color : #9D0038;
+  font-weight: 600;
+}
+
+.service-desc{
+   font-size: 10px;
+}
+.service-profile {
+  background: linear-gradient(180deg, #aed4ff 0%, rgba(225, 239, 255, 0.00) 100%);
+  box-shadow: 4px 8px 8px 4px #aed4ff;
+}
+.country-more{
+  text-shadow: 2px 13px 4px rgba(32, 88, 135, 0.45);
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+color: #205887;
+}
+.country-more-bg{
+  background: linear-gradient(180deg,#8AA4FF 0%, rgba(204, 233, 244, 0)100%);
+  box-shadow:2px 3px 3px 2px #aed4ff;
+}
+
+
+/* event */
+.oldEventCard{
+  border-radius: 9.492px;
+background: #FFF;
+box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* register form */
+.registerForm{
+  box-shadow: 1px 0px 8.9px 0px rgba(0, 0, 0, 0.52);
+}
+
+.Ygn-Mdy-btn{
+  border-radius: 62px;
+background: var(--BUTTON-COLOR, linear-gradient(101deg, #FCF85F 4.12%, rgba(255, 28, 67, 0.33) 119.56%));
+}
+
+.shadow-title {
+  text-shadow: 0px 04px 04px rgba(0, 0, 0, 0.15);
+}
+.button-contact{
+  border-radius: 8px;
+background: linear-gradient(93deg, #FCFF5C 7.32%, rgba(255, 0, 15, 0.00) 112.91%);
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.contact-form{
+  border-radius: 15px;
+background: #FFF;
+box-shadow: 0px 3px 9.2px 0px rgba(51, 51, 51, 0.22);
+}
+
+.contact-card{
+  border-radius: 16px;
+background: rgba(237, 247, 255, 0.89);
+}
+.sent-button{
+  border-radius: 8px;
+background: var(--BUTTON-COLOR, linear-gradient(101deg, #FCF85F 4.12%, rgba(255, 28, 67, 0.33) 119.56%));
+}
+

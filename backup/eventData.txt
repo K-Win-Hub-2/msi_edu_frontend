@@ -1,0 +1,214 @@
+import bu from "@/assets/img/universities/bu.jpg";
+import eventOne from "@/assets/img/events/event-1.jpg";
+import eventTwo from "@/assets/img/events/event-2.jpg";
+import eventThree from "@/assets/img/events/event-3.jpg";
+
+export const events = [
+  {
+    id: "1",
+    title: "To get Medical License of U.S.A. and UK‼️",
+    date: new Date(),
+    brief:
+      "Malaysia နိုင်ငံမှာ ဆေးပညာသင်ကြားပြီး USA, UK တိုမှ နိုင်ငံတကာအသိအမှတ်ပြု Medical License ရယူနိုင်ပါပြီ။✨",
+    image: eventOne,
+    description: `
+      Malaysia နိုင်ငံမှာ ဆေးပညာသင်ကြားပြီး USA, UK တိုမှ နိုင်ငံတကာအသိအမှတ်ပြု Medical License ရယူနိုင်ပါပြီ။✨<br/><br/>
+      📚 SEGi University သည် Malaysia နိုင်ငံရဲ့ ထိပ်တန်းတက္ကသိုလ်တစ်ခုဖြစ်ပြီး နှစ်စဥ် 50% Scholarship, 20% Scholarship အပြင် Free 1 Year Accommodation ကိုပါ လျှောက်ထားနိုင်ပါသည်။
+      <br/><br/>
+      💰 SEGi University မှာ Cost သက်သက်သာသာနဲ့ Medical School ကို တက်ပြီး USA, UK Medical License ရယူဖိုအတွက် ပြင်ဆင်နိုင်ပါပြီ။
+      <br/><br/>
+      SEGi University ရဲ့ Admission Requirements, Course Structures, Scholarships အကြောင်းကို 27. 5. 2023 (Saturday) တွင် MSI (Head Office) မှာ ကျင်းပမည့် Free In-House Seminars မှာ ဆွေးနွေးပေးသွားမှာဖြစ်ပါသည်။
+      <br/><br/>
+      📣ဆေးပညာသင်ကြားဖို ပြင်ဆင်နေတဲ့ လူငယ်များအတွက် Event လေးကို Register လုပ်ပြီး လာရောက်နားထောင်ဖို ဖိတ်ခေါ်ပါရစေ  📣
+      <br/><br/>
+      Register Here‼️
+      👉𝑹𝒆𝒈𝒊𝒔𝒕𝒆𝒓 : https://forms.gle/s766pxKcgx6c9pJp6
+      <br/><br/>
+       𝐄𝐯𝐞𝐧𝐭 𝐃𝐚𝐭𝐞 : 27. 5. 2023 ( 𝐒𝐚𝐭𝐮𝐫𝐝𝐚𝐲 ) 
+       <br/><br/>
+      𝐄𝐯𝐞𝐧𝐭 𝐓𝐢𝐦𝐞 : 3:00 𝐏.𝐌 𝐭𝐨 5:00 𝐏.𝐌 
+      <br/><br/>
+      𝐕𝐞𝐧𝐮𝐞: 𝐌𝐒𝐈 (𝐇𝐞𝐚𝐝 𝐎𝐟𝐟𝐢𝐜𝐞) - 𝐍𝐨.234, 𝐒𝐞𝐜𝐨𝐧𝐝 𝐅𝐥𝐨𝐨𝐫 (𝐫𝐢𝐠𝐡𝐭), 𝐒𝐡𝐰𝐞𝐛𝐨𝐧𝐭𝐡𝐚𝐫 𝐒𝐭𝐫𝐞𝐞𝐭 (𝐌𝐢𝐝 𝐁𝐥𝐨𝐜𝐤), 𝐏𝐚𝐛𝐞𝐝𝐚𝐧 𝐓𝐨𝐰𝐧𝐬𝐡𝐢𝐩, 𝐘𝐚𝐧𝐠𝐨𝐧
+      𝐓𝐨 𝐜𝐨𝐧𝐭𝐚𝐜𝐭!
+      <br/>
+      <br/>
+      𝐏𝐡𝐨𝐧𝐞 𝐍𝐨 : 095104872
+      <br/>
+      <br/>
+      Event Title
+      "To get Medical License of U.S.A. and UK‼️”
+      𝐄𝐯𝐞𝐧𝐭 𝐃𝐚𝐭𝐞 : 27. 5. 2023 ( 𝐒𝐚𝐭𝐮𝐫𝐝𝐚𝐲 ) 
+      𝐄𝐯𝐞𝐧𝐭 𝐓𝐢𝐦𝐞 : 3:00 𝐏.𝐌 𝐭𝐨 5:00 𝐏.𝐌 
+      𝐕𝐞𝐧𝐮𝐞: 𝐌𝐒𝐈 (𝐇𝐞𝐚𝐝 𝐎𝐟𝐟𝐢𝐜𝐞) - 𝐍𝐨.234, 𝐒𝐞𝐜𝐨𝐧𝐝 𝐅𝐥𝐨𝐨𝐫 (𝐫𝐢𝐠𝐡𝐭), 𝐒𝐡𝐰𝐞𝐛𝐨𝐧𝐭𝐡𝐚𝐫 𝐒𝐭𝐫𝐞𝐞𝐭 (𝐌𝐢𝐝 𝐁𝐥𝐨𝐜𝐤), 𝐏𝐚𝐛𝐞𝐝𝐚𝐧 𝐓𝐨𝐰𝐧𝐬𝐡𝐢𝐩, 𝐘𝐚𝐧𝐠𝐨𝐧
+      <br/>
+      <br/>
+      What's on at Hybrid Seminar
+      - How to get Medical License of U.S.A. and UK?
+      - SEGi University's Scholarship Information
+      - SEGi University's Admission Requirements, Course StructuresLorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam error reiciendis, quia perspiciatis facilis deserunt dolor quibusdam doloremque vitae a laboriosam libero, debitis officia ipsa accusamus magni. Animi, sit nobis?`,
+  },
+
+  {
+    id: "2",
+    title: "Scholarships Info Day & Explore Student Life @ JCU Singapore",
+    date: new Date(),
+    brief: `
+    - Learn about JCU Campus and facilities 
+      <br/>
+      - Discover undergraduate and postgraduate study options at JCU 
+      <br/>
+      - Meet the Country Manager and get scholarship tips 
+      <br/>
+      - Explore international student life at JCU, sharing sessions by current students.`,
+    image: eventTwo,
+    description: `Event Title:
+      <br/>
+      Scholarships Info Day & Explore Student Life @ JCU Singapore
+      Date: 21st Oct (Saturday)
+      Time : 1:00 PM to 3:00 PM
+      Place : Mountain Star Hotel, Taunggyi
+      <br/>
+      What’s on at Info Day:
+      <br/>
+      - Learn about JCU Campus and facilities 
+      <br/>
+      - Discover undergraduate and postgraduate study options at JCU 
+      <br/>
+      - Meet the Country Manager and get scholarship tips 
+      <br/>
+      - Explore international student life at JCU, sharing sessions by current students.`,
+  },
+  {
+    id: "3",
+    title: "MSI's Vietnam Education Webinar",
+    date: new Date(),
+    brief: `
+      - How to grab UK Bachelor's Degree  in Vietnam<br/>
+      - About scholarship<br/>
+      - Job opportunities after graduation<br/>
+      - University pathway to study aboard<br/>
+      - School fees and entry requirement"
+      `,
+    image: eventThree,
+    description: `"MSI's Vietnam Education Webinar<br/>
+      ⏱ 6.9. 2023 (WED), 3:00 PM to 5:00 PM<br/>
+      🖥 Zoom Webinar<br/>
+      Register Here: https://bit.ly/3KWs1Wu<br/>
+      Webinar လေးမှာ 🔸Vietnam နိုင်ငံမှ British University Vietnam (BUV) ရဲ့ Manager of Student Recruitmentတစ်ယောက်ဖြစ်တဲ့ <br/>Ms.Nguyen Ngoc Hoa မှ BUVရဲ့<br/>
+      🌠Up to 100% Scholarship ရယူပြီး UK မှ ပေးအပ်တဲ့ ဘွဲကို Vietnam မှာ သင်ကြားရယူနိုင်မယ့်အခွင့်အရေးတွေ၊<br/>
+      🌠 ဘွဲရရှိပြီး (၃) အတွင်း အလုပ်ရရှိမှု အခွင့်အလမ်းများတဲ့ တက္ကသိုလ်ရဲ့အကြောင်း<br/>
+      🌠 အနောက်နိုင်ငံများကို ပညာဆက်လက်သင်ကြားနိုင်ဖို BUV ရဲ့ ကျောင်းဝင်ခွင့်၊ ကျောင်းလခတွေ အကြောင်းကို Online Zoom Webinar <br/>မှာ ဆွေးနွေးပြောကြားသွားမှာ ဖြစ်ပါတယ်။
+      <br/><br/>
+      Title
+      MSI's Vietnam Education Webinar
+      Date: 6.9. 2023 (WED), 
+      Time: 3:00 PM to 5:00 PM
+      Place: Zoom Webinar
+      <br/><br/>
+      - How to grab UK Bachelor's Degree  in Vietnam<br/>
+      - About scholarship<br/>
+      - Job opportunities after graduation<br/>
+      - University pathway to study aboard<br/>
+      - School fees and entry requirement"`,
+  },
+  {
+    id: "3",
+    title: "MSI's Vietnam Education Webinar",
+    date: new Date(),
+    brief: `
+      - How to grab UK Bachelor's Degree  in Vietnam<br/>
+      - About scholarship<br/>
+      - Job opportunities after graduation<br/>
+      - University pathway to study aboard<br/>
+      - School fees and entry requirement"
+      `,
+    image: eventThree,
+    description: `"MSI's Vietnam Education Webinar<br/>
+      ⏱ 6.9. 2023 (WED), 3:00 PM to 5:00 PM<br/>
+      🖥 Zoom Webinar<br/>
+      Register Here: https://bit.ly/3KWs1Wu<br/>
+      Webinar လေးမှာ 🔸Vietnam နိုင်ငံမှ British University Vietnam (BUV) ရဲ့ Manager of Student Recruitmentတစ်ယောက်ဖြစ်တဲ့ <br/>Ms.Nguyen Ngoc Hoa မှ BUVရဲ့<br/>
+      🌠Up to 100% Scholarship ရယူပြီး UK မှ ပေးအပ်တဲ့ ဘွဲကို Vietnam မှာ သင်ကြားရယူနိုင်မယ့်အခွင့်အရေးတွေ၊<br/>
+      🌠 ဘွဲရရှိပြီး (၃) အတွင်း အလုပ်ရရှိမှု အခွင့်အလမ်းများတဲ့ တက္ကသိုလ်ရဲ့အကြောင်း<br/>
+      🌠 အနောက်နိုင်ငံများကို ပညာဆက်လက်သင်ကြားနိုင်ဖို BUV ရဲ့ ကျောင်းဝင်ခွင့်၊ ကျောင်းလခတွေ အကြောင်းကို Online Zoom Webinar <br/>မှာ ဆွေးနွေးပြောကြားသွားမှာ ဖြစ်ပါတယ်။
+      <br/><br/>
+      Title
+      MSI's Vietnam Education Webinar
+      Date: 6.9. 2023 (WED), 
+      Time: 3:00 PM to 5:00 PM
+      Place: Zoom Webinar
+      <br/><br/>
+      - How to grab UK Bachelor's Degree  in Vietnam<br/>
+      - About scholarship<br/>
+      - Job opportunities after graduation<br/>
+      - University pathway to study aboard<br/>
+      - School fees and entry requirement"`,
+  },
+  {
+    id: "3",
+    title: "MSI's Vietnam Education Webinar",
+    date: new Date(),
+    brief: `
+      - How to grab UK Bachelor's Degree  in Vietnam<br/>
+      - About scholarship<br/>
+      - Job opportunities after graduation<br/>
+      - University pathway to study aboard<br/>
+      - School fees and entry requirement"
+      `,
+    image: eventThree,
+    description: `"MSI's Vietnam Education Webinar<br/>
+      ⏱ 6.9. 2023 (WED), 3:00 PM to 5:00 PM<br/>
+      🖥 Zoom Webinar<br/>
+      Register Here: https://bit.ly/3KWs1Wu<br/>
+      Webinar လေးမှာ 🔸Vietnam နိုင်ငံမှ British University Vietnam (BUV) ရဲ့ Manager of Student Recruitmentတစ်ယောက်ဖြစ်တဲ့ <br/>Ms.Nguyen Ngoc Hoa မှ BUVရဲ့<br/>
+      🌠Up to 100% Scholarship ရယူပြီး UK မှ ပေးအပ်တဲ့ ဘွဲကို Vietnam မှာ သင်ကြားရယူနိုင်မယ့်အခွင့်အရေးတွေ၊<br/>
+      🌠 ဘွဲရရှိပြီး (၃) အတွင်း အလုပ်ရရှိမှု အခွင့်အလမ်းများတဲ့ တက္ကသိုလ်ရဲ့အကြောင်း<br/>
+      🌠 အနောက်နိုင်ငံများကို ပညာဆက်လက်သင်ကြားနိုင်ဖို BUV ရဲ့ ကျောင်းဝင်ခွင့်၊ ကျောင်းလခတွေ အကြောင်းကို Online Zoom Webinar <br/>မှာ ဆွေးနွေးပြောကြားသွားမှာ ဖြစ်ပါတယ်။
+      <br/><br/>
+      Title
+      MSI's Vietnam Education Webinar
+      Date: 6.9. 2023 (WED), 
+      Time: 3:00 PM to 5:00 PM
+      Place: Zoom Webinar
+      <br/><br/>
+      - How to grab UK Bachelor's Degree  in Vietnam<br/>
+      - About scholarship<br/>
+      - Job opportunities after graduation<br/>
+      - University pathway to study aboard<br/>
+      - School fees and entry requirement"`,
+  },
+];
+
+export const upcomingEvents = [
+  {
+    id: "11",
+    title: "test",
+    date: new Date(),
+    brief:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam error reiciendis, quia perspiciatis facilis deserunt dolor quibusdam doloremque vitae a laboriosam libero, debitis officia ipsa accusamus magni. Animi, sit nobis?",
+    image: bu,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam error reiciendis, quia perspiciatis facilis deserunt dolor quibusdam doloremque vitae a laboriosam libero, debitis officia ipsa accusamus magni. Animi, sit nobis?",
+  },
+
+  {
+    id: "12",
+    title: "test",
+    date: new Date(),
+    brief:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam error reiciendis, quia perspiciatis facilis deserunt dolor quibusdam doloremque vitae a laboriosam libero, debitis officia ipsa accusamus magni. Animi, sit nobis?",
+    image: bu,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam error reiciendis, quia perspiciatis facilis deserunt dolor quibusdam doloremque vitae a laboriosam libero, debitis officia ipsa accusamus magni. Animi, sit nobis?",
+  },
+  {
+    id: "13",
+    title: "test",
+    date: new Date(),
+    brief:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam error reiciendis, quia perspiciatis facilis deserunt dolor quibusdam doloremque vitae a laboriosam libero, debitis officia ipsa accusamus magni. Animi, sit nobis?",
+    image: bu,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam error reiciendis, quia perspiciatis facilis deserunt dolor quibusdam doloremque vitae a laboriosam libero, debitis officia ipsa accusamus magni. Animi, sit nobis?",
+  },
+];

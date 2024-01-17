@@ -1,0 +1,111 @@
+<template>
+  <div class="">
+    <h1
+      class="text-center mt-[110px] lg:text-[40px] md:text-[32px] text-[24px] shadow-title text-cus-primary uppercase lg:font-[700] md:font-[600] font-[510]"
+    >
+      SCHOLARSHIP ACHIEVERS
+    </h1>
+    <h1
+      class="md:mt-[24px] lg:mt-[20px] mt-[16px] lg:text-[32px] md:text-[24px] text-[20px] shadow-title text-[#FE005F] text-center lg:mb-[133px] md:mb-[100px] uppercase font-semibold"
+    >
+      100 % SCHOLARSHIP ACHIEVERS
+    </h1>
+    <div
+      class="flex justify-evenly items-center lg:min-w-[1300px] container relative"
+    >
+      <swiper
+        :pagination="{
+          clickable: true,
+        }"
+        space-between="30
+                  "
+        :breakpoints="swiperOptions.breakpoints"
+        @slideChange="onSlideChange"
+        :navigation="swiperOptions.navigation"
+        :modules="modules"
+        class="mySwiper flex justify-center lg:min-w-[1100px]"
+      >
+        <!-- slider one -->
+        <swiper-slide class="flex justify-center py-12">
+          <AchieverCard />
+        </swiper-slide>
+
+        <!-- slider two  -->
+        <swiper-slide class="flex justify-center py">
+          <AchieverCard />
+        </swiper-slide>
+
+        <!-- slider three  -->
+        <swiper-slide class="flex justify-center">
+          <AchieverCard />
+        </swiper-slide>
+      </swiper>
+      <div
+        class="swiper-achieve-card-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
+      >
+        <ChevronLeftIcon
+          :class="{ 'opacity-50': start }"
+          class="w-12 h-12 text-cus-primary"
+        />
+      </div>
+      <div
+        class="swiper-achieve-card-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
+      >
+        <ChevronRightIcon
+          :class="{ 'opacity-50': end }"
+          class="w-12 h-12 text-cus-primary"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
+import AchieverCard from "./AchieverCard.vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Pagination, Navigation } from "swiper";
+import SliderScho from "./SliderScho.vue";
+import { ref } from "vue";
+const modules = [Navigation, Pagination];
+const start = ref(true);
+const end = ref(false);
+const onSlideChange = (event) => {
+  if (event.isEnd) {
+    end.value = true;
+  } else {
+    end.value = false;
+  }
+
+  if (event.isBeginning) {
+    start.value = true;
+  } else {
+    start.value = false;
+  }
+};
+const swiperOptions = {
+  loop: true,
+  breakpoints: {
+    // when window width is >= 320px
+    0: {
+      slidesPerView: 1,
+    },
+    // when window width is >= 480px
+    768: {
+      slidesPerView: 1,
+    },
+    // when window width is >= 640px
+    1024: {
+      slidesPerView: 2,
+    },
+    // when window width is >= 640px
+    1280: {
+      slidesPerView: 2,
+    },
+  },
+  navigation: {
+    nextEl: ".swiper-achieve-card-button-next-unique",
+    prevEl: ".swiper-achieve-card-button-prev-unique",
+  },
+};
+</script>

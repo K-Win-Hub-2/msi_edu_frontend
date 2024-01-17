@@ -1,0 +1,43 @@
+{
+  "name": "kwin_msi",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@fullcalendar/core": "^6.1.8",
+    "@fullcalendar/daygrid": "^6.1.8",
+    "@fullcalendar/interaction": "^6.1.8",
+    "@fullcalendar/list": "^6.1.8",
+    "@fullcalendar/timegrid": "^6.1.8",
+    "@fullcalendar/vue3": "^6.1.8",
+    "@heroicons/vue": "^2.0.17",
+    "@popperjs/core": "^2.11.8",
+    "axios": "^1.4.0",
+    "counterup2": "^2.0.2",
+    "gsap": "^3.12.2",
+    "oh-vue-icons": "^1.0.0-rc3",
+    "pinia": "^2.0.32",
+    "swiper": "^9.4.1",
+    "tw-elements": "^1.0.0-beta1",
+    "v-calendar": "^3.1.2",
+    "vue": "^3.2.47",
+    "vue-router": "^4.1.6",
+    "vue-toast-notification": "^3.1.2",
+    "wow.js": "^1.2.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
+    "video.js": "^8.5.2",
+    "vite": "^4.1.4"
+  }
+}
