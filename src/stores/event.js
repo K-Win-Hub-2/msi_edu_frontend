@@ -10,7 +10,7 @@ export const useEventStore = defineStore("event", {
       return getAxiosClient()
         .get(`latestEventList`)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           return res;
         })
         .catch((error) => {

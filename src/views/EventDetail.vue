@@ -116,7 +116,7 @@
         <div class="w-[1236px] mt-3 flex items-center justify-between">
           <div class="">
             <h1
-              class="text-[#205887] xl:text-xl md:text-lg sm:text-[24px] sm:ml-5 md:ml-10 font-[700]"
+              class="text-[#205887] xl:text-lg md:text-lg sm:text-[24px] sm:ml-5 md:ml-10 font-[700]"
             >
               More Events
             </h1>
@@ -232,14 +232,32 @@ const moreEvents = ref([]);
 
 // fetch each event
 
+// const fetchData = async () => {
+//   const res = await eventStore.fetchEvent();
+//   events.value = res.data.oldEvent;
+//   events.value.map((event) => {
+//     if (props.id == event.id) {
+//       currentEvent.value = event;
+//     } else {
+//       moreEvents.value.push(event);
+//     }
+//   });
+// };
+
 const fetchData = async () => {
   const res = await eventStore.fetchEvent();
   events.value = res.data.oldEvent;
-  events.value.map((event) => {
+
+  events.value.forEach((event) => {
     if (props.id == event.id) {
       currentEvent.value = event;
     } else {
-      moreEvents.value.push(event);
+      const isEventAlreadyAdded = moreEvents.value.some(
+        (existingEvent) => existingEvent.id === event.id
+      );
+      if (!isEventAlreadyAdded) {
+        moreEvents.value.push(event);
+      }
     }
   });
 };
@@ -261,6 +279,7 @@ onMounted(() => {
 });
 
 onBeforeRouteUpdate(() => {
+  console.log("update");
   fetchData();
 });
 

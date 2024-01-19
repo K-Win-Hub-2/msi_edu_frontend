@@ -17,18 +17,20 @@
       >
         jAMES COOK UNIVERSITY, SINGAPORE
       </h1>
-      <div class="flex">
+      <div class="flex items-center">
         <p class="text-[12px] uppercase min-w-[105px]">SCHOLAR NAME:</p>
         <p
-          class="font-[510] text-[12px] leading-[18px] lg:mx-5 md:mx-2 mt-2 text-[#0E314E]"
+          class="font-[510] text-[12px] leading-[18px] lg:mx-5 md:mx-2 mt-4 md:mt-4 sm:mt-9 text-[#0E314E]"
         >
           20%,50%,100% MERIT SCHOLARSHIPS <br />
           (ONE ACADEMIC YEAR)
         </p>
       </div>
       <div class="flex lg:my-[30px] md:my-[12px] my-[10px]">
-        <p class="text-[12px] uppercase min-w-[105px]">REQUIREMENTS:</p>
-        <ul class="lg:mx-5 md:ml-3 lg:mt-1 md:mt-2">
+        <p class="text-[12px] uppercase min-w-[105px] md:mt-2 sm:mt-2 lg:mt-1">
+          REQUIREMENTS:
+        </p>
+        <ul class="lg:mx-5 md:ml-3">
           <li
             class="text-[12px] mb-1 md:mb-2 font-[510] sm:mt-2 lg:leading-3 md:leading-3 leading-[16.433px] text-[#0E314E]"
           >
@@ -63,7 +65,7 @@
         </ul>
       </div>
       <Button
-        class="lg:px-[40px] md:px-[20px] px-[17px] lg:py-[4px] md:py-[2px] py-[2px] rounded-[20px] lg:text-[12px] md:text-[9px] text-[7px] float-right md:mr-[35px] mr-[2px]"
+        class="lg:px-[40px] sm:mr-7 sm:px-[30px] sm:py-[5px] md:px-[40px] px-[17px] lg:py-[8px] md:py-[8px] py-[2px] rounded-[20px] lg:text-[12px] md:text-[9px] text-[7px] float-right md:mr-[35px] mr-[2px]"
         type="gradient"
         data-te-toggle="modal"
         data-te-target="#appointmentFormModal"

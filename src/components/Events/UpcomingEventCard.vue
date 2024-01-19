@@ -11,17 +11,19 @@
       />
       <p class="ml-3 mt-2">{{ props.event.title }}</p>
       <p class="ml-3 mt-2">{{ props.event.start_date }}</p>
-
-      <Button
-        @click="toRegisterForm()"
-        class="ml-16 mt-4 mx-auto lg:px-[43px] lg:py-[9px] md:px-[20px] lg:text-[15px] md:py-[18px] py-[2px] rounded-[20px] md:text-[10px]"
-        type="gradient"
-        data-te-toggle="modal"
-        data-te-target="#appointmentFormModal"
-        data-te-ripple-init
-        data-te-ripple-color="light"
-        >Register</Button
-      >
+      <hr />
+      <div class="flex justify-center">
+        <Button
+          @click="toRegisterForm()"
+          class="mt-4 mx-auto sm:py-2 sm:px-2 lg:px-[43px] lg:py-[9px] md:px-[20px] lg:text-[15px] text-[10px] md: md:py-[14px] py-[2px] rounded-[20px] md:text-[10px]"
+          type="gradient"
+          data-te-toggle="modal"
+          data-te-target="#appointmentFormModal"
+          data-te-ripple-init
+          data-te-ripple-color="light"
+          >See More</Button
+        >
+      </div>
     </div>
   </router-link>
 </template>

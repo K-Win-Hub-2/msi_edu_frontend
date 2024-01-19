@@ -3,6 +3,14 @@ import NavItem from "@/components/partials/NavItem.vue";
 import TopBar from "./TopBar.vue";
 import { useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
+import { useAppStore } from "../stores/app";
+import { storeToRefs } from "pinia";
+const appStore = useAppStore();
+const { navbar } = storeToRefs(appStore);
+
+const handleNavbar = () => {
+  navbar.value = true;
+};
 
 const urls = [
   {
@@ -146,7 +154,8 @@ const isActive = (url) => {
     <div class="container">
       <div class="flex w-full flex-wrap items-center justify-end px-6 lg:px-0">
         <button
-          class="block border-0 bg-transparent py-2 px-2.5 t hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+          @click="handleNavbar"
+          class="block border-0 bg-transparent py-2 px-2.5 t hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-500 lg:hidden"
           type="button"
           data-te-collapse-init
           data-te-target="#navbarSupportedContent1"
@@ -179,8 +188,8 @@ const isActive = (url) => {
             href="#"
           >
             <img
-              src="@/assets/img/logo.png"
-              class="h-20"
+              src="../assets/img/msiLogo.png"
+              class="h-32 object-cover"
               alt=""
               loading="lazy"
             />

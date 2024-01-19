@@ -5,39 +5,48 @@
     ></div>
     <div class="relative z-40">
       <div
-        class="xl:w-[926px] md:w-[700px] sm:w-[600px] rounded-lg border flex justify-center mb-20 registerForm"
+        class="xl:w-[926px] md:w-[700px] sm:w-[370px] rounded-lg border flex justify-center mb-20 registerForm"
       >
         <div class="">
           <h1 class="md:text-[28px] xl:text-xl text-center mt-10 mb-16">
             <span
               class="text-cus-secondary xl:text-lg md:text-[28px] sm:text-md sm:font-[600] xl:font-[600] md:font-[600]"
-              >“15th MSI Global Education Exhibition”
+              >“ {{ currentEvent.title }} ”
             </span>
           </h1>
 
           <div class="md:flex justify-center">
             <div
-              class="flex justify-between xl:w-full lg:600px md:w-[600px] sm:w-[400px]"
+              class="flex justify-between xl:w-full lg:600px md:w-[600px] sm:w-[350px] md:ml-2x]"
             >
-              <div class="mb-10 sm:min-w-56">
-                <div class="xl:text-md md:text-sm xl:font-[600] md:font-[400]">
-                  <p>
-                    Date :
-                    <span class="ml-3">2{{ currentEvent.start_date }} </span>
-                  </p>
+              <div class="mb-10 sm:min-w-56 lg:px-[50px] md:px-0">
+                <div
+                  class="xl:text-md md:text-sm xl:font-[550] md:font-[550] md:ml-2"
+                >
+                  <div class="flex text-cus-primary">
+                    <p class="lg:min-w-[110px] md:min-w-[80px]">Date :</p>
+                    <p>2{{ currentEvent.start_date }}</p>
+                  </div>
                 </div>
 
-                <div class="xl:text-md md:text-sm xl:font-[600] md:font-[400]">
-                  <p>
-                    Time :
-                    <span class="ml-3">{{ currentEvent.start_time }}</span>
-                  </p>
+                <div
+                  class="xl:text-md md:text-sm text-cus-primary xl:font-[550] md:font-[550] md:ml-2"
+                >
+                  <div class="flex">
+                    <p class="lg:min-w-[110px] md:min-w-[80px]">Time :</p>
+                    <p>
+                      {{ currentEvent.start_time }} -
+                      {{ currentEvent.end_time }}
+                    </p>
+                  </div>
                 </div>
-                <div class="xl:text-md md:text-sm xl:font-[600] md:font-[400]">
-                  <p>
-                    Venue :
-                    <span class="ml-3">{{ currentEvent.venue }} </span>
-                  </p>
+                <div
+                  class="xl:text-md md:text-sm text-cus-primary xl:font-[550] md:font-[550] md:ml-2"
+                >
+                  <div class="flex">
+                    <p class="lg:min-w-[110px] md:min-w-[80px]">Venue :</p>
+                    <p>{{ currentEvent.venue }}</p>
+                  </div>
                 </div>
               </div>
               <!-- <div class="">
@@ -66,7 +75,9 @@
           </div>
           <div class="flex justify-center">
             <form class="md:w-600px" @submit.prevent="handleRegister">
-              <div class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px]">
+              <div
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+              >
                 <label for="name">Name</label>
                 <input
                   :class="[nameError ? 'border-red-500' : '']"
@@ -80,7 +91,9 @@
                   nameError[0]
                 }}</small>
               </div>
-              <div class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px]">
+              <div
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+              >
                 <label for="name">Phone</label>
                 <input
                   :class="[phoneError ? 'border-red-500' : '']"
@@ -95,7 +108,9 @@
                 }}</small>
               </div>
 
-              <div class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px]">
+              <div
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+              >
                 <label for="name">Email</label>
                 <input
                   :class="[emailError ? 'border-red-500' : '']"
@@ -109,7 +124,9 @@
                   nameError[0]
                 }}</small>
               </div>
-              <div class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px]">
+              <div
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+              >
                 <label for="name">Education Level</label>
                 <textarea
                   :class="[education_levelError ? 'border-red-500' : '']"
@@ -124,13 +141,15 @@
                   education_levelError[0]
                 }}</small>
               </div>
-              <div class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px]">
+              <div
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+              >
                 <label for="name">Interested Field Of Study </label>
                 <input
                   v-model="interest_field"
                   type="text"
                   id="name"
-                  :class="[interest_field ? 'border-red-500' : '']"
+                  :class="[interest_fieldError ? 'border-red-500' : '']"
                   class="rounded-lg border bg-gray-100 text-black w-full block flex-1 min-w-0 text-sm border-gray-300 p-2.5"
                   placeholder="Please indicate the courses you are interested in"
                 />
@@ -138,7 +157,9 @@
                   interest_fieldError[0]
                 }}</small>
               </div>
-              <div class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px]">
+              <div
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+              >
                 <label for="name"> Interested Country To Study</label>
                 <input
                   v-model="interest_country"
@@ -152,7 +173,9 @@
                   interest_countryError[0]
                 }}</small>
               </div>
-              <div class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px]">
+              <div
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+              >
                 <label for="name">Address </label>
                 <textarea
                   name=""
@@ -238,7 +261,6 @@ const registerList = async () => {
     registeredEvents.value = res.data.data.filter((d) => {
       return d.event_id == props.id;
     });
-    console.log(registeredEvents.value);
   }
 };
 
@@ -290,7 +312,6 @@ const handleRegister = async () => {
       education_levelError.value = error.response.data.errors.education_level;
       interest_fieldError.value = error.response.data.errors.interest_field;
       interest_countryError.value = error.response.data.errors.interest_country;
-      console.log(error.response.data.errors.address);
     }
   }
 };

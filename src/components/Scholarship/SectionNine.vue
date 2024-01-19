@@ -16,9 +16,9 @@
     </div>
     <div class="flex justify-center items-center">
       <div class="">
-        <div class="max-w-[1094px] h-[346]">
+        <div class="lg:max-w-[1094px] md:max-w-[600px] h-[346]">
           <div
-            class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 gap-y-[69px]"
+            class="flex flex-wrap justify-center sm:gap-x-6 md:gap-x-[12px] lg:gap-8 gap-y-[69px]"
           >
             <!-- loop card start -->
             <BusinessCard />

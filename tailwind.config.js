@@ -20,7 +20,7 @@ module.exports = {
       "5xl": "3.052rem",
     },
     screens: {
-      sm: "640px",
+      sm: "375px",
       ms: "641px",
       // => @media (min-width: 640px) { ... }
 

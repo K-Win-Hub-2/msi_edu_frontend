@@ -1,499 +1,167 @@
 <template>
-  <div class="grid grid-cols-2 gap-6">
-    <div>
-      <div class="border bg-white cus-standout overflow-hidden">
-        <div
-          class="border-b p-2 text-xl font-semibold bg-cus-primary-pale   -white"
-        >
-          Key Facts to Study in <span class="capitalize">{{ country }}</span>
-        </div>
-        <template v-for="(list, index) in lists">
-          <div class="flex" :class="{ 'bg-gray-50': (index + 1) % 2 === 0 }">
+  <div>
+    <div class="">
+      <div class="grid grid-cols-2 gap-x-28">
+        <div class="">
+          <div class="w-[536px] h-[500px] test-card overflow-hidden">
             <div
-              class="w-[200px] break-words p-2 border-r font-semibold shrink-0"
+              class="flex justify-center items-center h-[71px] w-[100%] text-white bg-blue-500"
             >
-              {{ list.title }}
+              <h1 class="text-md font-[700]">Key facts to study in Malaysia</h1>
             </div>
-            <div class="p-2 break-words">{{ list.description }}</div>
-        
-          </div>
-        </template>
-      </div>
-    </div>
-
-    <div>
-      <h3 class="text-xl mb-6 font-semibold">Quick Facts</h3>
-      <div class="space-y-3">
-        <template v-for="fact in facts">
-          <div class="flex items-center gap-3">
-            <div class="w-[50px] shrink-0">
-              <div
-                class="flex items-center justify-center bg-white p-3 border rounded-full w-[50px] h-[50px] shadow"
-              >
-                <i class="fa-regular fa-star text-yellow-500"></i>
+            <!-- loop -->
+            <div class="px-7 pt-4 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5">
+                <div class="w-[50%] border-r-2 border-slate-400">
+                  <p class="py-5 text-[13px] font-semibold ml-5">
+                    languages spoken
+                  </p>
+                </div>
+                <div class="w-[50%]">
+                  <p class="text-[13px] mx-2">
+                    English, Mandarin, Malay, Tamil
+                  </p>
+                </div>
               </div>
             </div>
-            <p>
-              {{ fact.description }}
-            </p>
+            <div class="px-7 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5">
+                <div class="w-[50%] border-r-2 border-slate-400">
+                  <p class="py-5 text-[13px] font-semibold ml-5">
+                    Cost of study
+                  </p>
+                </div>
+                <div class="w-[50%]">
+                  <p class="text-[13px] mx-2">
+                    Varies based on university and course
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="px-7 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5">
+                <div class="w-[50%] border-r-2 border-slate-400">
+                  <p class="py-5 text-[13px] font-semibold ml-5">
+                    Exams Required
+                  </p>
+                </div>
+                <div class="w-[50%]">
+                  <p class="text-[13px] mx-2">IELTS, TOEFL, GRE, SAT</p>
+                </div>
+              </div>
+            </div>
+            <div class="px-7 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5">
+                <div class="w-[50%] border-r-2 border-slate-400">
+                  <p class="py-5 text-[13px] font-semibold ml-5">Degrees</p>
+                </div>
+                <div class="w-[50%]">
+                  <p class="text-[13px] mx-2">
+                    Diploma, Bachelor's, Master's, PhD
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="px-7 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5">
+                <div class="w-[50%] border-r-2 border-slate-400">
+                  <p class="py-5 text-[13px] font-semibold ml-5">intakes</p>
+                </div>
+                <div class="w-[50%]">
+                  <p class="text-[13px] mx-2">January, August</p>
+                </div>
+              </div>
+            </div>
+            <div class="px-7 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5">
+                <div class="w-[50%] border-r-2 border-slate-400">
+                  <p class="py-5 text-[13px] font-semibold ml-5">Visa</p>
+                </div>
+                <div class="w-[50%]">
+                  <p class="text-[13px] mx-2">Student Pass</p>
+                </div>
+              </div>
+            </div>
+            <!-- loop -->
           </div>
-        </template>
+        </div>
+
+        <div class="">
+          <div class="w-[536px] h-[500px] test-card overflow-hidden">
+            <div
+              class="flex justify-center items-center h-[71px] w-[100%] text-white bg-blue-500"
+            >
+              <h1 class="text-md font-[700]">Key facts to study in Malaysia</h1>
+            </div>
+            <!-- loop -->
+            <div class="px-7 pt-4 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5 py-5">
+                <div class="w-[8%]">
+                  <img
+                    src="../../../assets/img/StudyPathway/Checkmark.png"
+                    alt=""
+                  />
+                </div>
+                <div class="w-[92%]">
+                  <p class="text-[13px] mx-2">
+                    Higher living standards among Southeast Asian countries
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="px-7 pt-4 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5 py-5">
+                <div class="w-[8%]">
+                  <img
+                    src="../../../assets/img/StudyPathway/Checkmark.png"
+                    alt=""
+                  />
+                </div>
+                <div class="w-[92%]">
+                  <p class="text-[13px] mx-2">
+                    Higher living standards among Southeast Asian countries
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="px-7 pt-4 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5 py-5">
+                <div class="w-[8%]">
+                  <img
+                    src="../../../assets/img/StudyPathway/Checkmark.png"
+                    alt=""
+                  />
+                </div>
+                <div class="w-[92%]">
+                  <p class="text-[13px] mx-2">
+                    Higher living standards among Southeast Asian countries
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="px-7 pt-4 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5 py-5">
+                <div class="w-[8%]">
+                  <img
+                    src="../../../assets/img/StudyPathway/Checkmark.png"
+                    alt=""
+                  />
+                </div>
+                <div class="w-[92%]">
+                  <p class="text-[13px] mx-2">
+                    Higher living standards among Southeast Asian countries
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- loop -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-import { onMounted, ref } from 'vue';
-
-const props = defineProps({
-  country: {
-    type: String,
-    default: "singapore",
-  },
-});
-
-const data = {
-  singapore: {
-    lists: [
-      {
-        title: "languages spoken",
-        description: "English, Mandarin, Malay, Tamil",
-      },
-      {
-        title: "Cost of study",
-        description: "Varies based on university and course",
-      },
-      {
-        title: "Exams Required",
-        description: "IELTS, TOEFL, GRE, SAT",
-      },
-      {
-        title: "Degrees",
-        description: "Diploma, Bachelor's, Master's, PhD",
-      },
-      {
-        title: "Intakes",
-        description: "January, August",
-      },
-      {
-        title: "Visa",
-        description: "Student Pass",
-      },
-    ],
-
-    facts: [
-      {
-        description:
-          "Higher living standards among Southeast Asian countries",
-      },
-      {
-        description:
-          "Located among the safest countries, Indonesia and Malaysia",
-      },
-      {
-        description:
-          "Taking higher education quality for international students",
-      },
-      {
-        description:
-          "Chance to study at the highest-ranking university in Singapore",
-      }
-    ],
-  },
-  thailand: {
-    lists: [
-      {
-        title: "languages spoken",
-        description: "Thai, English",
-      },
-      {
-        title: "Cost of study",
-        description: "Varies by Program",
-      },
-      {
-        title: "Exams Required",
-        description: "TOEFL, IELTS",
-      },
-      {
-        title: "Degrees",
-        description: "UG, PG, PhD",
-      },
-      {
-        title: "Intakes",
-        description: "Multiple",
-      },
-      {
-        title: "Visa",
-        description: "Required",
-      },
-    ],
-
-    facts: [
-      {
-        description:
-          "Rich cultural and historical legacy",
-      },
-      {
-        description:
-          "Incredible opportunities to learn",
-      },
-      {
-        description:
-          "affordable living costs for international students",
-      },
-      {
-        description:
-          "Global recognition and standardization education",
-      },
-      {
-        description:
-          "more opportunity for cultural immersion",
-      },
-    ],
-  },
-  malaysia: {
-    lists: [
-      {
-        title: "languages spoken",
-        description: "Malay, English",
-      },
-      {
-        title: "Cost of study",
-        description: "Variable based on course and university",
-      },
-      {
-        title: "Exams Required",
-        description: "IELTS, TOEFL",
-      },
-      {
-        title: "Degrees",
-        description: "Bachelor's, Master's, Doctorate",
-      },
-      {
-        title: "Intakes",
-        description: "February, July",
-      },
-      {
-        title: "Visa",
-        description: "Student Visa",
-      },
-    ],
-
-    facts: [
-      {
-        description:
-          "Rapidly improving quality higher education",
-      },
-      {
-        description:
-          "Lower cost of living",
-      },
-      {
-        description:
-          "Affordable tuition fees",
-      },
-      {
-        description:
-          "Easier visa processing than in other European countries",
-      },
-      {
-        description:
-          "Opportunities to transfer to other universities in Western countries",
-      },
-    ],
-  },
-  canada: {
-    lists: [
-      {
-        title: "languages spoken",
-        description: "English, French",
-      },
-      {
-        title: "Cost of study",
-        description: "$15,000 - $40,000",
-      },
-      {
-        title: "Exams Required",
-        description: "IELTS, TOEFL, GRE,GMAT",
-      },
-      {
-        title: "Degrees",
-        description: "Bachelor's, Master's, PhD",
-      },
-      {
-        title: "Intakes",
-        description: "Fall, Spring, Winter",
-      },
-      {
-        title: "Visa",
-        description: "Student Visa (PGWP)",
-      },
-    ],
-
-    facts: [
-      {
-        description:
-          "Multicultural classroom and workforce Canadian universities",
-      },
-      {
-        description:
-          "Better quality of life offering high quality education and research opportunities",
-      },
-      {
-        description:
-          "Chance to get work-permit visa after graduate",
-      }
-    ],
-  },
-  uk: {
-    lists: [
-      {
-        title: "languages spoken",
-        description: "English",
-      },
-      {
-        title: "Cost of study",
-        description: "Varies by University",
-      },
-      {
-        title: "Exams Required",
-        description: "IELTS, TOEFL",
-      },
-      {
-        title: "Degrees",
-        description: "Undergraduate, Postgraduate, Doctoral",
-      },
-      {
-        title: "Intakes",
-        description: "Fall and Spring",
-      },
-      {
-        title: "Visa",
-        description: "Tire 4",
-      },
-    ],
-
-    facts: [
-      {
-        description:
-          "Short-duration courses",
-      },
-      {
-        description:
-          "Undeniable advantages to learn",
-      },
-      {
-        description:
-          "Rich cultural heritage",
-      },
-      {
-        description:
-          "Exploration of high-standard education and high-ranking universities",
-      },
-      {
-        description:
-          "The international students community is large. You can also get 2 years post- study work visa",
-      }
-    ],
-  },
-  switzerland: {
-    lists: [
-      {
-        title: "languages spoken",
-        description: "Swiss German, French, Italian, Romansh, English",
-      },
-      {
-        title: "Cost of study",
-        description: "Varies by Program",
-      },
-      {
-        title: "Exams Required",
-        description: "UG (Undergraduate), PG (Postgraduate), PhD",
-      },
-      {
-        title: "Degrees",
-        description: "language spoken, language spoken, language spoken,",
-      },
-      {
-        title: "Intakes",
-        description: "Multiple (often in September and February)",
-      },
-      {
-        title: "Visa",
-        description: "Required for non-European Union students",
-      },
-    ],
-
-    facts: [
-      {
-        description:
-          "World-class education system",
-      },
-      {
-        description:
-          "A high quality of life and a high living standard",
-      },
-      {
-        description:
-          "Offering high salaries and low unemployment rates",
-      },
-      {
-        description:
-          "Advanced skills, which are so valuable for future careers",
-      }
-    ],
-  },
-  italy: {
-    lists: [
-      {
-        title: "languages spoken",
-        description: "Swiss German, French, Italian, Romansh, English",
-      },
-      {
-        title: "Cost of study",
-        description: "Varies by Program",
-      },
-      {
-        title: "Exams Required",
-        description: "UG (Undergraduate), PG (Postgraduate), PhD",
-      },
-      {
-        title: "Degrees",
-        description: "language spoken, language spoken, language spoken,",
-      },
-      {
-        title: "Intakes",
-        description: "Multiple (often in September and February)",
-      },
-      {
-        title: "Visa",
-        description: "Required for non-European Union students",
-      },
-    ],
-
-    facts: [
-      {
-        description:
-          "World-class education system",
-      },
-      {
-        description:
-          "A high quality of life and a high living standard",
-      },
-      {
-        description:
-          "Offering high salaries and low unemployment rates",
-      },
-      {
-        description:
-          "Advanced skills, which are so valuable for future careers",
-      }
-    ],
-  },
-  vietnam: {
-    lists: [
-      {
-        title: "languages spoken",
-        description: "Swiss German, French, Italian, Romansh, English",
-      },
-      {
-        title: "Cost of study",
-        description: "Varies by Program",
-      },
-      {
-        title: "Exams Required",
-        description: "UG (Undergraduate), PG (Postgraduate), PhD",
-      },
-      {
-        title: "Degrees",
-        description: "language spoken, language spoken, language spoken,",
-      },
-      {
-        title: "Intakes",
-        description: "Multiple (often in September and February)",
-      },
-      {
-        title: "Visa",
-        description: "Required for non-European Union students",
-      },
-    ],
-
-    facts: [
-      {
-        description:
-          "World-class education system",
-      },
-      {
-        description:
-          "A high quality of life and a high living standard",
-      },
-      {
-        description:
-          "Offering high salaries and low unemployment rates",
-      },
-      {
-        description:
-          "Advanced skills, which are so valuable for future careers",
-      }
-    ],
-  },
-  usa: {
-    lists: [
-      {
-        title: "languages spoken",
-        description: "Swiss German, French, Italian, Romansh, English",
-      },
-      {
-        title: "Cost of study",
-        description: "Varies by Program",
-      },
-      {
-        title: "Exams Required",
-        description: "UG (Undergraduate), PG (Postgraduate), PhD",
-      },
-      {
-        title: "Degrees",
-        description: "language spoken, language spoken, language spoken,",
-      },
-      {
-        title: "Intakes",
-        description: "Multiple (often in September and February)",
-      },
-      {
-        title: "Visa",
-        description: "Required for non-European Union students",
-      },
-    ],
-
-    facts: [
-      {
-        description:
-          "World-class education system",
-      },
-      {
-        description:
-          "A high quality of life and a high living standard",
-      },
-      {
-        description:
-          "Offering high salaries and low unemployment rates",
-      },
-      {
-        description:
-          "Advanced skills, which are so valuable for future careers",
-      }
-    ],
-  },
-};
-
-const lists = ref([])
-const facts = ref([])
-
-onMounted(() => {
-    lists.value = data[props.country]['lists']
-    facts.value = data[props.country]['facts']
-})
-</script>
+<script setup></script>
 
 <style lang="scss" scoped></style>

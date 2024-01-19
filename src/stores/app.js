@@ -1,8 +1,11 @@
 import { defineStore } from "pinia";
+import { ref } from "vue";
 
 export const useAppStore = defineStore("app", {
-    state: () => ({
-    }),
-    actions: {
-    },
+  state: () => {
+    return {
+      navbar: false,
+    };
+  },
+  actions: {},
 });

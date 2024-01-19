@@ -1,5 +1,7 @@
 <template>
-  <div class="mix-w-[342px] card-pp rounded-lg py-[22px] px-[30px]">
+  <div
+    class="lg:max-w-[342px] max-w-[280px] card-pp rounded-lg py-[22px] px-[30px]"
+  >
     <h1
       class="uppercase text-[#FE005F] mb-[10px] text-[14.7px] text-center font-[700]"
     >

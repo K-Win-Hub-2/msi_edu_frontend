@@ -16,7 +16,7 @@
     </div>
     <div class="flex justify-evenly items-center">
       <!-- carousel start -->
-      <div class="relative container min-w-[1350px]">
+      <div class="relative container lg:min-w-[1350px]">
         <swiper
           :pagination="{
             clickable: true,
@@ -29,9 +29,11 @@
         >
           <!-- slider one -->
           <swiper-slide class="flex justify-center py-12">
-            <div class="max-w-[1350px] min-w-[1350px] h-[346]">
+            <div
+              class="lg:max-w-[1350px] max-w-[610px] lg:min-w-[1350px] h-[346]"
+            >
               <div
-                class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 gap-y-[69px]"
+                class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-8 gap-y-[69px]"
               >
                 <BusinessCard />
                 <BusinessCard />
@@ -46,9 +48,11 @@
             </div>
           </swiper-slide>
           <swiper-slide class="flex justify-center py-12">
-            <div class="max-w-[1094px] min-w-[1094px] h-[346]">
+            <div
+              class="lg:max-w-[1094px] max-w-[610px] lg:min-w-[1094px] h-[346]"
+            >
               <div
-                class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 gap-y-[69px]"
+                class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-8 gap-y-[69px]"
               >
                 <BusinessCard />
                 <BusinessCard />
@@ -63,9 +67,11 @@
             </div>
           </swiper-slide>
           <swiper-slide class="flex justify-center py-12">
-            <div class="max-w-[1094px] min-w-[1094px] h-[346]">
+            <div
+              class="lg:max-w-[1094px] max-w-[610px] lg:min-w-[1094px] h-[346]"
+            >
               <div
-                class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 gap-y-[69px]"
+                class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-8 gap-y-[69px]"
               >
                 <BusinessCard />
                 <BusinessCard />
@@ -81,7 +87,7 @@
           </swiper-slide>
         </swiper>
         <div
-          class="swiper-business-card-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
+          class="swiper-business-card-button-prev-unique absolute sm:hidden md:block left-0 md:left-4 top-1/2 -translate-y-1/2"
         >
           <ChevronLeftIcon
             :class="{ 'opacity-50': start }"
@@ -89,7 +95,7 @@
           />
         </div>
         <div
-          class="swiper-business-card-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
+          class="swiper-business-card-button-next-unique absolute sm:hidden md:block md:right-4 right-0 top-1/2 -translate-y-1/2"
         >
           <ChevronRightIcon
             :class="{ 'opacity-50': end }"

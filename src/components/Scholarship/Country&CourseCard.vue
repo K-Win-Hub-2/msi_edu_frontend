@@ -2,7 +2,7 @@
   <div class="lg:min-w-[346px] mx-[12px] relative">
     <div class="">
       <div
-        class="w-[100px] h-[100px] absolute hover:border hover:border-white bg-white bottom-[54px] lg:right-[128px] right-[85px] md:right-[90px] rounded-full border border-slate-400 overflow-hidden"
+        class="w-[100px] h-[100px] absolute hover:border bg-white bottom-[54px] lg:right-[128px] right-[85px] sm:right-[105px] md:right-[111px] rounded-full border border-slate-400 overflow-hidden"
       >
         <img
           class="overflow-hidden p-6"

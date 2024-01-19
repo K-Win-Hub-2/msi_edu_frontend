@@ -5,21 +5,21 @@
         <div
           class="bg-[url(@/assets/img/scholarship/image.png)] bg-[length:100%_100%] bottom-0 z-30 w-[100%] h-[100%] bg-no-repeat absolute top-0"
         ></div>
-        <div class="z-40 relative xl:mb-56 md:mb-40 sm:mb-36">
+        <div class="z-40 relative xl:mb-56 md:mb-40 sm:mb-36 m">
           <div class="container">
             <div
-              class="flex justify-between items-center mx-10 xl:my-16 md:my-12 sm:my-10"
+              class="flex justify-between items-center md:mx-10 sm:mx-2 xl:my-16 md:my-12 sm:mt-14 mb-3"
             >
               <h1
-                class="xl:text-xl md:text-md sm:text-md text-cus-primary font-extrabold text-left mb-6"
+                class="xl:text-xl md:text-md sm:text-[20px] text-cus-primary font-extrabold text-left"
               >
                 Upcoming Events
               </h1>
               <Button
                 @click="upcomingEventPage"
-                class="px-6 py-2"
+                class="md:px-6 md:py-2 sm:px-4 ms:py-1 sm:text-sm"
                 type="gradient"
-                >See More</Button
+                >View All</Button
               >
             </div>
             <div class="flex justify-center">
@@ -28,16 +28,16 @@
                   name: 'event.upcomingDetail',
                   params: { id: latestEvent[0].id },
                 }"
-                class="w-[782px] sm:w-[600px] flex justify-center p-[15px] h-[598px] sm:h-[500px] py-5 px-5 border-2 border-[#9F9F9F] rounded-[23px]"
+                class="md:w-[782px] sm:w-[360px] flex justify-center p-[15px] md:h-[598px] sm:h-[400px] py-5 px-5 border-2 border-[#9F9F9F] rounded-[23px]"
               >
                 <div class="">
                   <img
                     :src="latestEvent[0].imageURL"
-                    class="h-[378px] sm:h-[300px] w-[699px] rounded-xl"
+                    class="md:h-[378px] sm:h-[200px] md:w-[699px] sm:w-[350px] rounded-xl"
                     alt=""
                   />
                   <h1
-                    class="text-md font-semibold shadow-title text-cus-primary mt-2"
+                    class="md:text-md sm:text-sm font-semibold shadow-title text-cus-primary mt-2"
                   >
                     {{ latestEvent[0].title }}
                   </h1>
@@ -45,9 +45,11 @@
                     {{ latestEvent[0].start_date }}
                   </h1>
                   <hr />
-                  <div class="flex justify-center pt-[14px] lg:py-[14px]">
+                  <div
+                    class="flex justify-center pt-[14px] md:py-[14px] sm:py-6"
+                  >
                     <Button
-                      class="w-[283px] sm:w-[200px] flex justify-center h-[89px] sm:h-[80px] items-center text-[35px] sm:text-[20px] font-[700]"
+                      class="md:w-[283px] sm:w-[150px] flex justify-center h-[89px] sm:h-[50px] items-center text-[35px] sm:text-[20px] font-[700]"
                       type="gradient"
                       >See More</Button
                     >
@@ -235,6 +237,7 @@ const upcomingEventPage = () => {
 
 const fetchData = async () => {
   const res = await eventStore.fetchEvent();
+  console.log(res.data);
   if (res) {
     latestEvent.value = res.data.latestEvent;
     oldEvents.value = res.data.oldEvent;

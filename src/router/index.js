@@ -21,7 +21,8 @@ import Vietnam from "@/views/StudyPathway/Vietnam.vue";
 import Italy from "@/views/StudyPathway/Italy.vue";
 import Usa from "@/views/StudyPathway/Usa.vue";
 import Scholarship from "@/views/Scholarship.vue";
-import UniversityDetail from "@/views/Universities/UniversityDetail.vue";
+// import UniversityDetail from "@/views/Universities/UniversityDetail.vue";
+import UniversityDetail from "../views/StudyPathway/UniversityDetail.vue";
 import UpcomingEvent from "@/views/UpcomingEvent.vue";
 import UpcomingEventDetail from "@/views/UpComingEventDetail.vue";
 
@@ -153,9 +154,12 @@ const router = createRouter({
       path: "/universities",
       children: [
         {
-          path: ":id",
+          // path: ":id",
+          // name: "universities.detail",
+          // props: true,
+          // component: UniversityDetail,
+          path: "/detail",
           name: "universities.detail",
-          props: true,
           component: UniversityDetail,
         },
       ],

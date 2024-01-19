@@ -3,35 +3,50 @@
     <Banner :bannerImage="bannerImage"></Banner>
   </section>
   <section class="container py-24">
-    <div class="text-center space-y-6">
+    <div class="font-[400] text-md">
       <p>
-        A study abroad experience in Singapore will make you stand out from the
-        crowd. Once you’ve arrived in Southeast Asia, you’ll realize you have
-        much in common with others who journey to this exotic destination: a
-        sense of adventure and open-minded nature, a healthy dose of
-        adaptability, and most importantly, the curiosity to learn about another
-        culture and way of life.
+        Malaysia is a Southeast Asian country known for its diverse culture,
+        vibrant cities, and stunning landscapes. It's divided into Peninsular
+        Malaysia and East Malaysia on Borneo. Kuala Lumpur is the capital, and
+        major cities include George Town and Johor Bahru. The population is
+        culturally diverse, with Malays, Chinese, Indians, and indigenous
+        groups. Islam is the official religion. Malaysia has a robust economy
+        with key sectors like manufacturing and services. English is widely
+        spoken, and the country is a popular tourist destination, offering
+        beautiful beaches, rainforests, and cultural attractions. It gained
+        independence from British rule in 1957 and operates as a constitutional
+        monarchy with a parliamentary democracy.
       </p>
-      <Button
-        data-te-toggle="modal"
-        data-te-target="#consultationFormModal"
-        data-te-ripple-init
-        data-te-ripple-color="light"
-      >
-        <template #buttonText> Inquiry Now </template>
-      </Button>
+      <div class="text-center mt-20">
+        <Button
+          class="lg:px-[45px] lg:py-[10px]"
+          type="gradient"
+          data-te-toggle="modal"
+          data-te-target="#appointmentFormModal"
+          data-te-ripple-init
+          data-te-ripple-color="light"
+          >INQUIRY NOW</Button
+        >
+      </div>
     </div>
   </section>
-  <section>
+  <!-- university carousel start -->
+  <router-link :to="{ name: 'universities.detail' }">
+    <UniversityCarousel />
+  </router-link>
+  <!-- university carousel end -->
+  <!-- <section>
     <div class="container px-6 pt-6 pb-24">
-      <h1 class="cus-heading text-cus-primary text-center capitalize mb-12">
-        Universities
+      <h1
+        class="cus-heading text-cus-primary uppercase text-center mb-12 shadow-title"
+      >
+        University
       </h1>
       <Universities></Universities>
     </div>
-  </section>
+  </section> -->
   <section>
-    <div class="container px-6 pt-6 pb-24">
+    <div class="container px-6 pt-6 pb-24 mb-72">
       <h1 class="cus-heading text-cus-primary text-center capitalize mb-12">
         Test section
       </h1>
@@ -72,6 +87,7 @@ import Universities from "../../components/StudyPathway/General/Universities.vue
 import TestSection from "../../components/StudyPathway/General/TestSection.vue";
 import Programs from "../../components/StudyPathway/General/Programs.vue";
 import Button from "../../components/partials/Button.vue";
+import UniversityCarousel from "../../components/StudyPathway/StudyPathway/UniversityCarousel.vue";
 
 const videoOne = `<iframe width="500" height="250" src="https://www.youtube.com/embed/xtUR0szH0Zw" title="Myanmar Search International (MSI)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 
