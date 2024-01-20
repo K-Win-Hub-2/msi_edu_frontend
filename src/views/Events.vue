@@ -1,14 +1,14 @@
 <template>
-  <div class="xl:py-28 lg:py-20 md:py-14" v-if="latestEvent">
+  <div class="xl:py-28 lg:py-20 md:py-14 sm:py-9" v-if="latestEvent">
     <section class="">
       <div class="overflow-hidden relative w-full">
         <div
           class="bg-[url(@/assets/img/scholarship/image.png)] bg-[length:100%_100%] bottom-0 z-30 w-[100%] h-[100%] bg-no-repeat absolute top-0"
         ></div>
-        <div class="z-40 relative xl:mb-56 md:mb-40 sm:mb-36 m">
+        <div class="z-40 relative xl:mb-56 md:mb-40 sm:mb-20">
           <div class="container">
             <div
-              class="flex justify-between items-center md:mx-10 sm:mx-2 xl:my-16 md:my-12 sm:mt-14 mb-3"
+              class="flex justify-between items-center md:mx-10 sm:mx-4 xl:my-16 md:my-12 sm:mt-[40px] mb-5"
             >
               <h1
                 class="xl:text-xl md:text-md sm:text-[20px] text-cus-primary font-extrabold text-left"
@@ -39,9 +39,16 @@
                   <h1
                     class="md:text-md sm:text-sm font-semibold shadow-title text-cus-primary mt-2"
                   >
-                    {{ latestEvent[0].title }}
+                    {{ latestEvent[0].title }} (
+                    {{
+                      latestEvent[0].event_location_id == 1
+                        ? "Yangon"
+                        : "Mandalay"
+                    }}
+                    )
                   </h1>
-                  <h1 class="text-sm text-cus-primary">
+
+                  <h1 class="md:text-md sm:text-sm text-cus-primary">
                     {{ latestEvent[0].start_date }}
                   </h1>
                   <hr />

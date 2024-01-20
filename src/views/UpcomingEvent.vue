@@ -1,43 +1,35 @@
 <template>
-  <div class="my-32">
+  <div class="container mx-auto lg:mt-32 md:mt-24 sm:mt-10">
     <div class="">
-      <div class="container mx-auto">
-        <!-- yangon event -->
-        <div class="">
-          <h1
-            class="xl:text-md mb-8 underline lg:text-lg md:text-md sm:text-md sm:ml-5 text-[#205887] font-[700]"
-          >
-            Yangon Events
-          </h1>
-
-          <div class="sm:flex sm:justify-center">
-            <div
-              v-for="ygnEvent in yangonEvent"
-              :key="ygnEvent.id"
-              class="grid md:grid-cols-2 md:gap-y-10 sm:gap-y-6 md:gap-x-8 sm:gap-x-1 sm:grid-cols-1 lg:grid-cols-3"
-            >
-              <UpcomingEventCard :event="ygnEvent" />
-            </div>
-          </div>
+      <h1
+        class="text-cus-primary text-md font-semibold underline sm:text-center md:text-start"
+      >
+        Yangon Events
+      </h1>
+      <div class="flex flex-wrap md:space-x-7 sm:space-y-5 md:space-y-0 mt-7">
+        <div
+          class="flex sm:mx-8 md:mx-0"
+          v-for="event in yangonEvent"
+          :key="event"
+        >
+          <UpcomingEventCard :event="event" />
         </div>
-        <hr class="mt-5" />
-        <!-- mandalay event -->
-        <div class="mt-20">
-          <h1
-            class="mt-11 xl:text-md mb-8 underline lg:text-lg md:text-md sm:text-md sm:ml-5 text-[#205887] font-[700]"
-          >
-            Mandalay Events
-          </h1>
+      </div>
+    </div>
 
-          <div class="sm:flex sm:justify-center">
-            <div
-              v-for="mdyEvent in mandalayEvent"
-              :key="mdyEvent.id"
-              class="grid md:grid-cols-2 md:gap-y-10 sm:gap-y-6 md:gap-x-8 sm:gap-x-1 sm:grid-cols-1 lg:grid-cols-3"
-            >
-              <UpcomingEventCard :event="mdyEvent" />
-            </div>
-          </div>
+    <div class="my-5">
+      <h1
+        class="text-cus-primary text-md font-semibold underline sm:text-center md:text-start"
+      >
+        Mandalay Events
+      </h1>
+      <div class="flex flex-wrap space-x-7 mt-7">
+        <div
+          class="flex sm:mx-8 md:mx-0"
+          v-for="event in mandalayEvent"
+          :key="event"
+        >
+          <UpcomingEventCard :event="event" />
         </div>
       </div>
     </div>

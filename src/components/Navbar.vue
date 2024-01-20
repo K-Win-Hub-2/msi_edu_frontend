@@ -154,6 +154,7 @@ const isActive = (url) => {
     <div class="container">
       <div class="flex w-full flex-wrap items-center justify-end px-6 lg:px-0">
         <button
+          v-if="!navbar"
           @click="handleNavbar"
           class="block border-0 bg-transparent py-2 px-2.5 t hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-500 lg:hidden"
           type="button"
@@ -178,6 +179,17 @@ const isActive = (url) => {
             </svg>
           </span>
         </button>
+        <button
+          v-else
+          class="block border-0 animate__animated animate__fadeIn bg-transparent py-2 px-2.5 t hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-500 lg:hidden"
+          type="button"
+          data-te-collapse-init
+          data-te-target="#navbarSupportedContent1"
+          aria-controls="navbarSupportedContent1"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        ></button>
+
         <div
           class="!visible hidden flex-grow basis-[100%] items-center justify-between lg:flex lg:basis-auto"
           id="navbarSupportedContent1"
