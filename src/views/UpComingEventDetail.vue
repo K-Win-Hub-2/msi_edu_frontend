@@ -36,14 +36,16 @@
           <!-- event detail start -->
           <div class="container md:mx-auto h-[600px] relative z-40 ssm:mx-5">
             <div class="">
-              <h1 class="text-md md:mt-14 ssm:mt-5 text-red-500">
+              <h1
+                class="sm:text-md ssm:text-[20px] md:mt-14 ssm:mt-5 text-red-500"
+              >
                 <i class="fa-solid fa-calendar-days mr-2"></i
                 >{{ currentEvent.start_date }}
                 <span v-if="currentEvent.event_location_id == 1">(Yangon)</span>
                 <span v-else>(Mandalay)</span>
               </h1>
               <h1
-                class="md:text-lg ssm:text-md text-[#205887] md:my-14 ssm:my-7 text-shadow-lg font-bold"
+                class="md:text-lg sm:text-md ssm:text-[20px] text-[#205887] md:my-14 ssm:my-7 text-shadow-lg font-bold"
               >
                 {{ currentEvent.title }}
               </h1>
@@ -59,18 +61,22 @@
               class="bg-[#EDF7FF] rounded-2xl flex items-center md:h-[436px] md:mt-14"
             >
               <div class="md:ml-20 ssm:mx-5 ssm:py-5">
-                <h1 class="md:text-md ssm:text-[18px] flex">
+                <h1 class="md:text-md ssm:text-[16px] sm:text-[18px] flex">
                   <p class="md:min-w-[230px] ssm:min-w-[110px]">Event Date</p>
                   <p>: {{ currentEvent.start_date }}</p>
                 </h1>
-                <h1 class="md:text-md ssm:text-[18px] flex md:my-7 ssm:my-4">
+                <h1
+                  class="md:text-md ssm:text-[16px] sm:text-[18px] flex md:my-7 ssm:my-4"
+                >
                   <p class="md:min-w-[230px] ssm:min-w-[110px]">Event Time</p>
                   <p>
                     : {{ currentEvent.start_time }} to
                     {{ currentEvent.end_time }}
                   </p>
                 </h1>
-                <h1 class="md:text-md ssm:text-[18px] flex md:my-7">
+                <h1
+                  class="md:text-md ssm:text-[16px] sm:text-[18px] flex md:my-7"
+                >
                   <span class="md:min-w-[230px] ssm:min-w-[110px]">Venue</span>
                   <span>: {{ currentEvent.venue }}</span>
                 </h1>
@@ -116,7 +122,9 @@
                   v-for="event in moreEvents"
                   :key="event.id"
                 >
-                  <div class="min-w-[313px] min-h-[254px] oldEventCard">
+                  <div
+                    class="sm:min-w-[313px] ssm:min-w-[270px] sm:ml-3 ssm:ml-7 min-h-[254px] oldEventCard"
+                  >
                     <router-link
                       :to="{
                         name: 'event.upcomingDetail',
@@ -127,15 +135,17 @@
                         <div class="mt-2">
                           <img
                             :src="event.imageURL"
-                            class="w-[300px] h-[200px]"
+                            class="sm:w-[300px] ssm:w-[278px] rounded-md ssm:mx-4 sm:mx-0 h-[200px]"
                             alt=""
                           />
-                          <h1 class="text-sm mt-2">{{ event.title }}</h1>
-                          <h1>
+                          <h1 class="text-sm ssm:mx-2 sm:mx-0 mt-2">
+                            {{ event.title }}
+                          </h1>
+                          <h1 class="ssm:mx-2 sm:mx-0">
                             <i class="fa-solid fa-calendar-days mr-2"></i>
                             {{ event.start_date }}
                           </h1>
-                          <p class="text-sm mb-2">
+                          <p class="text-sm mb-2 ssm:mx-2 sm:mx-0">
                             <i class="fa-solid fa-location-dot mr-2"></i>
                             <span v-if="event.event_location_id == 1"
                               >Yangon</span

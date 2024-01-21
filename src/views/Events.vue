@@ -9,7 +9,7 @@
         <!-- title start-->
         <div class="flex justify-between lg:mx-20 ssm:mx-5">
           <h1
-            class="text-cus-primary text-shadow-lg md:text-lg ssm:text-md font-semibold"
+            class="text-cus-primary text-shadow-lg md:text-lg ssm:text-[20px] sm:text-md font-semibold"
           >
             UpcomingEvents
           </h1>

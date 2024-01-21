@@ -8,14 +8,13 @@
     ></div>
     <div class="relative z-40">
       <div
-        class="xl:w-[926px] md:w-[700px] ssm:w-[370px] rounded-lg border flex justify-center mb-20 overflow-hidden registerForm"
+        class="xl:w-[926px] md:w-[700px] ssm:w-[310px] sm:w-[390px] rounded-lg border flex justify-center mb-20 overflow-hidden registerForm"
       >
         <div class="">
-          <h1 class="md:text-[28px] xl:text-xl text-center mt-10 mb-16">
-            <span
-              class="text-cus-secondary xl:text-lg md:text-[28px] ssm:text-md ssm:font-[600] xl:font-[600] md:font-[600]"
-              >“ {{ currentEvent.title }} ”
-            </span>
+          <h1
+            class="md:text-[28px] text-cus-secondary font-semibold xl:text-lg text-center ssm:mt-4 ssm:mx-2 ssm:mb-10 sm:mt-10 sm:mb-10 sm:text-md"
+          >
+            “ {{ currentEvent.title }} ”
           </h1>
 
           <div class="md:flex justify-center">
@@ -211,14 +210,37 @@
               </div>
               <div class="lg:w-[820px]">
                 <Button
-                  class="lg:px-[82px] mb-20 md:px-[20px] lg:text-[18px] lg:py-[16px] md:py-[15px] ssm:py-[10px] ssm:px-[7px] py-[2px] md:mr-5 ssm:mr-[70px] rounded-[20px] md:text-[12px] float-right"
+                  class="lg:px-[82px] mb-20 flex items-center md:px-[20px] lg:text-[18px] lg:py-[16px] md:py-[15px] ssm:py-[10px] ssm:px-[7px] py-[2px] md:mr-5 ssm:mr-[70px] rounded-[20px] md:text-[12px] float-right"
                   type="gradient"
                   data-te-toggle="modal"
                   data-te-target="#appointmentFormModal"
                   data-te-ripple-init
                   data-te-ripple-color="light"
                 >
-                  Submit
+                  <div
+                    role="status flex-justify-center items-center w-full h-[600px]"
+                  >
+                    <div class="" v-if="loading">
+                      <svg
+                        aria-hidden="true"
+                        class="w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                        viewBox="0 0 100 101"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                          fill="currentFill"
+                        />
+                      </svg>
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                  <div class="text-center">Submit</div>
                 </Button>
               </div>
             </form>
@@ -263,6 +285,7 @@ const yangon = ref(true);
 const props = defineProps(["id"]);
 const eventStore = useEventStore();
 const currentEvent = ref(null);
+const loading = ref(false);
 // input data
 const name = ref();
 const phone = ref();
@@ -306,12 +329,13 @@ const registerList = async () => {
 };
 
 const handleRegister = async () => {
+  loading.value = true;
   const existData = registeredEvents.value.filter((r) => {
     return r.email == email.value;
   });
 
   if (existData.length) {
-    $toast.error("Event already Registered ");
+    $toast.error("Event already Registered ", { position: "top-right" });
   } else {
     try {
       const res = await axios.post(
@@ -328,8 +352,9 @@ const handleRegister = async () => {
         }
       );
       if (res) {
+        loading.value = false;
         registerList();
-        $toast.success("Event Register Success");
+        $toast.success("Event Register Success", { position: "top-right" });
         name.value = "";
         phone.value = "";
         email.value = "";
@@ -346,6 +371,7 @@ const handleRegister = async () => {
         interest_countryError.value = false;
       }
     } catch (error) {
+      loading.value = false;
       nameError.value = error.response.data.errors.name;
       phoneError.value = error.response.data.errors.phone;
       emailError.value = error.response.data.errors.email;

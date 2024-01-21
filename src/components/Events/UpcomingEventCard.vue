@@ -1,12 +1,12 @@
 <template>
   <router-link
     :to="{ name: 'event.upcomingDetail', params: { id: props.event.id } }"
-    class="w-[320px] h-[380px] oldEventCard"
+    class="sm:w-[320px] ssm:w-[300px] sm:h-[380px] oldEventCard"
   >
     <div class="">
       <img
         :src="props.event.imageURL"
-        class="mx-auto mt-3 w-[300px] h-[200px] rounded-md"
+        class="mx-2 mt-3 ssm:w-[280px] sm:w-[300px] h-[200px] rounded-md"
         alt=""
       />
       <p class="ml-3 mt-2">
@@ -23,7 +23,7 @@
       </p>
 
       <hr />
-      <div class="flex justify-center mt-3">
+      <div class="flex justify-center ssm:my-2">
         <Button
           @click="toRegisterForm()"
           class="mt-1 mx-auto ssm:py-2 ssm:px-4 lg:px-[43px] lg:py-[9px] md:px-[20px] lg:text-[15px] text-[14px] md: md:py-[14px] py-[2px] rounded-[20px] md:text-[10px]"
