@@ -145,7 +145,7 @@
                             <i class="fa-solid fa-calendar-days mr-2"></i>
                             {{ event.start_date }}
                           </h1>
-                          <p class="text-sm mb-2 ssm:ml-10 sm:mx-0">
+                          <p class="text-sm mb-2 ssm:ml-4 sm:mx-0">
                             <i class="fa-solid fa-location-dot mr-2"></i>
                             <span v-if="event.event_location_id == 1"
                               >Yangon</span

@@ -282,6 +282,7 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import Button from "../partials/Button.vue";
 import { useEventStore } from "../../stores/event";
+const existData = ref(null);
 const yangon = ref(true);
 const props = defineProps(["id"]);
 const eventStore = useEventStore();
@@ -330,15 +331,16 @@ const registerList = async () => {
 };
 
 const handleRegister = async () => {
-  loading.value = true;
   const existData = registeredEvents.value.filter((r) => {
     return r.email == email.value;
   });
 
   if (existData.length) {
     $toast.error("Event already Registered ", { position: "top-right" });
+    registerList();
   } else {
     try {
+      loading.value = true;
       const res = await axios.post(
         "http://adminpanel.msieducation.edu.mm/api/student/event/register",
         {
@@ -353,8 +355,8 @@ const handleRegister = async () => {
         }
       );
       if (res) {
-        loading.value = false;
         registerList();
+        loading.value = false;
         $toast.success("Event Register Success", { position: "top-right" });
         name.value = "";
         phone.value = "";
