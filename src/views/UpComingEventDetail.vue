@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="" v-if="currentEvent">
     <div class="">
       <div class="flex justify-center relative">
         <div
@@ -7,7 +7,7 @@
         >
           <Button
             @click="toRegisterForm"
-            class="lg:px-[82px] md:px-[30px] md:text-[25px] sm:px-[20px] sm:py-[6px] sm:mr-6 lg:text-[30px] px-[17px] lg:py-[16px] md:py-[14px] py-[2px] rounded-[20px] md:mr-[35px] mr-[2px]"
+            class="lg:px-[82px] md:px-[30px] md:text-[25px] ssm:px-[20px] ssm:py-[6px] sm:mr-6 ssm:mr-48 lg:text-[30px] px-[17px] lg:py-[16px] md:py-[14px] py-[2px] rounded-[20px] md:mr-[35px] mr-[2px]"
             type="gradient"
             data-te-toggle="modal"
             data-te-target="#appointmentFormModal"
@@ -19,7 +19,7 @@
         <img
           :src="currentEvent.imageURL"
           alt=""
-          class="lg:w-[1440px] xl:w-full md:w-[768px] sm:w-full md:h-[450px] xl:h-[674px] xl:mt-40 md:mt-20"
+          class="xl:w-full md:w-full sm:w-full md:h-[450px] xl:h-[674px] xl:mt-40 md:mt-20"
         />
       </div>
       <div class="w-full relative overflow-hidden pb-10">
@@ -33,98 +33,52 @@
           <div
             class="bg-[url(@/assets/img/scholarship/ellipse9.png)] z-30 w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute lg:top-[-7px] xl:top-[-40px] md:top-[-18px] md:right-[-550px] xl:right-[-1050px] right-[-400px] top-[-8px] lg:right-[-1200px]"
           ></div>
-          <div class="flex justify-center sm:mx-5 relative z-40">
-            <div
-              class="xl:w-[1158px] md:w-[800px] sm:w-[375px] overflow-hidden md:px-5"
-            >
-              <p
-                class="xl:text-md md:text-[20px] sm:mb-5 font-[500] mt-10 text-[#FE015E]"
-              >
-                <i class="fa-solid fa-calendar-days"></i>
-                {{ currentEvent.start_date }}
-                <!-- {{ yangon ? "Date:Sat Feb 24 2024" : "Date:Sun Feb 25 2024" }} -->
-              </p>
+          <!-- event detail start -->
+          <div class="container md:mx-auto h-[600px] relative z-40 ssm:mx-5">
+            <div class="">
+              <h1 class="text-md md:mt-14 ssm:mt-5 text-red-500">
+                <i class="fa-solid fa-calendar-days mr-2"></i
+                >{{ currentEvent.start_date }}
+                <span v-if="currentEvent.event_location_id == 1">(Yangon)</span>
+                <span v-else>(Mandalay)</span>
+              </h1>
               <h1
-                class="xl:text-lg md:text-md sm:text-[20px] text-[#215887] sm:mb-6 xl:mt-16 xl:mb-20 md:mt-12 md:mb-16 font-[600]"
+                class="md:text-lg ssm:text-md text-[#205887] md:my-14 ssm:my-7 text-shadow-lg font-bold"
               >
                 {{ currentEvent.title }}
-                <!-- 15th MSI Global Education Exhibition -->
               </h1>
-              <p class="xl:text-md md:text-sm">
+              <h1 class="md:text-md ssm:text-sm ssm:mr-5">
                 {{ currentEvent.description }}
-                <!-- Discover a world of opportunities at our exhibition, where you can
-              explore a diverse range of educational programs from around the
-              globe. Whether you're a student looking for the perfect
-              university, a professional seeking to enhance your skills, or an
-              educator interested in collaboration, this event is your gateway
-              to international education excellence. This exhibition is
-              organized by 22 Awards-Wining Education Consultancy, Myanmar
-              Search International (MSI). The top-ranking universities,
-              colleges, and institutions all over the world will participate. -->
-              </p>
-
-              <!-- <p
-                class="xl:text-md md:text-sm xl:mt-32 md:mt-24 sm:mt-14 mb-32 text-[#215887] font-[500]"
-              >
-                Participant Universities <br />
-                • University of Northampton, UK <br />
-                • Orange Coast College, U.S.A. <br />
-                • Green River College, U.S.A. <br />
-                • Swiss Education Group, Switzerland <br />
-                • University of Canada West, Canada <br />
-                • Taylor’s University,Malaysia <br />
-                • Monash University, Malaysia <br />
-                •SEGi University, Malaysia <br />
-                • Sunway University, Malaysia <br />
-                • Asia Pacific University of Technology & Innovation <br />
-                • James Cook University, Singapore <br />
-                • SIM Global Education, Singapore <br />
-                • PSB Academy, Singapore <br />
-                • Raffles, Singapore and Thailand <br />
-                • NIM Nanyang Institute of Management <br />
-                • MDIS-Management Development Institute of Singapore <br />
-                <br />
-                The university representative will explain the education pathway
-                to study abroad and offer scholarships and other career
-                opportunities.
-              </p> -->
+              </h1>
             </div>
           </div>
-        </div>
-        <!-- card start -->
-        <div class="flex justify-center relative z-30 md:mt-36 sm:mt-7">
-          <div
-            class="xl:w-[1236px] md:w-[730px] sm:w-[600px] xl:h-[424px] sm:h-[300px] md:h-[310px] bg-[#EDF7FF] rounded-[16px] md:px-10 md:py-10 xl:px-16 sm:px-10 sm:py-10 xl:py-24"
-          >
-            <ul>
-              <li class="xl:text-md md:text-sm flex items-center">
-                <p class="md:min-w-60 sm:min-w-32">Event Date</p>
-                <p>
-                  : {{ currentEvent.start_date }}
-                  <!-- : 24. 2. 2024 (Saturday) : 25. 2. 2024 (Sunday) -->
-                </p>
-              </li>
-              <li
-                class="xl:text-md md:text-sm flex items-center md:my-9 sm:my-4"
-              >
-                <p class="md:min-w-60 sm:min-w-32">Event Time</p>
-                <p>
-                  : {{ currentEvent.start_time }} - {{ currentEvent.end_time }}
-                </p>
-              </li>
-
-              <li class="xl:text-md md:text-sm flex">
-                <p class="md:min-w-60 sm:min-w-32">Venue</p>
-                <p>: {{ currentEvent.venue }}</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="flex justify-center relative z-30 mt-3">
-          <div class="xl:w-[1280px] md:w-[730px] sm:w-[600px] flex justify-end">
+          <!-- event detail end -->
+          <!-- event card start -->
+          <div class="container relative z-30">
+            <div
+              class="bg-[#EDF7FF] rounded-2xl flex items-center md:h-[436px] md:mt-14"
+            >
+              <div class="md:ml-20 ssm:mx-5 ssm:py-5">
+                <h1 class="md:text-md ssm:text-[18px] flex">
+                  <p class="md:min-w-[230px] ssm:min-w-[110px]">Event Date</p>
+                  <p>: {{ currentEvent.start_date }}</p>
+                </h1>
+                <h1 class="md:text-md ssm:text-[18px] flex md:my-7 ssm:my-4">
+                  <p class="md:min-w-[230px] ssm:min-w-[110px]">Event Time</p>
+                  <p>
+                    : {{ currentEvent.start_time }} to
+                    {{ currentEvent.end_time }}
+                  </p>
+                </h1>
+                <h1 class="md:text-md ssm:text-[18px] flex md:my-7">
+                  <span class="md:min-w-[230px] ssm:min-w-[110px]">Venue</span>
+                  <span>: {{ currentEvent.venue }}</span>
+                </h1>
+              </div>
+            </div>
             <Button
               @click="toRegisterForm"
-              class="lg:px-[82px] md:px-[20px] sm:px-[18px] sm:py-[10px] md:text-md sm:mr-6 lg:text-[30px] px-[17px] lg:py-[16px] md:py-[14px] py-[2px] rounded-[20px] mr-[2px]"
+              class="lg:px-[82px] ssm:px-10 ssm:py-2 ssm:mr-2 md:px-[30px] float-right mt-5 md:text-[25px] sm:px-[20px] sm:py-[6px] lg:text-[30px] px-[17px] lg:py-[16px] md:py-[14px] py-[2px] rounded-[20px]"
               type="gradient"
               data-te-toggle="modal"
               data-te-target="#appointmentFormModal"
@@ -134,92 +88,115 @@
             >
           </div>
         </div>
-        <!-- card end -->
       </div>
-
-      <div
-        class="flex justify-center items-center xl:my-44 sm:my-8 md:my-28 overflow-hidden"
-      >
-        <div
-          class="lg:w-[1236px] md:w-[768px] sm:max-w-[375px] mt-3 flex items-center md:justify-between"
+      <div class="container md:mt-14 ssm:mt-8 overflow-hidden">
+        <h1
+          class="md:text-lg ssm:mx-5 ssm:text-md text-cus-primary font-semibold text-shadow-lg"
         >
-          <div class="w-full">
-            <h1
-              class="xl:text-lg text-cus-primary sm:text-md sm:ml-4 md:text-lg md:ml-10 font-[700]"
-            >
-              More Events
-            </h1>
-            <div class="flex w-full justify-center">
-              <div class="md:mt-16 relative">
-                <div class="">
-                  <swiper
-                    :pagination="{
-                      clickable: true,
-                    }"
-                    space-between="30
+          More Events
+        </h1>
+        <!-- event card end -->
+        <div class="flex w-full justify-center">
+          <div class="relative">
+            <div class="">
+              <swiper
+                :pagination="{
+                  clickable: true,
+                }"
+                space-between="30
                     "
-                    :breakpoints="swiperOptions.breakpoints"
-                    @slideChange="onSlideChange"
-                    :navigation="swiperOptions.navigation"
-                    :modules="modules"
-                    class="mySwiper flex lg:min-w-[1050px] md:min-w-[700px] sm:min-w-[370px]"
-                  >
-                    <swiper-slide
-                      class="flex justify-center py-12 w-full"
-                      v-for="event in moreEvents"
-                      :key="event.id"
+                :breakpoints="swiperOptions.breakpoints"
+                @slideChange="onSlideChange"
+                :navigation="swiperOptions.navigation"
+                :modules="modules"
+                class="mySwiper flex lg:min-w-[1050px] lg:max-w-[1050px]"
+              >
+                <swiper-slide
+                  class="flex justify-center py-12 w-full"
+                  v-for="event in moreEvents"
+                  :key="event.id"
+                >
+                  <div class="min-w-[313px] min-h-[254px] oldEventCard">
+                    <router-link
+                      :to="{
+                        name: 'event.upcomingDetail',
+                        params: { id: event.id },
+                      }"
                     >
-                      <div class="min-w-[313px] min-h-[254px] oldEventCard">
-                        <router-link
-                          :to="{
-                            name: 'event.upcomingDetail',
-                            params: { id: event.id },
-                          }"
-                        >
-                          <div class="flex justify-center">
-                            <div class="mt-2">
-                              <img
-                                :src="event.imageURL"
-                                class="w-[300px] h-[200px]"
-                                alt=""
-                              />
-                              <h1 class="text-sm mt-2">{{ event.title }}</h1>
-                              <h1>
-                                {{ event.start_date }}
-                              </h1>
-                              <hr />
-                              <div class="py-[10px] flex justify-center">
-                                <Button class="px-6 py-2" type="gradient"
-                                  >Visit</Button
-                                >
-                              </div>
-                            </div>
+                      <div class="flex justify-center">
+                        <div class="mt-2">
+                          <img
+                            :src="event.imageURL"
+                            class="w-[300px] h-[200px]"
+                            alt=""
+                          />
+                          <h1 class="text-sm mt-2">{{ event.title }}</h1>
+                          <h1>
+                            <i class="fa-solid fa-calendar-days mr-2"></i>
+                            {{ event.start_date }}
+                          </h1>
+                          <p class="text-sm mb-2">
+                            <i class="fa-solid fa-location-dot mr-2"></i>
+                            <span v-if="event.event_location_id == 1"
+                              >Yangon</span
+                            >
+                            <span v-else>Mandalay</span>
+                          </p>
+                          <hr />
+                          <div class="py-[10px] flex justify-center">
+                            <Button class="px-6 py-2" type="gradient"
+                              >Visit</Button
+                            >
                           </div>
-                        </router-link>
+                        </div>
                       </div>
-                    </swiper-slide>
-                  </swiper>
-                  <div
-                    class="swiper-event-more-list-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
-                  >
-                    <ChevronLeftIcon
-                      :class="{ 'opacity-50': start }"
-                      class="w-12 h-12 text-cus-primary"
-                    />
+                    </router-link>
                   </div>
-                  <div
-                    class="swiper-event-more-list-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
-                  >
-                    <ChevronRightIcon
-                      :class="{ 'opacity-50': end }"
-                      class="w-12 h-12 text-cus-primary"
-                    />
-                  </div>
-                </div>
+                </swiper-slide>
+              </swiper>
+              <div
+                class="swiper-event-more-list-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
+              >
+                <ChevronLeftIcon
+                  :class="{ 'opacity-50': start }"
+                  class="w-12 h-12 text-cus-primary"
+                />
+              </div>
+              <div
+                class="swiper-event-more-list-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
+              >
+                <ChevronRightIcon
+                  :class="{ 'opacity-50': end }"
+                  class="w-12 h-12 text-cus-primary"
+                />
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center items-center my-[300px]" v-else>
+    <div role="status flex-justify-center items-center w-full h-[600px]">
+      <div class="">
+        <svg
+          aria-hidden="true"
+          class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+          viewBox="0 0 100 101"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+            fill="currentColor"
+          />
+          <path
+            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+            fill="currentFill"
+          />
+        </svg>
+        <span class="sr-only">Loading...</span>
       </div>
     </div>
   </div>

@@ -26,7 +26,7 @@
       <div class="flex justify-center mt-3">
         <Button
           @click="toRegisterForm()"
-          class="mt-1 mx-auto sm:py-2 sm:px-4 lg:px-[43px] lg:py-[9px] md:px-[20px] lg:text-[15px] text-[14px] md: md:py-[14px] py-[2px] rounded-[20px] md:text-[10px]"
+          class="mt-1 mx-auto ssm:py-2 ssm:px-4 lg:px-[43px] lg:py-[9px] md:px-[20px] lg:text-[15px] text-[14px] md: md:py-[14px] py-[2px] rounded-[20px] md:text-[10px]"
           type="gradient"
           data-te-toggle="modal"
           data-te-target="#appointmentFormModal"

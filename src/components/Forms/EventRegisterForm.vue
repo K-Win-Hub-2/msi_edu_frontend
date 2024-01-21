@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-center md:mt-[50px] lg:mt-[130px] sm:mt-[40px] relative"
+    class="flex justify-center md:mt-[50px] lg:mt-[130px] ssm:mt-[40px] relative"
     v-if="currentEvent"
   >
     <div
@@ -8,26 +8,28 @@
     ></div>
     <div class="relative z-40">
       <div
-        class="xl:w-[926px] md:w-[700px] sm:w-[370px] rounded-lg border flex justify-center mb-20 overflow-hidden registerForm"
+        class="xl:w-[926px] md:w-[700px] ssm:w-[370px] rounded-lg border flex justify-center mb-20 overflow-hidden registerForm"
       >
         <div class="">
           <h1 class="md:text-[28px] xl:text-xl text-center mt-10 mb-16">
             <span
-              class="text-cus-secondary xl:text-lg md:text-[28px] sm:text-md sm:font-[600] xl:font-[600] md:font-[600]"
+              class="text-cus-secondary xl:text-lg md:text-[28px] ssm:text-md ssm:font-[600] xl:font-[600] md:font-[600]"
               >“ {{ currentEvent.title }} ”
             </span>
           </h1>
 
           <div class="md:flex justify-center">
             <div
-              class="flex justify-center xl:w-full lg:600px md:w-[600px] sm:w-[370px]"
+              class="flex justify-center xl:w-full lg:600px md:w-[600px] ssm:w-[370px]"
             >
-              <div class="mb-10 sm:ml-16 md:ml-8 lg:ml-24">
+              <div class="mb-10 ssm:ml-16 md:ml-8 lg:ml-24">
                 <div
-                  class="xl:text-md md:text-sm xl:font-[550] md:font-[550] md:ml-2"
+                  class="xl:text-md md:text-ssm xl:font-[550] md:font-[550] md:ml-2"
                 >
                   <div class="flex text-cus-primary">
-                    <p class="lg:min-w-[110px] md:min-w-[80px] sm:min-w-[60px]">
+                    <p
+                      class="lg:min-w-[110px] md:min-w-[80px] ssm:min-w-[60px]"
+                    >
                       Date :
                     </p>
                     <p>{{ currentEvent.start_date }}</p>
@@ -35,10 +37,12 @@
                 </div>
 
                 <div
-                  class="xl:text-md md:text-sm text-cus-primary xl:font-[550] md:font-[550] md:ml-2"
+                  class="xl:text-md md:text-ssm text-cus-primary xl:font-[550] md:font-[550] md:ml-2"
                 >
                   <div class="flex">
-                    <p class="lg:min-w-[110px] md:min-w-[80px] sm:min-w-[60px]">
+                    <p
+                      class="lg:min-w-[110px] md:min-w-[80px] ssm:min-w-[60px]"
+                    >
                       Time :
                     </p>
                     <p>
@@ -51,7 +55,9 @@
                   class="xl:text-md md:text-sm text-cus-primary xl:font-[550] md:font-[550] md:ml-2"
                 >
                   <div class="flex">
-                    <p class="lg:min-w-[110px] md:min-w-[80px] sm:min-w-[60px]">
+                    <p
+                      class="lg:min-w-[110px] md:min-w-[80px] ssm:min-w-[60px]"
+                    >
                       Venue :
                     </p>
                     <p>{{ currentEvent.venue }}</p>
@@ -84,11 +90,11 @@
           </div>
           <div class="flex justify-center">
             <form
-              class="md:w-[600px] lg:mr-52 sm:w-[360px] sm:ml-16"
+              class="md:w-[600px] lg:mr-52 ssm:w-[360px] ssm:ml-16"
               @submit.prevent="handleRegister"
             >
               <div
-                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] ssm:w-[300px]"
               >
                 <label for="name">Name</label>
                 <input
@@ -104,7 +110,7 @@
                 }}</small>
               </div>
               <div
-                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] ssm:w-[300px]"
               >
                 <label for="name">Phone</label>
                 <input
@@ -121,7 +127,7 @@
               </div>
 
               <div
-                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] ssm:w-[300px]"
               >
                 <label for="name">Email</label>
                 <input
@@ -137,7 +143,7 @@
                 }}</small>
               </div>
               <div
-                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] ssm:w-[300px]"
               >
                 <label for="name">Education Level</label>
                 <textarea
@@ -154,7 +160,7 @@
                 }}</small>
               </div>
               <div
-                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] ssm:w-[300px]"
               >
                 <label for="name">Interested Field Of Study </label>
                 <input
@@ -170,7 +176,7 @@
                 }}</small>
               </div>
               <div
-                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] ssm:w-[300px]"
               >
                 <label for="name"> Interested Country To Study</label>
                 <input
@@ -186,7 +192,7 @@
                 }}</small>
               </div>
               <div
-                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] sm:w-[300px]"
+                class="flex flex-col mb-[26px] lg:w-[800px] md:w-[580px] ssm:w-[300px]"
               >
                 <label for="name">Address </label>
                 <textarea
@@ -205,7 +211,7 @@
               </div>
               <div class="lg:w-[820px]">
                 <Button
-                  class="lg:px-[82px] mb-20 md:px-[20px] lg:text-[18px] lg:py-[16px] md:py-[15px] sm:py-[10px] py-[2px] md:mr-5 sm:mr-[70px] rounded-[20px] md:text-[12px] float-right"
+                  class="lg:px-[82px] mb-20 md:px-[20px] lg:text-[18px] lg:py-[16px] md:py-[15px] ssm:py-[10px] ssm:px-[7px] py-[2px] md:mr-5 ssm:mr-[70px] rounded-[20px] md:text-[12px] float-right"
                   type="gradient"
                   data-te-toggle="modal"
                   data-te-target="#appointmentFormModal"

@@ -22,7 +22,7 @@ import Button from "./partials/Button.vue";
 
 <template>
   <div ref="socialBar" class="flex justify-between items-center gap-3">
-    <div class="flex gap-6 sm:hidden">
+    <div class="md:flex gap-6 ssm:hidden">
       <p>
         <i
           class="fa-solid fa-phone text-lg text-cus-primary group-hover:text-white mr-3"

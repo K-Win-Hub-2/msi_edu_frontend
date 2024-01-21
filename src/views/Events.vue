@@ -1,217 +1,167 @@
 <template>
-  <div class="xl:py-28 lg:py-20 md:py-14 sm:py-9" v-if="latestEvent">
-    <section class="">
-      <div class="overflow-hidden relative w-full">
-        <div
-          class="bg-[url(@/assets/img/scholarship/image.png)] bg-[length:100%_100%] bottom-0 z-30 w-[100%] h-[100%] bg-no-repeat absolute top-0"
-        ></div>
-        <div class="z-40 relative xl:mb-56 md:mb-40 sm:mb-20">
-          <div class="container">
-            <div
-              class="flex justify-between items-center md:mx-10 sm:mx-4 xl:my-16 md:my-12 sm:mt-[40px] mb-5"
-            >
-              <h1
-                class="xl:text-xl md:text-md sm:text-[20px] text-cus-primary font-extrabold text-left"
-              >
-                Upcoming Events
-              </h1>
-              <Button
-                @click="upcomingEventPage"
-                class="md:px-6 md:py-2 sm:px-4 ms:py-1 sm:text-sm"
-                type="gradient"
-                >View All</Button
-              >
-            </div>
-            <div class="flex justify-center">
-              <router-link
-                :to="{
-                  name: 'event.upcomingDetail',
-                  params: { id: latestEvent[0].id },
-                }"
-                class="md:w-[782px] sm:w-[360px] flex justify-center p-[15px] md:h-[598px] sm:h-[400px] py-5 px-5 border-2 border-[#9F9F9F] rounded-[23px]"
-              >
-                <div class="">
-                  <img
-                    :src="latestEvent[0].imageURL"
-                    class="md:h-[378px] sm:h-[200px] md:w-[699px] sm:w-[350px] rounded-xl"
-                    alt=""
-                  />
-                  <h1
-                    class="md:text-md sm:text-sm font-semibold shadow-title text-cus-primary mt-2"
-                  >
-                    {{ latestEvent[0].title }} (
-                    {{
-                      latestEvent[0].event_location_id == 1
-                        ? "Yangon"
-                        : "Mandalay"
-                    }}
-                    )
-                  </h1>
+  <div class="lg:mt-48 md:mt-16 ssm:mt-14" v-if="latestEvent">
+    <div class="relative overflow-hidden">
+      <div
+        class="bg-[url(@/assets/img/scholarship/image.png)] bg-[length:100%_100%] bottom-0 z-30 w-[100%] h-[100%] bg-no-repeat absolute top-0"
+      ></div>
 
-                  <h1 class="md:text-md sm:text-sm text-cus-primary">
-                    {{ latestEvent[0].start_date }}
-                  </h1>
-                  <hr />
-                  <div
-                    class="flex justify-center pt-[14px] md:py-[14px] sm:py-6"
-                  >
-                    <Button
-                      class="md:w-[283px] sm:w-[150px] flex justify-center h-[89px] sm:h-[50px] items-center text-[35px] sm:text-[20px] font-[700]"
-                      type="gradient"
-                      >See More</Button
-                    >
-                  </div>
-                </div>
-              </router-link>
-            </div>
-          </div>
+      <div class="container z-30 relative">
+        <!-- title start-->
+        <div class="flex justify-between lg:mx-20 ssm:mx-5">
+          <h1
+            class="text-cus-primary text-shadow-lg md:text-lg ssm:text-md font-semibold"
+          >
+            UpcomingEvents
+          </h1>
+          <Button
+            @click="upcomingEventPage"
+            class="md:text-[14px] lg:px-10 md:px-5 ssm:px-3 sm:py-1 sm:text-[10px] lg:py-1"
+            type="gradient"
+            data-te-toggle="modal"
+            data-te-target="#appointmentFormModal"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            >View All</Button
+          >
         </div>
-
-        <!-- latest event -->
-        <!-- <div class="" v-for="event in latestEvent" :key="event">
-              <div class="shrink-0">
-                <router-link
-                  :to="{ name: 'events.detail', params: { id: event.id } }"
-                >
-                  <div
-                    class="bg-white p-3 border cus-standout overflow-hidden hover:border-black transition"
-                  >
-                    <div class="flex justify-evenly items-center">
-                      <div class="w-[50%]">
-                        <img :src="event.imageURL" alt="" class="w-24 h-24" />
-                      </div>
-                      <div class="w-[50%] mr-5">
-                        <h1 class="uppercase text-[27px] font-[600] leading-6">
-                          <span class="text-[31px] font-[600]">{{
-                            event.title
-                          }}</span>
-                          University
-                        </h1>
-                        <p class="uppercase text-[12px] font-[300]">
-                          The Creative University
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </router-link>
-              </div>
-            </div> -->
-      </div>
-      <hr />
-
-      <div class="relative w-full mb-10">
-        <div class="container relative z-40">
-          <div class="flex justify-between items-center my-16 sm:mx-3">
+        <!-- title end -->
+        <!--upcoming card start -->
+        <div class="flex justify-center lg:my-24 md:my-14 ssm:my-8">
+          <div
+            class="lg:w-[699px] ssm:mx-5 lg:h-[598px] border-2 rounded-2xl md:px-6 ssm:px-2 ssm:py-2 md:py-4"
+          >
+            <img
+              :src="latestEvent[0].imageURL"
+              alt=""
+              class="w-full rounded-2xl md:h-[377px] sm:h-[220px]"
+            />
             <h1
-              class="xl:text-xl md:text-lg sm:text-md text-cus-primary font-extrabold text-left xl:mb-6"
+              class="md:text-md sm:text-[20px] font-semibold my-1 text-cus-primary text-shadow-lg"
             >
-              Old Events
+              {{ latestEvent[0].title }}
             </h1>
-            <Button class="px-6 py-2" type="gradient">view All</Button>
-          </div>
-          <div>
-            <div
-              class="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 z-20"
-            >
-              <div
-                class="w-[313px] h-[280px] shadow-md oldEventCard"
-                v-for="oldEvent in oldEvents"
-                :key="oldEvent.id"
+            <h1 class="md:text-[20px] text-cus-primary">
+              <i class="fa-solid fa-location-dot mr-3 font-semibold"></i
+              ><span
+                class="font-semibold"
+                v-if="latestEvent[0].event_location_id == 1"
+                >Yangon</span
               >
-                <router-link
-                  :to="{ name: 'events.detail', params: { id: oldEvent.id } }"
+              <span class="font-semibold" v-else>Yangon</span>
+            </h1>
+            <h1 class="md:text-[20px] text-cus-primary font-semibold">
+              <i class="fa-solid fa-calendar-days mr-2"></i>
+              <span>{{ latestEvent[0].start_date }}</span>
+            </h1>
+            <hr />
+            <router-link
+              :to="{
+                name: 'event.upcomingDetail',
+                params: { id: latestEvent[0].id },
+              }"
+              class="flex justify-center mt-5"
+            >
+              <Button
+                class="md:text-[20px] sm:text-[10px] ssm:px-10 ssm:py-2 md:px-20 md:py-3"
+                type="gradient"
+                data-te-toggle="modal"
+                data-te-target="#appointmentFormModal"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                >See more</Button
+              >
+            </router-link>
+          </div>
+        </div>
+        <!-- upcoming card end -->
+      </div>
+    </div>
+    <hr class="mb-5" />
+    <div class="container my-20">
+      <div class="flex justify-between lg:mx-20 sm:mx-5 ssm:mx-3">
+        <h1
+          class="text-cus-primary text-shadow-lg md:text-lg ssm:text-md font-semibold"
+        >
+          Old Events
+        </h1>
+        <Button
+          class="md:text-[14px] lg:px-10 md:px-5 ssm:px-3 sm:py-1 sm:text-[10px] lg:py-1"
+          type="gradient"
+          data-te-toggle="modal"
+          data-te-target="#appointmentFormModal"
+          data-te-ripple-init
+          data-te-ripple-color="light"
+          >View All</Button
+        >
+      </div>
+      <div class="ssm:flex ssm:mt-5 ssm:justify-center">
+        <div
+          class="grid lg:grid-cols-3 md:grid-cols-2 ssm:grid-cols-1 gap-4 md:gap-y-5 lg:mt-20 md:mt-10"
+        >
+          <div
+            class="w-[320px] h-[380px] oldEventCard"
+            v-for="event in oldEvents"
+            :key="event.id"
+          >
+            <div class="">
+              <img
+                :src="event.imageURL"
+                class="mx-auto mt-3 w-[300px] h-[200px] rounded-md"
+                alt=""
+              />
+              <p class="ml-3 mt-2">{{ event.title }}</p>
+              <p class="ml-3 mt-1 text-[14px]">
+                <i class="fa-solid fa-calendar-days mr-2"></i>
+                {{ event.start_date }}
+              </p>
+              <p class="text-[14px] ml-3 mb-2">
+                <i class="fa-solid fa-location-dot mr-4"></i
+                ><span v-if="latestEvent[0].event_location_id == 1"
+                  >Yangon</span
                 >
-                  <div class="flex justify-center">
-                    <div class="mt-2">
-                      <img
-                        :src="oldEvent.imageURL"
-                        class="w-[284px] rounded-t-lg h-[160px]"
-                        alt=""
-                      />
-                      <h1 class="text-sm mt-2">{{ oldEvent.title }}</h1>
-                      <h1>
-                        {{ oldEvent.start_date }}
-                      </h1>
-                      <hr />
-                      <div class="py-[10px] flex justify-center">
-                        <Button class="px-6 py-1" type="gradient"
-                          >See More</Button
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </router-link>
+                <span v-else>Yangon</span>
+              </p>
+
+              <hr />
+              <div class="flex justify-center mt-3">
+                <Button
+                  @click="toRegisterForm()"
+                  class="mt-1 mx-auto ssm:py-2 ssm:px-4 lg:px-[43px] lg:py-[9px] md:px-[20px] lg:text-[15px] text-[14px] md: md:py-[14px] py-[2px] rounded-[20px] md:text-[10px]"
+                  type="gradient"
+                  data-te-toggle="modal"
+                  data-te-target="#appointmentFormModal"
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                  >See More</Button
+                >
               </div>
             </div>
-
-            <!-- <div class="flex justify-center mt-[50px]">
-            <a
-              href="#"
-              class="flex items-center justify-center px-4 h-10 mr-3 text-base font-medium text-white bg-gray-500 border border-gray-300 rounded-lg"
-            >
-              <svg
-                class="w-3.5 h-3.5 mr-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 5H1m0 0 4 4M1 5l4-4"
-                />
-              </svg>
-              Previous
-            </a>
-            <a
-              href="#"
-              class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-500 border border-gray-300 rounded-lg"
-            >
-              Next
-              <svg
-                class="w-3.5 h-3.5 ml-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </a>
-          </div> -->
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </div>
-  <div class="flex justify-center items-center mt-52" v-else>
-    <div role="status flex-justify-center">
-      <svg
-        aria-hidden="true"
-        class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-        viewBox="0 0 100 101"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-          fill="currentColor"
-        />
-        <path
-          d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-          fill="currentFill"
-        />
-      </svg>
-      <span class="sr-only">Loading...</span>
+  <div class="flex justify-center items-center my-[300px]" v-else>
+    <div role="status flex-justify-center items-center w-full h-[600px]">
+      <div class="">
+        <svg
+          aria-hidden="true"
+          class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+          viewBox="0 0 100 101"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+            fill="currentColor"
+          />
+          <path
+            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+            fill="currentFill"
+          />
+        </svg>
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
   </div>
 </template>
@@ -223,6 +173,7 @@ import upcomingImg from "../assets/img/events/upcomingEvent.png";
 import oldEventImg1 from "../assets/img/events/event-1.jpg";
 import oldEventImg2 from "../assets/img/events/event-2.jpg";
 import oldEventImg3 from "../assets/img/events/event-3.jpg";
+
 import { onMounted, ref } from "vue";
 import { useEventStore } from "../stores/event";
 import router from "../router";
@@ -235,16 +186,9 @@ const oldEvents = ref(null);
 const upcomingEventPage = () => {
   router.push({ name: "events.upcoming" });
 };
-// const fetchData = async () => {
-//   const res = await axios.get(
-//     "http://adminpanel.msieducation.edu.mm/api/latestEventList"
-//   );
-//   console.log(res);
-// };
 
 const fetchData = async () => {
   const res = await eventStore.fetchEvent();
-  console.log(res.data);
   if (res) {
     latestEvent.value = res.data.latestEvent;
     oldEvents.value = res.data.oldEvent;

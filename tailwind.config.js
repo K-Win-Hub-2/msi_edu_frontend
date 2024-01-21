@@ -20,11 +20,12 @@ module.exports = {
       "5xl": "3.052rem",
     },
     screens: {
-      sm: "375px",
-      ms: "641px",
+      ssm: "375px",
+      sm: "393px",
+      ms: "873px",
       // => @media (min-width: 640px) { ... }
 
-      md: "768px",
+      md: "873px",
       // => @media (min-width: 768px) { ... }
 
       lg: "1024px",

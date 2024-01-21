@@ -67,7 +67,7 @@ onMounted(() => {
     <div class="relative">
       <div
         v-if="navbar"
-        class="md:w-[300px] flex animate__animated sm:w-[300px] fixed top-0 left-0 transition-all duration-900 h-screen bottom-0 rounded-r-[50px] z-50 bg-slate-200"
+        class="md:w-[300px] flex animate__animated ssm:w-[300px] fixed top-0 left-0 transition-all duration-900 h-screen bottom-0 rounded-r-[50px] z-50 bg-slate-200"
         :class="[
           navbar == true ? 'animate__fadeInLeft' : 'animate__fadeInRight',
         ]"
