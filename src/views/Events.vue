@@ -109,12 +109,12 @@
                 class="mx-auto mt-3 w-[300px] h-[200px] rounded-md"
                 alt=""
               />
-              <p class="ml-3 mt-2">{{ event.title }}</p>
-              <p class="ml-3 mt-1 text-[14px]">
+              <p class="ml-5 mt-2">{{ event.title }}</p>
+              <p class="ml-5 mt-1 text-[14px]">
                 <i class="fa-solid fa-calendar-days mr-2"></i>
                 {{ event.start_date }}
               </p>
-              <p class="text-[14px] ml-3 mb-2">
+              <p class="text-[14px] ml-5 mb-2">
                 <i class="fa-solid fa-location-dot mr-4"></i
                 ><span v-if="latestEvent[0].event_location_id == 1"
                   >Yangon</span

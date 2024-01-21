@@ -8,16 +8,17 @@
     ></div>
     <div class="relative z-40">
       <div
-        class="xl:w-[926px] md:w-[700px] ssm:w-[310px] sm:w-[390px] rounded-lg border flex justify-center mb-20 overflow-hidden registerForm"
+        class="xl:w-[926px] md:w-[700px] ssm:w-[310px] sm:w-[390px] rounded-lg md:border flex justify-center mb-20 overflow-hidden md:shadow-2xl px-2"
       >
         <div class="">
           <h1
-            class="md:text-[28px] text-cus-secondary font-semibold xl:text-lg text-center ssm:mt-4 ssm:mx-2 ssm:mb-10 sm:mt-10 sm:mb-10 sm:text-md"
+            class="md:text-[28px] ssm:text-[23px] text-cus-secondary font-semibold xl:text-lg text-center ssm:mt-1 ssm:mb-3 sm:mt-10 sm:mb-10 sm:text-md"
           >
             “ {{ currentEvent.title }} ”
           </h1>
+          <hr class="md:hidden" />
 
-          <div class="md:flex justify-center">
+          <div class="md:flex justify-center mt-2">
             <div
               class="flex justify-center xl:w-full lg:600px md:w-[600px] ssm:w-[370px]"
             >
@@ -25,9 +26,9 @@
                 <div
                   class="xl:text-md md:text-ssm xl:font-[550] md:font-[550] md:ml-2"
                 >
-                  <div class="flex text-cus-primary">
+                  <div class="flex text-cus-primary smm:text-sm">
                     <p
-                      class="lg:min-w-[110px] md:min-w-[80px] ssm:min-w-[60px]"
+                      class="lg:min-w-[110px] md:min-w-[80px] ssm:min-w-[70px]"
                     >
                       Date :
                     </p>
@@ -40,7 +41,7 @@
                 >
                   <div class="flex">
                     <p
-                      class="lg:min-w-[110px] md:min-w-[80px] ssm:min-w-[60px]"
+                      class="lg:min-w-[110px] md:min-w-[80px] ssm:min-w-[70px]"
                     >
                       Time :
                     </p>
@@ -55,7 +56,7 @@
                 >
                   <div class="flex">
                     <p
-                      class="lg:min-w-[110px] md:min-w-[80px] ssm:min-w-[60px]"
+                      class="lg:min-w-[110px] md:min-w-[80px] ssm:min-w-[70px]"
                     >
                       Venue :
                     </p>

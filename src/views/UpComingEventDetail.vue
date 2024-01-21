@@ -45,7 +45,7 @@
                 <span v-else>(Mandalay)</span>
               </h1>
               <h1
-                class="md:text-lg sm:text-md ssm:text-[20px] text-[#205887] md:my-14 ssm:my-7 text-shadow-lg font-bold"
+                class="md:text-lg sm:text-md ssm:text-[20px] ms:text-[20px] text-[#205887] md:my-14 ssm:my-7 text-shadow-lg font-bold"
               >
                 {{ currentEvent.title }}
               </h1>
@@ -138,14 +138,14 @@
                             class="sm:w-[300px] ssm:w-[278px] rounded-md ssm:mx-4 sm:mx-0 h-[200px]"
                             alt=""
                           />
-                          <h1 class="text-sm ssm:mx-2 sm:mx-0 mt-2">
+                          <h1 class="text-sm ssm:ml-4 sm:mx-0 mt-2">
                             {{ event.title }}
                           </h1>
-                          <h1 class="ssm:mx-2 sm:mx-0">
+                          <h1 class="ssm:ml-4 sm:mx-0">
                             <i class="fa-solid fa-calendar-days mr-2"></i>
                             {{ event.start_date }}
                           </h1>
-                          <p class="text-sm mb-2 ssm:mx-2 sm:mx-0">
+                          <p class="text-sm mb-2 ssm:ml-10 sm:mx-0">
                             <i class="fa-solid fa-location-dot mr-2"></i>
                             <span v-if="event.event_location_id == 1"
                               >Yangon</span

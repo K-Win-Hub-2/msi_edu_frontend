@@ -8,7 +8,7 @@
       </h1>
       <div class="flex flex-wrap md:space-x-4 ssm:space-y-5 md:space-y-0 mt-7">
         <div
-          class="flex ssm:mx-3 sm:mx-9 md:mx-0"
+          class="flex ssm:mx-3 sm:mx-9 ms:mx-10 md:mx-0"
           v-for="event in events"
           :key="event"
         >

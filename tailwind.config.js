@@ -21,8 +21,8 @@ module.exports = {
     },
     screens: {
       ssm: "320px",
+      ms: "375px",
       sm: "390px",
-      ms: "873px",
       // => @media (min-width: 640px) { ... }
 
       md: "873px",
