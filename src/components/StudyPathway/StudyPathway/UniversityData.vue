@@ -18,6 +18,11 @@
         SEGI UNIVERSITY, MALAYSIA
       </h1>
       <div class="flex items-center mt-20">
+        <img
+          class="mr-3"
+          src="../../../assets/img/scholarship/Vector.svg"
+          alt=""
+        />
         <p class="text-[20px] font-semibold uppercase lg:min-w-[130px]">
           Country:
         </p>
@@ -25,6 +30,11 @@
       </div>
 
       <div class="flex items-center my-7">
+        <img
+          src="../../../assets/img/scholarship/MapPin.svg"
+          class="mr-3"
+          alt=""
+        />
         <p class="text-[20px] font-semibold uppercase lg:min-w-[130px]">
           Location:
         </p>
@@ -34,6 +44,11 @@
       </div>
 
       <div class="flex items-center my-3">
+        <img
+          src="../../../assets/img/scholarship/Flag.svg"
+          class="mr-3"
+          alt=""
+        />
         <p class="text-[20px] font-semibold uppercase lg:min-w-[130px]">
           Founded:
         </p>
