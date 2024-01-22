@@ -2,8 +2,8 @@
   <section>
     <Banner :bannerImage="bannerImage"></Banner>
   </section>
-  <section class="container py-24">
-    <div class="font-[400] text-md">
+  <section class="container lg:py-24 ssm:py-5 md:py-14">
+    <div class="font-[400] md:text-md ssm:text-[15px] ssm:mx-2">
       <p>
         Malaysia is a Southeast Asian country known for its diverse culture,
         vibrant cities, and stunning landscapes. It's divided into Peninsular
@@ -17,9 +17,9 @@
         independence from British rule in 1957 and operates as a constitutional
         monarchy with a parliamentary democracy.
       </p>
-      <div class="text-center mt-20">
+      <div class="text-center md:mt-20 ssm:mt-5">
         <Button
-          class="lg:px-[45px] lg:py-[10px]"
+          class="lg:px-[45px] md:px-[30px] ssm:px-[20px] ssm:py-[10px] md:py-[24px] lg:py-[10px]"
           type="gradient"
           data-te-toggle="modal"
           data-te-target="#appointmentFormModal"
@@ -46,19 +46,23 @@
     </div>
   </section> -->
   <section>
-    <div class="container px-6 pt-6 pb-24 mb-72">
-      <h1 class="cus-heading text-cus-primary text-center capitalize mb-12">
+    <div class="container pt-6 pb-24 mb-72">
+      <h1
+        class="ssm:text-md ssm:font-semibold md:cus-heading text-cus-primary text-center capitalize mb-12"
+      >
         Test section
       </h1>
-      <TestSection />
+      <div class="flex justify-center">
+        <TestSection />
+      </div>
     </div>
   </section>
-  <section>
+  <!-- <section>
     <div class="container px-6 pt-6 pb-24">
       <Programs country="singapore" />
     </div>
-  </section>
-  <section>
+  </section> -->
+  <!-- <section>
     <div class="container px-6 pt-6 pb-24">
       <h1 class="cus-heading text-cus-primary text-center capitalize mb-12">
         Frequently Asked Questions
@@ -71,12 +75,12 @@
       <h1 class="cus-heading text-cus-primary text-center capitalize mb-12">
         Testimonials
       </h1>
-      <div class="grid grid-cols-2">
+      <div class="grid lg:grid-cols-2 md:grid-cols-1 md:space-y-5">
         <div v-html="videoOne"></div>
         <div v-html="videoTwo"></div>
       </div>
     </div>
-  </section>
+  </section> -->
 </template>
 
 <script setup>

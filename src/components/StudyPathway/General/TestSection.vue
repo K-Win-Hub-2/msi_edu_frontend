@@ -1,13 +1,19 @@
 <template>
   <div>
     <div class="">
-      <div class="grid grid-cols-2 gap-x-28">
+      <div
+        class="grid lg:grid-cols-2 ssm:grid-cols-1 md:grid-cols-1 lg:gap-x-28"
+      >
         <div class="">
-          <div class="w-[536px] h-[500px] test-card overflow-hidden">
+          <div
+            class="md:w-[536px] ssm:w-[300px] ssm:h-auto md:h-[500px] test-card overflow-hidden mb-4"
+          >
             <div
               class="flex justify-center items-center h-[71px] w-[100%] text-white bg-blue-500"
             >
-              <h1 class="text-md font-[700]">Key facts to study in Malaysia</h1>
+              <h1 class="text-md font-[700] ssm:text-[18px]">
+                Key facts to study in Malaysia
+              </h1>
             </div>
             <!-- loop -->
             <div class="px-7 pt-4 py-1">
@@ -87,11 +93,15 @@
         </div>
 
         <div class="">
-          <div class="w-[536px] h-[500px] test-card overflow-hidden">
+          <div
+            class="md:w-[536px] ssm:w-[300px] ssm:h-auto md:h-[500px] test-card overflow-hidden"
+          >
             <div
               class="flex justify-center items-center h-[71px] w-[100%] text-white bg-blue-500"
             >
-              <h1 class="text-md font-[700]">Key facts to study in Malaysia</h1>
+              <h1 class="text-md font-[700] ssm:text-[18px]">
+                Key facts to study in Malaysia
+              </h1>
             </div>
             <!-- loop -->
             <div class="px-7 pt-4 py-1">
