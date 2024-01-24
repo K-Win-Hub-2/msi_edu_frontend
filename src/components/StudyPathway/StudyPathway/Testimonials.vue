@@ -27,7 +27,7 @@
             <!-- card start-->
             <div class="flex">
               <img
-                class="w-[430px] h-[450px] ssm:px-3 md:mx-0 rounded-xl"
+                class="md:w-[430px] ssm:w-[300px] ssm:h-[300px] md:h-[450px] rounded-[25px] ssm:px-3 md:mx-0"
                 :src="testimonial.imageURL"
                 alt=""
               />
@@ -62,7 +62,7 @@
         >
           <ChevronLeftIcon
             :class="{ 'opacity-50': start }"
-            class="w-12 h-12 text-cus-primary"
+            class="w-12 h-12 text-cus-primary ssm:hidden md:block"
           />
         </div>
         <div
@@ -70,7 +70,7 @@
         >
           <ChevronRightIcon
             :class="{ 'opacity-50': end }"
-            class="w-12 h-12 text-cus-primary"
+            class="w-12 h-12 text-cus-primary ssm:hidden md:block"
           />
         </div>
       </div>

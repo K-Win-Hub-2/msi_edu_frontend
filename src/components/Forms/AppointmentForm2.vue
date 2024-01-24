@@ -20,7 +20,7 @@
         <div class="mb-5">
           <label for="">Email</label> <br />
           <input
-            type="text"
+            type="email"
             placeholder=" Email"
             class="border-2 py-4 px-3 w-full border-gray-500 rounded-md"
           />
@@ -41,11 +41,11 @@
               +95
             </div>
             <input
-              type="text"
+              type="number"
               id="zip-input"
               aria-describedby="helper-text-explanation"
-              class="bg-gray-50 py-4 border-2 border-gray-500 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5"
-              placeholder="              Phone"
+              class="bg-gray-50 py-4 pl-24 border-2 border-gray-500 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5"
+              placeholder="Phone"
               pattern="^\d{5}(-\d{4})?$"
               required
             />

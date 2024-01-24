@@ -46,7 +46,7 @@
     </div>
   </section> -->
   <section>
-    <div class="container pt-6 pb-24 mb-72">
+    <div class="container pt-6 pb-14">
       <h1
         class="ssm:text-md ssm:font-semibold md:cus-heading text-cus-primary text-center capitalize mb-12"
       >
@@ -59,7 +59,7 @@
   </section>
   <!-- program start -->
   <section>
-    <div class="container px-6 pt-6 pb-24">
+    <div class="px-6 pb-24">
       <Programs />
     </div>
   </section>

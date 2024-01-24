@@ -125,7 +125,7 @@
           >
             <ChevronLeftIcon
               :class="{ 'opacity-50': start }"
-              class="w-12 h-12 text-cus-primary"
+              class="w-12 h-12 text-cus-primary ssm:hidden md:block"
             />
           </div>
           <div
@@ -133,7 +133,7 @@
           >
             <ChevronRightIcon
               :class="{ 'opacity-50': end }"
-              class="w-12 h-12 text-cus-primary"
+              class="w-12 h-12 text-cus-primary ssm:hidden md:block"
             />
           </div>
         </div>
