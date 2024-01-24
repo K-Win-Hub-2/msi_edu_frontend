@@ -386,6 +386,7 @@ const handleRegister = async () => {
 onMounted(() => {
   registerList();
   fetchData();
+  getTestimonial();
 });
 </script>
 

@@ -2,6 +2,10 @@
 import { ref } from "vue";
 import SocialButton from "./partials/SocialButton.vue";
 import Button from "./partials/Button.vue";
+import router from "../router";
+const toAppointment = () => {
+  router.push({ name: "appointment-form" });
+};
 
 // const socialBar = ref(null)
 
@@ -41,6 +45,7 @@ import Button from "./partials/Button.vue";
     <div class="flex gap-3">
       <div class="">
         <Button
+          @click="toAppointment"
           class="px-3 rounded-[20px]"
           type="gradient"
           data-te-toggle="modal"

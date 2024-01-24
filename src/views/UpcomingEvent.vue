@@ -7,7 +7,7 @@
         Upcoming Events
       </h1>
       <div
-        class="flex flex-wrap ssm:justify-center md:justify-start md:space-x-4 ssm:space-y-5 md:space-y-0 mt-7"
+        class="flex flex-wrap ssm:justify-center md:justify-start gap-4 ssm:space-y-5 md:space-y-0 mt-7"
       >
         <div
           class="flex ssm:mx-3 sm:mx-9 ms:mx-10 md:mx-0"

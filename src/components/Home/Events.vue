@@ -101,19 +101,19 @@ const handleUniversitySelect = (university) => {
 };
 
 const updateCurrentUniversities = () => {
-  console.log(filters.value)
-  const filteredUniversities = universities.filter(university => {
-    if(university.country == filters.value.country.name) return true
-  })
+  console.log(filters.value);
+  const filteredUniversities = universities.filter((university) => {
+    if (university.country == filters.value.country.name) return true;
+  });
 
-  console.log(filteredUniversities)
+  console.log(filteredUniversities);
 
-  currentUniversities.value = [...filteredUniversities]
-}
+  currentUniversities.value = [...filteredUniversities];
+};
 
 const handleCountriesSelect = (country) => {
   filters.value.country = { ...country };
-  updateCurrentUniversities()
+  updateCurrentUniversities();
 };
 
 const onSearchClick = () => {

@@ -3,13 +3,15 @@
     <BannerMotion></BannerMotion>
   </section>
   <section class="bg-white">
-    <div class="container w-[1199px] h-[624px] bg-[#EDF7FF] mt-6 py-10 px-10">
+    <div
+      class="container md:w-[1199px] sm:w-[320px] h-[624px] bg-[#EDF7FF] mt-6 py-10 px-10"
+    >
       <h1
-        class="text-cus-primary lg:text-[48px] md:text-lg sm:text-md shadow-title font-bold text-center sm:"
+        class="text-cus-primary lg:text-[48px] ssm:text-md md:text-lg sm:text-md shadow-title font-bold text-center"
       >
         Featured Universities
       </h1>
-      <Button
+      <!-- <Button
         class="px-14 sm:px-8 sm:py-2 py-4 text-md float-right mt-8"
         type="gradient"
         data-te-toggle="modal"
@@ -17,11 +19,11 @@
         data-te-ripple-init
         data-te-ripple-color="light"
         >See More</Button
-      >
+      > -->
 
       <!-- carousel start -->
       <div
-        class="container flex justify-center md:mt-20 xl:mt-14 sm:mt-10 relative"
+        class="container flex justify-center md:mt-20 xl:mt-14 ssm:mt-0 relative"
       >
         <div class="">
           <swiper
@@ -34,7 +36,7 @@
             @slideChange="onSlideChange"
             :navigation="swiperOptions.navigation"
             :modules="modules"
-            class="mySwiper flex justify-center xl:w-[930px] md:w-[590px]"
+            class="mySwiper flex justify-center xl:w-[930px] md:w-[590px] ssm:w-[320px]"
           >
             <!-- slider one -->
             <swiper-slide class="flex justify-center py-12 w-full">
@@ -140,12 +142,12 @@
     </div>
   </section>
   <section>
-    <div class="container px-6 pt-6 pb-24">
+    <div class="container px-6 pt-6 ssm:pb-8 lg:pb-24">
       <Countries></Countries>
     </div>
   </section>
   <section id="mission" class="bg-white">
-    <div class="container px-6 py-16">
+    <div class="container px-6 ssm:py-8 md:py-16">
       <OurService />
     </div>
   </section>
@@ -170,7 +172,8 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper";
 const modules = [Navigation, Pagination];
 import MySwiper from "@/components/MySwiper.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import axios from "axios";
 
 // swiper
 const start = ref(true);

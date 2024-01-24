@@ -57,12 +57,14 @@
       </div>
     </div>
   </section>
-  <!-- <section>
+  <!-- program start -->
+  <section>
     <div class="container px-6 pt-6 pb-24">
-      <Programs country="singapore" />
+      <Programs />
     </div>
-  </section> -->
-  <!-- <section>
+  </section>
+  <!-- program end -->
+  <section>
     <div class="container px-6 pt-6 pb-24">
       <h1 class="cus-heading text-cus-primary text-center capitalize mb-12">
         Frequently Asked Questions
@@ -80,7 +82,7 @@
         <div v-html="videoTwo"></div>
       </div>
     </div>
-  </section> -->
+  </section>
 </template>
 
 <script setup>

@@ -41,15 +41,9 @@
             class="flex flex-wrap justify-center lg:max-w-[1200px] z-40 lg:gap-4 md:gap-1 md:gap-y-4 gap-y-3 md:mx-4"
           >
             <!-- loop -->
-            <CountryCourseCard />
-            <CountryCourseCard />
-            <CountryCourseCard />
-            <CountryCourseCard />
-            <CountryCourseCard />
-            <CountryCourseCard />
-            <CountryCourseCard />
-            <CountryCourseCard />
-            <CountryCourseCard />
+            <div class="" v-for="course in courses" :key="course">
+              <CountryCourseCard :course="course" />
+            </div>
           </div>
           <!-- end loop -->
         </div>
@@ -60,10 +54,70 @@
 
 <script setup>
 import CountryCourseCard from "./Country&CourseCard.vue";
+import courseImg1 from "../../../src/assets/img/scholarship/MSI WEBSITE ICONS 1.png";
+import courseImg2 from "../../../src/assets/img/scholarship/MSI WEBSITE ICONS 2.png";
+import courseImg3 from "../../../src/assets/img/scholarship/MSI WEBSITE ICONS 3.png";
+import courseImg4 from "../../../src/assets/img/scholarship/MSI WEBSITE ICONS 4.png";
+import courseImg5 from "../../../src/assets/img/scholarship/MSI WEBSITE ICONS 5.png";
+import courseImg6 from "../../../src/assets/img/scholarship/MSI WEBSITE ICONS 6.png";
+import courseImg7 from "../../../src/assets/img/scholarship/MSI WEBSITE ICONS 7.png";
+import courseImg8 from "../../../src/assets/img/scholarship/MSI WEBSITE ICONS 8.png";
+import courseImg9 from "../../../src/assets/img/scholarship/MSI WEBSITE ICONS 9.png";
+import courseImg10 from "../../../src/assets/img/scholarship/MSI WEBSITE ICONS 10.png";
+
+// 1. Try to choose rare country and course
+// 2. Read the requirements
+// 3. Start early
+// 4. Preparing and taking English Proficiency
+// 5. Highlight your achievements
+// 6. Prepare your documents
+// 7. Write a compelling essay
+// 8. Contact referees early
+// 9. Follow the instruction
+// 10. Keep track of your application
+
+const courses = [
+  {
+    image: courseImg1,
+    name: "Try to choose rare country and course",
+  },
+  {
+    image: courseImg2,
+    name: "Read the requirements",
+  },
+  {
+    image: courseImg3,
+    name: "Start early",
+  },
+  {
+    image: courseImg4,
+    name: "Preparing and taking English Proficiency",
+  },
+  {
+    image: courseImg5,
+    name: "Highlight your achievements",
+  },
+  {
+    image: courseImg6,
+    name: "Prepare your documents",
+  },
+  {
+    image: courseImg7,
+    name: "Write a compelling essays",
+  },
+  {
+    image: courseImg8,
+    name: "Contact referees early",
+  },
+  {
+    image: courseImg9,
+    name: "Follow the instruction",
+  },
+  {
+    image: courseImg10,
+    name: "Keep track of your application",
+  },
+];
 </script>
 
-<style>
-.shadow-title {
-  text-shadow: 0px 04px 04px rgba(0, 0, 0, 0.15);
-}
-</style>
+<style></style>

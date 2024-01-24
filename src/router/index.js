@@ -25,6 +25,8 @@ import Scholarship from "@/views/Scholarship.vue";
 import UniversityDetail from "../views/StudyPathway/UniversityDetail.vue";
 import UpcomingEvent from "@/views/UpcomingEvent.vue";
 import UpcomingEventDetail from "@/views/UpComingEventDetail.vue";
+import BookAppointmentForm2 from "../components/Forms/AppointmentForm2.vue";
+import AppointmentConfirm from "../components/Forms/AppointmentConfirm.vue";
 
 const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
@@ -185,10 +187,25 @@ const router = createRouter({
       name: "event-register-form-SEG",
       component: EventRegisterFormSEG,
     },
+    // {
+    //   path: "/book-appointment-form",
+    //   name: "book-appointment-form",
+    //   component: BookAppointmentForm,
+    // },
     {
-      path: "/book-appointment-form",
-      name: "book-appointment-form",
+      path: "/appointment-form",
+      name: "appointment-form",
       component: BookAppointmentForm,
+    },
+    {
+      path: "/appointment-form-2",
+      name: "appointment-form2",
+      component: BookAppointmentForm2,
+    },
+    {
+      path: "/appointment-confirm",
+      name: "appointment-confirm",
+      component: AppointmentConfirm,
     },
     {
       path: "/consultation-form",
