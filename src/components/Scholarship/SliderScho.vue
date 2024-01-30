@@ -2,7 +2,7 @@
   <div
     class="lg:w-[965px] md:w-[600px] w-[530px] flex lg:h-[450px] md:h-[400px] h-[360px] bg-carousel relative overflow-hidden lg:rounded-[41px] md:rounded-[36px] rounded-[24px]"
   >
-    <div class="lg:w-[407px] md:w-[315px] w-[280px]">
+    <div class="lg:w-[407px] md:w-[315px] w-[280px] md:block ssm:hidden">
       <div class="-ml-16 md:-mt-10 lg:-mt-18 -mt-8">
         <img
           class="lg:w-[414.66px] md:w-[300.66px] md:h-[300.66px] w-[270px] h-[270px] lg:h-[414.66px] rounded-full"
@@ -11,7 +11,7 @@
         />
       </div>
     </div>
-    <div class="lg:mt-[48px] md:mt-[25px] mt-[14px]">
+    <div class="lg:mt-[48px] md:mt-[25px] mt-[14px] ssm:pl-6 md:pl-0">
       <h1
         class="text-[#FE005F] lg:text-[22px] md:text-[15px] text-[14px] lg:mb-[35px] md:mb-[8px] mb-[5px] shadow-title"
       >
@@ -65,7 +65,7 @@
         </ul>
       </div>
       <Button
-        class="lg:px-[40px] sm:mr-7 sm:px-[30px] sm:py-[5px] md:px-[40px] px-[17px] lg:py-[8px] md:py-[8px] py-[2px] rounded-[20px] lg:text-[12px] md:text-[9px] text-[7px] float-right md:mr-[35px] mr-[2px]"
+        class="lg:px-[40px] ssm:mr-7 ssm:px-[30px] ssm:mt-4 md:mt-0 ssm:py-[8px] md:px-[40px] px-[17px] lg:py-[8px] md:py-[8px] py-[2px] rounded-[20px] lg:text-[12px] md:text-[9px] text-[7px] float-right md:mr-[35px] mr-[2px]"
         type="gradient"
         data-te-toggle="modal"
         data-te-target="#appointmentFormModal"

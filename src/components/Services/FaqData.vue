@@ -1,0 +1,42 @@
+<template>
+  <div class="">
+    <div
+      class="px-5 rounded-md text-[#000] py-4 bg-gray-100 flex justify-between items-center"
+    >
+      <div class="">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+      <div class="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="h-6 w-6"
+          :class="[showDes ? 'rotate-180' : 'rotate-0']"
+          @click="showDes = !showDes"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="px-5 py-3 mt-3 border-2 rounded-lg" v-if="!showDes">
+      <div class="text-[15px]">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias beatae
+        consectetur magnam ducimus vel sit error? Vitae, a? magnam ducimus vel
+        sit error? Vitae, a?
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const showDes = ref(false);
+</script>
+
+<style lang="scss" scoped></style>

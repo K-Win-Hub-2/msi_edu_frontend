@@ -34,4 +34,3 @@ export const countries = [
     name: "usa",
   },
 ];
-

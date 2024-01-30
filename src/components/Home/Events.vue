@@ -16,6 +16,7 @@ import "swiper/css/autoplay";
 import "swiper/css/effect-coverflow";
 import { events } from "../../mocks/events";
 import Button from "../partials/Button.vue";
+import axios from "axios";
 
 const start = ref(true);
 const end = ref(false);
@@ -36,22 +37,6 @@ const modules = [Pagination, Autoplay, EffectCoverflow];
 
 const onSwiper = (swiper) => {
   console.log(swiper);
-};
-
-const onSlideChange = (event) => {
-  currentActiveEvent.value = events[event.activeIndex];
-
-  if (event.isEnd) {
-    end.value = true;
-  } else {
-    end.value = false;
-  }
-
-  if (event.isBeginning) {
-    start.value = true;
-  } else {
-    start.value = false;
-  }
 };
 
 const swiperOptions = {
@@ -120,9 +105,38 @@ const onSearchClick = () => {
   console.log("searching");
 };
 
+// fetch data
+const comingSoonEvent = ref(null);
+const fetchData = async () => {
+  const res = await axios.get("latestEventList");
+  comingSoonEvent.value = res.data.latestEvent;
+  currentActiveEvent.value = res.data.latestEvent[0];
+};
+
+const onSlideChange = (event) => {
+  currentActiveEvent.value = comingSoonEvent.value[event.activeIndex];
+  console.log(currentActiveEvent.value);
+  console.log(currentActiveEvent.value);
+  if (event.isEnd) {
+    end.value = true;
+  } else {
+    end.value = false;
+  }
+
+  if (event.isBeginning) {
+    start.value = true;
+  } else {
+    start.value = false;
+  }
+};
+
+// setInterval(displayHello, 1000);
+
 onMounted(() => {
-  currentEvents.value = [...events];
-  currentActiveEvent.value = events[0];
+  fetchData();
+
+  // currentEvents.value = [...comingSoonEvent];
+  currentActiveEvent.value = comingSoonEvent[0];
   currentCountries.value = [...countries];
   // currentUniversities.value = [...universities];
   // filters.value.university = currentUniversities.value[0];
@@ -154,8 +168,10 @@ onMounted(() => {
         :grabCursor="false"
         :centeredSlides="true"
         id="homeEventSwiper"
+        class="w-[1300px]"
+        v-if="comingSoonEvent"
       >
-        <template v-for="event in currentEvents">
+        <template v-for="event in comingSoonEvent" :key="event.id">
           <swiper-slide class="my-3">
             <EventCard :event="event" class="w-[500px]" />
           </swiper-slide>
@@ -166,29 +182,35 @@ onMounted(() => {
       class="swiper-home-event-pagination mx-auto flex justify-center h-[50px]"
     ></div>
     <div
+      v-if="currentActiveEvent"
       class="grid grid-cols-4 p-3 gap-3 w-[500px] ml-[68px] cus-glass-card cus-rounded mb-6"
     >
       <div class="col-span-1">
         <div class="p-2 flex flex-col items-center">
           <div class="font-bold text-cus-primary-pale">
-            {{ getShortMonth(currentActiveEvent.date) }}
+            {{
+              new Date(currentActiveEvent.start_date).toLocaleString("en-US", {
+                month: "short",
+              })
+            }}
+            <!-- {{ getShortMonth(currentActiveEvent.start_date) }} -->
           </div>
-          <div class="font-bold">{{ getDay(currentActiveEvent.date) }}</div>
+          <div class="font-bold">
+            {{
+              new Date(currentActiveEvent.start_date).toLocaleString("en-US", {
+                day: "2-digit",
+              })
+            }}
+          </div>
         </div>
       </div>
       <div class="col-span-3 space-y-2">
         <h3 class="text-md font-semibold capitalize truncate">
           {{ currentActiveEvent.title }}
+          <p class="text-sm truncate-two text-wrap font-normal">
+            {{ currentActiveEvent.description }}
+          </p>
         </h3>
-
-        <p class="text-sm truncate-two" v-html="currentActiveEvent.brief"></p>
-        <!-- <div class="flex justify-end">
-            <router-link
-              class="inline-block p-2 border border-black"
-              :to="{ name: 'events.detail', params: { id: props.event.id } }"
-              >See More ...</router-link
-            >
-          </div> -->
       </div>
     </div>
   </div>

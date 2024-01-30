@@ -1,26 +1,36 @@
 <template>
-  <div class="flex justify-center mt-36">
-    <div class="w-[719px] shadow-2xl rounded-2xl lg:px-9 lg:py-9 border mb-28">
-      <h1 class="text-cus-primary text-[24px]">
-        Appointment Confirmed With MSI Education
-      </h1>
-      <div class="border border-[#2e4b62] flex justify-center py-[60px] mt-14">
-        <div class="flex justify-between items-center">
-          <img src="../../assets/img/scholarship/CalendarCheck.svg" alt="" />
-          <div class="space-y-2">
-            <p class="text-[20px] text-[#0E314E] font-[500]">10 March 2024</p>
-            <p class="text-[20px] text-[#0E314E] font-[500]">12:50 PM</p>
+  <div class="relative">
+    <div
+      class="bg-[url(@/assets/img/scholarship/image.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute top-0 bottom-0"
+    ></div>
+    <div class="flex justify-center mt-36 relative z-40">
+      <div
+        class="w-[719px] shadow-2xl rounded-2xl lg:px-9 lg:py-9 border mb-28"
+      >
+        <h1 class="text-cus-primary text-[24px]">
+          Appointment Confirmed With MSI Education
+        </h1>
+        <div
+          class="border border-[#2e4b62] flex justify-center py-[60px] mt-14"
+        >
+          <div class="flex justify-between items-center">
+            <img src="../../assets/img/scholarship/CalendarCheck.svg" alt="" />
+            <div class="space-y-2">
+              <p class="text-[20px] text-[#0E314E] font-[500]">10 March 2024</p>
+              <p class="text-[20px] text-[#0E314E] font-[500]">12:50 PM</p>
+            </div>
           </div>
         </div>
+        <hr class="mt-20 text-black" />
+        <button
+          class="bg-gray-600 text-white px-5 py-2 rounded-md float-right mt-4"
+        >
+          Close
+        </button>
       </div>
-      <hr class="mt-20 text-black" />
-      <button
-        class="bg-gray-600 text-white px-5 py-2 rounded-md float-right mt-4"
-      >
-        Close
-      </button>
     </div>
   </div>
+
   <!-- <div>
         <h3 class="mb-6 text-xl font-bold">Select Time</h3>
         <div class="grid grid-cols-3 gap-3">

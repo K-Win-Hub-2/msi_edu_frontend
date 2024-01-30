@@ -1,7 +1,7 @@
 <template>
-  <div class="mb-[90px]">
+  <div class="md:mb-[90px] ssm:mb-3">
     <div class="">
-      <div class="py-[90px]">
+      <div class="lg:py-[70px] md:py-[20px]">
         <h1
           class="text-[#FE005F] lg:text-[40px] md:text-[28px] text-[20px] shadow-text leading-[43.5px] text-center md:font-[600] font-[530] lg:font-[700]"
         >
@@ -16,7 +16,9 @@
     </div>
     <div class="flex justify-evenly items-center">
       <!-- carousel start -->
-      <div class="relative container lg:min-w-[1350px] min-w-[600px]">
+      <div
+        class="relative container lg:min-w-[1350px] md:min-w-[700px] ssm:max-w-[310px]"
+      >
         <swiper
           :pagination="{
             clickable: true,
@@ -25,81 +27,46 @@
           :breakpoints="swiperOptions.breakpoints"
           :navigation="swiperOptions.navigation"
           :modules="modules"
-          class="mySwiper"
+          class="mySwiper -mx-10"
+          v-if="scholarshipChunks"
         >
           <!-- slider one -->
-          <swiper-slide class="flex justify-center py-12">
+          <swiper-slide
+            class="flex justify-center py-12"
+            v-for="schlorships in scholarshipChunks"
+            :key="schlorships.id"
+          >
             <div
-              class="lg:max-w-[1350px] min-w-[600px] lg:min-w-[1350px] h-[346]"
+              class="lg:max-w-[1350px] md:min-w-[700px] lg:min-w-[1350px] ssm:max-w-[310px]"
             >
               <div
-                class="flex flex-wrap justify-center md:gap-x-[12px] sm:gap-x-6 lg:gap-8 gap-y-[69px]"
+                class="flex flex-wrap justify-center md:gap-x-[12px] sm:gap-x-6 lg:gap-8 md:gap-y-[15px] ssm:gap-y-4 lg:gap-y-[69px]"
               >
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide class="flex justify-center py-12">
-            <div
-              class="lg:max-w-[1094px] min-w-[600px]gap-x-6 lg:min-w-[1094px] h-[346]"
-            >
-              <div
-                class="flex flex-wrap justify-center md:gap-x-[12px] sm:gap-x-6 lg:gap-8 gap-y-[69px]"
-              >
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide class="flex justify-center py-12">
-            <div
-              class="lg:max-w-[1094px] min-w-[600px]gap-x-6 lg:min-w-[1094px] h-[346]"
-            >
-              <div
-                class="flex flex-wrap justify-center md:gap-x-[12px] sm:gap-x-6 lg:gap-8 gap-y-[69px]"
-              >
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
+                <div
+                  class=""
+                  v-for="scholarship in schlorships"
+                  :key="scholarship.id"
+                >
+                  <BusinessCard :data="scholarship" />
+                </div>
               </div>
             </div>
           </swiper-slide>
         </swiper>
         <div
-          class="swiper-business-card-30-50-button-prev-unique sm:hidden md:block absolute left-0 top-1/2 -translate-y-1/2"
+          class="swiper-business-card-30-50-button-prev-unique sm:hidden md:block absolute lg:left-0 md:-left-10 top-1/2 -translate-y-1/2"
         >
           <ChevronLeftIcon
             :class="{ 'opacity-50': start }"
-            class="w-12 h-12 text-cus-primary cursor-pointer"
+            class="w-12 h-12 text-cus-primary cursor-pointer md:block ssm:hidden"
           />
         </div>
         <div
-          class="swiper-business-card-30-50-button-next-unique absolute sm:hidden md:block right-0 top-1/2 -translate-y-1/2"
+          class="swiper-business-card-30-50-button-next-unique absolute sm:hidden md:block lg:right-0 md:-right-10 top-1/2 -translate-y-1/2"
         >
           <ChevronRightIcon
             :class="{ 'opacity-50': end }"
-            class="w-12 h-12 text-cus-primary cursor-pointer"
+            class="w-12 h-12 text-cus-primary cursor-pointer ssm:hidden md:block"
           />
         </div>
       </div>
@@ -114,7 +81,8 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
 import { Pagination, Navigation } from "swiper";
 import SliderScho from "./SliderScho.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import axios from "axios";
 const modules = [Navigation, Pagination];
 
 const start = ref(true);
@@ -161,6 +129,33 @@ const swiperOptions = {
     prevEl: ".swiper-business-card-30-50-button-prev-unique",
   },
 };
+
+const fetchData = async () => {
+  try {
+    const res = await axios.get(
+      "http://adminpanel.msieducation.edu.mm/api/scholarship-achievers/scholar-type/3"
+    );
+    console.log(res);
+    return res.data.scholarAchiever;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
+};
+
+const limit = 7;
+const scholarshipChunks = ref([]);
+const scholarships = ref([]);
+
+const chunkScholarships = () => {
+  for (let i = 0; i < scholarships.value.length; i += limit) {
+    scholarshipChunks.value.push(scholarships.value.slice(i, i + limit));
+  }
+};
+onMounted(async () => {
+  scholarships.value = await fetchData();
+  chunkScholarships();
+});
 </script>
 
 <style></style>

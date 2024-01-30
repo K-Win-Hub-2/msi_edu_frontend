@@ -1,5 +1,7 @@
 <template>
-  <div class="w-[517px] h-[320px] card-achiever py-[94px] px-[32px]">
+  <div
+    class="md:w-[517px] md:h-[320px] card-achiever md:py-[94px] ssm:py-[40px] md:px-[32px]"
+  >
     <div class="flex items-center">
       <div class="w-[131px] h-[131px]">
         <img
@@ -8,7 +10,7 @@
           alt=""
         />
       </div>
-      <div class="ml-[35px]">
+      <div class="md:ml-[35px] ssm:ml-4">
         <h1
           class="text-[#205887] text-[15px] font-[600] uppercase shadow-title"
         >

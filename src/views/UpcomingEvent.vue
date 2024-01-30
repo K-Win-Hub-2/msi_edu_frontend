@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto lg:my-32 md:my-24 ssm:my-10" v-if="events">
+  <div class="container mx-auto lg:my-32 md:my-24 ssm:my-10" v-if="data">
     <div class="">
       <h1
         class="text-cus-primary text-md font-semibold underline ssm:text-center md:text-start"
@@ -11,7 +11,7 @@
       >
         <div
           class="flex ssm:mx-3 sm:mx-9 ms:mx-10 md:mx-0"
-          v-for="event in events"
+          v-for="event in data.latestEvent"
           :key="event"
         >
           <UpcomingEventCard :event="event" />
@@ -48,28 +48,32 @@
 import axios from "axios";
 import { computed, onMounted, ref } from "vue";
 import UpcomingEventCard from "../components/Events/UpcomingEventCard.vue";
+import getData from "../axios/getData";
 const events = ref(null);
 const yangon = ref(true);
 const yangonEvent = ref([]);
 const mandalayEvent = ref([]);
-const fetchEvent = async () => {
-  const res = await axios.get(
-    "http://adminpanel.msieducation.edu.mm/api/latestEventList"
-  );
-  if (res) {
-    events.value = res.data.latestEvent;
-    events.value.map((event) => {
-      if (event.event_location_id == 1) {
-        yangonEvent.value.push(event);
-      } else {
-        mandalayEvent.value.push(event);
-      }
-    });
-  }
-};
+const url = ref("latestEventList");
+const { data, fetchData } = getData();
+
+// const fetchEvent = async () => {
+//   const res = await axios.get(
+//     "http://adminpanel.msieducation.edu.mm/api/latestEventList"
+//   );
+//   if (res) {
+//     events.value = res.data.latestEvent;
+//     events.value.map((event) => {
+//       if (event.event_location_id == 1) {
+//         yangonEvent.value.push(event);
+//       } else {
+//         mandalayEvent.value.push(event);
+//       }
+//     });
+//   }
+// };
 
 onMounted(() => {
-  fetchEvent();
+  fetchData(url.value);
 });
 </script>
 

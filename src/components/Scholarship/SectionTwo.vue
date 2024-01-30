@@ -1,17 +1,17 @@
 <template>
   <div class="">
     <h1
-      class="text-center mt-[110px] lg:text-[40px] md:text-[32px] text-[24px] shadow-title text-cus-primary uppercase lg:font-[700] md:font-[600] font-[510]"
+      class="text-center lg:mt-[110px] md:mt-[50px] lg:text-[40px] md:text-[32px] text-[24px] shadow-title text-cus-primary uppercase lg:font-[700] md:font-[600] font-[510]"
     >
       SCHOLARSHIP ACHIEVERS
     </h1>
     <h1
-      class="md:mt-[24px] lg:mt-[20px] mt-[16px] lg:text-[32px] md:text-[24px] text-[20px] shadow-title text-[#FE005F] text-center lg:mb-[133px] md:mb-[100px] uppercase font-semibold"
+      class="md:mt-[24px] lg:mt-[20px] mt-[16px] lg:text-[32px] md:text-[24px] text-[20px] shadow-title text-[#FE005F] text-center lg:mb-[133px] md:mb-[40px] ssm:mb-[10px] uppercase font-semibold"
     >
       100 % SCHOLARSHIP ACHIEVERS
     </h1>
     <div
-      class="flex justify-evenly items-center lg:min-w-[1300px] container relative"
+      class="flex justify-between items-center lg:min-w-[1300px] ssm:max-w-[320px] sm:w-auto overflow-hidden container relative"
     >
       <swiper
         :pagination="{
@@ -23,7 +23,7 @@
         @slideChange="onSlideChange"
         :navigation="swiperOptions.navigation"
         :modules="modules"
-        class="mySwiper flex justify-center lg:min-w-[1100px]"
+        class="mySwiper flex justify-center lg:min-w-[1100px] ssm:max-w-[320px]"
       >
         <!-- slider one -->
         <swiper-slide class="flex justify-center py-12">
@@ -45,7 +45,7 @@
       >
         <ChevronLeftIcon
           :class="{ 'opacity-50': start }"
-          class="w-12 h-12 text-cus-primary"
+          class="w-12 h-12 text-cus-primary ssm:hidden md:block"
         />
       </div>
       <div
@@ -53,7 +53,7 @@
       >
         <ChevronRightIcon
           :class="{ 'opacity-50': end }"
-          class="w-12 h-12 text-cus-primary"
+          class="w-12 h-12 text-cus-primary ssm:hidden md:block"
         />
       </div>
     </div>

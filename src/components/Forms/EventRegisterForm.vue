@@ -309,7 +309,7 @@ const registeredEvents = ref(null);
 const fetchData = async () => {
   const res = await eventStore.fetchEvent();
   events.value = res.data.latestEvent;
-  events.value.map((event) => {
+  res.data.latestEvent.map((event) => {
     if (props.id == event.id) {
       currentEvent.value = event;
     }
@@ -386,7 +386,6 @@ const handleRegister = async () => {
 onMounted(() => {
   registerList();
   fetchData();
-  getTestimonial();
 });
 </script>
 

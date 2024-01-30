@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 import "vue-toast-notification/dist/theme-bootstrap.css"; //notification
 import WOW from "wow.js";
+import "../src/axios/index";
 
 import App from "./App.vue";
 import router from "./router";

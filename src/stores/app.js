@@ -5,6 +5,7 @@ export const useAppStore = defineStore("app", {
   state: () => {
     return {
       navbar: false,
+      scholarshipDetail: false,
     };
   },
   actions: {},

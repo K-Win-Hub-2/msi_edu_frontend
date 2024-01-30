@@ -1,9 +1,9 @@
 <template>
   <div
-    class="w-full text-2xl text-cus-primary uppercase mt-20 font-semibold mb-32 bg-[#FFFFFF]"
+    class="w-full text-2xl text-cus-primary uppercase lg:mt-20 md:mt-10 font-semibold lg:mb-32 md:mb-10 bg-[#FFFFFF]"
   >
     <h1
-      class="text-center lg:text-[48px] md:text-[32px] shadow-title lg:mb-[120px] md:mb-[100px]"
+      class="text-center lg:text-[48px] md:text-[32px] shadow-title lg:mb-[120px] md:mb-[30px]"
     >
       AVAILABLE SCHOLARSHIPS
     </h1>
@@ -38,7 +38,7 @@
       >
         <ChevronLeftIcon
           :class="{ 'opacity-50': start }"
-          class="w-12 h-12 text-cus-primary"
+          class="w-12 h-12 text-cus-primary ssm:hidden md:block"
         />
       </div>
       <div
@@ -46,7 +46,7 @@
       >
         <ChevronRightIcon
           :class="{ 'opacity-50': end }"
-          class="w-12 h-12 text-cus-primary"
+          class="w-12 h-12 text-cus-primary ssm:hidden md:block"
         />
       </div>
     </div>

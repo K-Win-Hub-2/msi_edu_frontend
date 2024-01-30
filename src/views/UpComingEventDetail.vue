@@ -95,7 +95,7 @@
           </div>
         </div>
       </div>
-      <div class="container md:mt-14 ssm:mt-8 overflow-hidden">
+      <div class="container md:mt-14 ssm:mt-8">
         <h1
           class="md:text-lg ssm:mx-5 ssm:text-md text-cus-primary font-semibold text-shadow-lg"
         >
@@ -115,7 +115,7 @@
                 @slideChange="onSlideChange"
                 :navigation="swiperOptions.navigation"
                 :modules="modules"
-                class="mySwiper flex lg:min-w-[1050px] lg:max-w-[1050px]"
+                class="mySwiper flex lg:min-w-[1050px] md:min-w-[800px] ssm:max-w-[300px] sm:max-w-[320px] lg:max-w-[1050px]"
               >
                 <swiper-slide
                   class="flex justify-center py-12 w-full"
@@ -123,7 +123,7 @@
                   :key="event.id"
                 >
                   <div
-                    class="sm:min-w-[313px] ssm:min-w-[270px] sm:ml-3 ssm:ml-7 min-h-[254px] oldEventCard"
+                    class="sm:min-w-[313px] ssm:min-w-[270px] min-h-[254px] oldEventCard"
                   >
                     <router-link
                       :to="{
@@ -135,7 +135,7 @@
                         <div class="mt-2">
                           <img
                             :src="event.imageURL"
-                            class="sm:w-[300px] ssm:w-[278px] rounded-md ssm:mx-4 sm:mx-0 h-[200px]"
+                            class="sm:w-[300px] ssm:w-[290px] rounded-md sm:mx-0 h-[200px]"
                             alt=""
                           />
                           <h1 class="text-sm ssm:ml-4 sm:mx-0 mt-2">
@@ -169,7 +169,7 @@
               >
                 <ChevronLeftIcon
                   :class="{ 'opacity-50': start }"
-                  class="w-12 h-12 text-cus-primary"
+                  class="w-12 h-12 text-cus-primary ssm:hidden md:block"
                 />
               </div>
               <div
@@ -177,7 +177,7 @@
               >
                 <ChevronRightIcon
                   :class="{ 'opacity-50': end }"
-                  class="w-12 h-12 text-cus-primary"
+                  class="w-12 h-12 text-cus-primary ssm:hidden md:block"
                 />
               </div>
             </div>
@@ -246,20 +246,35 @@ const router = useRouter();
 const currentEvent = ref({});
 const moreEvents = ref([]);
 
-// fetch each product
-
 const fetchData = async () => {
   const res = await eventStore.fetchEvent();
   events.value = res.data.latestEvent;
-  events.value.map((event) => {
+  res.data.latestEvent.map((event) => {
     if (props.id == event.id) {
       currentEvent.value = event;
     } else {
-      moreEvents.value = [];
-      setInterval(moreEvents.value.push(event), 120);
+      const existingEvent = moreEvents.value.find(
+        (existingEvent) => existingEvent.id === event.id
+      );
+      if (!existingEvent) {
+        moreEvents.value.push(event);
+      }
     }
   });
 };
+
+// const fetchData = async () => {
+//   const res = await eventStore.fetchEvent();
+//   events.value = res.data.latestEvent;
+//   res.data.latestEvent.map((event) => {
+//     if (props.id == event.id) {
+//       currentEvent.value = event;
+//     } else {
+//       moreEvents.value.push(event);
+//       // setInterval(moreEvents.value.push(event), 40);
+//     }
+//   });
+// };
 
 // const fetchEvents = ({ id }) => {
 //   moreEvents.value = [];
@@ -314,7 +329,7 @@ const swiperOptions = {
     },
     // when window width is >= 480px
     768: {
-      slidesPerView: 1,
+      slidesPerView: 2,
     },
     // when window width is >= 640px
     1024: {

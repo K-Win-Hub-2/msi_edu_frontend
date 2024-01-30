@@ -1,10 +1,15 @@
 <template>
-  <h1
-    class="md:cus-heading ssm:text-md ssm:font-semibold text-white bg-cus-primary-pale text-center rounded-lg"
-  >
-    Frequently Asked Questions
-  </h1>
-
+  <div class="border-2 rounded-lg h-auto overflow-hidden">
+    <h1
+      class="md:cus-heading ssm:text-md ssm:font-semibold text-white bg-[#8BB5FC] text-center"
+    >
+      Frequently Asked Questions
+    </h1>
+    <div class="py-6 px-4">
+      <FaqData />
+    </div>
+  </div>
+  <!-- 
   <div id="accordionExample">
     <template v-for="question in questions">
       <div class="border border-neutral-200 bg-white rounded-2xl shadow-2xl">
@@ -54,10 +59,11 @@
         </div>
       </div>
     </template>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
+import FaqData from "./FaqData.vue";
 const questions = [
   {
     id: "headingOne",

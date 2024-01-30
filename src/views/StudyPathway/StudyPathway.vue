@@ -37,22 +37,33 @@
             :navigation="swiperOptions.navigation"
             :modules="modules"
             class="mySwiper flex justify-center xl:w-[930px] md:w-[590px] ssm:w-[320px]"
+            v-if="data"
           >
             <!-- slider one -->
-            <swiper-slide class="flex justify-center py-12 w-full">
+            <swiper-slide
+              class="flex justify-center py-12 w-full"
+              v-for="uni in data.university"
+              :key="uni.id"
+            >
               <div
                 class="w-[315px] h-[337px] px-3 py-2 rounded-lg shadow-lg bg-white"
               >
                 <img
-                  class="rounded-lg"
-                  src="https://img.freepik.com/free-photo/harvard-university-cambridge-usa_1268-14363.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705276800&semt=sph"
+                  class="rounded-lg h-[155px] w-full"
+                  :src="uni.imageURL"
                   alt=""
                 />
                 <h1 class="text-[16px] font-semibold mt-3">
-                  Carnegie Mellon University
+                  {{ uni.university_name }}
                 </h1>
                 <p class="mt-2">This is intro</p>
-                <div class="flex justify-center mt-3">
+                <router-link
+                  :to="{
+                    name: 'universities.detail',
+                    params: { id: uni.id },
+                  }"
+                  class="flex justify-center mt-3"
+                >
                   <Button
                     class="px-[26px] py-[6px] text-[16px] float-right"
                     type="gradient"
@@ -62,61 +73,7 @@
                     data-te-ripple-color="light"
                     >See More</Button
                   >
-                </div>
-              </div>
-            </swiper-slide>
-            <!-- slider two -->
-            <swiper-slide class="flex justify-center py-12 w-full">
-              <div
-                class="w-[315px] h-[337px] px-3 py-2 rounded-lg shadow-lg bg-white"
-              >
-                <img
-                  class="rounded-lg"
-                  src="https://img.freepik.com/free-photo/harvard-university-cambridge-usa_1268-14363.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705276800&semt=sph"
-                  alt=""
-                />
-                <h1 class="text-[16px] font-semibold mt-3">
-                  Carnegie Mellon University
-                </h1>
-                <p class="mt-2">This is intro</p>
-                <div class="flex justify-center mt-3">
-                  <Button
-                    class="px-[26px] py-[6px] text-[16px] float-right"
-                    type="gradient"
-                    data-te-toggle="modal"
-                    data-te-target="#appointmentFormModal"
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                    >See More</Button
-                  >
-                </div>
-              </div>
-            </swiper-slide>
-            <!-- slider -->
-            <swiper-slide class="flex justify-center py-12 w-full">
-              <div
-                class="w-[315px] h-[337px] px-3 py-2 rounded-lg shadow-lg bg-white"
-              >
-                <img
-                  class="rounded-lg"
-                  src="https://img.freepik.com/free-photo/harvard-university-cambridge-usa_1268-14363.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705276800&semt=sph"
-                  alt=""
-                />
-                <h1 class="text-[16px] font-semibold mt-3">
-                  Carnegie Mellon University
-                </h1>
-                <p class="mt-2">This is intro</p>
-                <div class="flex justify-center mt-3">
-                  <Button
-                    class="px-[26px] py-[6px] text-[16px] float-right"
-                    type="gradient"
-                    data-te-toggle="modal"
-                    data-te-target="#appointmentFormModal"
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                    >See More</Button
-                  >
-                </div>
+                </router-link>
               </div>
             </swiper-slide>
           </swiper>
@@ -174,6 +131,9 @@ const modules = [Navigation, Pagination];
 import MySwiper from "@/components/MySwiper.vue";
 import { onMounted, ref } from "vue";
 import axios from "axios";
+import getData from "../../axios/getData";
+const { fetchData, data } = getData();
+const url = ref("university-lists/feature/yes");
 
 // swiper
 const start = ref(true);
@@ -219,6 +179,12 @@ const swiperOptions = {
     prevEl: ".swiper-event-more-list-button-prev-unique",
   },
 };
+
+// fetch data
+
+onMounted(() => {
+  fetchData(url.value);
+});
 </script>
 
 <style lang="scss" scoped></style>

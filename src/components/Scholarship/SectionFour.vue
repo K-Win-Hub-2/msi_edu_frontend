@@ -1,14 +1,14 @@
 <template>
   <div class="mb-12">
     <div class="">
-      <div class="py-[90px]">
+      <div class="lg:pt-[90px] lg:pb-[40px] md:py-[30px] ssm:pt-[20px]">
         <h1
           class="text-[#FE005F] lg:text-[48px] md:text-[32px] text-[24px] leading-[43.5px] text-center md:font-[600] font-[530] shadow-title"
         >
-          25%, 80% SCHOLARSHIP ACHIEVERS
+          25%, 50% SCHOLARSHIP ACHIEVERS
         </h1>
         <h1
-          class="text-[#205887] lg:text-[32px] md:text-[24px] text-[20px] py-6 leading-[43.5px] text-center md:font-[600] lg:font-[700] font-[530] uppercase shadow-title"
+          class="text-[#205887] lg:text-[32px] md:text-[24px] text-[20px] lg:py-6 md:py-3 leading-[43.5px] text-center md:font-[600] lg:font-[700] font-[530] uppercase shadow-title"
         >
           UON KDU university (MALAYSIA)
         </h1>
@@ -17,7 +17,7 @@
     <div class="flex justify-evenly items-center">
       <!-- carousel start -->
       <div class="relative container lg:min-w-[1350px]">
-        <swiper
+        <!-- <swiper
           :pagination="{
             clickable: true,
           }"
@@ -26,66 +26,61 @@
           :navigation="swiperOptions.navigation"
           :modules="modules"
           class="mySwiper"
-        >
-          <!-- slider one -->
-          <swiper-slide class="flex justify-center py-12">
+        > -->
+        <!-- slider one -->
+        <div class="flex justify-center py-12">
+          <div
+            class="lg:max-w-[1350px] max-w-[610px] lg:min-w-[1350px] md:min-w-[850px]"
+          >
             <div
-              class="lg:max-w-[1350px] max-w-[610px] lg:min-w-[1350px] h-[346]"
+              v-if="data"
+              class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-8 md:gap-y-[15px] ssm:gap-y-[15px] lg:gap-y-[69px]"
             >
-              <div
-                class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-8 gap-y-[69px]"
-              >
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
+              <div class="" v-for="data in data.scholarAchiever" :key="data.id">
+                <BusinessCard2550 :data="data" />
               </div>
             </div>
-          </swiper-slide>
-          <swiper-slide class="flex justify-center py-12">
+          </div>
+        </div>
+        <!-- <swiper-slide class="flex justify-center py-12">
+          <div
+            class="lg:max-w-[1094px] max-w-[610px] lg:min-w-[1094px] h-[346]"
+          >
             <div
-              class="lg:max-w-[1094px] max-w-[610px] lg:min-w-[1094px] h-[346]"
+              class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-8 gap-y-[69px]"
             >
-              <div
-                class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-8 gap-y-[69px]"
-              >
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-              </div>
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
             </div>
-          </swiper-slide>
-          <swiper-slide class="flex justify-center py-12">
+          </div>
+        </swiper-slide> -->
+        <!-- <swiper-slide class="flex justify-center py-12">
+          <div
+            class="lg:max-w-[1094px] max-w-[610px] lg:min-w-[1094px] h-[346]"
+          >
             <div
-              class="lg:max-w-[1094px] max-w-[610px] lg:min-w-[1094px] h-[346]"
+              class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-8 gap-y-[69px]"
             >
-              <div
-                class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-8 gap-y-[69px]"
-              >
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-              </div>
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
+              <BusinessCard />
             </div>
-          </swiper-slide>
-        </swiper>
+          </div>
+        </swiper-slide> -->
+        <!-- </swiper>
         <div
           class="swiper-business-card-button-prev-unique absolute sm:hidden md:block left-0 md:left-4 top-1/2 -translate-y-1/2"
         >
@@ -101,7 +96,7 @@
             :class="{ 'opacity-50': end }"
             class="w-12 h-12 text-cus-primary cursor-pointer"
           />
-        </div>
+        </div> -->
       </div>
       <!-- carousel end -->
     </div>
@@ -109,13 +104,17 @@
 </template>
 
 <script setup>
+import BusinessCard2550 from "../../components/Scholarship/ScholarBusineesCard/BusinessCard2550.vue";
 import BusinessCard from "./BusinessCard.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
 import { Pagination, Navigation } from "swiper";
 import SliderScho from "./SliderScho.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import getData from "../../axios/getData";
 const modules = [Navigation, Pagination];
+const url = ref("scholarship-achievers/scholar-type/1");
+const { data, fetchData } = getData();
 
 const start = ref(true);
 const end = ref(false);
@@ -161,6 +160,9 @@ const swiperOptions = {
     prevEl: ".swiper-business-card-button-prev-unique",
   },
 };
+onMounted(() => {
+  fetchData(url.value);
+});
 </script>
 
 <style>

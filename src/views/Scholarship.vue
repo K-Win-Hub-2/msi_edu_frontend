@@ -24,31 +24,34 @@
     <!-- carousel end -->
 
     <!-- achiever -->
-    <SectionTwo />
+    <!-- <SectionTwo /> -->
     <!-- achiever end -->
 
     <!-- 50% SCHOLARSHIP Section start -->
-    <!-- <SectionThree /> -->
+    <SectionThree />
     <!-- 50% SCHOLARSHIP Section end -->
 
     <!-- 25%,50% SCHOLARSHIP Section start -->
-    <!-- <SectionFour /> -->
+    <SectionFour />
     <!-- 25%,50% SCHOLARSHIP Section end -->
 
     <!-- 25%,80% SCHOLARSHIP Section start -->
     <SectionFive />
     <!-- 25%,80% SCHOLARSHIP Section end -->
     <!-- 30%,50% SCHOLARSHIP Section start -->
-    <!-- <SectionSix /> -->
+    <SectionSix />
+    <!-- 30%,50% SCHOLARSHIP  Section end -->
+    <!-- 30%,50% SCHOLARSHIP Section start -->
+    <MBAScholarShip />
     <!-- 30%,50% SCHOLARSHIP  Section end -->
     <!-- Study Grant 1500 1400 start -->
-    <!-- <SectionSeven /> -->
+    <SectionSeven />
     <!-- 3Study Grant 1500 1400  end -->
     <!-- Study Grant 2000 5000  start -->
-    <!-- <SectionEight /> -->
+    <SectionEight />
     <!-- 3Study Grant 2000 5000  end -->
     <!-- cny 4500-9000  start -->
-    <!-- <SectionNine /> -->
+    <SectionNine />
     <!-- cny 4500-9000  end -->
   </div>
 </template>
@@ -65,6 +68,7 @@ import SectionSeven from "../components/Scholarship/SectionSeven.vue";
 import SectionEight from "../components/Scholarship/SectionEight.vue";
 import SectionNine from "../components/Scholarship/SectionNine.vue";
 import Button from "../components/partials/Button.vue";
+import MBAScholarShip from "../components/Scholarship/MBAScholarShip.vue";
 </script>
 
 <style>

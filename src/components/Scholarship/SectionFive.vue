@@ -1,11 +1,11 @@
 <template>
-  <div class="mb-[90px]">
+  <div class="">
     <div class="">
-      <div class="py-[90px]">
+      <div class="lg:pt-[15px] md:pt-[10px] ssm:py-5 md:pb-[20px] lg:pb-[40px]">
         <h1
           class="text-[#FE005F] lg:text-[40px] md:text-[32px] text-[24px] shadow-title leading-[43.5px] text-center md:font-[600] font-[700]"
         >
-          25%, 50% SCHOLARSHIP ACHIEVERS
+          20%, 80% SCHOLARSHIP ACHIEVERS
         </h1>
         <h1
           class="text-[#205887] py-8 lg:text-[32px] md:text-[24px] text-[20px] shadow-title leading-[43.5px] text-center md:font-[600] lg:font-[700] font-[530] uppercase"
@@ -17,7 +17,9 @@
     <div class="flex justify-evenly items-center">
       <div class="">
         <!-- carousel start -->
-        <div class="relative container lg:min-w-[1350px] min-w-[600px]">
+        <div
+          class="relative container lg:min-w-[1350px] md:min-w-[700px] ssm:max-w-[310px] overflow-hidden"
+        >
           <swiper
             :pagination="{
               clickable: true,
@@ -26,7 +28,8 @@
             :breakpoints="swiperOptions.breakpoints"
             :navigation="swiperOptions.navigation"
             :modules="modules"
-            class="mySwiper"
+            class="mySwiper -mx-10"
+            v-if="scholarshipChunks"
           >
             <!-- slider one -->
             <swiper-slide
@@ -34,11 +37,9 @@
               v-for="schlorships in scholarshipChunks"
               :key="schlorships.id"
             >
-              <div
-                class="lg:max-w-[1350px] max-w-[700px] lg:min-w-[1350px] h-[346]"
-              >
+              <div class="lg:max-w-[1350px] lg:min-w-[1350px] md:min-w-[700px]">
                 <div
-                  class="flex flex-wrap justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-6 gap-y-[69px]"
+                  class="flex flex-wrap ssm:gap-y-4 justify-center md:gap-x-[12px] lg:gap-8 sm:gap-x-6 md:md:gap-[20px] lg:gap-y-[69px]"
                 >
                   <div
                     class=""
@@ -52,19 +53,19 @@
             </swiper-slide>
           </swiper>
           <div
-            class="swiper-business-card-button-prev-25-50-unique absolute sm:hidden md:block left-0 top-1/2 -translate-y-1/2"
+            class="swiper-business-card-button-prev-25-50-unique absolute sm:hidden md:block lg:left-0 md:-left-4 top-1/2 -translate-y-1/2"
           >
             <ChevronLeftIcon
               :class="{ 'opacity-50': start }"
-              class="w-12 h-12 text-cus-primary"
+              class="w-12 h-12 text-cus-primary ssm:hidden md:block"
             />
           </div>
           <div
-            class="swiper-business-card-button-next-25-50-unique absolute sm:hidden md:block right-0 top-1/2 -translate-y-1/2"
+            class="swiper-business-card-button-next-25-50-unique absolute sm:hidden md:block lg:right-0 md:-right-3 top-1/2 -translate-y-1/2"
           >
             <ChevronRightIcon
               :class="{ 'opacity-50': end }"
-              class="w-12 h-12 text-cus-primary"
+              class="w-12 h-12 text-cus-primary ssm:hidden md:block"
             />
           </div>
         </div>
@@ -133,8 +134,9 @@ const swiperOptions = {
 const fetchData = async () => {
   try {
     const res = await axios.get(
-      "http://adminpanel.msieducation.edu.mm/api/scholarship-achievers/1"
+      "http://adminpanel.msieducation.edu.mm/api/scholarship-achievers/scholar-type/2"
     );
+    console.log(res);
     return res.data.scholarAchiever;
   } catch (error) {
     console.error("Error fetching data:", error);

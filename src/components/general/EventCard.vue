@@ -1,12 +1,16 @@
 <template>
   <div class="shrink-0 m-3">
     <router-link
-      :to="{ name: 'events.detail', params: { id: props.event.id } }"
+      :to="{ name: 'event.upcomingDetail', params: { id: props.event.id } }"
     >
       <div
         class="bg-white border cus-standout overflow-hidden hover:border-black transition"
       >
-        <img :src="props.event.image" alt="" class="border-b select-none" />
+        <img
+          :src="props.event.imageURL"
+          alt=""
+          class="border-b w-[600px] h-[300px] select-none"
+        />
         <div class="grid grid-cols-4 p-3 gap-3" v-if="detail">
           <div class="col-span-1">
             <div class="p-2 flex flex-col items-center">

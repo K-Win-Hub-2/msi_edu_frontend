@@ -1,74 +1,179 @@
 <template>
-  <div class="flex justify-center">
+  <div class="relative">
     <div
-      class="w-[719px] shadow-md rounded-2xl mt-14 relative z-50 bg-[#E7F4FF] lg:px-14 lg:py-8 border mb-5"
-    >
-      <p class="text-green-500 text-center">Appointment has been added!</p>
+      class="bg-[url(@/assets/img/scholarship/image.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute top-0 bottom-0"
+    ></div>
+    <div class="flex justify-center relative">
+      <div
+        class="w-[719px] shadow-md rounded-2xl mt-14 relative z-50 bg-[#E7F4FF] lg:px-14 lg:py-8 border mb-5"
+      >
+        <p class="text-green-500 text-center">Appointment has been added!</p>
+      </div>
     </div>
-  </div>
-  <div class="flex justify-center mt-10">
-    <div class="w-[719px] shadow-2xl rounded-2xl lg:px-20 lg:py-8 border mb-28">
-      <form class="mt-20 border-b-2">
-        <div class="mb-5">
-          <label for="">Name</label> <br />
-          <input
-            type="text"
-            placeholder=" Name"
-            class="border-2 py-4 px-3 w-full border-gray-500 rounded-md"
-          />
-        </div>
-        <div class="mb-5">
-          <label for="">Email</label> <br />
-          <input
-            type="email"
-            placeholder=" Email"
-            class="border-2 py-4 px-3 w-full border-gray-500 rounded-md"
-          />
-        </div>
-        <div class="mx-auto">
-          <label for="zip-input" class="block mb-2 text-sm font-medium"
-            >Phone</label
-          >
-          <div class="relative">
-            <div
-              class="absolute inset-y-0 start-0 px-3 top-0 flex items-center ps-3.5 pointer-events-none border-r-2 border-gray-500"
-            >
-              <img
-                class="w-8 h-5"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/255px-Flag_of_Myanmar.svg.png"
-                alt=""
-              />
-              +95
-            </div>
+    <div class="flex justify-center mt-10 relative z-40">
+      <div
+        class="w-[719px] shadow-2xl rounded-2xl lg:px-20 lg:py-8 border mb-28"
+      >
+        <form class="mt-20 border-b-2">
+          <div class="mb-5">
+            <label for="">Name</label> <br />
             <input
-              type="number"
-              id="zip-input"
-              aria-describedby="helper-text-explanation"
-              class="bg-gray-50 py-4 pl-24 border-2 border-gray-500 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5"
-              placeholder="Phone"
-              pattern="^\d{5}(-\d{4})?$"
-              required
+              type="text"
+              placeholder=" Name"
+              class="border-2 py-4 px-3 w-full border-gray-500 rounded-md"
             />
           </div>
-        </div>
-        <Button
-          @click="confirm"
-          class="w-full text-center py-4 mt-16 flex justify-center mb-32"
-          type="gradient"
-          data-te-toggle="modal"
-          data-te-target="#appointmentFormModal"
-          data-te-ripple-init
-          data-te-ripple-color="light"
-          >Schedule Appointment</Button
+          <div class="mb-5">
+            <label for="">Email</label> <br />
+            <input
+              type="email"
+              placeholder=" Email"
+              class="border-2 py-4 px-3 w-full border-gray-500 rounded-md"
+            />
+          </div>
+          <div class="mx-auto">
+            <label for="zip-input" class="block mb-2 text-sm font-medium"
+              >Phone</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 start-0 px-3 top-0 flex items-center ps-3.5 pointer-events-none border-r-2 border-gray-500"
+              >
+                <img
+                  class="w-8 h-5"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/255px-Flag_of_Myanmar.svg.png"
+                  alt=""
+                />
+                +95
+              </div>
+              <input
+                type="number"
+                id="zip-input"
+                aria-describedby="helper-text-explanation"
+                class="bg-gray-50 py-4 border-2 pl-24 border-gray-500 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5"
+                placeholder="Contact Number"
+                required
+              />
+            </div>
+          </div>
+          <div class="flex mt-14 items-center gap-x-6">
+            <p>University specific</p>
+            <div class="ml-4 flex items-center gap-2">
+              <input type="radio" class="w-5 h-5" @click="university = true" />
+              <div class="">Yes</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="radio" class="w-5 h-5" @click="university = false" />
+              <div class="">No</div>
+            </div>
+          </div>
+          <div class="my-5" v-if="university">
+            <select
+              class="border-2 py-4 px-3 w-full border-gray-500 bg-gray-50 rounded-md"
+            >
+              <option class="text-[#717171]" value="" disabled selected>
+                Country
+              </option>
+            </select>
+          </div>
+
+          <div class="my-5" v-if="university">
+            <select
+              class="border-2 py-4 px-3 w-full border-gray-500 bg-gray-50 rounded-md"
+            >
+              <option class="text-[#717171]" value="" disabled selected>
+                University
+              </option>
+            </select>
+          </div>
+
+          <div class="flex mt-10 items-center gap-x-6">
+            <p>Course specific</p>
+            <div class="ml-9 flex items-center gap-2">
+              <input type="radio" class="w-5 h-5" @click="course = true" />
+              <div class="">Yes</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="radio" class="w-5 h-5" @click="course = false" />
+              <div class="">No</div>
+            </div>
+          </div>
+          <div class="my-5" v-if="course">
+            <select
+              class="border-2 py-4 px-3 w-full border-gray-500 bg-gray-50 rounded-md"
+            >
+              <option class="text-[#717171]" value="" disabled selected>
+                Program
+              </option>
+            </select>
+          </div>
+
+          <div class="my-5" v-if="course">
+            <select
+              class="border-2 py-4 px-3 w-full border-gray-500 bg-gray-50 rounded-md"
+            >
+              <option class="text-[#717171]" value="" disabled selected>
+                Course
+              </option>
+            </select>
+          </div>
+
+          <div class="flex mt-10 items-center gap-x-6">
+            <p>Scholarship specific</p>
+            <div class="flex items-center gap-2">
+              <input type="radio" class="w-5 h-5" @click="scholarship = true" />
+              <div class="">Yes</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <input
+                type="radio"
+                class="w-5 h-5"
+                @click="scholarship = false"
+              />
+              <div class="">No</div>
+            </div>
+          </div>
+          <div class="my-5" v-if="scholarship">
+            <select
+              class="border-2 py-4 px-3 w-full border-gray-500 bg-gray-50 rounded-md"
+            >
+              <option class="text-[#717171]" value="" disabled selected>
+                Scholarship
+              </option>
+            </select>
+          </div>
+
+          <div class="mb-5" v-if="scholarship">
+            <label for="">Inquiry Details</label> <br />
+            <textarea
+              name=""
+              id=""
+              cols="10"
+              rows="5"
+              class="border-2 px-3 w-full border-gray-500 bg-gray-50 rounded-md"
+            ></textarea>
+          </div>
+
+          <Button
+            @click="confirm"
+            class="w-full text-center py-4 mt-16 flex justify-center"
+            type="gradient"
+            data-te-toggle="modal"
+            data-te-target="#appointmentFormModal"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            >Schedule Appointment</Button
+          >
+        </form>
+        <button
+          class="bg-gray-600 text-white px-5 py-2 rounded-md float-right mt-3"
         >
-      </form>
-      <button
-        class="bg-gray-600 text-white px-5 py-2 rounded-md float-right mt-3"
-      >
-        Close
-      </button>
+          Close
+        </button>
+      </div>
     </div>
   </div>
+
   <!-- <div>
       <h3 class="mb-6 text-xl font-bold">Select Time</h3>
       <div class="grid grid-cols-3 gap-3">
@@ -126,6 +231,10 @@ const router = useRouter();
 const confirm = () => {
   router.push({ name: "appointment-confirm" });
 };
+
+const university = ref(false);
+const course = ref(false);
+const scholarship = ref(false);
 
 const date = ref(new Date());
 const selectedTime = ref("");

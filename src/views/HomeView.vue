@@ -9,6 +9,16 @@ import Testimonials from "../components/Home/Testimonials.vue";
 import Testimonials2 from "../components/Home/Testimonials2.vue";
 import Pathway from "../components/Home/Pathway.vue";
 import Facts from "../components/Home/Facts.vue";
+
+// var inputString = "hello,kha,khaing-htoo";
+
+// // Split the string by commas
+// var splitArray = inputString.split(",");
+
+// // Combine the last two elements into a single element
+// splitArray[2] = splitArray.slice(2).join(" ");
+
+// console.log(splitArray);
 </script>
 
 <template>

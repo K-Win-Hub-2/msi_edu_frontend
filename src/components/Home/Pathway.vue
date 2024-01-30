@@ -1,9 +1,9 @@
 <script setup>
-import Button from '@/components/partials/Button.vue';
-import { onMounted, ref } from 'vue';
-import { universities } from '../../mocks/universities';
-import { programs } from '../../mocks/programs';
-import Loading from '../general/Loading.vue';
+import Button from "@/components/partials/Button.vue";
+import { onMounted, ref } from "vue";
+import { universities } from "../../mocks/universities";
+import { programs } from "../../mocks/programs";
+import Loading from "../general/Loading.vue";
 
 const isLoading = ref(true);
 
@@ -12,8 +12,8 @@ const filters = ref({
 });
 
 const countries = {
-  singapore: 'Singapore',
-  thailand: 'Thailand',
+  singapore: "Singapore",
+  thailand: "Thailand",
 };
 
 const currentUniversities = ref([]);
@@ -45,7 +45,7 @@ const updateSelectedProgram = () => {
 };
 
 const handleCountrySelect = (payload) => {
-  if (payload.index !== 'country') {
+  if (payload.index !== "country") {
     filters.value.country = payload;
     updateCurrentCountries();
     updateSelectedUniversity();
@@ -55,11 +55,11 @@ const handleCountrySelect = (payload) => {
 };
 
 const handleUniversitySelect = (payload) => {
-  if(payload.index !== 'university') {
+  if (payload.index !== "university") {
     console.log(payload);
-  filters.value.uni = { name: payload.name, slug: payload.slug };
-  updateCurrentPrograms();
-  updateSelectedProgram();
+    filters.value.uni = { name: payload.name, slug: payload.slug };
+    updateCurrentPrograms();
+    updateSelectedProgram();
   }
 };
 
@@ -92,9 +92,8 @@ onMounted(() => {
         </h1>
       </div>
       <div class="flex flex-col sm:flex-row gap-6">
-        <div class="w-[160px]">
+        <div class="w-[180px]">
           <div class="relative" data-te-dropdown-ref>
-           
             <a
               class="w-full border text-md cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
               href="#"
@@ -105,7 +104,7 @@ onMounted(() => {
               data-te-ripple-init
               data-te-ripple-color="light"
             >
-              {{ filters?.country?.name ?? 'Country' }}
+              {{ filters?.country?.name ?? "Country" }}
               <span class="ml-2 w-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +137,7 @@ onMounted(() => {
             </ul>
           </div>
         </div>
-        <div class="w-[160px]">
+        <div class="w-[200px]">
           <div class="relative" data-te-dropdown-ref>
             <a
               class="w-full border cus-rounded bg-white flex items-center justify-between overflow-auto whitespace-nowrap px-6 pt-2.5 pb-2 text-md font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
@@ -150,7 +149,7 @@ onMounted(() => {
               data-te-ripple-init
               data-te-ripple-color="light"
             >
-              {{ filters?.uni?.name ?? 'University' }}
+              {{ filters?.uni?.name ?? "University" }}
               <span class="ml-2 w-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -177,14 +176,13 @@ onMounted(() => {
                   class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
                   data-te-dropdown-item-ref
                 >
-             
                   {{ uni.name }}
                 </div>
               </li>
             </ul>
           </div>
         </div>
-        <div class="w-[160px]">
+        <div class="w-[170px]">
           <div class="relative" data-te-dropdown-ref>
             <a
               class="w-full border cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 text-md font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
@@ -196,7 +194,7 @@ onMounted(() => {
               data-te-ripple-init
               data-te-ripple-color="light"
             >
-              {{ filters.program?.title ?? 'Program' }}
+              {{ filters.program?.title ?? "Program" }}
               <span class="ml-2 w-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
