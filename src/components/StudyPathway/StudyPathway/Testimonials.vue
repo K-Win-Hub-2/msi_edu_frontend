@@ -48,7 +48,7 @@
                 {{ testimonial.uni_name }}
               </p>
               <p class="text-[18px] font-bold text-cus-primary capitalize">
-                {{ testimonial.country_name }}
+                {{ testimonial.country?.name }}
               </p>
               <p class="text-[18px] font-bold text-cus-primary capitalize">
                 {{ testimonial.program_name }}

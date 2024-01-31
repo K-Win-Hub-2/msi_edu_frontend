@@ -1,14 +1,14 @@
 <script setup>
 import { useRouter } from "vue-router";
 
-const props = defineProps(['bannerImage'])
+const props = defineProps(["bannerImage"]);
 
 const router = useRouter();
 </script>
 
 <template>
   <div class="relative">
-    <img :src="bannerImage" class="object-cover w-full" alt="">
+    <img :src="bannerImage" class="object-cover w-full" alt="" />
   </div>
 </template>
 

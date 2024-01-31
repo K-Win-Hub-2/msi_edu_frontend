@@ -1,21 +1,25 @@
 <template>
-  <div class="container my-12 pb-12 border-b">
+  <div class="my-12 pb-12 border-b">
     <ul class="flex justify-center gap-3 ml-3">
-      <li>
-        <button
-          @click="yangon = true"
-          class="px-5 py-3 mx-4 cursor-pointer font-bold hover:bg-cus-primary hover:text-white cus-standout"
-          :class="[yangon ? 'bg-cus-primary text-white' : '']"
-        >
-          Yangon Head Office
-        </button>
-        <button
-          @click="yangon = false"
-          :class="[!yangon ? 'bg-cus-primary text-white' : '']"
-          class="px-5 py-3 cursor-pointer font-bold hover:bg-cus-primary hover:text-white cus-standout"
-        >
-          Mandalay Head Office
-        </button>
+      <li class="md:flex ssm:space-y-3 md:space-y-0">
+        <div class="">
+          <button
+            @click="yangon = true"
+            class="px-5 py-3 mx-4 cursor-pointer font-bold hover:bg-cus-primary hover:text-white cus-standout"
+            :class="[yangon ? 'bg-cus-primary text-white' : '']"
+          >
+            Yangon Head Office
+          </button>
+        </div>
+        <div class="">
+          <button
+            @click="yangon = false"
+            :class="[!yangon ? 'bg-cus-primary text-white' : '']"
+            class="px-5 py-3 cursor-pointer font-bold hover:bg-cus-primary hover:text-white cus-standout"
+          >
+            Mandalay Head Office
+          </button>
+        </div>
       </li>
       <!-- <li
         v-for="(dat, i) in datas.data"
@@ -32,10 +36,10 @@
     </ul>
   </div>
 
-  <div class="w-full px-[290px] mb-8">
+  <div class="w-full lg:px-[290px] mb-8">
     <iframe
       v-if="yangon"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d488799.6787399084!2d95.85122338663277!3d16.838878399177297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1949e223e196b%3A0x56fbd271f8080bb4!2sYangon!5e0!3m2!1sen!2smm!4v1706091312288!5m2!1sen!2smm"
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15280.079151261436!2d96.1561373!3d16.7756911!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ec80fae82d59%3A0x3c21ec7739941a7e!2sMSI%20Overseas%20Education!5e0!3m2!1sen!2smm!4v1706601580548!5m2!1sen!2smm"
       height="450 "
       class="w-full shadow-lg"
       style="border: 0"
@@ -43,6 +47,7 @@
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
+
     <iframe
       v-else
       src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d925.0554564396675!2d96.0841645!3d21.9644479!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDU3JzUyLjEiTiA5NsKwMDUnMDIuOCJF!5e0!3m2!1sen!2smm!4v1706451947017!5m2!1sen!2smm"
@@ -53,35 +58,27 @@
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
-    <!-- <iframe
-      v-else
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118427.18167742171!2d95.99325069356355!3d21.940339277972576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb6d23f0d27411%3A0x24146be01e4e5646!2sMandalay!5e0!3m2!1sen!2smm!4v1706091693040!5m2!1sen!2smm"
-      height="450 "
-      class="w-full shadow-lg"
-      style="border: 0"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe> -->
   </div>
 
   <div class="flex justify-center mb-36">
-    <div class="w-[851px] h-[520px] flex contact-form">
+    <div class="w-[851px] md:flex contact-form overflow-hidden">
       <div class="w-[363px] h-[453px]">
         <div class="py-5 px-7">
           <h1 class="text-md font-[600] text-cus-primary">
             Contact Information
           </h1>
-          <!-- phone -->
           <div class="contact-card py-3 px-5 w-[301px] mt-8">
             <h1 class="text-[16px] text-left font-[600] font-cus-primary mb-3">
               Phone
             </h1>
             <p class="text-[12px] text-left font-[600] text-[#9D0038]">
-              +95 1 389915 , +95 1 381 408
+              {{
+                yangon == true
+                  ? "+95 1 389915 , +95 1 381 408"
+                  : "+95 9 44444 3917"
+              }}
             </p>
           </div>
-          <!-- email -->
           <div class="contact-card py-3 px-5 w-[301px] mt-8">
             <h1 class="text-[16px] text-left font-[600] font-cus-primary mb-3">
               Email
@@ -90,22 +87,23 @@
               info@msieducation.edu.mm
             </p>
           </div>
-          <!-- address -->
           <div class="contact-card py-3 px-5 w-[301px] mt-8">
             <h1 class="text-[16px] text-left font-[600] font-cus-primary mb-3">
               Address
             </h1>
             <p class="text-[12px] text-left font-[600] text-[#9D0038]">
-              No-234, 2nd Fl. (R), Shwebontha St. (MID BL), Pabedan Tsp, Yangon,
-              Myanmar.
+              {{
+                yangon
+                  ? ` No-234, 2nd Fl. (R), Shwebontha St. (MID BL), Pabedan Tsp, Yangon,
+              Myanmar.`
+                  : `No. 31/3, Between 79 st × 80 st, 38th St, Mahar Aung Myay Township, Mandalay, Myanmar (Burma), Mandalay, Myanmar`
+              }}
             </p>
           </div>
         </div>
       </div>
-      <div class="w-[488px] h-[453px]">
-        <!-- form -->
+      <div class="md:w-[488px] md:h-[520px]">
         <form class="py-5 px-12 text-left">
-          <!-- name -->
           <div class="mb-3">
             <label class="text-[15px] font-[600] mb-3">NAME</label>
             <br />
@@ -115,7 +113,6 @@
               class="contact-card py-4 px-5 w-full"
             />
           </div>
-          <!-- email -->
           <div class="mb-3">
             <label class="text-[15px] font-[600] mb-3">EMAIL</label>
             <br />
@@ -125,7 +122,6 @@
               class="contact-card py-4 px-5 w-full"
             />
           </div>
-          <!-- email -->
           <div class="mb-3">
             <label class="text-[15px] font-[600] mb-3">PHONE NUMBER</label>
             <br />
@@ -135,7 +131,6 @@
               class="contact-card py-4 px-5 w-full"
             />
           </div>
-          <!-- note -->
           <div class="mb-2">
             <textarea
               class="contact-card w-full pt-4 px-5"
@@ -144,15 +139,15 @@
               rows="4"
             ></textarea>
           </div>
-          <!-- check -->
           <div class="mr-8">
             <div class="flex justify-center items-center">
               <input type="checkbox" class="w-5 h-5" />
-              <h1 class="ml-4 py-2">You agreed to the terms and conditions</h1>
+              <h1 class="ml-4 py-2 md:text-normal ssm:text-[12px]">
+                You agreed to the terms and conditions
+              </h1>
             </div>
           </div>
-          <!-- button -->
-          <div class="float-right">
+          <div class="float-right mb-5">
             <button class="sent-button py-2 px-8">Sent</button>
           </div>
         </form>

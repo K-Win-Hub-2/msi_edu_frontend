@@ -5,9 +5,11 @@ import { useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
 import { useAppStore } from "../stores/app";
 import { storeToRefs } from "pinia";
+import getData from "../axios/getData";
 const appStore = useAppStore();
 const { navbar } = storeToRefs(appStore);
-
+const url = ref("country-lists");
+const { data, fetchData } = getData();
 const handleNavbar = () => {
   navbar.value = true;
 };
@@ -135,6 +137,10 @@ const urls = [
   { name: "Contact Us", url: "contact-us" },
 ];
 
+onMounted(() => {
+  fetchData(url.value);
+});
+
 const route = useRoute();
 
 const isActive = (url) => {
@@ -211,7 +217,97 @@ const isActive = (url) => {
             class="space-y-4 h-[80px] items-center list-style-none mb-5 mr-auto lg:mr-0 flex flex-col pl-0 lg:mb-0 lg:flex-row lg:space-x-2 lg:space-y-0"
             data-te-navbar-nav-ref
           >
-            <template v-for="url in urls">
+            <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
+              <router-link
+                :to="{ name: 'home' }"
+                class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                data-te-nav-link-ref
+                >Home</router-link
+              >
+            </li>
+            <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
+              <router-link
+                :to="{ name: 'about-us' }"
+                class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                data-te-nav-link-ref
+                >About Us</router-link
+              >
+            </li>
+            <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
+              <router-link
+                :to="{ name: 'services' }"
+                class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                data-te-nav-link-ref
+                >Services</router-link
+              >
+            </li>
+            <li
+              class="relative group flex items-center py-10 lg:pr-2"
+              data-te-nav-item-ref
+            >
+              <router-link
+                :to="{ name: 'study-pathway' }"
+                class="text-cus-primary text-base font-semibold disabled:text-black/30 lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                data-te-nav-link-ref
+                >StudyPathway</router-link
+              >
+              <div
+                class="hidden p-3 bg-white absolute top-[85px] shadow border cus-standout group-hover:block"
+              >
+                <ul v-if="data" class="space-y-2">
+                  <li
+                    v-for="data in data.countries"
+                    :key="data"
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <router-link
+                      :to="{
+                        name: 'study-pathway.country',
+                        params: { id: data.id },
+                      }"
+                    >
+                      {{ data.name }}
+                    </router-link>
+                  </li>
+                </ul>
+                <!-- <template
+                  v-for="(dropdownUrl, index) in url.dropdown"
+                  :key="dropdownUrl.url"
+                >
+                  <NavItem
+                    :url="dropdownUrl"
+                    :isActive="isActive(dropdownUrl)"
+                    :class="{ 'mb-2': index !== url.dropdown.length - 1 }"
+                  ></NavItem>
+                </template> -->
+              </div>
+            </li>
+
+            <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
+              <router-link
+                :to="{ name: 'scholarship' }"
+                class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                data-te-nav-link-ref
+                >Scholarship</router-link
+              >
+            </li>
+            <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
+              <router-link
+                :to="{ name: 'events' }"
+                class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                data-te-nav-link-ref
+                >Events</router-link
+              >
+            </li>
+            <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
+              <router-link
+                :to="{ name: 'contact-us' }"
+                class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                data-te-nav-link-ref
+                >Contact Us</router-link
+              >
+            </li>
+            <!-- <template v-for="url in urls">
               <template v-if="url.dropdown">
                 <NavItem
                   :url="url"
@@ -243,7 +339,7 @@ const isActive = (url) => {
                 :key="url.url"
                 :isActive="isActive(url)"
               ></NavItem>
-            </template>
+            </template> -->
           </ul>
           <!-- Left links -->
         </div>
@@ -252,4 +348,3 @@ const isActive = (url) => {
     </div>
   </nav>
 </template>
-<style lang="scss" scoped></style>

@@ -14,5 +14,3 @@
 <script setup>
 defineProps(["url", "isActive"]);
 </script>
-
-<style lang="scss" scoped></style>

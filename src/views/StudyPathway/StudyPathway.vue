@@ -78,7 +78,7 @@
             </swiper-slide>
           </swiper>
           <div
-            class="swiper-event-more-list-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
+            class="swiper-event-more-list-button-prev-unique absolute left-0 lg:-left-14 top-1/2 -translate-y-1/2"
           >
             <ChevronLeftIcon
               :class="{ 'opacity-50': start }"
@@ -86,7 +86,7 @@
             />
           </div>
           <div
-            class="swiper-event-more-list-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
+            class="swiper-event-more-list-button-next-unique absolute right-0 lg:-right-14 top-1/2 -translate-y-1/2"
           >
             <ChevronRightIcon
               :class="{ 'opacity-50': end }"

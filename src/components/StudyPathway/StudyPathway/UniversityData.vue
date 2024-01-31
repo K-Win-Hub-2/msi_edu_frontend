@@ -1,14 +1,26 @@
 <script setup>
+import axios from "axios";
 import { storeToRefs } from "pinia";
 import Button from "../../../components/partials/Button.vue";
 import { useAppStore } from "../../../stores/app";
 const props = defineProps(["data"]);
 const appStore = useAppStore();
+const { emit } = defineEmits(["scholar"]);
 const { scholarshipDetail } = storeToRefs(appStore);
-const scholarDetailModal = () => {
+const scholarDetailModal = async (id) => {
   scholarshipDetail.value = true;
-  console.log(scholarshipDetail.value);
+  const res = await axios.get(`scholarship-type-list/university/${id}`);
+  console.log(res.data.scholarshipTypeLists);
+  localStorage.setItem(
+    "scholar",
+    JSON.stringify(res.data.scholarshipTypeLists)
+  );
 };
+
+// var names = [];
+// names[0] = prompt("New member name?");
+// localStorage.setItem("names", JSON.stringify(names));
+// var storedNames = JSON.parse(localStorage.getItem("names"));
 </script>
 <template>
   <div
@@ -42,7 +54,7 @@ const scholarDetailModal = () => {
           Country:
           <span
             class="font-[500] lg:text-[20px] ssm:text-[16px] leading-[18px] text-black"
-            >Malaysia</span
+            >{{ props.data.country.name }}</span
           >
         </p>
       </div>
@@ -74,17 +86,17 @@ const scholarDetailModal = () => {
         <p
           class="md:text-[20px] ssm:text-[16px] font-semibold uppercase lg:min-w-[130px]"
         >
-          <span> Founded:</span>scholarshipDetail
+          <span> Founded:</span>
           <span
             class="font-[500] lg:text-[20px] md:text-[16px] leading-[18px] text-black"
-            >{{ props.data.founded_year }}</span
-          >
+            >{{ props.data.founded_year }}
+          </span>
         </p>
       </div>
       <div class="float-right md:mr-[35px] mt-6 mr-[2px]">
         <div class="flex gap-x-1">
           <Button
-            @click="scholarDetailModal"
+            @click="scholarDetailModal(props.data.id)"
             class="text-md ssm:mr-7 ssm:px-[10px] sm:py-[5px] md:px-[40px] px-[27px] lg:py-[15px] md:py-[10px] py-[2px] rounded-[20px] lg:text-[16px] md:text-[9px] ssm:text-[14px]"
             type="gradient"
             data-te-toggle="modal"
@@ -94,7 +106,10 @@ const scholarDetailModal = () => {
             >Scholarship Details</Button
           >
           <router-link
-            :to="{ name: 'universities.detail', params: { id: props.data.id } }"
+            :to="{
+              name: 'universities.detail',
+              params: { id: props.data.id },
+            }"
           >
             <Button
               class="lg:px-[40px] text-md ssm:mr-7 sm:px-[30px] sm:py-[5px] md:px-[40px] px-[27px] lg:py-[15px] md:py-[10px] py-[2px] rounded-[20px] lg:text-[16px] md:text-[9px] ssm:text-[14px]"

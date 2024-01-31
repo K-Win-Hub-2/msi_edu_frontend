@@ -78,50 +78,52 @@ const router = createRouter({
           component: StudyPathway,
         },
         {
-          path: "countries/singapore",
-          name: "study-pathway.countries.singapore",
+          path: "countries/:id",
+          name: "study-pathway.country",
           component: Singapore,
+          props: true,
         },
-        {
-          path: "countries/thailand",
-          name: "study-pathway.countries.thailand",
-          component: Thailand,
-        },
-        {
-          path: "countries/malaysia",
-          name: "study-pathway.countries.malaysia",
-          component: Malaysia,
-        },
-        {
-          path: "countries/canada",
-          name: "study-pathway.countries.canada",
-          component: Canada,
-        },
-        {
-          path: "countries/uk",
-          name: "study-pathway.countries.uk",
-          component: UK,
-        },
-        {
-          path: "countries/switzerland",
-          name: "study-pathway.countries.switzerland",
-          component: Switzerland,
-        },
-        {
-          path: "countries/vietnam",
-          name: "study-pathway.countries.vietnam",
-          component: Vietnam,
-        },
-        {
-          path: "countries/italy",
-          name: "study-pathway.countries.italy",
-          component: Italy,
-        },
-        {
-          path: "countries/usa",
-          name: "study-pathway.countries.usa",
-          component: Usa,
-        },
+        // },
+        // {
+        //   path: "countries/thailand",
+        //   name: "study-pathway.countries.thailand",
+        //   component: Thailand,
+        // },
+        // {
+        //   path: "countries/malaysia",
+        //   name: "study-pathway.countries.malaysia",
+        //   component: Malaysia,
+        // },
+        // {
+        //   path: "countries/canada",
+        //   name: "study-pathway.countries.canada",
+        //   component: Canada,
+        // },
+        // {
+        //   path: "countries/uk",
+        //   name: "study-pathway.countries.uk",
+        //   component: UK,
+        // },
+        // {
+        //   path: "countries/switzerland",
+        //   name: "study-pathway.countries.switzerland",
+        //   component: Switzerland,
+        // },
+        // {
+        //   path: "countries/vietnam",
+        //   name: "study-pathway.countries.vietnam",
+        //   component: Vietnam,
+        // },
+        // {
+        //   path: "countries/italy",
+        //   name: "study-pathway.countries.italy",
+        //   component: Italy,
+        // },
+        // {
+        //   path: "countries/usa",
+        //   name: "study-pathway.countries.usa",
+        //   component: Usa,
+        // },
       ],
     },
     {

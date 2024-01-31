@@ -17,7 +17,7 @@
     <div class="flex justify-evenly items-center">
       <!-- carousel start -->
       <div
-        class="relative container lg:min-w-[1350px] md:min-w-[700px] ssm:max-w-[310px]"
+        class="relative container lg:min-w-[1350px] overflow-hidden md:min-w-[700px] ssm:max-w-[310px]"
       >
         <swiper
           :pagination="{

@@ -14,7 +14,7 @@
         </h1>
       </div>
     </div>
-    <div class="flex justify-evenly items-center">
+    <div class="flex justify-between items-center">
       <!-- carousel start -->
       <div
         class="relative container lg:min-w-[1350px] md:min-w-[700px] ssm:max-w-[310px]"
@@ -27,7 +27,7 @@
           :breakpoints="swiperOptions.breakpoints"
           :navigation="swiperOptions.navigation"
           :modules="modules"
-          class="mySwiper -mx-10"
+          class="mySwiper"
           v-if="scholarshipChunks"
         >
           <!-- slider one -->

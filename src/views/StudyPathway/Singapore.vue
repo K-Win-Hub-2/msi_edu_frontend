@@ -1,5 +1,5 @@
 <script setup>
-import bannerImage from "../../assets/img/countries/banner/singapore.jpg";
+// import bannerImage from "../../assets/img/countries/banner/singapore.jpg";
 import Banner from "../../components/StudyPathway/General/Banner.vue";
 import Faq from "../../components/Services/Faq.vue";
 import Universities from "../../components/StudyPathway/General/Universities.vue";
@@ -7,29 +7,60 @@ import TestSection from "../../components/StudyPathway/General/TestSection.vue";
 import Programs from "../../components/StudyPathway/General/Programs.vue";
 import Button from "../../components/partials/Button.vue";
 import UniversityCarousel from "../../components/StudyPathway/StudyPathway/UniversityCarousel.vue";
+import getData from "../../axios/getData";
+import { onMounted, ref } from "vue";
+import axios from "axios";
 
 const videoOne = `<iframe width="500" height="250" src="https://www.youtube.com/embed/xtUR0szH0Zw" title="Myanmar Search International (MSI)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 
 const videoTwo = `<iframe width="500" height="250" src="https://www.youtube.com/embed/P3XLi-j5zac" title="Myanmar Search International (MSI) Head Office" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+const props = defineProps(["id"]);
+const url = ref("country-lists");
+const currentCountry = ref();
+const bannerImage = ref();
+
+const fetchData = async () => {
+  const res = await axios("country-lists");
+  if (res.data.countries) {
+    res.data.countries.map((c) => {
+      if (c.id == props.id) {
+        currentCountry.value = c;
+        bannerImage.value =
+          "http://adminpanel.msieducation.edu.mm/postImage/" + c.banner_image;
+      }
+    });
+  }
+};
+
+// if (res) {
+//     console.log(res.data);
+//     res.data.university.map((uni) => {
+//       if (uni.id == props.id) {
+//         university.value = uni;
+//         bannerImage.value =
+//           "http://adminpanel.msieducation.edu.mm/postImage/" +
+//           uni.uni_banner_image;
+//         prizeImage.value =
+//           "http://adminpanel.msieducation.edu.mm/postImage/" + uni.prize_image;
+//       }
+//     });
+//   }
+
+onMounted(() => {
+  fetchData();
+});
 </script>
 <template>
   <section>
-    <Banner :bannerImage="bannerImage"></Banner>
+    <div class="relative md:mt-36 ssm:mt-4" v-if="bannerImage">
+      <img :src="bannerImage" class="object-cover w-full lg:h-[800px]" alt="" />
+    </div>
   </section>
-  <section class="container lg:py-24 ssm:py-5 md:py-14">
+  <!-- <section v-if="currentCountry">{{ currentCountry.image }}</section> -->
+  <section class="container lg:py-24 ssm:py-5 md:py-14" v-if="currentCountry">
     <div class="font-[400] md:text-md ssm:text-[15px] ssm:mx-2">
       <p>
-        Malaysia is a Southeast Asian country known for its diverse culture,
-        vibrant cities, and stunning landscapes. It's divided into Peninsular
-        Malaysia and East Malaysia on Borneo. Kuala Lumpur is the capital, and
-        major cities include George Town and Johor Bahru. The population is
-        culturally diverse, with Malays, Chinese, Indians, and indigenous
-        groups. Islam is the official religion. Malaysia has a robust economy
-        with key sectors like manufacturing and services. English is widely
-        spoken, and the country is a popular tourist destination, offering
-        beautiful beaches, rainforests, and cultural attractions. It gained
-        independence from British rule in 1957 and operates as a constitutional
-        monarchy with a parliamentary democracy.
+        {{ currentCountry.introduction }}
       </p>
       <div class="text-center md:mt-20 ssm:mt-5">
         <Button
@@ -46,7 +77,7 @@ const videoTwo = `<iframe width="500" height="250" src="https://www.youtube.com/
   </section>
   <!-- university carousel start -->
   <!-- <router-link :to="{ name: 'universities.detail' }"> -->
-  <UniversityCarousel />
+  <UniversityCarousel :id="props.id" />
   <!-- </router-link> -->
   <!-- university carousel end -->
   <!-- <section>

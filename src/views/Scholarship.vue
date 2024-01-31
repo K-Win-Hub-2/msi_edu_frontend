@@ -24,7 +24,7 @@
     <!-- carousel end -->
 
     <!-- achiever -->
-    <!-- <SectionTwo /> -->
+    <SectionTwo />
     <!-- achiever end -->
 
     <!-- 50% SCHOLARSHIP Section start -->

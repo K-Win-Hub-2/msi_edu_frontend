@@ -11,7 +11,7 @@
       100 % SCHOLARSHIP ACHIEVERS
     </h1>
     <div
-      class="flex justify-between items-center lg:min-w-[1300px] ssm:max-w-[320px] sm:w-auto overflow-hidden container relative"
+      class="flex justify-between items-center lg:min-w-[1300px] md:min-w-[700px] ssm:max-w-[320px] sm:w-auto overflow-hidden container relative"
     >
       <swiper
         :pagination="{
@@ -23,7 +23,7 @@
         @slideChange="onSlideChange"
         :navigation="swiperOptions.navigation"
         :modules="modules"
-        class="mySwiper flex justify-center lg:min-w-[1100px] ssm:max-w-[320px]"
+        class="mySwiper flex justify-center lg:min-w-[1100px] md:min-w-[600px] ssm:max-w-[320px]"
       >
         <!-- slider one -->
         <swiper-slide class="flex justify-center py-12">

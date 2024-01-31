@@ -6,9 +6,12 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
 import { Pagination, Navigation } from "swiper";
 import { onMounted, ref } from "vue";
 import axios from "axios";
+import { onBeforeRouteUpdate } from "vue-router";
 const modules = [Navigation, Pagination];
 const start = ref(true);
 const end = ref(false);
+const scholarshipOffer = ref();
+// scholarship-type-list/university/1
 
 // swiper start
 
@@ -56,10 +59,10 @@ const props = defineProps(["id"]);
 const university = ref();
 const bannerImage = ref("");
 const prizeImage = ref("");
+const program = ref();
 const fetchData = async () => {
   const res = await axios.get("university-lists/partner/yes");
-  if (res) {
-    console.log(res.data);
+  if (res.data.university) {
     res.data.university.map((uni) => {
       if (uni.id == props.id) {
         university.value = uni;
@@ -72,9 +75,19 @@ const fetchData = async () => {
     });
   }
 };
+const scholarship = async () => {
+  const res = await axios.get(`scholarship-type-list/university/${props.id}`);
+  scholarshipOffer.value = res.data.scholarshipTypeLists;
+};
+
+onBeforeRouteUpdate(() => {
+  fetchData();
+  scholarship();
+});
 
 onMounted(() => {
   fetchData();
+  scholarship();
 });
 </script>
 <template>
@@ -88,8 +101,6 @@ onMounted(() => {
       />
       <div class="flex justify-center">
         <div class="md:w-[1290px] ssm:w-[320px]">
-          <!-- detail -->
-
           <div class="flex justify-between">
             <div class="">
               <div
@@ -106,7 +117,8 @@ onMounted(() => {
                   <span>Country:</span>
                   <span
                     class="font-[500] md:text-[20px] ssm:text-[15px] leading-[18px] text-black"
-                    >Malaysia
+                  >
+                    {{ university.country.name }}
                   </span>
                 </p>
               </div>
@@ -207,7 +219,6 @@ onMounted(() => {
                       class="text-[#205887] ssm:text-[20px] md:text-md font-semibold"
                     >
                       <span>Prize Names</span>
-                      <!-- <span class="ml-16 mr-8">-</span> -->
                     </p>
                     <p
                       class="text-[#FE005F] ssm:text-[20px] md:text-md font-semibold"
@@ -222,7 +233,6 @@ onMounted(() => {
                       class="text-[#205887] ssm:text-[20px] md:text-md font-semibold"
                     >
                       University Name
-                      <!-- <span class="ml-4 mr-8">-</span> -->
                     </p>
                     <p
                       class="text-[#FE005F] ssm:text-[20px] md:text-md font-semibold"
@@ -237,7 +247,6 @@ onMounted(() => {
                       class="text-[#205887] ssm:text-[20px] md:text-md font-semibold"
                     >
                       Year awarded
-                      <!-- <span class="ml-14 mr-8">-</span> -->
                     </p>
                     <p
                       class="text-[#FE005F] ssm:text-[20px] md:text-md font-semibold"
@@ -251,43 +260,45 @@ onMounted(() => {
           </div>
 
           <!-- program -->
-          <div class="mb-14 mt-9 md:px-10 ssm:px-2">
+          <div class="mb-14 mt-9 md:px-10 ssm:px-2" v-if="university">
             <h1 class="my-5 md:text-lg ssm:text-md font-semibold">
               Available Programs
             </h1>
-            <div class="flex justify-between">
-              <div class="">
-                <h1 class="text-md text-primary-600 my-8 font-[600]">
-                  Undergraduate Program
-                </h1>
-                <ul
-                  class="md:text-[24px] smm:text-[20px] space-y-2 mt-5 font-[500]"
-                >
-                  <li>- Business & Management</li>
-                  <li>- Engineering & Tecnology</li>
-                  <li>- Medicine & Health</li>
-                  <li>- Arts, Designs & Architecture</li>
-                  <li>- Hospitality, Leisure & Sports</li>
-                  <li>- Computer Science & IT</li>
-                  <li>- Journalism & Media</li>
-                  <li>- Natural Science & mathematics</li>
-                  <li>- Education & Training</li>
-                  <li>- Social Science</li>
-                  <li>- Humanities</li>
-                  <li>- Law</li>
-                </ul>
-              </div>
-              <div class="">
-                <img
-                  src="../../assets/img/StudyPathway/program.png"
-                  class="w-[296px] h-[296px] ssm:hidden md:block"
-                  alt=""
-                />
+            <div class="">
+              <div
+                class="flex justify-between"
+                v-for="p in university.program_course"
+                :key="p.id"
+              >
+                <div class="">
+                  <h1 class="text-md text-primary-600 my-8 font-[600]">
+                    {{ p.name }}
+                  </h1>
+                  <ul
+                    class="md:text-[24px] smm:text-[20px] space-y-2 mt-5 font-[500]"
+                  >
+                    <li
+                      v-for="(course, index) in p.pivot.course_name
+                        .split(',')
+                        .filter((c) => c.trim())"
+                      :key="index"
+                    >
+                      - {{ course.trim() }}
+                    </li>
+                  </ul>
+                </div>
+                <div class="">
+                  <img
+                    src="../../assets/img/StudyPathway/program.png"
+                    class="w-[296px] h-[296px] ssm:hidden md:block"
+                    alt=""
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="bg-[#F4FAFF] md:px-10 smm:px-8 md:py-7 ssm:py-4">
+          <!-- <div class="bg-[#F4FAFF] md:px-10 smm:px-8 md:py-7 ssm:py-4">
             <h1
               class="text-[24px] smm:px-3 md:px-0 text-primary-600 font-[600]"
             >
@@ -331,18 +342,19 @@ onMounted(() => {
                 />
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="relative">
+          <div class="relative" v-if="scholarshipOffer">
             <h1
               class="md:my-10 md:ml-14 lg:ml-0 ssm:my-3 md:text-lg ssm:text-md font-semibold"
             >
               Scholarship offers
             </h1>
             <div
+              v-if="scholarshipOffer"
               class="bg-[url(../../assets/img/StudyPathway/offer.png)] ssm:hidden md:hidden lg:block w-[320px] h-[320px] bg-no-repeat bg-[length:100%_100%] absolute lg:top-[-7px] md:top-[-12px] md:right-[-550px] right-[-400px] top-[-8px] lg:right-[-20px]"
             ></div>
-            <!-- <img src="../../assets/img/StudyPathway/offer.png" alt="" /> -->
+
             <div class="flex justify-center">
               <div class="relative container">
                 <swiper
@@ -355,25 +367,16 @@ onMounted(() => {
                   :modules="modules"
                   class="mySwiper"
                 >
-                  <!-- slider one -->
                   <swiper-slide
-                    class="flex justify-center px-4 md:max-w-[1000px] py-12"
+                    v-for="item in scholarshipOffer"
+                    :key="item.id"
+                    class="flex justify-center px-4 py-12"
                   >
-                    <ScholarshipOfferCard :university="university" />
+                    <ScholarshipOfferCard :item="item" />
                   </swiper-slide>
-
-                  <!-- slider two  -->
-                  <!-- <swiper-slide class="flex justify-center">
-                    <ScholarshipOfferCard />
-                  </swiper-slide> -->
-
-                  <!-- slider three  -->
-                  <!-- <swiper-slide class="flex justify-center">
-                    <ScholarshipOfferCard />
-                  </swiper-slide> -->
                 </swiper>
                 <div
-                  class="swiper-scholarship-school-lists-button-prev-unique absolute left-20 top-1/2 -translate-y-1/2"
+                  class="swiper-scholarship-school-lists-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
                 >
                   <ChevronLeftIcon
                     :class="{ 'opacity-50': start }"
@@ -381,7 +384,7 @@ onMounted(() => {
                   />
                 </div>
                 <div
-                  class="swiper-scholarship-school-lists-button-next-unique absolute right-20 top-1/2 -translate-y-1/2"
+                  class="swiper-scholarship-school-lists-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
                 >
                   <ChevronRightIcon
                     :class="{ 'opacity-50': end }"
