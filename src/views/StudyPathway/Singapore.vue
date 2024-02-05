@@ -63,15 +63,17 @@ onMounted(() => {
         {{ currentCountry.introduction }}
       </p>
       <div class="text-center md:mt-20 ssm:mt-5">
-        <Button
-          class="lg:px-[45px] md:px-[30px] ssm:px-[20px] ssm:py-[10px] md:py-[24px] lg:py-[10px]"
-          type="gradient"
-          data-te-toggle="modal"
-          data-te-target="#appointmentFormModal"
-          data-te-ripple-init
-          data-te-ripple-color="light"
-          >INQUIRY NOW</Button
-        >
+        <router-link :to="{ name: 'inquiry' }">
+          <Button
+            class="lg:px-[45px] md:px-[30px] ssm:px-[20px] ssm:py-[10px] md:py-[24px] lg:py-[10px]"
+            type="gradient"
+            data-te-toggle="modal"
+            data-te-target="#appointmentFormModal"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            >INQUIRY NOW</Button
+          >
+        </router-link>
       </div>
     </div>
   </section>

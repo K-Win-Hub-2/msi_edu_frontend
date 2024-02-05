@@ -82,7 +82,9 @@ onMounted(() => {
     <Loading />
   </template>
   <template v-else>
-    <div class="flex justify-between items-center">
+    <div
+      class="flex md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5 lg:space-y-0 lg:flex-row justify-between items-center"
+    >
       <div class="flex flex-col select-none">
         <h1 class="cus-subheading text-cus-primary uppercase">
           find your right
@@ -91,12 +93,11 @@ onMounted(() => {
           education pathway
         </h1>
       </div>
-      <div class="flex flex-col sm:flex-row gap-6">
-        <div class="w-[180px]">
+      <div class="flex ssm:flex-col md:flex-row gap-6">
+        <div class="lg:w-[180px] md:w-[300px]">
           <div class="relative" data-te-dropdown-ref>
-            <a
-              class="w-full border text-md cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
-              href="#"
+            <button
+              class="w-full border md:text-md ssm:text-[16px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
               type="button"
               id="dropdownMenuButton2"
               data-te-dropdown-toggle-ref
@@ -119,7 +120,7 @@ onMounted(() => {
                   />
                 </svg>
               </span>
-            </a>
+            </button>
             <ul
               class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-auto border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
               aria-labelledby="dropdownMenuButton2"
@@ -139,8 +140,8 @@ onMounted(() => {
         </div>
         <div class="w-[200px]">
           <div class="relative" data-te-dropdown-ref>
-            <a
-              class="w-full border cus-rounded bg-white flex items-center justify-between overflow-auto whitespace-nowrap px-6 pt-2.5 pb-2 text-md font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+            <button
+              class="w-full border cus-rounded bg-white flex items-center justify-between overflow-auto whitespace-nowrap px-6 pt-2.5 pb-2 md:text-md ssm:text-[16px] font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
               href="#"
               type="button"
               id="dropdownMenuButton3"
@@ -164,7 +165,7 @@ onMounted(() => {
                   />
                 </svg>
               </span>
-            </a>
+            </button>
             <ul
               class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-auto border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
               aria-labelledby="dropdownMenuButton3"
@@ -182,10 +183,10 @@ onMounted(() => {
             </ul>
           </div>
         </div>
-        <div class="w-[170px]">
+        <div class="lg:w-[170px] md:w-[200px]">
           <div class="relative" data-te-dropdown-ref>
             <a
-              class="w-full border cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 text-md font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+              class="w-full border cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 md:text-md ssm:text-[16px] font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
               href="#"
               type="button"
               id="dropdownMenuButton2"
@@ -228,7 +229,9 @@ onMounted(() => {
           </div>
         </div>
 
-        <Button class="px-6" type="gradient">Search</Button>
+        <Button class="flex justify-center lg:px-6 items-center" type="gradient"
+          >Search</Button
+        >
       </div>
     </div>
   </template>

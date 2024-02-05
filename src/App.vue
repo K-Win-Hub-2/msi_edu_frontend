@@ -9,8 +9,11 @@ import ConsultationModal from "./components/general/ConsultationModal.vue";
 import AppointmentModal from "./components/general/AppointmentModal.vue";
 import { useAppStore } from "./stores/app";
 import { storeToRefs } from "pinia";
+import getData from "./axios/getData";
+const { data, fetchData } = getData();
 
 const appStore = useAppStore();
+const url = ref("country-lists");
 const { navbar } = storeToRefs(appStore);
 
 const main = ref(null);
@@ -20,6 +23,7 @@ const serviceDropdown = ref(false);
 const studyDropdown = ref(false);
 
 onMounted(() => {
+  fetchData(url.value);
   let navbar = document.getElementById("navbar");
   let mainView = main.value;
   let sticky = navbar.offsetTop;
@@ -195,11 +199,13 @@ onMounted(() => {
               @click="navbar = !navbar"
               :to="{ name: 'study-pathway' }"
               :class="{
-                'text-cus-secondary font-semibold':
+                'text-cus-secondary font-semibold relative mb-4':
                   $route.name == 'study-pathway',
               }"
               >StudyPathway
-              <!-- <i
+            </router-link>
+            <div class="absolute right-28 top-[250px]">
+              <i
                 v-if="studyDropdown"
                 @click="studyDropdown = !studyDropdown"
                 class="fa-solid fa-angle-up"
@@ -208,58 +214,22 @@ onMounted(() => {
                 v-else
                 class="fa-solid fa-angle-down"
                 @click="studyDropdown = !studyDropdown"
-              ></i> -->
-              <!-- <ul
-                class="ml-4 animate__animated animate__fadeIn"
-                v-if="studyDropdown"
-              >
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Our Office</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Who we are</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Speech</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Mission</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Our Partner</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Our Team</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Testimonial</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Why MSI</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Roadmap</router-link
-                  >
-                </li>
-              </ul> -->
-            </router-link>
+              ></i>
+            </div>
+            <ul
+              class="ml-2 animate__animated animate__fadeIn mt-2"
+              v-if="(data, studyDropdown)"
+            >
+              <li v-for="data in data.countries" :key="data.id">
+                <router-link
+                  :to="{
+                    name: 'study-pathway.country',
+                    params: { id: data.id },
+                  }"
+                  >{{ data.name }}</router-link
+                >
+              </li>
+            </ul>
           </li>
           <li>
             <router-link

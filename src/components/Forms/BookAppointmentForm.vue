@@ -1,7 +1,13 @@
 <template>
-  <div class="flex justify-center my-36">
-    <div class="w-[719px] shadow-2xl rounded-2xl lg:px-14 lg:py-8 border">
-      <h1 class="text-cus-primary text-md font-semibold">Get Appointment</h1>
+  <div class="flex justify-center md:my-36 ssm:my-7">
+    <div
+      class="w-[719px] shadow-2xl rounded-2xl md:px-14 md:py-8 ssm:py-3 ssm:px-3 border"
+    >
+      <h1
+        class="text-cus-primary text-md font-semibold ssm:text-center md:text-start"
+      >
+        Get Appointment
+      </h1>
       <hr class="my-5 text-black" />
       <div class="shadow-xl cus-rounded overflow-hidden p-3 mx-10 mb-14 my-5">
         <VDatePicker
@@ -27,18 +33,42 @@
         </div> -->
         <div class="flex justify-center mt-8">
           <div class="">
-            <button class="border-2 border-gray-400 rounded-lg px-4 py-2">
+            <button
+              :class="
+                time == '9:30-10:30'
+                  ? 'bg-cus-primary shadow-xl text-white scale-110'
+                  : ''
+              "
+              @click="time = '9:30-10:30'"
+              class="border-2 hover:bg-cus-primary shadow-xl hover:text-white border-gray-400 rounded-lg md:px-4 ssm:py-1 ssm:px-1 md:py-2"
+            >
               9:30 - 10:30
             </button>
           </div>
           <div class="mx-5">
-            <button class="border-2 border-gray-400 rounded-lg px-4 py-2">
-              9:30 - 10:30
+            <button
+              :class="
+                time == '10:30-11:30'
+                  ? 'bg-cus-primary shadow-xl text-white scale-110'
+                  : ''
+              "
+              @click="time = '10:30-11:30'"
+              class="border-2 border-gray-400 hover:bg-cus-primary shadow-xl hover:text-white rounded-lg md:px-4 ssm:py-1 ssm:px-1 md:py-2"
+            >
+              10:30 - 11:30
             </button>
           </div>
           <div class="">
-            <button class="border-2 border-gray-400 rounded-lg px-4 py-2">
-              9:30 - 10:30
+            <button
+              :class="
+                time == '11:30-12:30'
+                  ? 'bg-cus-primary shadow-xl text-white scale-110'
+                  : ''
+              "
+              @click="time = '11:30-12:30'"
+              class="border-2 border-gray-400 hover:bg-cus-primary shadow-xl hover:text-white rounded-lg md:px-4 ssm:py-1 ssm:px-1 md:py-2"
+            >
+              11:30 - 12:30
             </button>
           </div>
         </div>
@@ -52,12 +82,28 @@
 
         <div class="flex justify-center gap-5 mt-8">
           <div class="">
-            <button class="border-2 border-gray-400 rounded-lg px-4 py-2">
+            <button
+              :class="
+                time == '1:00-2:00'
+                  ? 'bg-cus-primary shadow-xl text-white scale-110'
+                  : ''
+              "
+              @click="time = '1:00-2:00'"
+              class="border-2 border-gray-400 hover:bg-cus-primary shadow-xl hover:text-white rounded-lg md:px-4 ssm:py-1 ssm:px-1 md:py-2"
+            >
               1:00 - 2:00
             </button>
           </div>
           <div class="">
-            <button class="border-2 border-gray-400 rounded-lg px-4 py-2">
+            <button
+              :class="
+                time == '2:00-3:00'
+                  ? 'bg-cus-primary shadow-xl text-white scale-110'
+                  : ''
+              "
+              @click="time = '2:00-3:00'"
+              class="border-2 border-gray-400 hover:bg-cus-primary shadow-xl hover:text-white rounded-lg md:px-4 ssm:py-1 ssm:px-1 md:py-2"
+            >
               2:00 - 3:00
             </button>
           </div>
@@ -72,7 +118,15 @@
 
         <div class="flex justify-center mt-8">
           <div class="">
-            <button class="border-2 border-gray-400 rounded-lg px-4 py-2">
+            <button
+              :class="
+                time == '3:00-4:00'
+                  ? 'bg-cus-primary shadow-xl text-white scale-110'
+                  : ''
+              "
+              @click="time = '3:00-4:00'"
+              class="border-2 hover:bg-cus-primary shadow-xl hover:text-white border-gray-400 rounded-lg md:px-4 ssm:py-1 ssm:px-1 md:py-2"
+            >
               3:00 - 4:00
             </button>
           </div>
@@ -91,7 +145,10 @@
               data-te-ripple-color="light"
               >Confirm</Button
             >
-            <button class="bg-gray-500 text-white px-4 rounded-lg py-2">
+            <button
+              @click="close"
+              class="bg-gray-500 text-white px-4 rounded-lg py-2"
+            >
               Close
             </button>
           </div>
@@ -99,109 +156,42 @@
       </div>
     </div>
   </div>
-  <!-- <div>
-    <h3 class="mb-6 text-xl font-bold">Select Time</h3>
-    <div class="grid grid-cols-3 gap-3">
-      <div>
-        <h4 class="text-[18px] font-semibold mb-3 text-center">Morning</h4>
-        <div class="space-y-3">
-          <template v-for="definedTime in definedTimes.morning">
-            <div
-              class="p-3 cus-rounded border cursor-pointer hover:bg-gray-300"
-              :class="{ 'bg-gray-300': selectedTime.time == definedTime.time }"
-              @click="onTimeSelect(e, definedTime)"
-            >
-              {{ definedTime.time }}
-            </div>
-          </template>
-        </div>
-      </div>
-      <div>
-        <h4 class="text-md font-semibold mb-3 text-center">Afternoon</h4>
-        <div class="space-y-3">
-          <template v-for="definedTime in definedTimes.afternoon">
-            <div
-              class="p-3 cus-rounded border cursor-pointer hover:bg-gray-300"
-              :class="{ 'bg-gray-300': selectedTime.time == definedTime.time }"
-              @click="onTimeSelect(e, definedTime)"
-            >
-              {{ definedTime.time }}
-            </div>
-          </template>
-        </div>
-      </div>
-      <div>
-        <h4 class="text-md font-semibold mb-3 text-center">Evening</h4>
-        <div class="space-y-3">
-          <template v-for="definedTime in definedTimes.evening">
-            <div
-              class="p-3 cus-rounded border cursor-pointer hover:bg-gray-300"
-              :class="{ 'bg-gray-300': selectedTime.time == definedTime.time }"
-              @click="onTimeSelect(e, definedTime)"
-            >
-              {{ definedTime.time }}
-            </div>
-          </template>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <script setup>
 import Button from "../partials/Button.vue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useAppStore } from "../../stores/app";
+import { storeToRefs } from "pinia";
 const router = useRouter();
 const date = ref(new Date());
-const selectedTime = ref("");
 const selectAttribute = ref(false);
+const time = ref();
+const appStore = useAppStore();
+const { appointmentDate, appointmentTime } = storeToRefs(appStore);
 
-const definedTimes = {
-  morning: [
-    {
-      time: "9:30",
-      type: "am",
-      daySection: "morning",
-    },
-    {
-      time: "11:30",
-      type: "am",
-      daySection: "morning",
-    },
-  ],
-  afternoon: [
-    {
-      time: "12:30",
-      type: "pm",
-      daySection: "morning",
-    },
-    {
-      time: "2:30",
-      type: "pm",
-      daySection: "morning",
-    },
-  ],
-  evening: [
-    {
-      time: "5:30",
-      type: "pm",
-      daySection: "morning",
-    },
-    {
-      time: "8:30",
-      type: "pm",
-      daySection: "morning",
-    },
-  ],
-};
+// format date
+const day = date.value.getDate();
+const month = date.value.getMonth() + 1; // Months are zero-based
+const year = date.value.getFullYear();
+const formattedDate = `${year}-${month.toString().padStart(2, "0")}-${day
+  .toString()
+  .padStart(2, "0")}`;
 
 const onTimeSelect = (e, definedTime) => {
   selectedTime.value = definedTime;
 };
 
 const toForm2 = () => {
-  router.push({ name: "appointment-form2" });
+  appointmentDate.value = formattedDate;
+  appointmentTime.value = time.value;
+  if (time.value) {
+    router.push({ name: "appointment-form2" });
+  }
+};
+const close = () => {
+  router.push({ name: "home" });
 };
 </script>
 

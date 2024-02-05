@@ -25,7 +25,7 @@ import UniversitiesSlider from "../Home/UniversitiesSlider.vue";
       </div>
     </div>
   </div> -->
-  <div class="overflow-hidden h-[650px] relative">
+  <div class="md:h-[450px] ssm:h-[220px] lg:h-[650px] md:mt-10 relative">
     <video
       autoplay
       loop
@@ -44,9 +44,11 @@ import UniversitiesSlider from "../Home/UniversitiesSlider.vue";
         <span><ChevronRightIcon class="w-10 h-10 font-bold"  /></span>
       </a>
     </div> -->
-    <div class="absolute w-[1300px] h-[200px] bottom-5 left-1/2 -translate-x-1/2">
-    <UniversitiesSlider class=""/>
-  </div>
+    <div
+      class="absolute lg:w-[1300px] md:w-[800px] md:h-[200px] lg:h-[200px] bottom-5 left-1/2 -translate-x-1/2"
+    >
+      <UniversitiesSlider class="" />
+    </div>
   </div>
   <!-- <div class="justify-center p-5 pt-0 capitalize text-center flex flex-col items-center">
     <img src="@/assets/img/logo.png" class="w-[500px] pb-12" alt="">

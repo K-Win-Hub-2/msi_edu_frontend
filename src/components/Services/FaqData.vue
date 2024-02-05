@@ -1,6 +1,7 @@
 <template>
   <div class="">
     <div
+      @click="showDes = !showDes"
       class="px-5 rounded-md text-[#000] py-4 bg-gray-100 flex justify-between items-center"
     >
       <div class="">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
@@ -13,7 +14,6 @@
           stroke="currentColor"
           class="h-6 w-6"
           :class="[showDes ? 'rotate-180' : 'rotate-0']"
-          @click="showDes = !showDes"
         >
           <path
             stroke-linecap="round"

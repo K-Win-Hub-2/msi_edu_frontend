@@ -19,7 +19,6 @@ const end = ref(false);
 const modules = [Navigation];
 
 const onSlideChange = (event) => {
-
   if (event.isEnd) {
     end.value = true;
   } else {
@@ -93,7 +92,7 @@ onMounted(() => {
         :centeredSlides="false"
         initialSlide="4"
       >
-        <template v-for="(award, index) in currentAwards">
+        <template v-for="(award, index) in currentAwards" :key="index">
           <swiper-slide class="my-3">
             <AwardTimelineCard
               :image="award.photo"

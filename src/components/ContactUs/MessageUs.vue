@@ -62,7 +62,7 @@
 
   <div class="flex justify-center mb-36">
     <div class="w-[851px] md:flex contact-form overflow-hidden">
-      <div class="w-[363px] h-[453px]">
+      <div class="w-[363px] h-[453px] border-r-2">
         <div class="py-5 px-7">
           <h1 class="text-md font-[600] text-cus-primary">
             Contact Information

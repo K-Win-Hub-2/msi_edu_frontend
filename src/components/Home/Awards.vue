@@ -88,12 +88,15 @@ onMounted(() => {
 <template>
   <div>
     <h1
-      class="cus-heading text-center uppercase mb-12 text-shadow cus-shadow-color"
+      class="cus-heading text-center uppercase md:mb-12 text-shadow cus-shadow-color"
     >
-      <span class="text-cus-primary text-7xl text-shadow-sm cus-shadow-color"
+      <span
+        class="text-cus-primary md:text-[40px] ssm:text-md text-shadow-sm cus-shadow-color"
         >22 awards</span
       >
-      <span class="text-cus-secondary text-4xl text-shadow-sm cus-shadow-color">
+      <span
+        class="text-cus-secondary md:text-4xl ssm:text-md text-shadow-sm cus-shadow-color"
+      >
         Showcase of Excellence
       </span>
     </h1>

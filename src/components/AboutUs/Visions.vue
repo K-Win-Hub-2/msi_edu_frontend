@@ -5,7 +5,7 @@ import VisionCard from "../../components/AboutUs/VisionCard.vue";
 import { Pagination, Autoplay, EffectCoverflow } from "swiper";
 import { getShortMonth, getDay } from "@/utils/date.js";
 import { universities } from "../../mocks/universities";
-import {events} from "../../mocks/events"
+import { events } from "../../mocks/events";
 
 // Import Swiper styles
 import "swiper/css";
@@ -14,26 +14,25 @@ import "swiper/css/autoplay";
 import "swiper/css/effect-coverflow";
 
 const visions = [
-   {
-      title: "vision",
-      description: "Investing in People"
-      
-   },
-   {
-      title: "Mission",
-      description: "Development of Population Quality"
-   },
-   {
-      title: "Strategy",
-      description: "Knowledge, Career and Family"
-   },
-]
+  {
+    title: "vision",
+    description: "Investing in People",
+  },
+  {
+    title: "Mission",
+    description: "Development of Population Quality",
+  },
+  {
+    title: "Strategy",
+    description: "Knowledge, Career and Family",
+  },
+];
 
 const start = ref(true);
 const end = ref(false);
 
 // swiper start
-const modules = [ Autoplay, EffectCoverflow];
+const modules = [Autoplay, EffectCoverflow];
 
 const onSwiper = (swiper) => {
   console.log(swiper);
@@ -98,28 +97,28 @@ const swiperOptions = {
 
 <template>
   <div>
-   <swiper
-        :effect="'coverflow'"
-        :autoplay="swiperOptions.autoplay"
-        :space-between="50"
-        @swiper="onSwiper"
-        @slideChange="onSlideChange"
-        :breakpoints="swiperOptions.breakpoints"
-        :modules="modules"
-        :coverflowEffect="swiperOptions.coverflowEffect"
-        :grabCursor="false"
-        :centeredSlides="true"
-        class="flex justify-center ml-[10%]"
-
-        id="homeEventSwiper"
-      >
-        <template v-for="vision in visions">
-          <swiper-slide class="my-3">
-            <VisionCard :vision="vision" class="w-[500px]" />
-          </swiper-slide>
-        </template>
-      </swiper>
-    <div class="swiper-home-event-pagination mx-auto flex justify-center h-[50px]"></div>
+    <swiper
+      :effect="'coverflow'"
+      :autoplay="swiperOptions.autoplay"
+      :space-between="50"
+      @swiper="onSwiper"
+      @slideChange="onSlideChange"
+      :breakpoints="swiperOptions.breakpoints"
+      :modules="modules"
+      :coverflowEffect="swiperOptions.coverflowEffect"
+      :grabCursor="false"
+      :centeredSlides="true"
+      class="flex justify-center ml-[10%]"
+      id="homeEventSwiper"
+    >
+      <template v-for="vision in visions">
+        <swiper-slide class="my-3">
+          <VisionCard :vision="vision" class="lg:w-[500px]" />
+        </swiper-slide>
+      </template>
+    </swiper>
+    <div
+      class="swiper-home-event-pagination mx-auto flex justify-center h-[50px]"
+    ></div>
   </div>
 </template>
-

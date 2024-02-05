@@ -16,7 +16,7 @@ const props = defineProps(["university", "detail"]);
         <div class="">
           <img
             :src="viewImage({ photo: university.university_photo })"
-            class="h-[200px] mx-auto p-3 object-contain"
+            class="lg:h-[200px] md:h-[130px] mx-auto p-3 object-contain"
             alt=""
           />
         </div>

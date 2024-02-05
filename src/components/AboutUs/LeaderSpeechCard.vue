@@ -24,30 +24,44 @@
       </div>
     </div> -->
     <div class="text-center text-3xl mb-11">
-      <h1 class="text-cus-secondary cus-heading font-bold text-shadow-sm cus-shadow-color uppercase">Leader Speeches</h1>
+      <h1
+        class="text-cus-secondary md:cus-heading font-bold text-shadow-sm cus-shadow-color uppercase"
+      >
+        Leader Speeches
+      </h1>
     </div>
-    <div class=" flex justify-between items-center gap-6">
+    <div
+      class="flex md:flex-row ssm:flex-col justify-between items-center gap-6"
+    >
       <div class="">
-        <img :src="currentCard.image" alt="" class="h-[400px] w-[700px] rounded-lg mb-3 object-cover" />
+        <img
+          :src="currentCard.image"
+          alt=""
+          class="md:h-[400px] md:w-[700px] ssm:h-[200px] ssm:w-[500px] ssm:px-5 md:px-0 rounded-lg mb-3 object-cover"
+        />
         <div class="flex justify-center gap-3">
           <template v-for="(card, index) in cards">
             <div @click="updateCurrentCard(index)">
-              <img :src="card.image" class="w-16 h-16 rounded overflow-hidden object-cover cursor-pointer shadow-2xl" alt="Avatar" />
+              <img
+                :src="card.image"
+                class="ssm:w-16 ssn:h-16 rounded overflow-hidden object-cover cursor-pointer shadow-2xl"
+                alt="Avatar"
+              />
             </div>
           </template>
         </div>
       </div>
 
-      <div class="">
-        <h1 class="cus-paragraph-title text-shadow-sm cus-shadow-color  mb-3">
+      <div class="ssm:max-w-[320px] ssm:px-3 md:px-0 md:max-w-[1000px]">
+        <h1 class="cus-paragraph-title text-shadow-sm cus-shadow-color mb-3">
           {{ currentCard.title }}
         </h1>
-        <h2 class="cus-paragraph-subTitle mb-3 ">
-          <template v-for="eachLine in currentCard.subTitle">
+        <h2 class="cus-paragraph-subTitle mb-3">
+          <template v-for="eachLine in currentCard.subTitle" :key="eachLine">
             {{ eachLine }} <br />
           </template>
         </h2>
-        <p class="cus-paragraph text-justify mb-3 w-[500px] ">
+        <p class="cus-paragraph text-justify mb-3 md:w-[500px]">
           <template v-for="eachPara in currentCard.para">
             {{ eachPara }}
             <template v-if="currentCard.para.length > 1">
@@ -55,7 +69,7 @@
               <br />
             </template>
           </template>
-        <!-- <div class="text-right">
+          <!-- <div class="text-right">
           <Button class="px-6 " type="gradient">Next</Button>
         </div> -->
         </p>
@@ -63,7 +77,7 @@
     </div>
   </div>
 </template>
-  
+
 <script setup>
 // import phyuphyuThant from "@/assets/img/AboutUs/OurTeam/23.jpg";
 
@@ -118,12 +132,9 @@ const cards = ref([
   },
 ]);
 
-const currentCard = ref(
-  {
-    ...cards.value[0]
-  }
-);
+const currentCard = ref({
+  ...cards.value[0],
+});
 </script>
-  
+
 <style lang="scss" scoped></style>
-  

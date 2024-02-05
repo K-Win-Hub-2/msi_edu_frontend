@@ -225,21 +225,90 @@ const isActive = (url) => {
                 >Home</router-link
               >
             </li>
-            <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
+            <li
+              class="relative flex items-center lg:pr-2 group py-10"
+              data-te-nav-item-ref
+            >
               <router-link
                 :to="{ name: 'about-us' }"
                 class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                 data-te-nav-link-ref
                 >About Us</router-link
               >
+              <div
+                class="hidden p-3 w-[140px] bg-white absolute top-[85px] shadow border cus-standout group-hover:block"
+              >
+                <ul class="space-y-2">
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="#our-office"> Our Office </a>
+                  </li>
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="#about"> Who we are</a>
+                  </li>
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="#speech"> Speech</a>
+                  </li>
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="#mission"> Mission</a>
+                  </li>
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="#our_partner"> Our Partner</a>
+                  </li>
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="#our_partner"> Our Team</a>
+                  </li>
+
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="#mission"> Why MSI</a>
+                  </li>
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="#award">Award</a>
+                  </li>
+                </ul>
+              </div>
             </li>
-            <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
+            <li
+              class="relative flex group items-center py-10 lg:pr-2"
+              data-te-nav-item-ref
+            >
               <router-link
                 :to="{ name: 'services' }"
                 class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                 data-te-nav-link-ref
                 >Services</router-link
               >
+              <div
+                class="hidden p-3 bg-white absolute top-[85px] shadow border cus-standout group-hover:block"
+              >
+                <ul class="space-y-2">
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="#our-services"> Our service </a>
+                  </li>
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="#faq"> Faq</a>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li
               class="relative group flex items-center py-10 lg:pr-2"
@@ -348,3 +417,8 @@ const isActive = (url) => {
     </div>
   </nav>
 </template>
+<style>
+a.router-link-active {
+  color: rgb(209, 10, 10);
+}
+</style>

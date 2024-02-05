@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col justify-between xl:flex-row gap-12 wow"
+    class="flex flex-col justify-between xl:flex-row gap-12 wow ssm:px-4 md:px-0"
     id="counterSection"
   >
     <div
@@ -8,7 +8,7 @@
     >
       <img :src="education" class="w-12 h-12" />
       <div
-        class="flex flex-col items-center text-xl font-bold text-cus-secondary"
+        class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
       >
         <span class="counter">2600</span>
         <span class="">Students</span>
@@ -20,7 +20,7 @@
     >
       <img :src="university" class="w-12 h-12" />
       <div
-        class="flex flex-col items-center text-xl font-bold text-cus-secondary"
+        class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
       >
         <span class="">300</span>
         <span class="">Universities</span>
@@ -32,7 +32,7 @@
     >
       <img :src="trophy" class="w-12 h-12" />
       <div
-        class="flex flex-col items-center text-xl font-bold text-cus-secondary"
+        class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
       >
         <span class="">30</span>
         <span class="">Awards</span>
@@ -44,7 +44,7 @@
     >
       <img :src="mortarboard" class="w-12 h-12" />
       <div
-        class="flex flex-col items-center text-xl font-bold text-cus-secondary"
+        class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
       >
         <span class="">1500</span>
         <span class="">Scholarship</span>

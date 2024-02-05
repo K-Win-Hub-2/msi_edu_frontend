@@ -42,12 +42,12 @@ const swiperOptions = {
   breakpoints: {
     // when window width is >= 320px
     0: {
-      slidesPerView: 1,
+      slidesPerView: 2,
       spaceBetween: 20,
     },
     // when window width is >= 480px
-    768: {
-      slidesPerView: 2,
+    873: {
+      slidesPerView: 3,
       spaceBetween: 30,
     },
     // when window width is >= 640px
@@ -81,10 +81,12 @@ onMounted(() => {
 <template>
   <div class="bg-white bg-opacity-70 p-2 cus-rounded group max-h-[200px]">
     <div class="flex justify-between items-center">
-      <div class="swiper-hero-university-prev-unique hover:cursor-pointer w-[50px] shrink-0">
+      <div
+        class="swiper-hero-university-prev-unique hover:cursor-pointer w-[50px] shrink-0"
+      >
         <ChevronLeftIcon
           :class="{ 'opacity-50': start }"
-          class="hidden group-hover:block w-12 h-12 text-cus-primary"
+          class="hidden group-hover:block md:w-12 md:h-12 ssm:w-8 ssm:h-8 text-cus-primary"
         />
       </div>
       <swiper
@@ -95,6 +97,7 @@ onMounted(() => {
         :breakpoints="swiperOptions.breakpoints"
         :navigation="swiperOptions.navigation"
         :modules="modules"
+        class="ssm:max-w-[180px] sm:max-w-[240px] md:max-w-[700px] lg:max-w-[1200px]"
       >
         <template v-for="university in currentUniversities">
           <swiper-slide class="my-3">
@@ -106,10 +109,12 @@ onMounted(() => {
         </template>
       </swiper>
 
-      <div class="swiper-hero-university-next-unique hover:cursor-pointer w-[50px] shrink-0">
+      <div
+        class="swiper-hero-university-next-unique hover:cursor-pointer w-[50px] shrink-0"
+      >
         <ChevronRightIcon
           :class="{ 'opacity-50': end }"
-          class="hidden group-hover:block w-12 h-12 text-cus-primary"
+          class="hidden group-hover:block md:w-12 md:h-12 ssm:w-8 ssm:h-8 text-cus-primary"
         />
       </div>
     </div>

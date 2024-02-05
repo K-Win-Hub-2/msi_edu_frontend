@@ -6,6 +6,9 @@ export const useAppStore = defineStore("app", {
     return {
       navbar: false,
       scholarshipDetail: false,
+      scholar: [],
+      appointmentDate: "",
+      appointmentTime: "",
     };
   },
   actions: {},

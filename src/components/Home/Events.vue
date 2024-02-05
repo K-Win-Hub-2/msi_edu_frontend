@@ -146,11 +146,15 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="ml-[50px]">
-      <h3 class="text-4xl font-semibold text-cus-primary uppercase">
+    <div class="px-3">
+      <h3
+        class="md:text-4xl ssm:text-md font-semibold text-cus-primary uppercase"
+      >
         events & seminars
       </h3>
-      <h4 class="text-3xl font-semibold text-cus-secondary uppercase">
+      <h4
+        class="md:text-3xl ssm:text-md font-semibold text-cus-secondary uppercase"
+      >
         Coming soon
       </h4>
     </div>
@@ -168,12 +172,15 @@ onMounted(() => {
         :grabCursor="false"
         :centeredSlides="true"
         id="homeEventSwiper"
-        class="w-[1300px]"
+        class="lg:w-[1300px] md:w-[800px] ssm:w-[300px]"
         v-if="comingSoonEvent"
       >
         <template v-for="event in comingSoonEvent" :key="event.id">
           <swiper-slide class="my-3">
-            <EventCard :event="event" class="w-[500px]" />
+            <EventCard
+              :event="event"
+              class="md:ml-[200px] ssm:ml-[350px] lg:ml-0 md:w-[500px] ssm:w-[250px]"
+            />
           </swiper-slide>
         </template>
       </swiper>
@@ -183,7 +190,7 @@ onMounted(() => {
     ></div>
     <div
       v-if="currentActiveEvent"
-      class="grid grid-cols-4 p-3 gap-3 w-[500px] ml-[68px] cus-glass-card cus-rounded mb-6"
+      class="grid grid-cols-4 p-3 gap-3 md:w-[500px] md:ml-[68px] cus-glass-card cus-rounded mb-6"
     >
       <div class="col-span-1">
         <div class="p-2 flex flex-col items-center">
@@ -214,7 +221,7 @@ onMounted(() => {
       </div>
     </div>
   </div>
-  <div class="w-[600px] mx-auto">
+  <!-- <div class="w-[600px] mx-auto">
     <div class="flex flex-col sm:flex-row gap-6">
       <div class="w-full min-w-[160px]">
         <div class="relative" data-te-dropdown-ref>
@@ -313,7 +320,7 @@ onMounted(() => {
         >
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style>

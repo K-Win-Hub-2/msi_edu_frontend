@@ -9,20 +9,10 @@ import Testimonials from "../components/Home/Testimonials.vue";
 import Testimonials2 from "../components/Home/Testimonials2.vue";
 import Pathway from "../components/Home/Pathway.vue";
 import Facts from "../components/Home/Facts.vue";
-
-// var inputString = "hello,kha,khaing-htoo";
-
-// // Split the string by commas
-// var splitArray = inputString.split(",");
-
-// // Combine the last two elements into a single element
-// splitArray[2] = splitArray.slice(2).join(" ");
-
-// console.log(splitArray);
 </script>
 
 <template>
-  <main class="mb-12">
+  <main class="mb-12 overflow-hidden">
     <section>
       <Hero></Hero>
     </section>
@@ -50,21 +40,23 @@ import Facts from "../components/Home/Facts.vue";
         class="bg-[url(../../assets/img/Home/msiWebPattern.png)] w-[100%] h-[1800px] bg-no-repeat bg-[length:100%_100%] absolute bottom-[-800px] right-0"
         alt=""
       ></div>
-      <div class="container px-6 pt-12 pb-24 relative z-30">
+      <div
+        class="container px-6 md:pt-12 ssm:pt-6 md:pb-24 ssm:pb-8 relative z-30"
+      >
         <Awards></Awards>
       </div>
     </section>
     <section>
-      <div class="container px-6 pb-24 relative mb-[130px] z-30">
+      <div class="container px-6 md:pb-24 relative md:mb-[130px] ssm:mb-5 z-30">
         <ScholarshipAchievers></ScholarshipAchievers>
       </div>
     </section>
-    <section class="mt-12 mb-24 lg:mb-36 relative">
+    <section class="md:mt-12 md:mb-24 lg:mb-36 relative">
       <div
         class="bg-[url(../../assets/img/Home/eventUnviersityBg.png)] w-[80%] h-[650px] bg-no-repeat bg-[length:100%_100%] absolute bottom-[280px] right-0"
         alt=""
       ></div>
-      <div class="container px-6 relative z-20">
+      <div class="container px-0 relative z-20 overflow-hidden">
         <div class="">
           <Events></Events>
         </div>

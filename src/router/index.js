@@ -27,6 +27,7 @@ import UpcomingEvent from "@/views/UpcomingEvent.vue";
 import UpcomingEventDetail from "@/views/UpComingEventDetail.vue";
 import BookAppointmentForm2 from "../components/Forms/AppointmentForm2.vue";
 import AppointmentConfirm from "../components/Forms/AppointmentConfirm.vue";
+import Inquiry from "../views/Inquiry.vue";
 
 const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
@@ -219,6 +220,11 @@ const router = createRouter({
       path: "/scholarship",
       name: "scholarship",
       component: Scholarship,
+    },
+    {
+      path: "/inquiry",
+      name: "inquiry",
+      component: Inquiry,
     },
     // {
     // 	path: "/about",

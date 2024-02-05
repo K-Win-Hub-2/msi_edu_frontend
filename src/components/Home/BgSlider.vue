@@ -7,22 +7,23 @@
       :breakpoints="swiperOptions.breakpoints"
       :navigation="swiperOptions.navigation"
       :modules="modules"
+      :autoplay="true"
     >
       <swiper-slide>
         <div
-          class="bg-[url('@/assets/img/home/hero.jpg')] w-full h-[800px] no-repeat bg-cover bg-center"
+          class="bg-[url('@/assets/img/home/hero.jpg')] w-full ssm:h-[230px] md:h-[600px] lg:h-[800px] no-repeat bg-cover bg-center"
         ></div>
       </swiper-slide>
       <swiper-slide>
         <div
-          class="bg-[url('@/assets/img/test/1.jpg')] w-full h-[800px] no-repeat bg-cover"
+          class="bg-[url('@/assets/img/home/4.png')] w-full ssm:h-[230px] md:h-[600px] lg:h-[800px] no-repeat bg-cover"
         ></div>
       </swiper-slide>
-      <swiper-slide>
+      <!-- <swiper-slide>
         <div
           class="bg-[url('@/assets/img/test/1.jpg')] w-full h-[800px] no-repeat bg-cover"
         ></div>
-      </swiper-slide>
+      </swiper-slide> -->
     </swiper>
     <div
       class="absolute top-1/2 -translate-y-1/2 left-3 z-20 swiper-button-prev-unique cursor-pointer opacity-0 group-hover:opacity-100"
@@ -78,6 +79,9 @@ const onSlideChange = (event) => {
 };
 
 const swiperOptions = {
+  autoplay: {
+    delay: 7000,
+  },
   loop: true,
   breakpoints: {
     // when window width is >= 320px

@@ -16,7 +16,7 @@ const { data, fetchData } = getData();
 const start = ref(true);
 const end = ref(false);
 const appStore = useAppStore();
-const { scholarshipDetail } = storeToRefs(appStore);
+const { scholarshipDetail, scholar } = storeToRefs(appStore);
 const props = defineProps(["id"]);
 
 // swiper start
@@ -61,10 +61,10 @@ const swiperOptions = {
   },
 };
 // Retrieving the string
-let retString = localStorage.getItem("scholar");
+// let retString = localStorage.getItem("scholar");
 
 // Retrieved array
-let retArray = JSON.parse(retString);
+// let retArray = JSON.parse(retString);
 const url = ref(`university-lists/partner/yes/country/${props.id}`);
 
 onMounted(() => {
@@ -136,7 +136,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="flex justify-center">
-        <div class="relative lg:w-[800px]" v-if="retArray">
+        <div class="relative lg:w-[800px]" v-if="scholar.length">
           <swiper
             :pagination="{
               clickable: true,
@@ -149,7 +149,7 @@ onMounted(() => {
           >
             <swiper-slide
               class="flex justify-center md:py-12 ssm:py-3"
-              v-for="item in retArray"
+              v-for="item in scholar"
               :key="item.id"
             >
               <div
@@ -272,6 +272,9 @@ onMounted(() => {
               class="w-12 h-12 text-cus-primary ssm:hidden md:block"
             />
           </div>
+        </div>
+        <div class="text-center text-gray-500 text-xl py-28" v-else>
+          There is no data
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@
         <img
           :src="props.event.imageURL"
           alt=""
-          class="border-b w-[600px] h-[300px] select-none"
+          class="border-b w-[600px] md:h-[300px] ssm:h-[150px] select-none"
         />
         <div class="grid grid-cols-4 p-3 gap-3" v-if="detail">
           <div class="col-span-1">

@@ -7,14 +7,12 @@
         </video>
 
         <div class="absolute bottom-2 left-11">
-          <a
-            href="https://youtu.be/P3XLi-j5zac?si=5QgI0TbLXNAs63SW"
-            target="_blank"
+          <Button
+            @click="toGetAppointment"
+            type="gradient"
+            class="md:p-5 ssm:px-3 md:px-16 text-md"
+            >Get Free Counselling</Button
           >
-            <Button type="gradient" class="md:p-3 ssm:px-3 md:px-8"
-              >Get Free Counselling</Button
-            >
-          </a>
         </div>
       </div>
     </div>
@@ -69,6 +67,11 @@ import SectionEight from "../components/Scholarship/SectionEight.vue";
 import SectionNine from "../components/Scholarship/SectionNine.vue";
 import Button from "../components/partials/Button.vue";
 import MBAScholarShip from "../components/Scholarship/MBAScholarShip.vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
+const toGetAppointment = () => {
+  router.push({ name: "appointment-form" });
+};
 </script>
 
 <style>

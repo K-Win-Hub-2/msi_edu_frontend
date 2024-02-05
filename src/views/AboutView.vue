@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- <img src="@/assets/img/test/3.jpg" alt=""> -->
-    <section id="our-office" class="relative z-30">
+    <section id="our-office" class="relative z-30 overflow-hidden">
       <HeroOld />
     </section>
     <section id="speech" class="relative">
@@ -9,8 +9,8 @@
         class="bg-[url(../../assets/img/Home/msiWebPattern2.png)] w-[70%] h-[500px] bg-no-repeat z-20 bg-[length:100%_100%] absolute top-0 left-0"
         alt=""
       ></div>
-      <div class="container py-12">
-      <LeaderSpeechCard />
+      <div class="container md:py-12">
+        <LeaderSpeechCard />
       </div>
     </section>
     <!-- <section>
@@ -29,7 +29,7 @@
       </div>
     </section> -->
     <section id="mission">
-      <div class="container px-6 py-12">
+      <div class="container md:px-6 md:py-12">
         <Visions />
       </div>
     </section>
@@ -43,11 +43,11 @@
         class="bg-[url(../../assets/img/Home/msiWebPattern.png)] w-[100%] h-[1800px] bg-no-repeat bg-[length:100%_100%] absolute bottom-10 right-0"
         alt=""
       ></div>
-      <div class="container relative z-30">
+      <div class="container relative z-30" id="our_partner">
         <OurPartner />
       </div>
     </section>
-    <section class="container">
+    <section class="container" id="award">
       <div>
         <AwardTimeline />
       </div>

@@ -4,7 +4,7 @@ defineProps(["image", "content", "showContent"]);
 
 <template>
   <div class="flex justify-center my-auto overflow-hidden w-full">
-    <div class="block min-w-[200px]">
+    <div class="block min-w-[200px] md:max-w-[100px] lg:max-w-[300px]">
       <div class="">
         <img :src="image" class="object-contain h-[300px] mx-auto" alt="" />
       </div>

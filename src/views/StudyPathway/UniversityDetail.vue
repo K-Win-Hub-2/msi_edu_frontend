@@ -216,12 +216,12 @@ onMounted(() => {
                 <div class="">
                   <div class="flex text-md">
                     <p
-                      class="text-[#205887] ssm:text-[20px] md:text-md font-semibold"
+                      class="text-[#205887] ssm:text-[18px] md:text-md md:font-semibold"
                     >
                       <span>Prize Names</span>
                     </p>
                     <p
-                      class="text-[#FE005F] ssm:text-[20px] md:text-md font-semibold"
+                      class="text-[#FE005F] ssm:text-[18px] md:text-md md:font-semibold"
                     >
                       -{{ university.prize_name }}
                     </p>
@@ -230,12 +230,12 @@ onMounted(() => {
                 <div class="">
                   <div class="flex text-md">
                     <p
-                      class="text-[#205887] ssm:text-[20px] md:text-md font-semibold"
+                      class="text-[#205887] ssm:text-[18px] md:text-md md:font-semibold"
                     >
                       University Name
                     </p>
                     <p
-                      class="text-[#FE005F] ssm:text-[20px] md:text-md font-semibold"
+                      class="text-[#FE005F] ssm:text-[18px] md:text-md md:font-semibold"
                     >
                       -{{ university.university_name }}
                     </p>
@@ -244,12 +244,12 @@ onMounted(() => {
                 <div class="">
                   <div class="flex text-md">
                     <p
-                      class="text-[#205887] ssm:text-[20px] md:text-md font-semibold"
+                      class="text-[#205887] ssm:text-[18px] md:text-md md:font-semibold"
                     >
                       Year awarded
                     </p>
                     <p
-                      class="text-[#FE005F] ssm:text-[20px] md:text-md font-semibold"
+                      class="text-[#FE005F] ssm:text-[18px] md:text-md md:font-semibold"
                     >
                       -{{ university.awarded_year }}
                     </p>
@@ -260,7 +260,10 @@ onMounted(() => {
           </div>
 
           <!-- program -->
-          <div class="mb-14 mt-9 md:px-10 ssm:px-2" v-if="university">
+          <div
+            class="mb-14 mt-9 md:px-10 ssm:px-2"
+            v-if="university.program_course"
+          >
             <h1 class="my-5 md:text-lg ssm:text-md font-semibold">
               Available Programs
             </h1>
@@ -275,7 +278,7 @@ onMounted(() => {
                     {{ p.name }}
                   </h1>
                   <ul
-                    class="md:text-[24px] smm:text-[20px] space-y-2 mt-5 font-[500]"
+                    class="md:text-[24px] smm:text-[18px] space-y-2 mt-5 font-[500]"
                   >
                     <li
                       v-for="(course, index) in p.pivot.course_name

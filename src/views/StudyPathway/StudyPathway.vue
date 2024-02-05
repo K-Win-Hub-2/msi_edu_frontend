@@ -45,36 +45,7 @@
               v-for="uni in data.university"
               :key="uni.id"
             >
-              <div
-                class="w-[315px] h-[337px] px-3 py-2 rounded-lg shadow-lg bg-white"
-              >
-                <img
-                  class="rounded-lg h-[155px] w-full"
-                  :src="uni.imageURL"
-                  alt=""
-                />
-                <h1 class="text-[16px] font-semibold mt-3">
-                  {{ uni.university_name }}
-                </h1>
-                <p class="mt-2">This is intro</p>
-                <router-link
-                  :to="{
-                    name: 'universities.detail',
-                    params: { id: uni.id },
-                  }"
-                  class="flex justify-center mt-3"
-                >
-                  <Button
-                    class="px-[26px] py-[6px] text-[16px] float-right"
-                    type="gradient"
-                    data-te-toggle="modal"
-                    data-te-target="#appointmentFormModal"
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                    >See More</Button
-                  >
-                </router-link>
-              </div>
+              <Featureuni :uni="uni" />
             </swiper-slide>
           </swiper>
           <div
@@ -122,6 +93,7 @@ import OurService from "../../components/StudyPathway/StudyPathway/OurService.vu
 import Testimonials from "../../components/StudyPathway/StudyPathway/Testimonials.vue";
 import Countries from "../../components/StudyPathway/StudyPathway/Countries.vue";
 import BannerMotion from "../../components/StudyPathway/General/BannerMotion.vue";
+import Featureuni from "./Featureuni.vue";
 import Button from "../../components/partials/Button.vue";
 
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";

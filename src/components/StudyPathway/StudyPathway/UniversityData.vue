@@ -6,21 +6,19 @@ import { useAppStore } from "../../../stores/app";
 const props = defineProps(["data"]);
 const appStore = useAppStore();
 const { emit } = defineEmits(["scholar"]);
-const { scholarshipDetail } = storeToRefs(appStore);
+const { scholarshipDetail, scholar } = storeToRefs(appStore);
 const scholarDetailModal = async (id) => {
   scholarshipDetail.value = true;
+  scholar.value = [];
   const res = await axios.get(`scholarship-type-list/university/${id}`);
-  console.log(res.data.scholarshipTypeLists);
-  localStorage.setItem(
-    "scholar",
-    JSON.stringify(res.data.scholarshipTypeLists)
-  );
+  if (res) {
+    scholar.value = res.data.scholarshipTypeLists;
+  }
+  // localStorage.setItem(
+  //   "scholar",
+  //   JSON.stringify(res.data.scholarshipTypeLists)
+  // );
 };
-
-// var names = [];
-// names[0] = prompt("New member name?");
-// localStorage.setItem("names", JSON.stringify(names));
-// var storedNames = JSON.parse(localStorage.getItem("names"));
 </script>
 <template>
   <div
