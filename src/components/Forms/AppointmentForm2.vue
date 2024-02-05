@@ -6,6 +6,7 @@ import { useAppStore } from "../../stores/app";
 import { storeToRefs } from "pinia";
 import getData from "../../axios/getData";
 import axios from "axios";
+import { useToast } from "vue-toast-notification";
 const router = useRouter();
 const appStore = useAppStore();
 const { data, fetchData } = getData();
@@ -30,6 +31,7 @@ const courseName = ref();
 const university_flag = ref();
 const scholarship_flag = ref();
 const success = ref(false);
+const $toast = useToast();
 const confirm = () => {
   router.push({ name: "appointment-confirm" });
 };
@@ -86,6 +88,7 @@ const handleSubmit = () => {
   const appointmentStore = async () => {
     const res = await axios.post("appointment/register", data);
     if (res.status == 200) {
+      $toast.success("Appointment Confirmed", { position: "top-right" });
       success.value = true;
       router.push({ name: "appointment-form2" });
     }
@@ -159,7 +162,7 @@ onMounted(() => {
 </script>
 <template>
   <div class="relative">
-    <div class="fixed z-[9999]" v-if="success">
+    <!-- <div class="fixed z-[9999]" v-if="success">
       <div
         class="absolute md:-top-[150px] ssm:-top-[80px] lg:left-[570px] md:left-[80px]"
       >
@@ -170,7 +173,7 @@ onMounted(() => {
           <p class="text-green-500">Appointment has been added!</p>
         </div>
       </div>
-    </div>
+    </div> -->
     <div
       class="bg-[url(@/assets/img/scholarship/image.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute top-0 bottom-0"
     ></div>
