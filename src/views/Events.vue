@@ -125,7 +125,7 @@
               <hr />
               <div class="flex justify-center mt-3">
                 <Button
-                  @click="toRegisterForm()"
+                  @click="toOldEvent(event.id)"
                   class="mt-1 mx-auto ssm:py-2 ssm:px-4 lg:px-[43px] lg:py-[9px] md:px-[20px] lg:text-[15px] text-[14px] md: md:py-[14px] py-[2px] rounded-[20px] md:text-[10px]"
                   type="gradient"
                   data-te-toggle="modal"
@@ -193,6 +193,10 @@ const fetchData = async () => {
     latestEvent.value = res.data.latestEvent;
     oldEvents.value = res.data.oldEvent;
   }
+};
+
+const toOldEvent = (id) => {
+  router.push({ name: "events.detail", params: { id: id } });
 };
 
 onMounted(() => {

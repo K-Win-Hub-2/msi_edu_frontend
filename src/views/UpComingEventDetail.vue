@@ -19,7 +19,7 @@
         <img
           :src="currentEvent.imageURL"
           alt=""
-          class="xl:w-full md:w-full sm:w-full md:h-[450px] xl:h-[674px] xl:mt-40 md:mt-20"
+          class="xl:w-full md:w-full sm:w-full md:h-[500px] xl:h-[800px] xl:mt-40 md:mt-20"
         />
       </div>
       <div class="w-full relative overflow-hidden pb-10">
@@ -291,9 +291,6 @@ onMounted(() => {
   fetchData();
 });
 
-onBeforeRouteUpdate(() => {
-  fetchData();
-});
 // router.push({ name: 'user', params: { userId: '123' } })
 const toRegisterForm = () => {
   router.push({

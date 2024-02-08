@@ -2,9 +2,9 @@
   <div class="">
     <div
       @click="showDes = !showDes"
-      class="px-5 rounded-md text-[#000] py-4 bg-gray-100 flex justify-between items-center"
+      class="px-5 rounded-md text-[#000] py-3 bg-gray-100 flex justify-between items-center"
     >
-      <div class="">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+      <div class="">{{ props.faq.question }}</div>
       <div class="">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -23,11 +23,9 @@
         </svg>
       </div>
     </div>
-    <div class="px-5 py-3 mt-3 border-2 rounded-lg" v-if="!showDes">
+    <div class="px-5 py-3 mt-2 border-2 rounded-lg" v-if="showDes">
       <div class="text-[15px]">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias beatae
-        consectetur magnam ducimus vel sit error? Vitae, a? magnam ducimus vel
-        sit error? Vitae, a?
+        {{ props.faq.answer }}
       </div>
     </div>
   </div>
@@ -35,8 +33,6 @@
 
 <script setup>
 import { ref } from "vue";
-
 const showDes = ref(false);
+const props = defineProps(["faq"]);
 </script>
-
-<style lang="scss" scoped></style>

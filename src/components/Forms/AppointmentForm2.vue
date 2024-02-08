@@ -32,6 +32,7 @@ const university_flag = ref();
 const scholarship_flag = ref();
 const success = ref(false);
 const $toast = useToast();
+const errors = ref();
 const confirm = () => {
   router.push({ name: "appointment-confirm" });
 };
@@ -86,11 +87,15 @@ const handleSubmit = () => {
   };
 
   const appointmentStore = async () => {
-    const res = await axios.post("appointment/register", data);
-    if (res.status == 200) {
-      $toast.success("Appointment Confirmed", { position: "top-right" });
-      success.value = true;
-      router.push({ name: "appointment-form2" });
+    try {
+      const res = await axios.post("appointment/register", data);
+      if (res.status == 200) {
+        $toast.success("Appointment Confirmed", { position: "top-right" });
+        success.value = true;
+        router.push({ name: "appointment-form2" });
+      }
+    } catch (error) {
+      errors.value = error.response.data.errors;
     }
   };
   appointmentStore();
@@ -190,11 +195,13 @@ onMounted(() => {
           <div class="mb-5">
             <label for="">Name</label> <br />
             <input
+              :class="[errors?.name ? 'border-red-500' : '']"
               v-model="name"
               type="text"
               placeholder=" Name"
               class="border-2 py-4 px-3 w-full border-gray-300 rounded-md"
             />
+            <p v-if="errors?.name" class="text-red-500">{{ errors.name[0] }}</p>
           </div>
           <div class="mb-5">
             <label for="">Email </label>
@@ -202,10 +209,13 @@ onMounted(() => {
             <input
               v-model="email"
               type="email"
+              :class="[errors?.email ? 'border-red-500' : '']"
               placeholder=" Email"
-              required
               class="border-2 py-4 px-3 w-full border-gray-300 rounded-md"
             />
+            <p v-if="errors?.email" class="text-red-500">
+              {{ errors.email[0] }}
+            </p>
           </div>
           <div class="mx-auto">
             <label for="zip-input" class="block mb-2 text-sm font-medium"
@@ -223,15 +233,18 @@ onMounted(() => {
                 +95
               </div>
               <input
+                :class="[errors?.phone ? 'border-red-500' : '']"
                 v-model="phone"
                 type="number"
                 id="zip-input"
                 aria-describedby="helper-text-explanation"
                 class="bg-gray-50 py-4 border-2 ssm:pl-24 border-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5"
                 placeholder="Contact Number"
-                required
               />
             </div>
+            <p v-if="errors?.phone" class="text-red-500">
+              {{ errors.phone[0] }}
+            </p>
           </div>
           <div class="flex mt-14 items-center gap-x-6">
             <p>University specific</p>
@@ -254,6 +267,7 @@ onMounted(() => {
               v-model="countryId"
               class="border-2 py-4 px-3 w-full border-gray-300 bg-gray-50 rounded-md"
             >
+              <option class="text-[#717171]" selected disabled>Country</option>
               <option
                 class="text-[#717171]"
                 :value="data.id"

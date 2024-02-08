@@ -36,19 +36,19 @@
               <h1
                 class="text-md text-cus-primary text-shadow-lg font-bold mt-5"
               >
-                {{ testimonial.name }}
+                {{ testimonial.name ? testimonial.name : "" }}
               </h1>
               <p
                 class="text-sm text text-primary-800 leading-7 shadow-sm font-[505] py-9"
               >
-                {{ testimonial.speech }}
+                {{ testimonial.speech ? testimonial.speech : "" }}
               </p>
 
               <p class="text-[18px] font-bold text-cus-primary capitalize">
-                {{ testimonial.uni_name }}
+                {{ testimonial.uni_name ? testimonial.uni_name : "" }}
               </p>
               <p class="text-[18px] font-bold text-cus-primary capitalize">
-                {{ testimonial.country?.name }}
+                {{ testimonial.country?.name ? testimonial.country?.name : "" }}
               </p>
               <p class="text-[18px] font-bold text-cus-primary capitalize">
                 {{ testimonial.program_name }}

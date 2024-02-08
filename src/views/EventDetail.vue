@@ -5,10 +5,10 @@
         <img
           :src="currentEvent.imageURL"
           alt=""
-          class="lg:w-[1440px] sm:w-[641px] sm:h-[320px] xl:w-full md:w-[768px] md:h-[450px] xl:h-[674px] xl:mt-40 md:mt-20"
+          class="lg:w-[1440px] sm:w-[641px] sm:h-[320px] xl:w-full md:w-[768px] md:h-[500px] xl:h-[800px] xl:mt-40 md:mt-20"
         />
       </div>
-      <div class="w-full relative overflow-hidden">
+      <div class="w-full relative overflow-hidden ssm:px-3 md:px-0">
         <div
           class="bg-[url(@/assets/img/scholarship/image.png)] bg-[length:100%_100%] bottom-0 z-30 w-[100%] h-[100%] bg-no-repeat absolute top-0"
         ></div>
@@ -49,69 +49,27 @@
         </div>
       </div>
 
-      <div class="flex justify-center xl:mt-36 md:mt-34 sm:mt-24">
+      <div class="flex justify-center xl:mt-36 md:mt-34 sm:mt-14">
         <div
-          class="xl:w-[1236px] md:w-[730px] sm:w-[600px] xl:h-[424px] sm:h-[360px] md:h-[310px] bg-[#EDF7FF] rounded-[16px] md:px-10 md:py-10 xl:px-16 sm:px-10 sm:py-10 xl:py-16"
+          class="xl:w-[1236px] md:w-[730px] sm:w-[600px] xl:h-[424px] sm:h-[250px] md:h-[310px] bg-[#EDF7FF] rounded-[16px] md:px-10 md:py-10 xl:px-16 sm:px-10 sm:py-10 xl:py-16"
         >
           <ul>
-            <li class="xl:text-md md:text-sm flex items-center">
-              <p class="min-w-60 w-">Event Date</p>
-              <p>: 27. 5. 2023 (Saturday)</p>
+            <li class="xl:text-md ssm:text-sm flex items-center">
+              <p class="md:min-w-60 ssm:min-w-28">Event Date</p>
+              <p>: {{ currentEvent.start_date }}</p>
             </li>
-            <li class="xl:text-md md:text-sm flex items-center my-9">
-              <p class="min-w-60">Event Time</p>
-              <p>: 3:00 P.M to 5:00 P.M</p>
+            <li class="xl:text-md ssm:text-sm flex items-center my-9">
+              <p class="md:min-w-60 ssm:min-w-28">Event Time</p>
+              <p>: {{ currentEvent.start_time }}</p>
             </li>
-            <li class="xl:text-md md:text-sm flex items-center my-9">
-              <p class="min-w-60">Phone No</p>
-              <p>: 095104872</p>
-            </li>
-            <li class="xl:text-md md:text-sm flex">
-              <p class="min-w-60">Venue</p>
-              <p>
-                : MSI (Head Office) -No.234, Second floor (Right), Shewbonthar
-                Street (Mid Block), Pabedan Township, Yangon to contact!
-              </p>
+            <li class="xl:text-md ssm:text-sm flex">
+              <p class="md:min-w-60 ssm:min-w-28">Venue</p>
+              <p>: {{ currentEvent.venue }}</p>
             </li>
           </ul>
         </div>
       </div>
-      <div class="xl:ml-[300px] mt-5">
-        <!-- left button -->
-        <button class="prev-unique text-black">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-[51px] md:w-[40px] sm:w-[30px] sm:h-[30px] md:h-[40px] h-[47px]"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 19.5L8.25 12l7.5-7.5"
-            />
-          </svg>
-        </button>
-        <!-- right button -->
-        <button class="next-unique text-black mx-5">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-[51px] md:w-[40px] sm:w-[30px] sm:h-[30px] md:h-[40px] h-[47px]"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M8.25 4.5l7.5 7.5-7.5 7.5"
-            />
-          </svg>
-        </button>
-      </div>
+
       <div class="flex justify-center items-center xl:my-44 md:my-28">
         <div class="w-[1236px] mt-3 flex items-center justify-between">
           <div class="">
@@ -246,6 +204,7 @@ const moreEvents = ref([]);
 
 const fetchData = async () => {
   const res = await eventStore.fetchEvent();
+  console.log(res.data);
   events.value = res.data.oldEvent;
 
   events.value.forEach((event) => {

@@ -4,17 +4,23 @@ import { onMounted, ref } from "vue";
 import { universities } from "../../mocks/universities";
 import { programs } from "../../mocks/programs";
 import Loading from "../general/Loading.vue";
+import axios from "axios";
+import { useToast } from "vue-toast-notification";
+import { useRouter } from "vue-router";
+const countryData = ref();
+const universityList = ref();
+const programList = ref();
+const selectedUniversity = ref();
+const selectedProgram = ref();
+const $toast = useToast();
+const router = useRouter();
+const selectedCountry = ref();
 
 const isLoading = ref(true);
 
 const filters = ref({
   // country: { name: 'Singapore', slug: 'singapore' },
 });
-
-const countries = {
-  singapore: "Singapore",
-  thailand: "Thailand",
-};
 
 const currentUniversities = ref([]);
 
@@ -67,13 +73,60 @@ const handleProgramSelect = (payload) => {
   filters.value.program = { title: payload.title, slug: payload.slug };
 };
 
-onMounted(() => {
-  // updateCurrentCountries();
-  // updateSelectedUniversity();
-  // updateCurrentPrograms();
-  // updateSelectedProgram();
+// fetch country
+const fetchCountry = async () => {
+  const res = await axios.get("country-lists");
+  selectedCountry.value = res.data.countries[0].id;
+  countryData.value = res.data.countries;
+};
 
+// fetch university
+const fetchUniversity = async () => {
+  const res = await axios.get("university-lists/partner/yes");
+  // console.log("uni", res.data.university);
+  selectedUniversity.value = res.data.university[0].id;
+  universityList.value = res.data.university;
+};
+
+// fetch  program
+const fetchProgram = async () => {
+  const res = await axios.get("program-lists");
+  programList.value = res.data.programLists;
+  selectedProgram.value = res.data.programLists[0].id;
+};
+
+// redirect Page
+
+// fetch program
+
+const searchCountry = async () => {
+  const res = await axios.get(
+    "university-lists/partner/yes/country/" + selectedCountry.value
+  );
+  if (res.data.university.length) {
+    const uni = res.data.university.filter((data) => {
+      return data.id == selectedUniversity.value;
+    });
+    // const program = programList.value.filter((p) => {
+    //   return p.id == uni[0].program_id;
+    // });
+    // if (selectedProgram.value == program[0].id) {
+    router.push({ name: "universities.detail", params: { id: uni[0].id } });
+    // }
+  } else {
+    $toast.error("Not Found !", { position: "top-right" });
+  }
+};
+const searchHandle = () => {
+  searchCountry();
+  // console.log(selectedCountry.value, selectedUniversity.value);
+};
+
+onMounted(() => {
   isLoading.value = false;
+  fetchProgram();
+  fetchCountry();
+  fetchUniversity();
 });
 </script>
 
@@ -94,9 +147,24 @@ onMounted(() => {
         </h1>
       </div>
       <div class="flex ssm:flex-col md:flex-row gap-6">
-        <div class="lg:w-[180px] md:w-[300px]">
+        <div class="lg:w-[180px]">
           <div class="relative" data-te-dropdown-ref>
-            <button
+            <select
+              v-if="countryData"
+              name=""
+              v-model="selectedCountry"
+              class="border min-w-[200px] md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+            >
+              <option
+                class="text-[13px]"
+                v-for="data in countryData"
+                :key="data.id"
+                :value="data.id"
+              >
+                {{ data.name }}
+              </option>
+            </select>
+            <!-- <button
               class="w-full border md:text-md ssm:text-[16px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
               type="button"
               id="dropdownMenuButton2"
@@ -120,8 +188,8 @@ onMounted(() => {
                   />
                 </svg>
               </span>
-            </button>
-            <ul
+            </button> -->
+            <!-- <ul
               class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-auto border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
               aria-labelledby="dropdownMenuButton2"
               data-te-dropdown-menu-ref
@@ -135,12 +203,27 @@ onMounted(() => {
                   {{ country }}
                 </div>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
         <div class="w-[200px]">
           <div class="relative" data-te-dropdown-ref>
-            <button
+            <select
+              v-if="universityList"
+              name=""
+              v-model="selectedUniversity"
+              class="border md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+            >
+              <option
+                class="overflow-x-scroll text-[13px]"
+                v-for="data in universityList"
+                :key="data.id"
+                :value="data.id"
+              >
+                {{ data.university_name }}
+              </option>
+            </select>
+            <!-- <button
               class="w-full border cus-rounded bg-white flex items-center justify-between overflow-auto whitespace-nowrap px-6 pt-2.5 pb-2 md:text-md ssm:text-[16px] font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
               href="#"
               type="button"
@@ -165,8 +248,8 @@ onMounted(() => {
                   />
                 </svg>
               </span>
-            </button>
-            <ul
+            </button> -->
+            <!-- <ul
               class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-auto border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
               aria-labelledby="dropdownMenuButton3"
               data-te-dropdown-menu-ref
@@ -180,12 +263,27 @@ onMounted(() => {
                   {{ uni.name }}
                 </div>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
-        <div class="lg:w-[170px] md:w-[200px]">
+        <div class="lg:w-[170px] md:w-[200px] md:-ml-5">
           <div class="relative" data-te-dropdown-ref>
-            <a
+            <select
+              v-if="programList"
+              v-model="selectedProgram"
+              name=""
+              class="border md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+            >
+              <option
+                class="text-[13px]"
+                v-for="data in programList"
+                :key="data.id"
+                :value="data.id"
+              >
+                {{ data.name }}
+              </option>
+            </select>
+            <!-- <a
               class="w-full border cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 md:text-md ssm:text-[16px] font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
               href="#"
               type="button"
@@ -210,8 +308,8 @@ onMounted(() => {
                   />
                 </svg>
               </span>
-            </a>
-            <ul
+            </a> -->
+            <!-- <ul
               class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-hidden border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
               aria-labelledby="dropdownMenuButton2"
               data-te-dropdown-menu-ref
@@ -225,16 +323,17 @@ onMounted(() => {
                   {{ program.title }}
                 </div>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
 
-        <Button class="flex justify-center lg:px-6 items-center" type="gradient"
+        <Button
+          @click="searchHandle"
+          class="flex justify-center md:ml-4 md:px-6 items-center"
+          type="gradient"
           >Search</Button
         >
       </div>
     </div>
   </template>
 </template>
-
-<style lang="scss" scoped></style>

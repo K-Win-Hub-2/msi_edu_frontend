@@ -1,3 +1,6 @@
+<script setup>
+const props = defineProps(["data"]);
+</script>
 <template>
   <div
     class="md:w-[517px] md:h-[320px] card-achiever md:py-[94px] ssm:py-[40px] md:px-[32px]"
@@ -6,7 +9,7 @@
       <div class="w-[131px] h-[131px]">
         <img
           class="rounded-full w-[100%] h-[100%]"
-          src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+          :src="props.data.image"
           alt=""
         />
       </div>
@@ -19,7 +22,7 @@
         <h1 class="text-[#205887] mt-3 text-[13px]">
           <span
             class="text-[#FE005F] text-[12px] font-[700] uppercase shadow-title"
-            >MIN KHANT TIN</span
+            >{{ props.data.name }}</span
           >
           <span class="text-[11px] font-[400] uppercase shadow-title"
             >(bS IN COMPUTER SCIENCE)</span
@@ -39,7 +42,3 @@
     </div>
   </div>
 </template>
-
-<script setup></script>
-
-<style lang="scss" scoped></style>

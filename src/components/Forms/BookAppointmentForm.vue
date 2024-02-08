@@ -9,7 +9,9 @@
         Get Appointment
       </h1>
       <hr class="my-5 text-black" />
-      <div class="shadow-xl cus-rounded overflow-hidden p-3 mx-10 mb-14 my-5">
+      <div
+        class="shadow-xl cus-rounded overflow-hidden p-3 md:mx-10 ssm:mx-2 mb-14 my-5"
+      >
         <VDatePicker
           borderless
           expanded

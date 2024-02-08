@@ -26,19 +26,23 @@
         class="mySwiper flex justify-center lg:min-w-[1100px] md:min-w-[600px] ssm:max-w-[320px]"
       >
         <!-- slider one -->
-        <swiper-slide class="flex justify-center py-12">
-          <AchieverCard />
+        <swiper-slide
+          class="flex justify-center py-12"
+          v-for="d in data"
+          :key="d"
+        >
+          <AchieverCard :data="d" />
         </swiper-slide>
 
         <!-- slider two  -->
-        <swiper-slide class="flex justify-center py">
+        <!-- <swiper-slide class="flex justify-center py">
           <AchieverCard />
-        </swiper-slide>
+        </swiper-slide> -->
 
         <!-- slider three  -->
-        <swiper-slide class="flex justify-center">
+        <!-- <swiper-slide class="flex justify-center">
           <AchieverCard />
-        </swiper-slide>
+        </swiper-slide> -->
       </swiper>
       <div
         class="swiper-achieve-card-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
@@ -68,6 +72,14 @@ import { Pagination, Navigation } from "swiper";
 import SliderScho from "./SliderScho.vue";
 import { ref } from "vue";
 const modules = [Navigation, Pagination];
+import MinKhantTinImg from "../../assets/img/scholarship/Min Khant Tin (Webster).jpg";
+import kyiImg from "../../assets/img/scholarship/kyi.jpg";
+import KhinImg from "../../assets/img/scholarship/hnin.jpg";
+import HninImg from "../../assets/img/scholarship/Hnin A Kery (SIM).jpg";
+import EiNgonImg from "../../assets/img/scholarship/Ei Ngon Phoo (SIM).jpg";
+import ZayaImg from "../../assets/img/scholarship/Zay Ya Min Yin (SIM).jpg";
+import ZawLinImg from "../../assets/img/scholarship/zinLin.jpg";
+
 const start = ref(true);
 const end = ref(false);
 const onSlideChange = (event) => {
@@ -83,6 +95,38 @@ const onSlideChange = (event) => {
     start.value = false;
   }
 };
+
+const data = ref([
+  {
+    name: "Min Khant Tin",
+    image: MinKhantTinImg,
+  },
+  {
+    name: "Kyi Phyu Maung ",
+    image: kyiImg,
+  },
+  {
+    name: "Khin Thuzar Thant",
+    image: KhinImg,
+  },
+  {
+    name: "Hnin A Kery",
+    image: HninImg,
+  },
+  {
+    name: "Ei Ngon Phoo",
+    image: EiNgonImg,
+  },
+  {
+    name: "Zay Ya Min Yin",
+    image: ZayaImg,
+  },
+  {
+    name: "Zaw Lin Htike",
+    image: ZawLinImg,
+  },
+]);
+
 const swiperOptions = {
   loop: true,
   breakpoints: {

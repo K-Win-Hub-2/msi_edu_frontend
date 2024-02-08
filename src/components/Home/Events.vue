@@ -179,7 +179,7 @@ onMounted(() => {
           <swiper-slide class="my-3">
             <EventCard
               :event="event"
-              class="md:ml-[200px] ssm:ml-[350px] lg:ml-0 md:w-[500px] ssm:w-[250px]"
+              class="md:ml-[200px] ssm:ml-[350px] lg:ml-0 md:w-[500px] ssm:w-[280px]"
             />
           </swiper-slide>
         </template>
@@ -212,7 +212,9 @@ onMounted(() => {
         </div>
       </div>
       <div class="col-span-3 space-y-2">
-        <h3 class="text-md font-semibold capitalize truncate">
+        <h3
+          class="md:text-md ssm:text-[20px] font-semibold capitalize truncate"
+        >
           {{ currentActiveEvent.title }}
           <p class="text-sm truncate-two text-wrap font-normal">
             {{ currentActiveEvent.description }}

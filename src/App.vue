@@ -220,7 +220,11 @@ onMounted(() => {
               class="ml-2 animate__animated animate__fadeIn mt-2"
               v-if="(data, studyDropdown)"
             >
-              <li v-for="data in data.countries" :key="data.id">
+              <li
+                v-for="data in data.countries"
+                :key="data.id"
+                @click="navbar = !navbar"
+              >
                 <router-link
                   :to="{
                     name: 'study-pathway.country',
@@ -231,6 +235,19 @@ onMounted(() => {
               </li>
             </ul>
           </li>
+          <li>
+            <router-link :to="{ name: 'scholarship' }" @click="navbar = !navbar"
+              >Scholarship</router-link
+            >
+          </li>
+          <!-- <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
+            <router-link
+              :to="{ name: 'scholarship' }"
+              class="text-base disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+              data-te-nav-link-ref
+              >Scholarship</router-link
+            >
+          </li> -->
           <li>
             <router-link
               @click="navbar = !navbar"

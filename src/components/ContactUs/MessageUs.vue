@@ -62,7 +62,7 @@
 
   <div class="flex justify-center mb-36">
     <div class="w-[851px] md:flex contact-form overflow-hidden">
-      <div class="w-[363px] h-[453px] border-r-2">
+      <div class="w-[363px] h-[453px]">
         <div class="py-5 px-7">
           <h1 class="text-md font-[600] text-cus-primary">
             Contact Information
@@ -102,7 +102,7 @@
           </div>
         </div>
       </div>
-      <div class="md:w-[488px] md:h-[520px]">
+      <div class="md:w-[488px] md:h-[520px] md:border-l-2">
         <form class="py-5 px-12 text-left">
           <div class="mb-3">
             <label class="text-[15px] font-[600] mb-3">NAME</label>
@@ -139,8 +139,8 @@
               rows="4"
             ></textarea>
           </div>
-          <div class="mr-8">
-            <div class="flex justify-center items-center">
+          <div class="">
+            <div class="flex items-center">
               <input type="checkbox" class="w-5 h-5" />
               <h1 class="ml-4 py-2 md:text-normal ssm:text-[12px]">
                 You agreed to the terms and conditions

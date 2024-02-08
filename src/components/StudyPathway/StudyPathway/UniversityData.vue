@@ -1,12 +1,14 @@
 <script setup>
 import axios from "axios";
 import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
 import Button from "../../../components/partials/Button.vue";
 import { useAppStore } from "../../../stores/app";
 const props = defineProps(["data"]);
 const appStore = useAppStore();
 const { emit } = defineEmits(["scholar"]);
 const { scholarshipDetail, scholar } = storeToRefs(appStore);
+const router = useRouter();
 const scholarDetailModal = async (id) => {
   scholarshipDetail.value = true;
   scholar.value = [];
@@ -19,11 +21,15 @@ const scholarDetailModal = async (id) => {
   //   JSON.stringify(res.data.scholarshipTypeLists)
   // );
 };
+
+const detail = () => {
+  router.push({ name: "universities.detail", params: { id: props.data.id } });
+};
 </script>
 <template>
   <div
     v-if="props.data"
-    class="lg:w-[965px] md:w-[600px] w-[530px] flex lg:h-[500px] md:h-[400px] h-[340px] bg-carousel relative overflow-hidden lg:rounded-[41px] md:rounded-[36px] rounded-[24px]"
+    class="lg:w-[965px] md:w-[600px] w-[530px] flex lg:h-[500px] md:h-[400px] ssm:h-[320px] bg-carousel relative overflow-hidden lg:rounded-[41px] md:rounded-[36px] rounded-[24px]"
   >
     <div class="lg:w-[407px] md:w-[280px] w-[280px] ssm:hidden md:block">
       <div class="-ml-16 md:-mt-10 lg:-mt-18 -mt-8">
@@ -42,7 +48,7 @@ const scholarDetailModal = async (id) => {
       </h1>
       <div class="flex items-center lg:mt-10 md:mt-5">
         <img
-          class="md:mr-3 ssm:mr-1 w-8 h-8"
+          class="md:mr-3 ssm:mr-1 md:w-8 md:h-8 ssm:w-5 ssm:h-5"
           src="@/assets/img/scholarship/Vector.svg"
           alt=""
         />
@@ -60,7 +66,7 @@ const scholarDetailModal = async (id) => {
       <div class="flex items-center lg:my-7 my-3">
         <img
           src="@/assets/img/scholarship/MapPin.svg"
-          class="md:mr-3 ssm:mr-1 w-8 h-8"
+          class="md:mr-3 ssm:mr-1 md:w-8 md:h-8 ssm:w-5 ssm:h-5"
           alt=""
         />
         <p
@@ -78,7 +84,7 @@ const scholarDetailModal = async (id) => {
       <div class="flex items-center my-3">
         <img
           src="@/assets/img/scholarship/Flag.svg"
-          class="md:mr-3 ssm:mr-1 w-8 h-8"
+          class="md:mr-3 ssm:mr-1 md:w-8 md:h-8 ssm:w-5 ssm:h-5"
           alt=""
         />
         <p
@@ -95,7 +101,7 @@ const scholarDetailModal = async (id) => {
         <div class="flex gap-x-1">
           <Button
             @click="scholarDetailModal(props.data.id)"
-            class="text-md ssm:mr-7 ssm:px-[10px] sm:py-[5px] md:px-[40px] px-[27px] lg:py-[15px] md:py-[10px] py-[2px] rounded-[20px] lg:text-[16px] md:text-[9px] ssm:text-[14px]"
+            class="text-md ssm:mr-7 ssm:px-[10px] ssm:py-[5px] md:px-[40px] px-[27px] lg:py-[15px] md:py-[10px] py-[2px] rounded-[20px] lg:text-[16px] md:text-[9px] ssm:text-[14px]"
             type="gradient"
             data-te-toggle="modal"
             data-te-target="#appointmentFormModal"
@@ -103,22 +109,23 @@ const scholarDetailModal = async (id) => {
             data-te-ripple-color="light"
             >Scholarship Details</Button
           >
-          <router-link
+          <!-- <router-link
             :to="{
               name: 'universities.detail',
               params: { id: props.data.id },
             }"
+          > -->
+          <Button
+            @click="detail"
+            class="lg:px-[40px] text-md ssm:mr-7 sm:px-[30px] ssm:py-[5px] md:px-[40px] px-[27px] lg:py-[15px] md:py-[10px] py-[2px] rounded-[20px] lg:text-[16px] md:text-[9px] ssm:text-[14px]"
+            type="gradient"
+            data-te-toggle="modal"
+            data-te-target="#appointmentFormModal"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            >See More</Button
           >
-            <Button
-              class="lg:px-[40px] text-md ssm:mr-7 sm:px-[30px] sm:py-[5px] md:px-[40px] px-[27px] lg:py-[15px] md:py-[10px] py-[2px] rounded-[20px] lg:text-[16px] md:text-[9px] ssm:text-[14px]"
-              type="gradient"
-              data-te-toggle="modal"
-              data-te-target="#appointmentFormModal"
-              data-te-ripple-init
-              data-te-ripple-color="light"
-              >See More</Button
-            >
-          </router-link>
+          <!-- </router-link> -->
         </div>
       </div>
     </div>

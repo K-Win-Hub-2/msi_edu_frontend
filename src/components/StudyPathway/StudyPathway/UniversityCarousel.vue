@@ -10,6 +10,7 @@ import getData from "../../../axios/getData";
 import { useAppStore } from "../../../stores/app";
 import { storeToRefs } from "pinia";
 import axios from "axios";
+import { onBeforeRouteUpdate } from "vue-router";
 const modules = [Navigation, Pagination];
 const { data, fetchData } = getData();
 
@@ -60,13 +61,11 @@ const swiperOptions = {
     prevEl: ".swiper-scholarship-school-lists-button-prev-unique",
   },
 };
-// Retrieving the string
-// let retString = localStorage.getItem("scholar");
 
-// Retrieved array
-// let retArray = JSON.parse(retString);
 const url = ref(`university-lists/partner/yes/country/${props.id}`);
-
+onBeforeRouteUpdate(() => {
+  fetchData(url.value);
+});
 onMounted(() => {
   fetchData(url.value);
 });

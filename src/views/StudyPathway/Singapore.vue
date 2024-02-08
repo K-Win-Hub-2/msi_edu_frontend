@@ -10,6 +10,7 @@ import UniversityCarousel from "../../components/StudyPathway/StudyPathway/Unive
 import getData from "../../axios/getData";
 import { onMounted, ref } from "vue";
 import axios from "axios";
+import { onBeforeRouteUpdate } from "vue-router";
 
 const videoOne = `<iframe width="500" height="250" src="https://www.youtube.com/embed/xtUR0szH0Zw" title="Myanmar Search International (MSI)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 
@@ -52,16 +53,14 @@ onMounted(() => {
 </script>
 <template>
   <section>
-    <div class="relative md:mt-36 ssm:mt-4" v-if="bannerImage">
+    <div class="relative lg:mt-36 ssm:mt-4" v-if="bannerImage">
       <img :src="bannerImage" class="object-cover w-full lg:h-[800px]" alt="" />
     </div>
   </section>
   <!-- <section v-if="currentCountry">{{ currentCountry.image }}</section> -->
   <section class="container lg:py-24 ssm:py-5 md:py-14" v-if="currentCountry">
     <div class="font-[400] md:text-md ssm:text-[15px] ssm:mx-2">
-      <p>
-        {{ currentCountry.introduction }}
-      </p>
+      <p>{{ currentCountry.introduction }}</p>
       <div class="text-center md:mt-20 ssm:mt-5">
         <router-link :to="{ name: 'inquiry' }">
           <Button
@@ -136,7 +135,7 @@ onMounted(() => {
     ></div>
     <div class="">
       <div class="container relative z-40 px-6 pt-6 pb-24">
-        <Faq />
+        <Faq :id="props.id" />
         <!-- <h1 class="cus-heading text-cus-primary text-center capitalize mb-12">
         Frequently Asked Questions
       </h1>
