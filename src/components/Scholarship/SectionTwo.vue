@@ -14,6 +14,7 @@
       class="flex justify-between items-center lg:min-w-[1300px] md:min-w-[700px] ssm:max-w-[320px] sm:w-auto overflow-hidden container relative"
     >
       <swiper
+        v-if="scholarships"
         :pagination="{
           clickable: true,
         }"
@@ -26,9 +27,10 @@
         class="mySwiper flex justify-center lg:min-w-[1100px] md:min-w-[600px] ssm:max-w-[320px]"
       >
         <!-- slider one -->
+
         <swiper-slide
           class="flex justify-center py-12"
-          v-for="d in data"
+          v-for="d in scholarships"
           :key="d"
         >
           <AchieverCard :data="d" />
@@ -70,7 +72,7 @@ import AchieverCard from "./AchieverCard.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper";
 import SliderScho from "./SliderScho.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 const modules = [Navigation, Pagination];
 import MinKhantTinImg from "../../assets/img/scholarship/Min Khant Tin (Webster).jpg";
 import kyiImg from "../../assets/img/scholarship/kyi.jpg";
@@ -79,6 +81,7 @@ import HninImg from "../../assets/img/scholarship/Hnin A Kery (SIM).jpg";
 import EiNgonImg from "../../assets/img/scholarship/Ei Ngon Phoo (SIM).jpg";
 import ZayaImg from "../../assets/img/scholarship/Zay Ya Min Yin (SIM).jpg";
 import ZawLinImg from "../../assets/img/scholarship/zinLin.jpg";
+import axios from "axios";
 
 const start = ref(true);
 const end = ref(false);
@@ -94,6 +97,16 @@ const onSlideChange = (event) => {
   } else {
     start.value = false;
   }
+};
+const scholarships = ref();
+const fetchData = async () => {
+  const res = await axios.get("scholarship-achievers/scholar-type/11");
+  scholarships.value = res.data.scholarAchiever;
+  console.log("two", res.data.scholarAchiever);
+  // console.log("scholar", res.data.scholarAchiever);
+  // scholarships.value = res.data.scholarAchiever.filter((p) => {
+  //   return p.scholarship_type == 11;
+  // });
 };
 
 const data = ref([
@@ -152,4 +165,7 @@ const swiperOptions = {
     prevEl: ".swiper-achieve-card-button-prev-unique",
   },
 };
+onMounted(() => {
+  fetchData();
+});
 </script>
