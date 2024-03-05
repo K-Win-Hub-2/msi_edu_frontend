@@ -1,10 +1,15 @@
+<script setup>
+const props = defineProps(["country"]);
+console.log("props", props.country.key_facts);
+const myMain = props.country.key_facts.split(",");
+</script>
 <template>
   <div>
     <div class="">
       <div
         class="grid lg:grid-cols-2 ssm:grid-cols-1 md:grid-cols-1 lg:gap-x-28"
       >
-        <div class="">
+        <div class="" v-if="props.country">
           <div
             class="md:w-[536px] ssm:w-[300px] ssm:h-auto md:h-[500px] test-card overflow-hidden mb-4"
           >
@@ -12,7 +17,7 @@
               class="flex justify-center items-center h-[71px] w-[100%] text-white bg-blue-500"
             >
               <h1 class="text-md font-[700] ssm:text-[18px]">
-                Key facts to study in Malaysia
+                Key facts to study in {{ props.country.name }}
               </h1>
             </div>
             <!-- loop -->
@@ -25,7 +30,7 @@
                 </div>
                 <div class="w-[50%]">
                   <p class="text-[13px] mx-2">
-                    English, Mandarin, Malay, Tamil
+                    {{ props.country.serial_key_facts?.language_spoken }}
                   </p>
                 </div>
               </div>
@@ -39,7 +44,7 @@
                 </div>
                 <div class="w-[50%]">
                   <p class="text-[13px] mx-2">
-                    Varies based on university and course
+                    {{ props.country.serial_key_facts?.cost_of_study }}
                   </p>
                 </div>
               </div>
@@ -52,7 +57,9 @@
                   </p>
                 </div>
                 <div class="w-[50%]">
-                  <p class="text-[13px] mx-2">IELTS, TOEFL, GRE, SAT</p>
+                  <p class="text-[13px] mx-2">
+                    {{ props.country.serial_key_facts?.exams_required }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -63,7 +70,7 @@
                 </div>
                 <div class="w-[50%]">
                   <p class="text-[13px] mx-2">
-                    Diploma, Bachelor's, Master's, PhD
+                    {{ props.country.serial_key_facts?.degrees }}
                   </p>
                 </div>
               </div>
@@ -74,7 +81,9 @@
                   <p class="py-5 text-[13px] font-semibold ml-5">intakes</p>
                 </div>
                 <div class="w-[50%]">
-                  <p class="text-[13px] mx-2">January, August</p>
+                  <p class="text-[13px] mx-2">
+                    {{ props.country.serial_key_facts?.intakes }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -84,7 +93,9 @@
                   <p class="py-5 text-[13px] font-semibold ml-5">Visa</p>
                 </div>
                 <div class="w-[50%]">
-                  <p class="text-[13px] mx-2">Student Pass</p>
+                  <p class="text-[13px] mx-2">
+                    {{ props.country.serial_key_facts.visa }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -100,70 +111,32 @@
               class="flex justify-center items-center h-[71px] w-[100%] text-white bg-blue-500"
             >
               <h1 class="text-md font-[700] ssm:text-[18px]">
-                Key facts to study in Malaysia
+                Main facts to study in {{ props.country.name }}
               </h1>
             </div>
             <!-- loop -->
-            <div class="px-7 pt-4 py-1">
-              <div class="flex items-center bg-slate-100 rounded-lg px-5 py-5">
-                <div class="w-[8%]">
-                  <img
-                    src="../../../assets/img/StudyPathway/Checkmark.png"
-                    alt=""
-                  />
+            <div v-if="myMain">
+              <template v-for="(data, index) in myMain" :key="index">
+                <div class="px-7 pt-4 py-1">
+                  <div
+                    class="flex items-center bg-slate-100 rounded-lg px-5 py-5"
+                  >
+                    <div class="w-[8%]">
+                      <img
+                        src="../../../assets/img/StudyPathway/Checkmark.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="w-[92%]">
+                      <p class="text-[13px] mx-2">
+                        {{ data }}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div class="w-[92%]">
-                  <p class="text-[13px] mx-2">
-                    Higher living standards among Southeast Asian countries
-                  </p>
-                </div>
-              </div>
+              </template>
             </div>
-            <div class="px-7 pt-4 py-1">
-              <div class="flex items-center bg-slate-100 rounded-lg px-5 py-5">
-                <div class="w-[8%]">
-                  <img
-                    src="../../../assets/img/StudyPathway/Checkmark.png"
-                    alt=""
-                  />
-                </div>
-                <div class="w-[92%]">
-                  <p class="text-[13px] mx-2">
-                    Higher living standards among Southeast Asian countries
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="px-7 pt-4 py-1">
-              <div class="flex items-center bg-slate-100 rounded-lg px-5 py-5">
-                <div class="w-[8%]">
-                  <img
-                    src="../../../assets/img/StudyPathway/Checkmark.png"
-                    alt=""
-                  />
-                </div>
-                <div class="w-[92%]">
-                  <p class="text-[13px] mx-2">
-                    Higher living standards among Southeast Asian countries
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="px-7 pt-4 py-1">
-              <div class="flex items-center bg-slate-100 rounded-lg px-5 py-5">
-                <div class="w-[8%]">
-                  <img
-                    src="../../../assets/img/StudyPathway/Checkmark.png"
-                    alt=""
-                  />
-                </div>
-                <div class="w-[92%]">
-                  <p class="text-[13px] mx-2">
-                    Higher living standards among Southeast Asian countries
-                  </p>
-                </div>
-              </div>
-            </div>
+
             <!-- loop -->
           </div>
         </div>
@@ -171,7 +144,5 @@
     </div>
   </div>
 </template>
-
-<script setup></script>
 
 <style lang="scss" scoped></style>

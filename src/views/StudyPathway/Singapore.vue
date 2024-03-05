@@ -33,20 +33,6 @@ const fetchData = async () => {
   }
 };
 
-// if (res) {
-//     console.log(res.data);
-//     res.data.university.map((uni) => {
-//       if (uni.id == props.id) {
-//         university.value = uni;
-//         bannerImage.value =
-//           "http://adminpanel.msieducation.edu.mm/postImage/" +
-//           uni.uni_banner_image;
-//         prizeImage.value =
-//           "http://adminpanel.msieducation.edu.mm/postImage/" + uni.prize_image;
-//       }
-//     });
-//   }
-
 onMounted(() => {
   fetchData();
 });
@@ -57,7 +43,6 @@ onMounted(() => {
       <img :src="bannerImage" class="object-cover w-full lg:h-[800px]" alt="" />
     </div>
   </section>
-  <!-- <section v-if="currentCountry">{{ currentCountry.image }}</section> -->
   <section class="container lg:py-24 ssm:py-5 md:py-14" v-if="currentCountry">
     <div class="font-[400] md:text-md ssm:text-[15px] ssm:mx-2">
       <p>{{ currentCountry.introduction }}</p>
@@ -76,21 +61,8 @@ onMounted(() => {
       </div>
     </div>
   </section>
-  <!-- university carousel start -->
-  <!-- <router-link :to="{ name: 'universities.detail' }"> -->
   <UniversityCarousel :id="props.id" />
-  <!-- </router-link> -->
-  <!-- university carousel end -->
-  <!-- <section>
-    <div class="container px-6 pt-6 pb-24">
-      <h1
-        class="cus-heading text-cus-primary uppercase text-center mb-12 shadow-title"
-      >
-        University
-      </h1>
-      <Universities></Universities>
-    </div>
-  </section> -->
+
   <section>
     <div class="relative">
       <div
@@ -106,7 +78,7 @@ onMounted(() => {
       </div>
       <div class="container md:pt-32 ssm:pt-10 relative z-40">
         <div class="flex justify-center">
-          <TestSection />
+          <TestSection v-if="currentCountry" :country="currentCountry" />
         </div>
       </div>
     </div>
@@ -120,7 +92,7 @@ onMounted(() => {
       <div
         class="bg-[url(@/assets/img/scholarship/ellipse9.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute lg:top-[-7px] md:top-[-12px] md:right-[-600px] right-[-400px] top-[-8px] lg:right-[-1200px]"
       ></div>
-      <Programs />
+      <Programs v-if="currentCountry" :country="currentCountry" />
       <img
         src="../../assets/img/universities/curvedwire2.png"
         class="absolute md:top-0 ssm:top-24 lg:w-[200px] md:w-[150px] ssm:w-[80px] md:h-[150px] lg:h-[200px] left-0"
@@ -136,10 +108,6 @@ onMounted(() => {
     <div class="">
       <div class="container relative z-40 px-6 pt-6 pb-24">
         <Faq :id="props.id" />
-        <!-- <h1 class="cus-heading text-cus-primary text-center capitalize mb-12">
-        Frequently Asked Questions
-      </h1>
-      <Faq country="singapore" /> -->
       </div>
     </div>
   </section>
@@ -200,8 +168,6 @@ onMounted(() => {
             <p>This is intro</p>
           </div>
         </div>
-        <!-- <div v-html="videoOne"></div>
-        <div v-html="videoTwo"></div> -->
       </div>
     </div>
   </section>

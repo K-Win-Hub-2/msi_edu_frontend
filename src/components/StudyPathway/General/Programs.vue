@@ -1,3 +1,7 @@
+<script setup>
+const props = defineProps(["country"]);
+console.log(props.country.country_program, " hehe");
+</script>
 <template>
   <div class="">
     <h1 class="cus-heading mt-36 text-cus-primary text-center capitalize mb-12">
@@ -9,230 +13,28 @@
           class="flex lg:w-[1300px] md:w-[800px] mx-auto gap-3 flex-wrap justify-center"
         >
           <!-- card start -->
-          <div
-            class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-6"
+          <template
+            v-for="(program, index) in props.country.country_program"
+            :key="index"
           >
             <div
-              class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] p-2 border-[#205887]"
+              class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-6"
             >
-              <img
-                src="../../../assets/img/countries/program/Engineering 1.png"
-                alt=""
-              />
+              <div
+                class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] p-2 border-[#205887]"
+              >
+                <img :src="program.imageURL" alt="" />
+              </div>
+              <h1
+                class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
+              >
+                {{ program.name }}
+              </h1>
             </div>
-            <h1
-              class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
-            >
-              Engineering
-            </h1>
-          </div>
-          <!-- card end -->
-          <!-- card start -->
-          <div
-            class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-4"
-          >
-            <div
-              class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] border-[#205887]"
-            >
-              <img
-                src="../../../assets/img/countries/program/Business 1.png"
-                alt=""
-              />
-            </div>
-            <h1
-              class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
-            >
-              business
-            </h1>
-          </div>
-          <!-- card end -->
-          <!-- card start -->
-          <div
-            class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-4"
-          >
-            <div
-              class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] border-[#205887]"
-            >
-              <img
-                src="../../../assets/img/countries/program/Nursing 2.png"
-                alt=""
-              />
-            </div>
-            <h1
-              class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
-            >
-              Healthcare
-            </h1>
-          </div>
-          <!-- card end -->
-          <!-- card start -->
-          <div
-            class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-4"
-          >
-            <div
-              class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] border-[#205887]"
-            >
-              <img
-                src="../../../assets/img/countries/program/ComputerScience 1.png"
-                alt=""
-              />
-            </div>
-            <h1
-              class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
-            >
-              Computer Science
-            </h1>
-          </div>
-          <!-- card end -->
-          <!-- card start -->
-          <div
-            class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-4"
-          >
-            <div
-              class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] border-[#205887]"
-            >
-              <img
-                src="../../../assets/img/countries/program/Medicine 2.png"
-                alt=""
-              />
-            </div>
-            <h1
-              class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
-            >
-              Medicine
-            </h1>
-          </div>
-          <!-- card end -->
-        </div>
-
-        <div
-          class="flex lg:w-[1300px] md:w-[800px] gap-3 flex-wrap justify-center mt-10"
-        >
-          <!-- card start -->
-          <div
-            class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-6"
-          >
-            <div
-              class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] border-[#205887]"
-            >
-              <img
-                src="../../../assets/img/countries/program/PoliticalScience 1.png"
-                alt=""
-              />
-            </div>
-            <h1
-              class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
-            >
-              Accountancy
-            </h1>
-          </div>
-          <!-- card end -->
-          <!-- card start -->
-          <div
-            class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-4"
-          >
-            <div
-              class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] border-[#205887]"
-            >
-              <img
-                src="../../../assets/img/countries/program/Accounting 1.png"
-                alt=""
-              />
-            </div>
-            <h1
-              class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
-            >
-              Architecture
-            </h1>
-          </div>
-          <!-- card end -->
-          <!-- card start -->
-          <div
-            class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-4"
-          >
-            <div
-              class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] border-[#205887]"
-            >
-              <img
-                src="../../../assets/img/countries/program/Education 1.png"
-                alt=""
-              />
-            </div>
-            <h1
-              class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
-            >
-              Education
-            </h1>
-          </div>
-          <!-- card end -->
-          <!-- card start -->
-          <div
-            class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-4"
-          >
-            <div
-              class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] border-[#205887]"
-            >
-              <img
-                src="../../../assets/img/countries/program/Law 1.png"
-                alt=""
-              />
-            </div>
-            <h1
-              class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
-            >
-              Law 1
-            </h1>
-          </div>
-          <!-- card end -->
-          <!-- card start -->
-          <div
-            class="md:w-[381px] min-w-[320px] md:h-[107px] program-card border p-4 flex items-center gap-4"
-          >
-            <div
-              class="min-w-[98px] h-[77px] flex justify-center bg-[#E3F7FF] rounded-md border-[1.5px] border-[#205887]"
-            >
-              <img
-                src="../../../assets/img/countries/program/Psychology 2.png"
-                alt=""
-              />
-            </div>
-            <h1
-              class="md:text-[22px] ssm:text-[20px] text-[#333] font-semibold"
-            >
-              Artificial Intelligence
-            </h1>
-          </div>
+          </template>
           <!-- card end -->
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<script setup>
-import { onMounted, ref } from "vue";
-import { programs } from "../../../mocks/programs";
-
-const props = defineProps({
-  country: {
-    type: String,
-    default: "singapore",
-  },
-  university: {
-    type: String,
-    default: "stamford",
-  },
-});
-
-const currentPrograms = ref([]);
-
-onMounted(() => {
-  currentPrograms.value = programs.filter((program) => {
-    if (program.country === props.country) {
-      return true;
-    }
-  });
-});
-</script>
-
-<style lang="scss" scoped></style>
