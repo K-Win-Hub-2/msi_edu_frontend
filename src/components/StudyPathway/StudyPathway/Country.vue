@@ -1,8 +1,10 @@
 <script setup>
 import { ref } from "vue";
+import UniversityCarousel from "./UniversityCarousel.vue";
 
 const flagImage = ref();
 const props = defineProps(["data"]);
+console.log(props.data,'country data')
 if (props.data) {
   flagImage.value =
     "http://adminpanel.msieducation.edu.mm/postImage/" + props.data.image;
@@ -22,6 +24,7 @@ if (props.data) {
 
       <p class="mt-[20px] text-center text-[19px] text-[#205887] underline">
         {{ props.data.name }}
+        <!-- <UniversityCarousel :data="props.data.id"/> -->
       </p>
     </div>
   </router-link>

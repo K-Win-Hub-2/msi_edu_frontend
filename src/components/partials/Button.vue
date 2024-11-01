@@ -12,14 +12,14 @@
         type === 'default',
       'bg-transparent border text-white border-secondary-300':
         type === 'outline-white',
-      'bg-gradient-to-r from-yellow-200 to-pink-200 transition hover:from-cus-primary hover:to-cus-secondary':
+      'bg-gradient-to-r from-yellow-200 to-pink-200 transition hover:from-cus-primary hover:to-cus-secondary hover:text-[#fff]':
         type === 'gradient',
     }"
   >
     <div
-      class="capitalize font-semibold flex items-center justify-between space-x-3"
+      class="capitalize font-semibold"
     >
-      <slot name="icon"></slot>
+      <!-- <slot name="icon"></slot> -->
       <span>
         <slot name="buttonText"> </slot>
       </span>

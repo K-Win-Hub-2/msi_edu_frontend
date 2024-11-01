@@ -2,7 +2,7 @@
   <div id="accordionExample" class="cus-standout overflow-hidden">
     <template v-for="faq in currentFaqs">
       <div
-        class="border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800 "
+        class="border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800"
       >
         <h2 class="mb-0" :id="faq.triggerId">
           <button
@@ -42,9 +42,7 @@
           :aria-labelledby="faq.triggerId"
           data-te-parent="#accordionExample"
         >
-          <div class="px-5 py-4" v-html="faq.targetContent">
-            
-          </div>
+          <div class="px-5 py-4" v-html="faq.targetContent"></div>
         </div>
       </div>
     </template>

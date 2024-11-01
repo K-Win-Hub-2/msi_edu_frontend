@@ -5,6 +5,7 @@ import WOW from "wow.js";
 import "../src/axios/index";
 
 import App from "./App.vue";
+
 import router from "./router";
 import ToastPlugin from "vue-toast-notification"; //notification
 

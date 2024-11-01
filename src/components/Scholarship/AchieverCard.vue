@@ -42,10 +42,10 @@ onMounted(() => {
         <h1 class="text-[#205887] mt-3 text-[13px]">
           <span
             class="text-[#FE005F] text-[12px] font-[700] uppercase shadow-title"
-            >{{ props.data.student_name }}</span
+            >{{ props.data.university_name }}</span
           >
           <span class="text-[11px] font-[400] uppercase shadow-title"
-            >( {{ props.data.course_name }} )</span
+            >( {{ props.data.university_name }} )</span
           >
           <h1
             class="text-[11px] text-[#205887] mt-3 font-[400] uppercase shadow-title"
@@ -56,7 +56,7 @@ onMounted(() => {
         <h1
           class="text-[#FE005F] font-[600] uppercase text-[11.5px] mt-3 shadow-title"
         >
-          {{ UniName }} ({{ props.data?.country.name }})
+          ({{ props.data?.university_name }})
         </h1>
       </div>
     </div>

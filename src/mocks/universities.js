@@ -55,8 +55,6 @@ import deanza from "@/assets/img/universities/deanza.png";
 import orangeCoast from "@/assets/img/universities/orangeCoast.png";
 import webster from "@/assets/img/universities/webster.png";
 
-
-
 export const universities = [
   {
     country: "singapore",
@@ -434,7 +432,6 @@ export const universities = [
       "One of the largest private education institutions in Singapore, with campuses located in the heart of the city.",
   },
 
-
   //italy
   {
     country: "italy",
@@ -541,6 +538,7 @@ export const universities = [
 
   //usa
   {
+    id: 1,
     country: "usa",
     image: deanza,
     content: "deanza",
@@ -551,6 +549,7 @@ export const universities = [
       "One of the largest private education institutions in Singapore, with campuses located in the heart of the city.",
   },
   {
+    id: 2,
     country: "usa",
     image: greenRiver,
     content: "greenRiver",
@@ -561,6 +560,7 @@ export const universities = [
       "One of the largest private education institutions in Singapore, with campuses located in the heart of the city.",
   },
   {
+    id: 3,
     country: "usa",
     image: orangeCoast,
     content: "orangeCoast",
@@ -571,6 +571,7 @@ export const universities = [
       "One of the largest private education institutions in Singapore, with campuses located in the heart of the city.",
   },
   {
+    id: 4,
     country: "usa",
     image: webster,
     content: "webster",

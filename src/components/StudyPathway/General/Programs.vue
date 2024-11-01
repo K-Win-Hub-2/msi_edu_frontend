@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps(["country"]);
-console.log(props.country.country_program, " hehe");
+console.log(props.country.country_program, "hehe");
 </script>
 <template>
   <div class="">

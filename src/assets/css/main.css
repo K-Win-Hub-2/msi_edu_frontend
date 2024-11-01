@@ -13,7 +13,7 @@ html {
 
 div.swiper-wrapper {
   display: flex;
-  align-items: center !important;
+  align-items: left !important;
 }
 
 /* .router-link-exact-active {
@@ -137,4 +137,3 @@ background: linear-gradient(94deg, #E1EFFF -0.01%, rgba(169, 209, 255, 0.00) 102
 .vc-pane-layout{
  padding: 60px !important;
 } */
-

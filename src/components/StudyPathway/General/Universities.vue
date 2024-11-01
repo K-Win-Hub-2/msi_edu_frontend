@@ -11,7 +11,7 @@ import { onMounted, ref } from "vue";
 import { universities } from "../../../mocks/universities";
 import UniversityCard from "./UniversityCard.vue";
 import axios from "axios";
-
+const { currentUniversities, fetchData } = getData();
 const props = defineProps({
   country: {
     type: String,
@@ -19,14 +19,21 @@ const props = defineProps({
   },
 });
 
-const currentUniversities = ref([]);
+// const currentUniversities = ref([]);
 
+// onMounted(() => {
+//   currentUniversities.value = universities.filter(
+//     (university) => university.country === props.country
+//   );
+//   fetchData();
+//   console.log("hi");
+// });
+const url = ref(`university-name/country/${props.country}`);
+onBeforeRouteUpdate(() => {
+  fetchData(url.value);
+});
 onMounted(() => {
-  currentUniversities.value = universities.filter(
-    (university) => university.country === props.country
-  );
-  fetchData();
-  console.log("hi");
+  fetchData(url.value);
 });
 </script>
 

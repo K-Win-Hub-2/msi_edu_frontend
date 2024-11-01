@@ -11,14 +11,19 @@ import { useAppStore } from "../../../stores/app";
 import { storeToRefs } from "pinia";
 import axios from "axios";
 import { onBeforeRouteUpdate } from "vue-router";
+import { universities } from "../../../mocks/universities";
+import UniversityCard from "./UniversityCard.vue";
 const modules = [Navigation, Pagination];
 const { data, fetchData } = getData();
 
 const start = ref(true);
+const list = ref([]);
 const end = ref(false);
 const appStore = useAppStore();
 const { scholarshipDetail, scholar } = storeToRefs(appStore);
 const props = defineProps(["id"]);
+console.log(window.location.pathname.split('/')[3], 'props')
+
 
 // swiper start
 
@@ -62,13 +67,22 @@ const swiperOptions = {
   },
 };
 
-const url = ref(`university-lists/partner/yes/country/${props.id}`);
+// const url = ref(`university-lists/partner/yes/country/${props.id}`);
+const url = ref(`university-name/country/${window.location.pathname.split('/')[3]}`);
 onBeforeRouteUpdate(() => {
   fetchData(url.value);
 });
 onMounted(() => {
   fetchData(url.value);
 });
+
+// onMounted(() => {
+//   const list = universities.filter(
+//     (university) => university.country === props.id
+//   );
+//   console.log(list, "data");
+//   // fetchData();
+// });
 </script>
 <template>
   <div
@@ -80,43 +94,9 @@ onMounted(() => {
     >
       Partner University
     </h1>
-    <div class="relative container">
-      <swiper
-        :pagination="{
-          clickable: true,
-        }"
-        @slideChange="onSlideChange"
-        :breakpoints="swiperOptions.breakpoints"
-        :navigation="swiperOptions.navigation"
-        :modules="modules"
-        class="mySwiper"
-      >
-        <!-- slider one -->
-        <swiper-slide
-          class="flex justify-center py-12"
-          v-for="data in data.university"
-          :key="data.id"
-        >
-          <UniversityData :data="data" />
-        </swiper-slide>
-      </swiper>
-      <div
-        class="swiper-scholarship-school-lists-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
-      >
-        <ChevronLeftIcon
-          :class="{ 'opacity-50': start }"
-          class="w-12 h-12 text-cus-primary ssm:hidden md:block"
-        />
-      </div>
-      <div
-        class="swiper-scholarship-school-lists-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
-      >
-        <ChevronRightIcon
-          :class="{ 'opacity-50': end }"
-          class="w-12 h-12 text-cus-primary ssm:hidden md:block"
-        />
-      </div>
-    </div>
+    <div>
+    <UniversityCard :data="data.university"
+/>    </div>
   </div>
   <div
     v-if="scholarshipDetail"
@@ -242,18 +222,7 @@ onMounted(() => {
                   </div>
                 </div>
               </div>
-              <!-- <ScholarshipOfferCard :university="university" /> -->
             </swiper-slide>
-
-            <!-- slider two  -->
-            <!-- <swiper-slide class="flex justify-center">
-                    <ScholarshipOfferCard />
-                  </swiper-slide> -->
-
-            <!-- slider three  -->
-            <!-- <swiper-slide class="flex justify-center">
-                    <ScholarshipOfferCard />
-                  </swiper-slide> -->
           </swiper>
           <div
             class="swiper-scholarship-school-lists-button-prev-unique absolute cursor-pointer md:-left-12 lg:-left-20 top-1/2 -translate-y-1/2"

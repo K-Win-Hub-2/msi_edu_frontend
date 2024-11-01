@@ -5,7 +5,7 @@ import AwardCard from "../../components/Home/AwardCard.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Autoplay, EffectCoverflow } from "swiper";
 
-const currentAwards = ref([]);
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -16,6 +16,7 @@ import { awards } from "../../mocks/awards";
 
 const start = ref(true);
 const end = ref(false);
+const currentAwards = ref([]);
 const currentActiveAward = ref({});
 
 // swiper start

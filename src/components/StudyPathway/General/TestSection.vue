@@ -1,4 +1,6 @@
 <script setup>
+
+
 const props = defineProps(["country"]);
 console.log("props", props.country.key_facts);
 const myMain = props.country.key_facts.split(",");
@@ -129,7 +131,13 @@ const myMain = props.country.key_facts.split(",");
                     </div>
                     <div class="w-[92%]">
                       <p class="text-[13px] mx-2">
-                        {{ data }}
+                         <!-- to convert by automatically css effect code from database with css code -->
+                        <div
+      v-if="data"
+      v-html="data"
+      class=" leading-relaxed m-5 text-gray-700"
+    ></div>  
+    <!-- to convert by automatically css effect code from database with css code -->
                       </p>
                     </div>
                   </div>

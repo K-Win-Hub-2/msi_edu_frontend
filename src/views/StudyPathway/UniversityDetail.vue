@@ -1,21 +1,34 @@
 <script setup>
+
 import Button from "../../components/partials/Button.vue";
 import ScholarshipOfferCard from "../../components/Scholarship/ScholarshipOfferCard.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation ,Autoplay, EffectCoverflow} from "swiper";
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import { onBeforeRouteUpdate } from "vue-router";
-const modules = [Navigation, Pagination];
+import AwardCard from "../../components/Home/AwardCard.vue";
+const modules = [Navigation, Pagination, Autoplay, EffectCoverflow];
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
+import "swiper/css/effect-coverflow";
+import PrizeCard from "../../components/Home/PrizeCard.vue";
 const start = ref(true);
 const end = ref(false);
 const scholarshipOffer = ref();
 // scholarship-type-list/university/1
+const award=ref([])
+const currentAwards = ref([]);
+const currentActiveAward = ref({});
 
 // swiper start
 
 const onSlideChange = (event) => {
+
+    
   if (event.isEnd) {
     end.value = true;
   } else {
@@ -41,11 +54,11 @@ const swiperOptions = {
     },
     // when window width is >= 640px
     1024: {
-      slidesPerView: 1,
+      slidesPerView: 2,
     },
     // when window width is >= 640px
     1280: {
-      slidesPerView: 1,
+      slidesPerView: 3,
     },
   },
   navigation: {
@@ -53,7 +66,62 @@ const swiperOptions = {
     prevEl: ".swiper-scholarship-school-lists-button-prev-unique",
   },
 };
+const onPrizeSlideChange = (event) => {
+  // currentActiveAward.value = 4;
 
+  if (event.isEnd) {
+    end.value = true;
+  } else {
+    end.value = false;
+  }
+
+  if (event.isBeginning) {
+    start.value = true;
+  } else {
+    start.value = false;
+  }
+};
+
+const swiperPrizeOptions = {
+  loop: true,
+  breakpoints: {
+    // when window width is >= 320px
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    // when window width is >= 480px
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    // when window width is >= 640px
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+    // when window width is >= 640px
+    1280: {
+      slidesPerView: 3.7,
+      spaceBetween: 50,
+    },
+  },
+  navigation: {
+    nextEl: ".swiper-home-award-button-next-unique",
+    prevEl: ".swiper-home-award-button-prev-unique",
+  },
+  coverflowEffect: {
+    rotate: 0,
+    stretch: -5,
+    depth: 100,
+    modifier: 3,
+    slideShadows: false,
+  },
+  // autoplay: {
+  //   delay: 3000,
+  //   disableOnInteraction: false,
+  // },
+};
 // university data
 const props = defineProps(["id"]);
 const university = ref();
@@ -61,20 +129,28 @@ const bannerImage = ref("");
 const prizeImage = ref("");
 const program = ref();
 const fetchData = async () => {
-  const res = await axios.get("university-lists/partner/yes");
+  const res = await axios.get("university-details/" + props.id);
+  console.log(res.data.university, 'data')
+  university.value = res.data.university
+  award.value=res.data.university.prizes
   if (res.data.university) {
-    res.data.university.map((uni) => {
-      if (uni.id == props.id) {
-        university.value = uni;
+  
+      if (res.data.university.id == props.id) {
+       
         bannerImage.value =
           "http://adminpanel.msieducation.edu.mm/postImage/" +
-          uni.uni_banner_image;
+          res.data.university.uni_banner_image;
         prizeImage.value =
-          "http://adminpanel.msieducation.edu.mm/postImage/" + uni.prize_image;
+          "http://adminpanel.msieducation.edu.mm/postImage/" + res.data.university.prize_image;
       }
-    });
+  
   }
 };
+
+// onMounted(() => {
+//   currentAwards.value = [...award];
+//   currentActiveAward.value = award[4];
+// });
 const scholarship = async () => {
   const res = await axios.get(`scholarship-type-list/university/${props.id}`);
   scholarshipOffer.value = res.data.scholarshipTypeLists;
@@ -94,9 +170,9 @@ onMounted(() => {
   <div>
     <div class="lg:my-28 ssm:my-4" v-if="university">
       <img
-        v-if="bannerImage"
+      
         class="w-full lg:h-[693px] md:h-[500px]"
-        :src="bannerImage"
+        :src="university.imageURL"
         alt=""
       />
       <div class="flex justify-center">
@@ -199,64 +275,51 @@ onMounted(() => {
                 />
               </div>
             </div>
-            <div
-              class="md:px-5 ssm:px-1 py-8 flex md:flex-row ssm:flex-col gap-x-7 items-center bg-[#F5FBFC]"
-            >
-              <div class="bg-primary-600 md:w-[370px] md:h-[370px] p-2">
-                <div class="border-2 border-blue-600">
-                  <img
-                    v-if="prizeImage"
-                    :src="prizeImage"
-                    class="md:h-[348px] ssm:h-[250px] w-full object-cover"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="md:space-y-14 ssm:space-y-5 ssm:mt-4 md:mt-0">
-                <div class="">
-                  <div class="flex text-md">
-                    <p
-                      class="text-[#205887] ssm:text-[18px] md:text-md md:font-semibold"
-                    >
-                      <span>Prize Names</span>
-                    </p>
-                    <p
-                      class="text-[#FE005F] ssm:text-[18px] md:text-md md:font-semibold"
-                    >
-                      -{{ university.prize_name }}
-                    </p>
-                  </div>
-                </div>
-                <div class="">
-                  <div class="flex text-md">
-                    <p
-                      class="text-[#205887] ssm:text-[18px] md:text-md md:font-semibold"
-                    >
-                      University Name
-                    </p>
-                    <p
-                      class="text-[#FE005F] ssm:text-[18px] md:text-md md:font-semibold"
-                    >
-                      -{{ university.university_name }}
-                    </p>
-                  </div>
-                </div>
-                <div class="">
-                  <div class="flex text-md">
-                    <p
-                      class="text-[#205887] ssm:text-[18px] md:text-md md:font-semibold"
-                    >
-                      Year awarded
-                    </p>
-                    <p
-                      class="text-[#FE005F] ssm:text-[18px] md:text-md md:font-semibold"
-                    >
-                      -{{ university.awarded_year }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          
+              <div class="relative flex justify-between items-center mb-3 h-[600px]">
+      <div
+        class="absolute cus-glass-card cus-rounded shadow w-full h-[60%]"
+      ></div>
+      <div
+        class="swiper-home-award-button-prev-unique hover:cursor-pointer z-[20]"
+      >
+        <ChevronLeftIcon
+          :class="{ 'opacity-50': start }"
+          class="w-12 h-12 text-cus-primary"
+        />
+      </div>
+      <swiper
+        :effect="'coverflow'"
+        :autoplay="swiperPrizeOptions.autoplay"
+        :space-between="1"
+        @slideChange="onPrizeSlideChange"
+        :breakpoints="swiperPrizeOptions.breakpoints"
+        :navigation="swiperPrizeOptions.navigation"
+        :modules="modules"
+        :coverflowEffect="swiperPrizeOptions.coverflowEffect"
+        :grabCursor="true"
+        :centeredSlides="true"
+        initialSlide="4"
+  
+      >
+        <template v-for="prize in university.prizes">
+          <swiper-slide class="my-3 shrink-0">
+            <PrizeCard :image="prize.imageURL" class="select-none" />
+          </swiper-slide>
+        </template>
+      </swiper>
+
+      <div
+        class="swiper-home-award-button-next-unique hover:cursor-pointer z-[20]"
+      >
+        <ChevronRightIcon
+          :class="{ 'opacity-50': end }"
+          class="w-12 h-12 text-cus-primary"
+        />
+      </div>
+    </div>
+            
+           
           </div>
 
           <!-- program -->

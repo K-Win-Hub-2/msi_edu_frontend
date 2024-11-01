@@ -6,7 +6,7 @@ const getData = () => {
   const fetchData = async (url) => {
     const res = await axios.get(url);
     data.value = res.data;
-    console.log(res.data);
+    console.log(res.data, "coount");
   };
   return { data, fetchData };
 };
