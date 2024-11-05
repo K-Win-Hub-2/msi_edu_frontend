@@ -278,45 +278,45 @@ onMounted(() => {
           
               <div class="relative flex justify-between items-center mb-3 h-[600px]">
       <div
-        class="absolute cus-glass-card cus-rounded shadow w-full h-[60%]"
+        class="absolute w-full h-[60%]"
       ></div>
-      <div
+      <!-- <div
         class="swiper-home-award-button-prev-unique hover:cursor-pointer z-[20]"
       >
         <ChevronLeftIcon
           :class="{ 'opacity-50': start }"
           class="w-12 h-12 text-cus-primary"
         />
-      </div>
+      </div> -->
       <swiper
-        :effect="'coverflow'"
-        :autoplay="swiperPrizeOptions.autoplay"
-        :space-between="1"
-        @slideChange="onPrizeSlideChange"
-        :breakpoints="swiperPrizeOptions.breakpoints"
-        :navigation="swiperPrizeOptions.navigation"
-        :modules="modules"
-        :coverflowEffect="swiperPrizeOptions.coverflowEffect"
-        :grabCursor="true"
-        :centeredSlides="true"
-        initialSlide="4"
-  
+
+    
+   :navigation="true" :modules="modules" class="mySwiper"
+       @slideChange="onPrizeSlideChange"
+       :autoplay="{
+        delay: 2500,
+        disableOnInteraction: false,
+    }"
+    :pagination="{
+        dynamicBullets: true,
+    }"
+    :spaceBetween="30" :centeredSlides="true"
       >
-        <template v-for="prize in university.prizes">
-          <swiper-slide class="my-3 shrink-0">
+       
+          <swiper-slide class="my-3 shrink-0" v-for="prize in university.prizes">
             <PrizeCard :image="prize.imageURL" class="select-none" />
           </swiper-slide>
-        </template>
+       
       </swiper>
 
-      <div
+      <!-- <div
         class="swiper-home-award-button-next-unique hover:cursor-pointer z-[20]"
       >
         <ChevronRightIcon
           :class="{ 'opacity-50': end }"
           class="w-12 h-12 text-cus-primary"
         />
-      </div>
+      </div> -->
     </div>
             
            
@@ -416,10 +416,10 @@ onMounted(() => {
             >
               Scholarship offers
             </h1>
-            <div
+            <!-- <div
               v-if="scholarshipOffer"
               class="bg-[url(../../assets/img/StudyPathway/offer.png)] ssm:hidden md:hidden lg:block w-[320px] h-[320px] bg-no-repeat bg-[length:100%_100%] absolute lg:top-[-7px] md:top-[-12px] md:right-[-550px] right-[-400px] top-[-8px] lg:right-[-20px]"
-            ></div>
+            ></div> -->
 
             <div class="flex justify-center">
               <div class="relative container">

@@ -26,7 +26,7 @@ const myMain = props.country.key_facts.split(",");
             <div class="px-7 pt-4 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
-                  <p class="py-5 text-[13px] font-semibold ml-5">
+                  <p class="py-3 text-[13px] font-semibold ml-5">
                     languages spoken
                   </p>
                 </div>
@@ -40,7 +40,7 @@ const myMain = props.country.key_facts.split(",");
             <div class="px-7 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
-                  <p class="py-5 text-[13px] font-semibold ml-5">
+                  <p class="py-3 text-[13px] font-semibold ml-5">
                     Cost of study
                   </p>
                 </div>
@@ -51,7 +51,7 @@ const myMain = props.country.key_facts.split(",");
                 </div>
               </div>
             </div>
-            <div class="px-7 py-1">
+            <!-- <div class="px-7 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
                   <p class="py-5 text-[13px] font-semibold ml-5">
@@ -64,11 +64,11 @@ const myMain = props.country.key_facts.split(",");
                   </p>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="px-7 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
-                  <p class="py-5 text-[13px] font-semibold ml-5">Degrees</p>
+                  <p class="py-3 text-[13px] font-semibold ml-5">Degrees</p>
                 </div>
                 <div class="w-[50%]">
                   <p class="text-[13px] mx-2">
@@ -80,7 +80,7 @@ const myMain = props.country.key_facts.split(",");
             <div class="px-7 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
-                  <p class="py-5 text-[13px] font-semibold ml-5">intakes</p>
+                  <p class="py-3 text-[13px] font-semibold ml-5">intakes</p>
                 </div>
                 <div class="w-[50%]">
                   <p class="text-[13px] mx-2">
@@ -92,7 +92,7 @@ const myMain = props.country.key_facts.split(",");
             <div class="px-7 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
-                  <p class="py-5 text-[13px] font-semibold ml-5">Visa</p>
+                  <p class="py-3 text-[13px] font-semibold ml-5">Visa</p>
                 </div>
                 <div class="w-[50%]">
                   <p class="text-[13px] mx-2">
@@ -121,7 +121,7 @@ const myMain = props.country.key_facts.split(",");
               <template v-for="(data, index) in myMain" :key="index">
                 <div class="px-7 pt-4 py-1">
                   <div
-                    class="flex items-center bg-slate-100 rounded-lg px-5 py-5"
+                    class="flex items-center bg-slate-100 rounded-lg px-1 py-2"
                   >
                     <div class="w-[8%]">
                       <img
@@ -135,7 +135,7 @@ const myMain = props.country.key_facts.split(",");
                         <div
       v-if="data"
       v-html="data"
-      class=" leading-relaxed m-5 text-gray-700"
+      class=" m-4 text-gray-700"
     ></div>  
     <!-- to convert by automatically css effect code from database with css code -->
                       </p>

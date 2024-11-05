@@ -80,6 +80,8 @@ module.exports = {
     },
   },
   plugins: [
+    require('tailwindcss-primeui'),
+    require('flowbite/plugin'),
     require("tw-elements/dist/plugin"),
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(

@@ -1,21 +1,29 @@
+
 <template>
   <div class="border-2 rounded-lg h-auto overflow-hidden">
     <h1
-      class="md:cus-heading ssm:text-md ssm:font-semibold text-white bg-[#8BB5FC] text-center"
+      class="md:cus-heading ssm:text-md ssm:font-semibold text-white bg-[#8BB5FC] text-center p-3"
     >
       Frequently Asked Questions
     </h1>
    <div v-if="faqs">
-    <CAccordion :active-item-key="2" class="p-3" always-open v-for="faq in faqs" :key="faq.id">
-  <CAccordionItem :item-key="faq.id">
-    <CAccordionHeader>
- <strong>   {{ faq.question }}</strong>
-    </CAccordionHeader>
-    <CAccordionBody>
- {{faq.answer}}
-    </CAccordionBody>
-  </CAccordionItem>
- </CAccordion>
+
+  <fwb-accordion>
+    <fwb-accordion-panel v-for="faq in faqs" :key="faq.id">
+      <fwb-accordion-header class="">
+        <p class=" font-semibold">{{ faq.question }}</p>
+      </fwb-accordion-header>
+      <fwb-accordion-content>
+        <div>
+          <p class="mb-2 text-gray-500 dark:text-gray-400">
+          Answer : {{ faq.answer }}
+          </p>
+       
+        </div>
+      </fwb-accordion-content>
+    </fwb-accordion-panel>
+</fwb-accordion>
+
  </div>
     <div class="text-center text-xl py-1 font-bold text-secondary-700" v-else>
       There is no data
@@ -29,6 +37,14 @@ import axios from "axios";
 import { CAccordion,CAccordionItem , CAccordionHeader,CAccordionBody} from '@coreui/vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 const faqs = ref();
+const isOpen = ref(false) // Initial value
+
+import {
+  FwbAccordion,
+  FwbAccordionContent,
+  FwbAccordionHeader,
+  FwbAccordionPanel,
+} from 'flowbite-vue'
 
 import { onMounted, ref } from "vue";
 import FaqData from "./FaqData.vue";
@@ -45,3 +61,5 @@ onMounted(() => {
   fetchFaq();
 });
 </script>
+
+

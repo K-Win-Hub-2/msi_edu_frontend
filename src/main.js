@@ -3,7 +3,8 @@ import { createPinia } from "pinia";
 import "vue-toast-notification/dist/theme-bootstrap.css"; //notification
 import WOW from "wow.js";
 import "../src/axios/index";
-
+//in your `main.js` file
+import '../node_modules/flowbite-vue/dist/index.css'
 import App from "./App.vue";
 
 import router from "./router";
@@ -18,7 +19,10 @@ import "v-calendar/style.css";
 import { counterUp } from "counterup2";
 
 const app = createApp(App);
-
+// import PrimeVue from "primevue/config";
+// app.use(PrimeVue, {
+//   theme: "none",
+// });
 // Use plugin defaults (optional)
 app.use(setupCalendar, {});
 

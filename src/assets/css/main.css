@@ -13,7 +13,7 @@ html {
 
 div.swiper-wrapper {
   display: flex;
-  align-items: left !important;
+  align-items: center !important;
 }
 
 /* .router-link-exact-active {

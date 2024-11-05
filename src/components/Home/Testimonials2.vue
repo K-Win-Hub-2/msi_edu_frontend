@@ -5,17 +5,18 @@ import TestimonialCard2 from "@/components/Home/TestimonialCard2.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Autoplay } from "swiper";
 
-const currentTestimonials = ref([])
+const { data, fetchData } = getData();
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-import { scholarTestimonials } from "../../mocks/testimonials";
+import axios from "axios";
+// import { scholarTestimonials } from "../../mocks/testimonials";
 
 const start = ref(true);
 const end = ref(false);
-
+const scholarTestimonials=ref([])
 // swiper start
 const modules = [Navigation, Autoplay];
 
@@ -71,10 +72,13 @@ const swiperOptions = {
   // },
 };
 // swiper end
-
+const url = await axios.get(`/country-lists`);
 onMounted(() => {
-  currentTestimonials.value = [...scholarTestimonials]
+    
+  fetchData(url.value);
+ 
 })
+console.log(data.filter(el=>el.id == window.location.pathname.split('/')[3]),'testim')
 </script>
 
 <template>
@@ -92,7 +96,7 @@ onMounted(() => {
         :navigation="swiperOptions.navigation"
         :modules="modules"
       >
-        <template v-for="testimonial in currentTestimonials">
+        <template v-for="testimonial in data.filter(el=>el.id == window.location.pathname.split('/')[3])">
           <swiper-slide class="my-3">
             <TestimonialCard2 :info="testimonial" />
           </swiper-slide>

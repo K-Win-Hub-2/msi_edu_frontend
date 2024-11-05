@@ -19,9 +19,11 @@ const props = defineProps(["id"]);
 const url = ref("country-lists");
 const currentCountry = ref();
 const bannerImage = ref();
-
+const countryData=ref([])
 const fetchData = async () => {
   const res = await axios("country-lists");
+  countryData.value=res.data.countries.filter(el=>el.id == props.id)[0].youtube_video
+
   if (res.data.countries) {
     res.data.countries.map((c) => {
       if (c.id == props.id) {
@@ -32,10 +34,14 @@ const fetchData = async () => {
     });
   }
 };
-
+console.log(countryData,'countryData')
 onMounted(() => {
   fetchData();
 });
+
+const videoLink = (val) => {
+  return "https://www.youtube.com/embed/"+val?.split("/")[3]
+}
 </script>
 <template>
   <section>
@@ -118,56 +124,20 @@ onMounted(() => {
       </h1>
       <div class="grid lg:grid-cols-3 md:grid-cols-2 ssm:grid-col-1 gap-x-10">
         <div
-          class="border border-[#C4A9A9] rounded-lg h-[294px] overflow-hidden bg-[#F1F1F1]"
+          class=" rounded-lg h-[294px] overflow-hidden"  v-for="data in countryData"
         >
           <iframe
             class="w-full"
-            height="156"
-            src="https://www.youtube.com/embed/xtUR0szH0Zw"
+            height="206"
+            :src="videoLink(data.url)"
             title="Myanmar Search International (MSI)"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
-          <div class="p-3">
-            <p>MSI Education Service’s students</p>
-            <p>This is intro</p>
-          </div>
+     
         </div>
-        <div
-          class="border rounded-lg h-[294px] overflow-hidden border-[#C4A9A9] bg-[#F1F1F1]"
-        >
-          <iframe
-            class="w-full"
-            height="156"
-            src="https://www.youtube.com/embed/xtUR0szH0Zw"
-            title="Myanmar Search International (MSI)"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-          <div class="p-3">
-            <p>MSI Education Service’s students</p>
-            <p>This is intro</p>
-          </div>
-        </div>
-        <div
-          class="border rounded-lg h-[294px] overflow-hidden border-[#C4A9A9] bg-[#F1F1F1]"
-        >
-          <iframe
-            class="w-full"
-            height="156"
-            src="https://www.youtube.com/embed/xtUR0szH0Zw"
-            title="Myanmar Search International (MSI)"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-          <div class="p-3">
-            <p>MSI Education Service’s students</p>
-            <p>This is intro</p>
-          </div>
-        </div>
+     
       </div>
     </div>
   </section>
