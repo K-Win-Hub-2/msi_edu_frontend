@@ -74,7 +74,7 @@ const router = createRouter({
       path: "/study-pathway",
       children: [
         {
-          path: "",
+          path: ``,
           name: "study-pathway",
           component: StudyPathway,
         },

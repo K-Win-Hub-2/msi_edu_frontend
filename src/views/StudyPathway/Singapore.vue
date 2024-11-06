@@ -19,8 +19,10 @@ const props = defineProps(["id"]);
 const url = ref("country-lists");
 const currentCountry = ref();
 const bannerImage = ref();
-const countryData=ref([])
+const countryData = ref([])
+
 const fetchData = async () => {
+  
   const res = await axios("country-lists");
   countryData.value=res.data.countries.filter(el=>el.id == props.id)[0].youtube_video
 
@@ -34,8 +36,12 @@ const fetchData = async () => {
     });
   }
 };
+  // if(props.id === window.location.pathname.split('/')[3]){
+  //   window.location.reload()
+  // }
 console.log(countryData,'countryData')
 onMounted(() => {
+
   fetchData();
 });
 

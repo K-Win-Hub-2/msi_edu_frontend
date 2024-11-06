@@ -14,12 +14,12 @@
         <p class=" font-semibold">{{ faq.question }}</p>
       </fwb-accordion-header>
       <fwb-accordion-content>
-        <div>
+      
           <p class="mb-2 text-gray-500 dark:text-gray-400">
-          Answer : {{ faq.answer }}
+  {{ faq.answer }}
           </p>
        
-        </div>
+ 
       </fwb-accordion-content>
     </fwb-accordion-panel>
 </fwb-accordion>
@@ -35,7 +35,7 @@
 <script setup>
 import axios from "axios";
 import { CAccordion,CAccordionItem , CAccordionHeader,CAccordionBody} from '@coreui/vue'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 const faqs = ref();
 const isOpen = ref(false) // Initial value
 

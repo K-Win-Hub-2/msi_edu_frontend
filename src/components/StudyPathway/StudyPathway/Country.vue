@@ -18,7 +18,7 @@ if (props.data) {
   >
     <div class="">
       <img
-        class="border object-none rounded-[50%] w-[130px] h-[130px]"
+        class=" rounded-[50%] w-[130px] h-[130px]"
         :src="flagImage"
       />
 

@@ -22,12 +22,13 @@ const myMain = props.country.key_facts.split(",");
                 Key facts to study in {{ props.country.name }}
               </h1>
             </div>
-            <!-- loop -->
+            <div class="flex flex-col gap-4 justify-center">
+     <!-- loop -->
             <div class="px-7 pt-4 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
-                  <p class="py-3 text-[13px] font-semibold ml-5">
-                    languages spoken
+                  <p class="py-4 text-[13px] font-semibold ml-5">
+                    English Proficiency Test
                   </p>
                 </div>
                 <div class="w-[50%]">
@@ -37,20 +38,7 @@ const myMain = props.country.key_facts.split(",");
                 </div>
               </div>
             </div>
-            <div class="px-7 py-1">
-              <div class="flex items-center bg-slate-100 rounded-lg px-5">
-                <div class="w-[50%] border-r-2 border-slate-400">
-                  <p class="py-3 text-[13px] font-semibold ml-5">
-                    Cost of study
-                  </p>
-                </div>
-                <div class="w-[50%]">
-                  <p class="text-[13px] mx-2">
-                    {{ props.country.serial_key_facts?.cost_of_study }}
-                  </p>
-                </div>
-              </div>
-            </div>
+           
             <!-- <div class="px-7 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
@@ -68,7 +56,7 @@ const myMain = props.country.key_facts.split(",");
             <div class="px-7 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
-                  <p class="py-3 text-[13px] font-semibold ml-5">Degrees</p>
+                  <p class="py-4 text-[13px] font-semibold ml-5">Degrees</p>
                 </div>
                 <div class="w-[50%]">
                   <p class="text-[13px] mx-2">
@@ -80,7 +68,7 @@ const myMain = props.country.key_facts.split(",");
             <div class="px-7 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
-                  <p class="py-3 text-[13px] font-semibold ml-5">intakes</p>
+                  <p class="py-4 text-[13px] font-semibold ml-5">Intakes</p>
                 </div>
                 <div class="w-[50%]">
                   <p class="text-[13px] mx-2">
@@ -92,7 +80,7 @@ const myMain = props.country.key_facts.split(",");
             <div class="px-7 py-1">
               <div class="flex items-center bg-slate-100 rounded-lg px-5">
                 <div class="w-[50%] border-r-2 border-slate-400">
-                  <p class="py-3 text-[13px] font-semibold ml-5">Visa</p>
+                  <p class="py-4 text-[13px] font-semibold ml-5">Visa</p>
                 </div>
                 <div class="w-[50%]">
                   <p class="text-[13px] mx-2">
@@ -101,7 +89,24 @@ const myMain = props.country.key_facts.split(",");
                 </div>
               </div>
             </div>
+             <div class="px-7 py-1">
+              <div class="flex items-center bg-slate-100 rounded-lg px-5">
+                <div class="w-[50%] border-r-2 border-slate-400">
+                  <p class="py-4 text-[13px] font-semibold ml-5">
+                    Cost of study
+                  </p>
+                </div>
+                <div class="w-[50%]">
+                  <p class="text-[13px] mx-2">
+                    {{ props.country.serial_key_facts?.cost_of_study }}
+                  </p>
+                </div>
+              </div>
+            </div>
             <!-- loop -->
+
+            </div>
+       
           </div>
         </div>
 
