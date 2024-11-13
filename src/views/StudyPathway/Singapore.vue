@@ -17,9 +17,9 @@ const videoOne = `<iframe width="500" height="250" src="https://www.youtube.com/
 const videoTwo = `<iframe width="500" height="250" src="https://www.youtube.com/embed/P3XLi-j5zac" title="Myanmar Search International (MSI) Head Office" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 const props = defineProps(["id"]);
 const url = ref("country-lists");
-var currentCountry = ref();
-var bannerImage = ref();
-var countryData = ref([])
+const currentCountry = ref();
+const bannerImage = ref();
+const countryData = ref([])
 
 const fetchData = async (countryId) => {
   const res = await axios("country-lists");
