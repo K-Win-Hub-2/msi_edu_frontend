@@ -8,7 +8,7 @@ import Programs from "../../components/StudyPathway/General/Programs.vue";
 import Button from "../../components/partials/Button.vue";
 import UniversityCarousel from "../../components/StudyPathway/StudyPathway/UniversityCarousel.vue";
 import getData from "../../axios/getData";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import axios from "axios";
 import { onBeforeRouteUpdate } from "vue-router";
 
@@ -21,14 +21,13 @@ const currentCountry = ref();
 const bannerImage = ref();
 const countryData = ref([])
 
-const fetchData = async () => {
-  
+const fetchData = async (countryId) => {
   const res = await axios("country-lists");
-  countryData.value=res.data.countries.filter(el=>el.id == props.id)[0].youtube_video
+  countryData.value=res.data.countries.filter(el=>el.id == countryId)[0].youtube_video
 
   if (res.data.countries) {
     res.data.countries.map((c) => {
-      if (c.id == props.id) {
+      if (c.id == countryId) {
         currentCountry.value = c;
         bannerImage.value =
           "http://adminpanel.msieducation.edu.mm/postImage/" + c.banner_image;
@@ -36,19 +35,22 @@ const fetchData = async () => {
     });
   }
 };
-  // if(props.id === window.location.pathname.split('/')[3]){
-  //   window.location.reload()
-  // }
-console.log(countryData,'countryData')
-onMounted(() => {
 
-  fetchData();
+onMounted(() => {
+  fetchData(props.id);
 });
+
+watch(
+  () => props.id, (newId) => {
+    fetchData(newId);
+  }
+);
 
 const videoLink = (val) => {
   return "https://www.youtube.com/embed/"+val?.split("/")[3]
 }
 </script>
+
 <template>
   <section>
     <div class="relative lg:mt-36 ssm:mt-4" v-if="bannerImage">
@@ -130,7 +132,8 @@ const videoLink = (val) => {
       </h1>
       <div class="grid lg:grid-cols-3 md:grid-cols-2 ssm:grid-col-1 gap-x-10">
         <div
-          class=" rounded-lg h-[294px] overflow-hidden"  v-for="data in countryData"
+          class=" rounded-lg h-[294px] overflow-hidden"  v-for="(data, idx) in countryData"
+          :key="idx"
         >
           <iframe
             class="w-full"
