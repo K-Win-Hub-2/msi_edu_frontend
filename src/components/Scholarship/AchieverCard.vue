@@ -47,11 +47,11 @@ onMounted(() => {
           <span class="text-[11px] font-[400] uppercase shadow-title"
             >( {{ props.data.university_name }} )</span
           >
-          <h1
+          <span
             class="text-[11px] text-[#205887] mt-3 font-[400] uppercase shadow-title"
           >
             HORIZON INTL SCHOOL (YANGON)
-          </h1>
+          </span>
         </h1>
         <h1
           class="text-[#FE005F] font-[600] uppercase text-[11.5px] mt-3 shadow-title"
