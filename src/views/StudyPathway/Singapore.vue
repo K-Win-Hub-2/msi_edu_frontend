@@ -23,7 +23,9 @@ const countryData = ref([])
 
 const fetchData = async (countryId) => {
   const res = await axios("country-lists");
-  countryData.value=res.data.countries.filter(el=>el.id == countryId)[0].youtube_video
+  var country = res.data.countries.filter(el=>el.id == countryId)[0];
+
+  countryData.value = country?.youtube_video;
 
   if (res.data.countries) {
     res.data.countries.map((c) => {
