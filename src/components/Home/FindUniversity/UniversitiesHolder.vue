@@ -6,7 +6,7 @@
     <div class="bg-[url('@/assets/img/test/1.jpg')] h-[180px] w-[250px] md:w-full cus-standout"></div>
     <div class="bg-[url('@/assets/img/test/1.jpg')] h-[180px] w-[250px] md:w-full cus-standout"></div>
     <div class="bg-[url('@/assets/img/test/1.jpg')] h-[180px] w-[250px] md:w-full cus-standout"></div> -->
-    <template v-for="(university,index) in featuredUniversities">
+    <template v-for="(university,index) in featuredUniversities" :key="index">
       <a @mouseover="onMouseOver(index)" @mouseleave="onMouseLeave()" :href="university.url" target="_blank" class="block  bg-white w-full h-[150px] group relative cus-standout overflow-hidden">
         <img v-show="currentUniversity.index === index" class="w-full h-full" :src="university.campusImage" />
         <img v-show="currentUniversity.index !== index" class="w-full h-full object-contain p-3" :src="university.image" />
