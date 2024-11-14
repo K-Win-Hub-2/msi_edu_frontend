@@ -76,7 +76,7 @@ const handleProgramSelect = (payload) => {
 // fetch country
 const fetchCountry = async () => {
   const res = await axios.get("country-lists");
-  selectedCountry.value = res.data.countries[0].id;
+  selectedCountry.value = res.data.countries[0]?.id;
   countryData.value = res.data.countries;
 };
 
@@ -84,7 +84,7 @@ const fetchCountry = async () => {
 const fetchUniversity = async () => {
   const res = await axios.get("university-lists/partner/yes");
   // console.log("uni", res.data.university);
-  selectedUniversity.value = res.data.university[0].id;
+  selectedUniversity.value = res.data.university[0]?.id;
   universityList.value = res.data.university;
 };
 
@@ -92,7 +92,7 @@ const fetchUniversity = async () => {
 const fetchProgram = async () => {
   const res = await axios.get("program-lists");
   programList.value = res.data.programLists;
-  selectedProgram.value = res.data.programLists[0].id;
+  selectedProgram.value = res.data.programLists[0]?.id;
 };
 
 // redirect Page
