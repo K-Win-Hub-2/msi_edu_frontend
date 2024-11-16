@@ -11,12 +11,12 @@
     >
       <swiper-slide>
         <div
-          class="bg-[url('@/assets/img/home/hero.jpg')] w-full ssm:h-[230px] md:h-[600px] lg:h-[800px] no-repeat bg-cover bg-center"
+          class="bg-[url('@/assets/img/home/38.png')] w-full ssm:h-[230px] md:h-[600px] lg:h-[800px] no-repeat bg-cover"
         ></div>
       </swiper-slide>
       <swiper-slide>
         <div
-          class="bg-[url('@/assets/img/home/4.png')] w-full ssm:h-[230px] md:h-[600px] lg:h-[800px] no-repeat bg-cover"
+          class="bg-[url('@/assets/img/home/36.png')] w-full ssm:h-[230px] md:h-[600px] lg:h-[800px] no-repeat bg-cover"
         ></div>
       </swiper-slide>
       <!-- <swiper-slide>
