@@ -1,30 +1,163 @@
 <script setup>
-import Button from "@/components/partials/Button.vue";
-import { onMounted, ref } from "vue";
-import { universities } from "../../mocks/universities";
-import { programs } from "../../mocks/programs";
-import Loading from "../general/Loading.vue";
-import axios from "axios";
-import { useToast } from "vue-toast-notification";
-import { useRouter } from "vue-router";
-const countryData = ref();
-const universityList = ref();
-const programList = ref();
-const selectedUniversity = ref();
-const selectedProgram = ref();
+import Button from '@/components/partials/Button.vue';
+import { onMounted, ref, watch } from 'vue';
+import { universities } from '../../mocks/universities';
+import { programs } from '../../mocks/programs';
+import Loading from '../general/Loading.vue';
+import axios from 'axios';
+import { useToast } from 'vue-toast-notification';
+import { useRouter } from 'vue-router';
+
 const $toast = useToast();
 const router = useRouter();
-const selectedCountry = ref();
 
 const isLoading = ref(true);
+const uniLoading = ref(true);
+// option list
+const countryList = ref();
+const programList = ref();
+const courseList = ref();
 
-const filters = ref({
-  // country: { name: 'Singapore', slug: 'singapore' },
-});
+// selected data
+const selectedCourse = ref("default");
+const selectedProgramId = ref("default");
+const selectedCountry = ref(41);
+const selectedUniversity = ref();
+const selectedProgram = ref();
+
+const filteredUniversityList = ref([]);
 
 const currentUniversities = ref([]);
 
 const currentPrograms = ref([]);
+
+// methods
+const fetchCountries = async () => {
+  const res = await axios.get('country-lists');
+  selectedCountry.value = res.data.countries[0]?.id;
+  countryList.value = res.data.countries;
+};
+
+const fetchPrograms = async () => {
+  if (checkCountry()) {
+    const res = await axios.get(
+      'country-program-course-search/' + selectedCountry.value
+    );
+    programList.value = res.data.program_courses;
+
+    if (programList.value.length > 0) {
+      selectedProgramId.value = programList.value[0].id;
+      selectedProgram.value = programList.value[0];
+
+      return;
+    }
+  }
+  selectedProgramId.value = "default";
+  selectedProgram.value = {};
+};
+
+const getCourses = async () => {
+  if (Object.keys(selectedProgram.value).length > 0) {
+    const array = selectedProgram.value.pivot.course_name.split(",");
+    const formattedArray = array.map((course) => course.trim());
+    courseList.value = formattedArray;
+
+    selectedCourse.value = "default";
+    return;
+  }
+  selectedCourse.value = "default";
+  courseList.value = [];
+}
+
+const handleCountrySelect = (event) => {
+  selectedCountry.value = event.target.value;
+  fetchPrograms();
+};
+
+const handleProgramSelect = (event) => {
+  selectedProgramId.value = event.target.value;
+  selectedProgram.value = programList.value.filter(program => program.id == selectedProgramId.value)?.[0];
+};
+
+const handleCourseSelect = (event) => {
+  selectedCourse.value = event.target.value;
+}
+
+const checkCountry = () => {
+  if (selectedCountry.value) {
+    if (selectedCountry.value !== "default") {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+const checkProgramId = () => {
+  if (selectedProgramId.value) {
+    if (selectedProgramId.value !== "default") {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+const checkCourse = () => {
+  if (selectedCourse.value) {
+    if (selectedCourse.value !== "default") {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+const handleSearch = async () => {
+  try {
+    let universityArray = [];
+    uniLoading.value = true;
+
+    if (selectedCountry.value) {
+      if (selectedCountry.value !== "default") {
+        const res = await axios.get(
+          "university-lists/country/" + selectedCountry.value
+        );
+        universityArray = res.data.university;
+
+        if (universityArray.length <= 0) {
+          $toast.error('Not Found !', { position: 'top-right' });
+          filteredUniversityList.value = universityArray;
+
+          return;
+        }
+
+        if (checkCourse()) {
+          const filterProgramArray = programList.value.filter(program => program.pivot.course_name.includes(selectedCourse.value));
+
+          universityArray = handleUniversityFilteredByPrograms(filterProgramArray, universityArray);
+        } else {
+          if (checkProgramId()) {
+            universityArray = handleUniversityFilteredByPrograms(programList.value, universityArray);
+          }
+        }
+
+        filteredUniversityList.value = universityArray;
+
+        return;
+      }
+    }
+    $toast.error('Not Found !', { position: 'top-right' });
+  } finally {
+    uniLoading.value = false;
+  }
+}
+
+const handleUniversityFilteredByPrograms = (programArray, universityArray) => {
+  const universityIds = [...new Set(programArray.map(program => program.pivot.university_id))];
+
+  return universityArray.filter(university => universityIds.includes(university.id));
+}
 
 const updateCurrentCountries = () => {
   currentUniversities.value = universities.filter(
@@ -50,18 +183,8 @@ const updateSelectedProgram = () => {
   filters.value.program = currentPrograms.value[0];
 };
 
-const handleCountrySelect = (payload) => {
-  if (payload.index !== "country") {
-    filters.value.country = payload;
-    updateCurrentCountries();
-    updateSelectedUniversity();
-    updateCurrentPrograms();
-    updateSelectedProgram();
-  }
-};
-
 const handleUniversitySelect = (payload) => {
-  if (payload.index !== "university") {
+  if (payload.index !== 'university') {
     console.log(payload);
     filters.value.uni = { name: payload.name, slug: payload.slug };
     updateCurrentPrograms();
@@ -69,30 +192,15 @@ const handleUniversitySelect = (payload) => {
   }
 };
 
-const handleProgramSelect = (payload) => {
-  filters.value.program = { title: payload.title, slug: payload.slug };
-};
-
-// fetch country
-const fetchCountry = async () => {
-  const res = await axios.get("country-lists");
-  selectedCountry.value = res.data.countries[0].id;
-  countryData.value = res.data.countries;
-};
-
 // fetch university
-const fetchUniversity = async () => {
-  const res = await axios.get("university-lists/partner/yes");
+const fetchUniversities = async () => {
+  const res = await axios.get(
+    'university-lists/partner/yes/country/' + selectedCountry.value
+  );
+  // const res = await axios.get("university-lists/partner/yes");
   // console.log("uni", res.data.university);
-  selectedUniversity.value = res.data.university[0].id;
   universityList.value = res.data.university;
-};
-
-// fetch  program
-const fetchProgram = async () => {
-  const res = await axios.get("program-lists");
-  programList.value = res.data.programLists;
-  selectedProgram.value = res.data.programLists[0].id;
+  selectedUniversity.value = universityList[0]?.id;
 };
 
 // redirect Page
@@ -101,7 +209,7 @@ const fetchProgram = async () => {
 
 const searchCountry = async () => {
   const res = await axios.get(
-    "university-lists/partner/yes/country/" + selectedCountry.value
+    'university-lists/partner/yes/country/' + selectedCountry.value
   );
   if (res.data.university.length) {
     const uni = res.data.university.filter((data) => {
@@ -111,23 +219,31 @@ const searchCountry = async () => {
     //   return p.id == uni[0].program_id;
     // });
     // if (selectedProgram.value == program[0].id) {
-    router.push({ name: "universities.detail", params: { id: uni[0].id } });
+    router.push({ name: 'universities.detail', params: { id: uni[0].id } });
     // }
   } else {
-    $toast.error("Not Found !", { position: "top-right" });
+    $toast.error('Not Found !', { position: 'top-right' });
   }
 };
 const searchHandle = () => {
-  searchCountry();
-  // console.log(selectedCountry.value, selectedUniversity.value);
+  // searchCountry();
+  // handle search course
 };
 
 onMounted(() => {
   isLoading.value = false;
-  fetchProgram();
-  fetchCountry();
-  fetchUniversity();
+  fetchCountries();
+  fetchPrograms();
+  handleSearch();
+  // fetchUniversities();
 });
+
+watch(
+  () => selectedProgram.value, (newProgram) => {
+    getCourses();
+  }
+);
+
 </script>
 
 <template>
@@ -135,205 +251,131 @@ onMounted(() => {
     <Loading />
   </template>
   <template v-else>
-    <div
-      class="flex md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5 lg:space-y-0 lg:flex-row justify-between items-center"
-    >
-      <div class="flex flex-col select-none">
-        <h1 class="cus-subheading text-cus-primary uppercase">
-          find your right
-        </h1>
-        <h1 class="cus-subheading text-cus-secondary uppercase">
-          education pathway
-        </h1>
-      </div>
-      <div class="flex ssm:flex-col md:flex-row gap-6">
-        <div class="lg:w-[180px]">
-          <div class="relative" data-te-dropdown-ref>
-            <select
-              v-if="countryData"
-              name=""
-              v-model="selectedCountry"
-              class="border min-w-[200px] md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
-            >
-              <option
-                class="text-[13px]"
-                v-for="data in countryData"
-                :key="data.id"
-                :value="data.id"
-              >
-                {{ data.name }}
-              </option>
-            </select>
-            <!-- <button
-              class="w-full border md:text-md ssm:text-[16px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
-              type="button"
-              id="dropdownMenuButton2"
-              data-te-dropdown-toggle-ref
-              aria-expanded="false"
-              data-te-ripple-init
-              data-te-ripple-color="light"
-            >
-              {{ filters?.country?.name ?? "Country" }}
-              <span class="ml-2 w-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-5 w-5"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </span>
-            </button> -->
-            <!-- <ul
-              class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-auto border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
-              aria-labelledby="dropdownMenuButton2"
-              data-te-dropdown-menu-ref
-            >
-              <li v-for="(country, index) in countries" :key="index">
-                <div
-                  @click="handleCountrySelect({ name: country, slug: index })"
-                  class="block w-full whitespace-nowrap bg-transparent py-2 px-4 font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                  data-te-dropdown-item-ref
-                >
-                  {{ country }}
-                </div>
-              </li>
-            </ul> -->
-          </div>
+    <div class="flex flex-col gap-12">
+      <div
+        class="flex md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5 lg:space-y-0 lg:flex-row justify-between items-center"
+      >
+        <div class="flex flex-col select-none">
+          <h1 class="cus-subheading text-cus-primary uppercase">
+            find your right
+          </h1>
+          <h1 class="cus-subheading text-cus-secondary uppercase">
+            education pathway
+          </h1>
         </div>
-        <div class="w-[200px]">
-          <div class="relative" data-te-dropdown-ref>
-            <select
-              v-if="universityList"
-              name=""
-              v-model="selectedUniversity"
-              class="border md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
-            >
-              <option
-                class="overflow-x-scroll text-[13px]"
-                v-for="data in universityList"
-                :key="data.id"
-                :value="data.id"
+        <div class="flex sm:flex-col md:flex-row gap-6">
+          <div class="lg:w-[180px]">
+            <div class="relative" data-te-dropdown-ref>
+              <select
+                name=""
+                v-model="selectedCountry"
+                @change="handleCountrySelect"
+                class="border min-w-[200px] md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
               >
-                {{ data.university_name }}
-              </option>
-            </select>
-            <!-- <button
-              class="w-full border cus-rounded bg-white flex items-center justify-between overflow-auto whitespace-nowrap px-6 pt-2.5 pb-2 md:text-md ssm:text-[16px] font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
-              href="#"
-              type="button"
-              id="dropdownMenuButton3"
-              data-te-dropdown-toggle-ref
-              aria-expanded="false"
-              data-te-ripple-init
-              data-te-ripple-color="light"
-            >
-              {{ filters?.uni?.name ?? "University" }}
-              <span class="ml-2 w-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-5 w-5"
+                <option
+                  class="overflow-x-scroll text-[13px]"
+                  value="default"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </span>
-            </button> -->
-            <!-- <ul
-              class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-auto border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
-              aria-labelledby="dropdownMenuButton3"
-              data-te-dropdown-menu-ref
-            >
-              <li v-for="(uni, index) in currentUniversities" :key="index">
-                <div
-                  @click="handleUniversitySelect(uni)"
-                  class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                  data-te-dropdown-item-ref
+                  - Country -
+                </option>
+                <template 
+                  v-if="countryList"
                 >
-                  {{ uni.name }}
-                </div>
-              </li>
-            </ul> -->
+                  <option
+                    class="text-[13px]"
+                    v-for="data in countryList"
+                    :key="data.id"
+                    :value="data.id"
+                  >
+                    {{ data.name }}
+                  </option>
+                </template>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="lg:w-[170px] md:w-[200px] md:-ml-5">
-          <div class="relative" data-te-dropdown-ref>
-            <select
-              v-if="programList"
-              v-model="selectedProgram"
-              name=""
-              class="border md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
-            >
-              <option
-                class="text-[13px]"
-                v-for="data in programList"
-                :key="data.id"
-                :value="data.id"
+          <div class="w-[200px]">
+            <div class="relative" data-te-dropdown-ref>
+              <select
+                v-if="programList"
+                v-model="selectedProgramId"
+                name=""
+                @change="handleProgramSelect"
+                class="border md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
               >
-                {{ data.name }}
-              </option>
-            </select>
-            <!-- <a
-              class="w-full border cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 md:text-md ssm:text-[16px] font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
-              href="#"
-              type="button"
-              id="dropdownMenuButton2"
-              data-te-dropdown-toggle-ref
-              aria-expanded="false"
-              data-te-ripple-init
-              data-te-ripple-color="light"
-            >
-              {{ filters.program?.title ?? "Program" }}
-              <span class="ml-2 w-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-5 w-5"
+                <option
+                  class="overflow-x-scroll text-[13px]"
+                  value="default"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </span>
-            </a> -->
-            <!-- <ul
-              class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-hidden border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
-              aria-labelledby="dropdownMenuButton2"
-              data-te-dropdown-menu-ref
-            >
-              <li v-for="(program, index) in currentPrograms" :key="index">
-                <div
-                  @click="handleProgramSelect(program)"
-                  class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                  data-te-dropdown-item-ref
+                  - Program -
+                </option>
+                <option
+                  class="text-[13px]"
+                  v-for="data in programList"
+                  :key="data.id"
+                  :value="data.id"
                 >
-                  {{ program.title }}
-                </div>
-              </li>
-            </ul> -->
+                  {{ data.name }}
+                </option>
+              </select>
+            </div>
           </div>
-        </div>
+          <div class="lg:w-[170px] md:w-[200px] md:-ml-5">
+            <div class="relative" data-te-dropdown-ref>
+              <select
+                name=""
+                v-model="selectedCourse"
+                @change="handleCourseSelect"
+                class="border md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+              >
+                <option
+                  class="overflow-x-scroll text-[13px]"
+                  value="default"
+                >
+                  - Course -
+                </option>
+                <template 
+                  v-if="courseList"
+                >
+                  <option
+                    class="overflow-x-scroll text-[13px]"
+                    v-for="(course, idx) in courseList"
+                    :key="idx"
+                    :value="course"
+                  >
+                    {{ course }}
+                  </option>
+                </template>
+              </select>
+            </div>
+          </div>
 
-        <Button
-          @click="searchHandle"
-          class="flex justify-center md:ml-4 md:px-6 items-center"
-          type="gradient"
-          >Search</Button
-        >
+          <Button
+            @click="handleSearch"
+            class="flex justify-center md:ml-4 md:px-6 items-center"
+            type="gradient"
+            >Search</Button
+          >
+        </div>
       </div>
+
+      <template v-if="uniLoading">
+        <Loading />
+      </template>
+      <template v-else>
+        <div v-if="filteredUniversityList.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 first-letter justify-items-center gap-12">
+          <template v-for="university in filteredUniversityList" :key="university">
+            <a :href="university.university_link" target="_blank" class="block  bg-white w-full h-[150px] group relative cus-standout overflow-hidden">
+              <img class="w-full h-full object-contain p-3" :src="university.imageURL" />
+              <div class="flex items-center justify-center absolute top-0 left-0 group-hover:bg-gray-900 group-hover:bg-opacity-40 w-full h-full transition">
+                <span class="opacity-0 group-hover:opacity-100 transition z-10 text-white text-center">{{ university.university_name }}</span>
+              </div>
+            </a>
+          </template>
+        </div>
+        <div v-else class="flex md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5 justify-between items-center">
+          No University Found!
+        </div>
+      </template>
     </div>
   </template>
 </template>
