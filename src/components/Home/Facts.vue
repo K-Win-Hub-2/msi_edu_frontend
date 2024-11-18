@@ -47,7 +47,10 @@
         class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
       >
         <span class="">350</span>
-        <span class="">Scholarship Achievers</span>
+        <div class="flex xl:flex-col lg:flex-row md:flex-row sm:flex-col ssm:flex-col space-x-1">
+          <span class="">Scholarship</span>
+          <span class="">Achievers</span>
+        </div>
       </div>
     </div>
   </div>

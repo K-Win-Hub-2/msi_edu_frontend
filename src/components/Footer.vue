@@ -105,7 +105,7 @@ const urls = [
       <div class="container">
         <div class="px-4 py-6 text-center">
           <span class="text-lg sm:text-center">Copyright © 2023. <a
-              href="https://flowbite.com/">Myanmar Search International</a>. All Rights Reserved.
+              href="#">Myanmar Search International</a>. All Rights Reserved.
           </span>
         </div>
       </div>
