@@ -45,12 +45,13 @@ const fetchPrograms = async () => {
     );
     programList.value = res.data.program_courses;
 
-    if (programList.value.length > 0) {
-      selectedProgramId.value = programList.value[0].id;
-      selectedProgram.value = programList.value[0];
+    // Comment out not to select the program automatically
+    // if (programList.value.length > 0) {
+    //   selectedProgramId.value = programList.value[0].id;
+    //   selectedProgram.value = programList.value[0];
 
-      return;
-    }
+    //   return;
+    // }
   }
   selectedProgramId.value = "default";
   selectedProgram.value = {};
