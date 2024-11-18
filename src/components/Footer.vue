@@ -43,7 +43,7 @@ const urls = [
 
                 <div class="mb-3">
                   <div class="font-semibold">Mandalay (Branch) Office</div>
-                  No.113, 40-A St., Btn 78 St. x 79 St., Maharbeetan St., MaharAungMyay Tsp, Mandalay, Myanmar.
+                  No. 31/3, Between 79 st × 80 st, 38th St, Mahar Aung Myay Township, Mandalay, Myanmar (Burma), Mandalay, Myanmar
                 </div>
 
                 
@@ -65,7 +65,7 @@ const urls = [
                   <div>+95 9 444 443 917</div>
                 </li>
                
-                <li class="mb-3 flex flex-col break-words space-y-1">
+                <li class="mb-3 flex flex-col space-y-1">
                   <a href="mailto:info@msieducation.edu.mm" class="hover:underline">info@msieducation.edu.mm</a>
                   <a href="mailto:admission@msieducation.edu.mm" class="hover:underline">admission@msieducation.edu.mm</a>
                   <a href="mailto:IR.department@msieducation.edu.mm" class="hover:underline">IR.department@msieducation.edu.mm</a>

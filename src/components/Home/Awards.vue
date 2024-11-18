@@ -93,7 +93,7 @@ onMounted(() => {
     >
       <span
         class="text-cus-primary md:text-[40px] ssm:text-md text-shadow-sm cus-shadow-color"
-        >22 awards</span
+        >24 awards</span
       >
       <span
         class="text-cus-secondary md:text-4xl ssm:text-md text-shadow-sm cus-shadow-color"
@@ -126,7 +126,7 @@ onMounted(() => {
         :centeredSlides="true"
         initialSlide="4"
       >
-        <template v-for="award in currentAwards">
+        <template v-for="(award, index) in currentAwards" :key="index">
           <swiper-slide class="my-3 shrink-0">
             <AwardCard :image="award.photo" class="select-none" />
           </swiper-slide>
