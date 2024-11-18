@@ -148,6 +148,8 @@ const handleSearch = async () => {
         return;
       }
     }
+
+    filteredUniversityList.value = universityArray;
     $toast.error('Not Found !', { position: 'top-right' });
   } finally {
     uniLoading.value = false;
