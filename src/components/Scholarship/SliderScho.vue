@@ -46,7 +46,7 @@
           {{ props.data.founded_year }}
         </p>
       </div>
-   <div className="flex gap-3 justify-center md:mt-4 lg:mt-5">
+   <div class="flex gap-3 justify-center md:mt-4 lg:mt-5">
        
       <router-link    :to="{
                         name: 'universities.detail',

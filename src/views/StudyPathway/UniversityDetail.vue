@@ -132,7 +132,7 @@ const fetchData = async () => {
   const res = await axios.get("university-details/" + props.id);
   console.log(res.data.university, 'data')
   university.value = res.data.university
-  award.value=res.data.university.prizes
+  award.value=res.data.university.onPrizeSlideChange
   if (res.data.university) {
   
       if (res.data.university.id == props.id) {

@@ -13,8 +13,8 @@ import axios from "axios";
 import { onBeforeRouteUpdate } from "vue-router";
 import { universities } from "../../../mocks/universities";
 import UniversityCard from "./UniversityCard.vue";
+import { watch } from "vue";
 const modules = [Navigation, Pagination];
-const { data, fetchData } = getData();
 
 const start = ref(true);
 const list = ref([]);
@@ -22,11 +22,9 @@ const end = ref(false);
 const appStore = useAppStore();
 const { scholarshipDetail, scholar } = storeToRefs(appStore);
 const props = defineProps(["id"]);
-console.log(window.location.pathname.split('/')[3], 'props')
-
+const university = ref([]);
 
 // swiper start
-
 const onSlideChange = (event) => {
   if (event.isEnd) {
     end.value = true;
@@ -67,26 +65,23 @@ const swiperOptions = {
   },
 };
 
-// const url = ref(`university-lists/partner/yes/country/${props.id}`);
-const url = ref(`university-name/country/${window.location.pathname.split('/')[3]}`);
-onBeforeRouteUpdate(() => {
-  fetchData(url.value);
-});
+const fetchData = async (countryId) => {
+  const res = await axios.get("/university-lists/country/" + countryId);
+  university.value = res.data.university;
+};
+watch(
+  () => props.id, (newId) => {
+    fetchData(newId);
+  }
+);
 onMounted(() => {
-  fetchData(url.value);
+  fetchData(props.id);
 });
 
-// onMounted(() => {
-//   const list = universities.filter(
-//     (university) => university.country === props.id
-//   );
-//   console.log(list, "data");
-//   // fetchData();
-// });
 </script>
 <template>
   <div
-    v-if="data"
+    v-if="university"
     class="w-full text-2xl text-cus-primary uppercase mt-10 font-semibold ssm:mb-10 md:mb-10 bg-[#FFFFFF]"
   >
     <h1
@@ -94,9 +89,14 @@ onMounted(() => {
     >
       Partner University
     </h1>
-    <div>
-    <UniversityCard :data="data.university"
-/>    </div>
+    <div v-if="university.length > 0">
+      <UniversityCard :data="university" />
+    </div>
+    <div v-else class="flex justify-center">
+      <div class="text-center text-gray-500 text-xl py-28">
+        There is no data
+      </div>
+    </div>
   </div>
   <div
     v-if="scholarshipDetail"
