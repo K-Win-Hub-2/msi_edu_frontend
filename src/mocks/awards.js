@@ -22,6 +22,8 @@ import SingaporeEducationSpecialistCertificate from "@/assets/img/home/Awards/Si
 import PartnershipAppreciationAward from "@/assets/img/home/Awards/PartnershipAppreciationAward.png";
 import BestPartnerAwardMDIS from "@/assets/img/home/Awards/BestPartnerAwardMDIS.png";
 import BestUprisingAward from "@/assets/img/home/Awards/BestUprisingAward.png";
+import BestPerformingPartnerAward from "@/assets/img/home/Awards/BestPerformingPartnerAward.png";
+import TopRecruitmentPartnerAward from "@/assets/img/home/Awards/TopRecruitmentPartnerAward.png";
 
 const generateRandomColor = () => {
   // Generate random R, G, and B values
@@ -268,6 +270,26 @@ export const awards = [
     country: "country",
     year: "2023",
     photo: BestUprisingAward,
+    order: "test",
+    show_on_website: "test",
+  },
+  {
+    title: "Best Performing Partner Award",
+    description: "James Cook University (Australia, Singapore Campus)",
+    university: "university",
+    country: "country",
+    year: "2023",
+    photo: BestPerformingPartnerAward,
+    order: "test",
+    show_on_website: "test",
+  },
+  {
+    title: "Top Recruitment Partner Award",
+    description: "Tunku Abdul Rahman University of Management and Technology (Malaysia)",
+    university: "university",
+    country: "country",
+    year: "2023-2024",
+    photo: TopRecruitmentPartnerAward,
     order: "test",
     show_on_website: "test",
   },

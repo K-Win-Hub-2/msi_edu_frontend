@@ -22,7 +22,7 @@
       <div
         class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
       >
-        <span class="">300</span>
+        <span class="">200</span>
         <span class="">Universities</span>
       </div>
     </div>
@@ -34,7 +34,7 @@
       <div
         class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
       >
-        <span class="">30</span>
+        <span class="">24</span>
         <span class="">Awards</span>
       </div>
     </div>
@@ -46,8 +46,8 @@
       <div
         class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
       >
-        <span class="">1500</span>
-        <span class="">Scholarship</span>
+        <span class="">350</span>
+        <span class="">Scholarship Achievers</span>
       </div>
     </div>
   </div>

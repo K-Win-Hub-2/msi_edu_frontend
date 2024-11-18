@@ -1,6 +1,6 @@
 <script setup>
 import Button from '@/components/partials/Button.vue';
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, onUpdated, ref, watch } from 'vue';
 import { universities } from '../../mocks/universities';
 import { programs } from '../../mocks/programs';
 import Loading from '../general/Loading.vue';
@@ -12,7 +12,7 @@ const $toast = useToast();
 const router = useRouter();
 
 const isLoading = ref(true);
-const uniLoading = ref(true);
+const uniLoading = ref(false);
 // option list
 const countryList = ref();
 const programList = ref();
@@ -153,6 +153,12 @@ const handleSearch = async () => {
   }
 }
 
+const resetSearchFilter = () => {
+  selectedCourse.value = "default";
+  selectedProgramId.value = "default";
+  selectedCountry.value = "default";
+}
+
 const handleUniversityFilteredByPrograms = (programArray, universityArray) => {
   const universityIds = [...new Set(programArray.map(program => program.pivot.university_id))];
 
@@ -234,8 +240,11 @@ onMounted(() => {
   isLoading.value = false;
   fetchCountries();
   fetchPrograms();
-  handleSearch();
   // fetchUniversities();
+});
+
+onUpdated(() => {
+  resetSearchFilter();
 });
 
 watch(
@@ -296,7 +305,6 @@ watch(
           <div class="w-[200px]">
             <div class="relative" data-te-dropdown-ref>
               <select
-                v-if="programList"
                 v-model="selectedProgramId"
                 name=""
                 @change="handleProgramSelect"
@@ -308,14 +316,18 @@ watch(
                 >
                   - Program -
                 </option>
-                <option
-                  class="text-[13px]"
-                  v-for="data in programList"
-                  :key="data.id"
-                  :value="data.id"
+                <template
+                  v-if="programList"
                 >
-                  {{ data.name }}
-                </option>
+                  <option
+                    class="text-[13px]"
+                    v-for="data in programList"
+                    :key="data.id"
+                    :value="data.id"
+                  >
+                    {{ data.name }}
+                  </option>
+                </template>
               </select>
             </div>
           </div>
