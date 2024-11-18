@@ -1,6 +1,6 @@
 <script setup>
 import Button from '@/components/partials/Button.vue';
-import { onMounted, onUpdated, ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { universities } from '../../mocks/universities';
 import { programs } from '../../mocks/programs';
 import Loading from '../general/Loading.vue';
@@ -21,7 +21,7 @@ const courseList = ref();
 // selected data
 const selectedCourse = ref("default");
 const selectedProgramId = ref("default");
-const selectedCountry = ref(41);
+const selectedCountry = ref("default");
 const selectedUniversity = ref();
 const selectedProgram = ref();
 
@@ -32,9 +32,9 @@ const currentUniversities = ref([]);
 const currentPrograms = ref([]);
 
 // methods
-const fetchCountries = async () => {
+const fetchCountries = async (setSelected = true) => {
   const res = await axios.get('country-lists');
-  selectedCountry.value = res.data.countries[0]?.id;
+  selectedCountry.value = setSelected ? res.data.countries[0]?.id : selectedCountry.value;
   countryList.value = res.data.countries;
 };
 
@@ -153,12 +153,6 @@ const handleSearch = async () => {
   }
 }
 
-const resetSearchFilter = () => {
-  selectedCourse.value = "default";
-  selectedProgramId.value = "default";
-  selectedCountry.value = "default";
-}
-
 const handleUniversityFilteredByPrograms = (programArray, universityArray) => {
   const universityIds = [...new Set(programArray.map(program => program.pivot.university_id))];
 
@@ -238,13 +232,8 @@ const searchHandle = () => {
 
 onMounted(() => {
   isLoading.value = false;
-  fetchCountries();
-  fetchPrograms();
+  fetchCountries(false);
   // fetchUniversities();
-});
-
-onUpdated(() => {
-  resetSearchFilter();
 });
 
 watch(
