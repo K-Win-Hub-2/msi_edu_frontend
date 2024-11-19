@@ -43,7 +43,10 @@ const fetchPrograms = async () => {
     const res = await axios.get(
       'country-program-course-search/' + selectedCountry.value
     );
-    programList.value = res.data.program_courses;
+    const resProgramList = res.data.program_courses;
+    programList.value = resProgramList.filter((value, index, self) => 
+      self.findIndex((item) => item.id === value.id) === index
+    );
 
     // Comment out not to select the program automatically
     // if (programList.value.length > 0) {
@@ -57,15 +60,26 @@ const fetchPrograms = async () => {
   selectedProgram.value = {};
 };
 
-const getCourses = async () => {
-  if (Object.keys(selectedProgram.value).length > 0) {
-    const array = selectedProgram.value.pivot.course_name.split(",");
-    const formattedArray = array.map((course) => course.trim());
-    courseList.value = formattedArray;
+const fetchCourses = async () => {
+  if (checkCountry() && checkProgramId()) {
+    let payload = {
+      country_id: checkCountry() ? selectedCountry.value : null,
+      program_id: checkProgramId() ? selectedProgramId.value : null,
+    };
 
-    selectedCourse.value = "default";
-    return;
+    const res = await axios.post("courses?country_id=" + payload.country_id + "&program_id=" + payload.program_id);
+
+    if (res.data.status == "success") {
+      const courses = res.data.courses[0].course_name.split(",");
+      const formattedArray = courses.map((course) => course.trim());
+
+      courseList.value = formattedArray.filter((value) => value != "");
+      selectedCourse.value = "default";
+
+      return;
+    }
   }
+
   selectedCourse.value = "default";
   courseList.value = [];
 }
@@ -119,37 +133,25 @@ const handleSearch = async () => {
     let universityArray = [];
     uniLoading.value = true;
 
-    if (selectedCountry.value) {
-      if (selectedCountry.value !== "default") {
-        const res = await axios.get(
-          "university-lists/country/" + selectedCountry.value
-        );
-        universityArray = res.data.university;
+    let payload = {
+      country_id: checkCountry() ? selectedCountry.value : null,
+      program_id: checkProgramId() ? selectedProgramId.value : null,
+      course_name: checkCourse() ? selectedCourse.value : null,
+    };
 
-        if (universityArray.length <= 0) {
-          $toast.error('Not Found !', { position: 'top-right' });
-          filteredUniversityList.value = universityArray;
+    const res = await axios.post("universities?country_id=" + payload.country_id + "&program_id=" + payload.program_id + "&course_name=" + payload.course_name 
+    );
 
-          return;
-        }
-
-        if (checkCourse()) {
-          const filterProgramArray = programList.value.filter(program => program.pivot.course_name.includes(selectedCourse.value));
-
-          universityArray = handleUniversityFilteredByPrograms(filterProgramArray, universityArray);
-        } else {
-          if (checkProgramId()) {
-            universityArray = handleUniversityFilteredByPrograms(programList.value, universityArray);
-          }
-        }
+    if (res.data.status == "success") {
+      universityArray = res.data.universities;
 
         filteredUniversityList.value = universityArray;
+        filteredUniversityList.value = universityArray;
 
-        return;
-      }
-    }
+      filteredUniversityList.value = universityArray;
 
-    filteredUniversityList.value = universityArray;
+      return;
+    } 
     $toast.error('Not Found !', { position: 'top-right' });
   } finally {
     uniLoading.value = false;
@@ -241,7 +243,7 @@ onMounted(() => {
 
 watch(
   () => selectedProgram.value, (newProgram) => {
-    getCourses();
+    fetchCourses();
   }
 );
 
