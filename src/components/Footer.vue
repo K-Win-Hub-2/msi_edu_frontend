@@ -49,7 +49,7 @@ const urls = [
                 
               </div>
             </div>
-            <div class="lg:ml-36">
+            <div class="lg:ml-24">
               <h2 class="mb-6 text-sm font-semibold uppercase">Contact Us</h2>
               <ul class="text-sm">
                 <li class="mb-3">

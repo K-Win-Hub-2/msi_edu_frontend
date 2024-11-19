@@ -1,7 +1,6 @@
 <template>
   <div
     class="flex flex-col justify-between xl:flex-row gap-12 wow ssm:px-4 md:px-0"
-    id="counterSection"
   >
     <div
       class="flex justify-between items-center gap-6 bg-gray-100 px-5 py-3 cus-rounded"
@@ -9,8 +8,9 @@
       <img :src="education" class="w-12 h-12" />
       <div
         class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
+        id="studentCounter"
       >
-        <span class="counter">2600</span>
+        <span class="">2600</span>
         <span class="">Students</span>
       </div>
     </div>
@@ -21,6 +21,7 @@
       <img :src="university" class="w-12 h-12" />
       <div
         class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
+        id="universityCounter"
       >
         <span class="">200</span>
         <span class="">Universities</span>
@@ -33,6 +34,7 @@
       <img :src="trophy" class="w-12 h-12" />
       <div
         class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
+        id="awardCounter"
       >
         <span class="">24</span>
         <span class="">Awards</span>
@@ -41,10 +43,11 @@
 
     <div
       class="flex justify-between items-center gap-6 bg-gray-100 px-5 py-3 cus-rounded"
-    >
+      >
       <img :src="mortarboard" class="w-12 h-12" />
       <div
         class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
+        id="scholarshipCounter"
       >
         <span class="">350</span>
         <div class="flex xl:flex-col lg:flex-row md:flex-row sm:flex-col ssm:flex-col space-x-1">
@@ -80,8 +83,14 @@ onMounted(() => {
 
   const IO = new IntersectionObserver(callback, { threshold: 0 });
 
-  const el = document.querySelector("#counterSection");
+  const el = document.querySelector("#studentCounter");
+  const el1 = document.querySelector("#universityCounter");
+  const el2 = document.querySelector("#awardCounter");
+  const el3 = document.querySelector("#scholarshipCounter");
   IO.observe(el);
+  IO.observe(el1);
+  IO.observe(el2);
+  IO.observe(el3);
 });
 </script>
 
