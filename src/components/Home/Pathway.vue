@@ -26,6 +26,8 @@ const selectedUniversity = ref();
 const selectedProgram = ref();
 
 const filteredUniversityList = ref([]);
+const itemsPerShow = ref(6);
+const currentIndex = ref(6);
 
 const currentUniversities = ref([]);
 
@@ -70,10 +72,15 @@ const fetchCourses = async () => {
     const res = await axios.post("courses?country_id=" + payload.country_id + "&program_id=" + payload.program_id);
 
     if (res.data.status == "success") {
-      const courses = res.data.courses[0].course_name.split(",");
+      let courses = [];
+      const courseArray = res.data.courses;
+      courseArray.forEach((course) => {
+        courses = [...courses, ...course.course_name.split(",")];
+      });
+
       const formattedArray = courses.map((course) => course.trim());
 
-      courseList.value = formattedArray.filter((value) => value != "");
+      courseList.value = [...new Set(formattedArray.filter((value) => value != ""))];
       selectedCourse.value = "default";
 
       return;
@@ -132,30 +139,46 @@ const handleSearch = async () => {
   try {
     let universityArray = [];
     uniLoading.value = true;
+    
+    let url = "universities";
+    if (checkCountry()) {
+      url += "?country_id=" + selectedCountry.value;
 
-    let payload = {
-      country_id: checkCountry() ? selectedCountry.value : null,
-      program_id: checkProgramId() ? selectedProgramId.value : null,
-      course_name: checkCourse() ? selectedCourse.value : null,
-    };
+      if (checkProgramId()) {
+        url += "&program_id=" + selectedProgramId.value
 
-    const res = await axios.post("universities?country_id=" + payload.country_id + "&program_id=" + payload.program_id + "&course_name=" + payload.course_name 
-    );
+        if (checkCourse()) {
+          url += "&course_name=" + encodeURIComponent(selectedCourse.value)
+        }
+      }
+    }
+
+    const res = await axios.post(url);
 
     if (res.data.status == "success") {
       universityArray = res.data.universities;
 
-        filteredUniversityList.value = universityArray;
-        filteredUniversityList.value = universityArray;
-
       filteredUniversityList.value = universityArray;
 
       return;
-    } 
+    }
     $toast.error('Not Found !', { position: 'top-right' });
   } finally {
     uniLoading.value = false;
   }
+}
+
+const visibleUniversities = () => {
+  console.log(filteredUniversityList.value.slice(0, currentIndex.value));
+  
+  return filteredUniversityList.value.slice(0, currentIndex.value);
+}
+
+const handleShowMore = () => {
+  const nextIndex = currentIndex.value + itemsPerShow.value;
+  currentIndex.value = nextIndex < filteredUniversityList.value.length
+      ? nextIndex
+      : filteredUniversityList.value.length;
 }
 
 const handleUniversityFilteredByPrograms = (programArray, universityArray) => {
@@ -368,16 +391,26 @@ watch(
         <Loading />
       </template>
       <template v-else>
-        <div v-if="filteredUniversityList.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 first-letter justify-items-center gap-12">
-          <template v-for="university in filteredUniversityList" :key="university">
-            <a :href="university.university_link" target="_blank" class="block  bg-white w-full h-[150px] group relative cus-standout overflow-hidden">
-              <img class="w-full h-full object-contain p-3" :src="university.imageURL" />
-              <div class="flex items-center justify-center absolute top-0 left-0 group-hover:bg-gray-900 group-hover:bg-opacity-40 w-full h-full transition">
-                <span class="opacity-0 group-hover:opacity-100 transition z-10 text-white text-center">{{ university.university_name }}</span>
-              </div>
-            </a>
-          </template>
-        </div>
+        <template v-if="filteredUniversityList.length > 0">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 first-letter justify-items-center gap-12">
+            <template v-for="university in visibleUniversities()" :key="university">
+              <a :href="university.university_link" target="_blank" class="block  bg-white w-full h-[150px] group relative cus-standout overflow-hidden">
+                <img class="w-full h-full object-contain p-3" :src="university.imageURL" />
+                <div class="flex items-center justify-center absolute top-0 left-0 group-hover:bg-gray-900 group-hover:bg-opacity-40 w-full h-full transition">
+                  <span class="opacity-0 group-hover:opacity-100 transition z-10 text-white text-center">{{ university.university_name }}</span>
+                </div>
+              </a>
+            </template>
+          </div>
+          <div v-if="currentIndex < filteredUniversityList.length" class="w-full flex items-center justify-center">
+            <button
+              @click="handleShowMore"
+              class="border-2 hover:bg-cus-primary shadow-xl hover:text-white border-gray-400 rounded-lg md:px-4 ssm:py-1 ssm:px-1 md:py-2"
+            >
+              Show More
+            </button>
+          </div>
+        </template>
         <div v-else class="flex md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5 justify-between items-center">
           No University Found!
         </div>
