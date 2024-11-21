@@ -43,7 +43,7 @@
           </li>
           <li class="flex gap-6 w-full items-start justify-start">
             <p
-              class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px]"
+              class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
             >
               <font-awesome-icon
                 :icon="faMapMarkerAlt"
@@ -58,7 +58,7 @@
           </li>
           <li class="flex gap-6 w-full items-center justify-start">
             <p
-              class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px]"
+              class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
             >
               <font-awesome-icon
                 :icon="faFontAwesomeFlag"
