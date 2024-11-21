@@ -23,6 +23,12 @@ const scholarshipOffer = ref();
 const award=ref([])
 const currentAwards = ref([]);
 const currentActiveAward = ref({});
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import {
+  faFontAwesomeFlag,
+  faGlobe,
+  faMapMarkerAlt,
+} from '@fortawesome/free-solid-svg-icons';
 
 // swiper start
 
@@ -134,9 +140,7 @@ const fetchData = async () => {
   university.value = res.data.university
   award.value=res.data.university.onPrizeSlideChange
   if (res.data.university) {
-  
       if (res.data.university.id == props.id) {
-       
         bannerImage.value =
           "http://adminpanel.msieducation.edu.mm/postImage/" +
           res.data.university.uni_banner_image;
@@ -175,79 +179,61 @@ onMounted(() => {
         :src="university.imageURL"
         alt=""
       />
-      <div class="flex justify-center">
+      <div class="flex justify-center lg:py-10 py-7">
         <div class="md:w-[1290px] ssm:w-[320px]">
-          <div class="flex justify-between">
-            <div class="">
-              <div
-                class="flex items-center md:mt-6 ssm:mx-3 md:mx-0 ssm:mt-3 md:px-10"
-              >
-                <img
-                  class="mr-3 md:w-8 ssm:w-5 ssm:h-5 md:h-8"
-                  src="@/assets/img/scholarship/Vector.svg"
-                  alt=""
-                />
+          <div class="flex justify-between items-end">
+            <ul class="flex flex-col gap-3 p-2 lg:items-start items-center grow text-[#205887]">
+              <li class="flex gap-6 w-full items-center justify-start">
                 <p
-                  class="md:text-[20px] ssm:text-[15px] text-cus-primary font-semibold uppercase lg:min-w-[130px]"
+                  class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
                 >
-                  <span>Country:</span>
-                  <span
-                    class="font-[500] md:text-[20px] ssm:text-[15px] leading-[18px] text-black"
-                  >
-                    {{ university.country.name }}
-                  </span>
+                  <font-awesome-icon :icon="faGlobe" class="text-[#FE005F]" />&nbsp;
+                  COUNTRY:
                 </p>
-              </div>
-
-              <div
-                class="flex items-center md:mt-6 ssm:mx-3 md:mx-0 ssm:mt-3 md:px-10"
-              >
-                <img
-                  src="@/assets/img/scholarship/MapPin.svg"
-                  class="mr-3 md:w-8 ssm:w-5 ssm:h-5 md:h-8"
-                  alt=""
-                />
                 <p
-                  class="md:text-[20px] ssm:text-[15px] text-cus-primary font-semibold uppercase lg:min-w-[130px]"
+                  class="font-[510] text-[12px] md:text-[16px] lg:text-[18px] text-[#0E314E]"
                 >
-                  <span> Location:</span>
-                  <span
-                    class="font-[500] md:text-[20px] ssm:text-[15px] leading-[18px] text-black"
-                    >{{ university.location }}
-                  </span>
+                  {{ university.country?.name }}
                 </p>
-              </div>
-
-              <div
-                class="flex items-center md:mt-6 ssm:mx-3 md:mx-0 ssm:mt-3 md:px-10"
-              >
-                <img
-                  src="@/assets/img/scholarship/Flag.svg"
-                  class="mr-3 md:w-8 md:h-8 ssm:w-5 ssm:h-5"
-                  alt=""
-                />
-
+              </li>
+              <li class="flex gap-6 w-full items-start justify-start">
                 <p
-                  class="md:text-[20px] ssm:text-[15px] text-cus-primary font-semibold uppercase lg:min-w-[130px]"
+                  class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
                 >
-                  <span>Founded:</span>
-                  <span
-                    class="font-[500] md:text-[20px] ssm:text-[15px] leading-[18px] text-black"
-                    >{{ university.founded_year }}</span
-                  >
+                  <font-awesome-icon
+                    :icon="faMapMarkerAlt"
+                    class="text-[#FE005F]"
+                  />&nbsp; LOCATION:
                 </p>
-              </div>
-            </div>
-            <div class="">
+                <p
+                  class="font-[510] text-[12px] md:text-[16px] lg:text-[18px] text-[#0E314E]"
+                >
+                  {{ university.location }}
+                </p>
+              </li>
+              <li class="flex gap-6 w-full items-center justify-start">
+                <p
+                  class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
+                >
+                  <font-awesome-icon
+                    :icon="faFontAwesomeFlag"
+                    class="text-[#FE005F]"
+                  />&nbsp; FOUNDED:
+                </p>
+                <p
+                  class="font-[510] text-[12px] md:text-[16px] lg:text-[18px] text-[#0E314E]"
+                >
+                  {{ university.founded_year }}
+                </p>
+              </li>
+            </ul>
+            <div class="flex items-end">
               <Button
-                class="lg:px-[40px] mt-32 sm:mr-7 ssm:px-[20px] ssm:py-[5px] md:px-[40px] px-[17px] lg:py-[13px] md:py-[8px] py-[2px] rounded-[20px] lg:text-[20px] md:text-[9px] text-[7px] float-right md:mr-[35px] mr-[2px]"
-                type="gradient"
-                data-te-toggle="modal"
-                data-te-target="#appointmentFormModal"
-                data-te-ripple-init
-                data-te-ripple-color="light"
-                >Get Free Counselling</Button
-              >
+              class="lg:px-[50px] lg:py-[16px] lg:text-[15px] md:px-[40px] md:py-[8px] md:text-[10px] px-[30px] py-[8px] rounded-[20px] text-[10px]"
+              type="gradient"
+              data-te-ripple-color="light"
+              >Get Free Counselling</Button
+            >
             </div>
           </div>
           <h1
@@ -259,7 +245,7 @@ onMounted(() => {
           <hr class="mt-6" />
 
           <!-- prize award -->
-          <div class="md:mt-20 ssm:mt-8 md:px-10 ssm:px-2">
+          <div v-if="university.prizes.length > 0" class="md:mt-20 ssm:mt-8 md:px-10 ssm:px-2">
             <div class="flex justify-between items-center">
               <div class="">
                 <h1 class="md:text-lg ssm:text-md">Prize Award</h1>
@@ -303,7 +289,7 @@ onMounted(() => {
     :spaceBetween="30" :centeredSlides="true"
       >
        
-          <swiper-slide class="my-3 shrink-0" v-for="prize in university.prizes">
+          <swiper-slide class="my-3 shrink-0" v-for="(prize, index) in university.prizes" :key="index">
             <PrizeCard :image="prize.imageURL" class="select-none" />
           </swiper-slide>
        
@@ -410,7 +396,7 @@ onMounted(() => {
             </div>
           </div> -->
 
-          <div class="relative" v-if="scholarshipOffer">
+          <div class="relative" v-if="scholarshipOffer?.length > 0">
             <h1
               class="md:my-10 md:ml-14 lg:ml-0 ssm:my-3 md:text-lg ssm:text-md font-semibold"
             >
