@@ -68,10 +68,10 @@ onMounted(() => {
 
 <template>
   <div>
-    <!-- <h1 class="cus-heading text-center uppercase mb-12">
-      <span class="text-cus-primary text-7xl">22 awards</span>
+    <h1 class="cus-heading text-center uppercase mb-12">
+      <!-- <span class="text-cus-primary text-7xl">22 awards</span> -->
       <span class="text-cus-secondary text-4xl"> Showcase of Excellence </span>
-    </h1> -->
+    </h1>
     <div class="relative flex justify-between items-center mb-3">
       <div
         class="swiper-home-award-button-prev-unique hover:cursor-pointer z-[20]"

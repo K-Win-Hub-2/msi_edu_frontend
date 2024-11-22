@@ -42,7 +42,7 @@ defineProps(["image", "content", "showContent", "reverse", "description", "year"
       <div class="h-[192px]">
         <div class="border-b-2 border-cus-primary mb-3 text-cus-primary text-shadow-sm cus-shadow-color">
           <!-- <div class="text-3xl font-bold">{{  year }}</div> -->
-          <div class="text-lg">{{ content }}</div>
+          <div class="text-md">{{ content }}</div>
         </div>
         <p class="text-shadow-sm cus-shadow-color">
           {{ description }}

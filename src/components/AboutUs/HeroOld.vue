@@ -1,6 +1,8 @@
 <script setup>
 import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 import UniversitiesSlider from "../Home/UniversitiesSlider.vue";
+import Button from "../partials/Button.vue";
+
 </script>
 
 <template>
@@ -44,10 +46,20 @@ import UniversitiesSlider from "../Home/UniversitiesSlider.vue";
         <span><ChevronRightIcon class="w-10 h-10 font-bold"  /></span>
       </a>
     </div> -->
-    <div
+    <!-- <div
       class="absolute lg:w-[1300px] md:w-[800px] md:h-[200px] lg:h-[200px] bottom-5 left-1/2 -translate-x-1/2"
     >
       <UniversitiesSlider class="" />
+    </div> -->
+
+    <div class="absolute bottom-2 left-11">
+      <a href="https://youtu.be/P3XLi-j5zac?si=jLQw9Anwx-m1FpyM" target="_blank">
+        <Button
+          type="gradient"
+          class="md:p-5 ssm:px-3 md:px-16 text-md"
+          >Visit MSI Office</Button
+        >
+      </a>
     </div>
   </div>
   <!-- <div class="justify-center p-5 pt-0 capitalize text-center flex flex-col items-center">
