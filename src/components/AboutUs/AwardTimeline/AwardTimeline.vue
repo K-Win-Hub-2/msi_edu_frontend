@@ -1,16 +1,16 @@
 <script setup>
-import { onMounted, ref } from "vue";
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation } from "swiper";
+import { onMounted, ref } from 'vue';
+import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/vue/24/solid';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation } from 'swiper';
 
 const currentAwards = ref([]);
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import { awards } from "../../../mocks/awards";
-import AwardTimelineCard from "./AwardTimelineCard.vue";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { awards } from '../../../mocks/awards';
+import AwardTimelineCard from './AwardTimelineCard.vue';
 
 const start = ref(true);
 const end = ref(false);
@@ -55,8 +55,8 @@ const swiperOptions = {
     },
   },
   navigation: {
-    nextEl: ".swiper-home-award-button-next-unique",
-    prevEl: ".swiper-home-award-button-prev-unique",
+    nextEl: '.swiper-home-award-button-next-unique',
+    prevEl: '.swiper-home-award-button-prev-unique',
   },
 };
 // swiper end
@@ -100,6 +100,7 @@ onMounted(() => {
               :year="award.year"
               :description="award.description"
               :reverse="index % 2 === 0 ? false : true"
+              :breakWords="index === 1"
             />
           </swiper-slide>
         </template>

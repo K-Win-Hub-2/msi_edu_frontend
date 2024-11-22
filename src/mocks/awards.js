@@ -265,7 +265,7 @@ export const awards = [
   },
   {
     title: "Best Uprising Partnership Award",
-    description: "Nanyang institute of Management NIM(Singapore Campus)",
+    description: "Nanyang institute of Management NIM (Singapore Campus)",
     university: "university",
     country: "country",
     year: "2023",
