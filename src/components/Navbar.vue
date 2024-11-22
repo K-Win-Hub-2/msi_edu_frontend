@@ -242,43 +242,42 @@ const isActive = (url) => {
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#our-office"> Our Office </a>
+                    <a href="/about-us#our-office"> Our Office </a>
                   </li>
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#about"> Who we are</a>
+                    <a href="/about-us#our-leaders"> MSI's Leaders </a>
+                  </li>
+                  <!-- <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="/about-us#speech"> Speech </a>
+                  </li> -->
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="/about-us#strategy"> Strategy </a>
                   </li>
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#speech"> Speech</a>
+                    <a href="/about-us#why-msi"> Why MSI? </a>
                   </li>
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#mission"> Mission</a>
+                    <a href="/about-us#our-partner"> MSI's Partnerships</a>
                   </li>
+                  <!-- <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="/about-us#our_partner"> Our Team</a>
+                  </li> -->
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#our_partner"> Our Partner</a>
-                  </li>
-                  <li
-                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
-                  >
-                    <a href="#our_partner"> Our Team</a>
-                  </li>
-
-                  <li
-                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
-                  >
-                    <a href="#mission"> Why MSI</a>
-                  </li>
-                  <li
-                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
-                  >
-                    <a href="#award">Award</a>
+                    <a href="/about-us#achievements">Achievements</a>
                   </li>
                 </ul>
               </div>
