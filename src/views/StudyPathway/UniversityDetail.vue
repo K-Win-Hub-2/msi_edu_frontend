@@ -143,7 +143,7 @@ const fetchData = async () => {
       if (res.data.university.id == props.id) {
         bannerImage.value =
           "http://adminpanel.msieducation.edu.mm/postImage/" +
-          res.data.university.uni_banner_image;
+          res.data.university.uni_image;
         prizeImage.value =
           "http://adminpanel.msieducation.edu.mm/postImage/" + res.data.university.prize_image;
       }
