@@ -1,14 +1,14 @@
 <script setup>
-import NavItem from "@/components/partials/NavItem.vue";
-import TopBar from "./TopBar.vue";
-import { useRoute } from "vue-router";
-import { onMounted, ref } from "vue";
-import { useAppStore } from "../stores/app";
-import { storeToRefs } from "pinia";
-import getData from "../axios/getData";
+import NavItem from '@/components/partials/NavItem.vue';
+import TopBar from './TopBar.vue';
+import { useRoute } from 'vue-router';
+import { onMounted, ref } from 'vue';
+import { useAppStore } from '../stores/app';
+import { storeToRefs } from 'pinia';
+import getData from '../axios/getData';
 const appStore = useAppStore();
 const { navbar } = storeToRefs(appStore);
-const url = ref("country-lists");
+const url = ref('country-lists');
 const { data, fetchData } = getData();
 const handleNavbar = () => {
   navbar.value = true;
@@ -16,125 +16,125 @@ const handleNavbar = () => {
 
 const urls = [
   {
-    name: "Home",
-    url: "home",
+    name: 'Home',
+    url: 'home',
   },
   {
-    name: "About us",
-    url: "about-us",
+    name: 'About us',
+    url: 'about-us',
     dropdown: [
       {
-        name: "Our Office",
-        url: "about-us",
-        hash: "#our-office",
+        name: 'Our Office',
+        url: 'about-us',
+        hash: '#our-office',
       },
       {
-        name: "Who we are",
-        url: "about-us",
-        hash: "#about",
+        name: 'Who we are',
+        url: 'about-us',
+        hash: '#about',
       },
       {
-        name: "Speech",
-        url: "about-us",
-        hash: "#speech",
+        name: 'Speech',
+        url: 'about-us',
+        hash: '#speech',
       },
       {
-        name: "Mission",
-        url: "about-us",
-        hash: "#mission",
+        name: 'Mission',
+        url: 'about-us',
+        hash: '#mission',
       },
       {
-        name: "Our Partner",
-        url: "about-us",
-        hash: "#our-partner",
+        name: 'Our Partner',
+        url: 'about-us',
+        hash: '#our-partner',
       },
       {
-        name: "Our Team",
-        url: "about-us",
-        hash: "#our-team",
+        name: 'Our Team',
+        url: 'about-us',
+        hash: '#our-team',
       },
       {
-        name: "Testimonial",
-        url: "about-us",
-        hash: "#testimonial",
+        name: 'Testimonial',
+        url: 'about-us',
+        hash: '#testimonial',
       },
       {
-        name: "Why MSI",
-        url: "about-us",
-        hash: "#why-msi",
+        name: 'Why MSI',
+        url: 'about-us',
+        hash: '#why-msi',
       },
       {
-        name: "Roadmap",
-        url: "about-us",
-        hash: "#roadmap",
+        name: 'Roadmap',
+        url: 'about-us',
+        hash: '#roadmap',
       },
     ],
   },
   {
-    name: "Services",
-    url: "services",
+    name: 'Services',
+    url: 'services',
     dropdown: [
       {
-        name: "Our Services",
-        url: "services",
-        hash: "#our-services",
+        name: 'Our Services',
+        url: 'services',
+        hash: '#our-services',
       },
       {
-        name: "Faq",
-        url: "services",
-        hash: "#faq",
+        name: 'Faq',
+        url: 'services',
+        hash: '#faq',
       },
     ],
   },
   {
-    name: "StudyPathway",
-    url: "study-pathway",
+    name: 'StudyPathway',
+    url: 'study-pathway',
     dropdown: [
       {
-        name: "Main Page",
-        url: "study-pathway",
+        name: 'Main Page',
+        url: 'study-pathway',
       },
       {
-        name: "Singapore",
-        url: "study-pathway.countries.singapore",
+        name: 'Singapore',
+        url: 'study-pathway.countries.singapore',
       },
       {
-        name: "Thailand",
-        url: "study-pathway.countries.thailand",
+        name: 'Thailand',
+        url: 'study-pathway.countries.thailand',
       },
       {
-        name: "Malaysia",
-        url: "study-pathway.countries.malaysia",
+        name: 'Malaysia',
+        url: 'study-pathway.countries.malaysia',
       },
       {
-        name: "Canada",
-        url: "study-pathway.countries.canada",
+        name: 'Canada',
+        url: 'study-pathway.countries.canada',
       },
       {
-        name: "UK",
-        url: "study-pathway.countries.uk",
+        name: 'UK',
+        url: 'study-pathway.countries.uk',
       },
       {
-        name: "Switzerland",
-        url: "study-pathway.countries.switzerland",
+        name: 'Switzerland',
+        url: 'study-pathway.countries.switzerland',
       },
       {
-        name: "Vietnam",
-        url: "study-pathway.countries.vietnam",
+        name: 'Vietnam',
+        url: 'study-pathway.countries.vietnam',
       },
       {
-        name: "Italy",
-        url: "study-pathway.countries.italy",
+        name: 'Italy',
+        url: 'study-pathway.countries.italy',
       },
       {
-        name: "USA",
-        url: "study-pathway.countries.usa",
+        name: 'USA',
+        url: 'study-pathway.countries.usa',
       },
     ],
   },
-  { name: "Scholarship", url: "scholarship" },
-  { name: "Events", url: "events" },
-  { name: "Contact Us", url: "contact-us" },
+  { name: 'Scholarship', url: 'scholarship' },
+  { name: 'Events', url: 'events' },
+  { name: 'Contact Us', url: 'contact-us' },
 ];
 
 onMounted(() => {
@@ -242,43 +242,42 @@ const isActive = (url) => {
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#our-office"> Our Office </a>
+                    <a href="/about-us#our-office"> Our Office </a>
                   </li>
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#about"> Who we are</a>
+                    <a href="/about-us#our-leaders"> MSI's Leaders </a>
+                  </li>
+                  <!-- <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="/about-us#speech"> Speech </a>
+                  </li> -->
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="/about-us#strategy"> Strategy </a>
                   </li>
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#speech"> Speech</a>
+                    <a href="/about-us#why-msi"> Why MSI? </a>
                   </li>
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#mission"> Mission</a>
+                    <a href="/about-us#our-partner"> MSI's Partnerships</a>
                   </li>
+                  <!-- <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
+                  >
+                    <a href="/about-us#our_partner"> Our Team</a>
+                  </li> -->
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#our_partner"> Our Partner</a>
-                  </li>
-                  <li
-                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
-                  >
-                    <a href="#our_partner"> Our Team</a>
-                  </li>
-
-                  <li
-                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
-                  >
-                    <a href="#mission"> Why MSI</a>
-                  </li>
-                  <li
-                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
-                  >
-                    <a href="#award">Award</a>
+                    <a href="/about-us#achievements">Achievements</a>
                   </li>
                 </ul>
               </div>
@@ -300,12 +299,12 @@ const isActive = (url) => {
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#our-services"> Our service </a>
+                    <a href="/services#our-services"> MSI Services </a>
                   </li>
                   <li
                     class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                   >
-                    <a href="#faq"> Faq</a>
+                    <a href="/services#faqs"> FAQs </a>
                   </li>
                 </ul>
               </div>

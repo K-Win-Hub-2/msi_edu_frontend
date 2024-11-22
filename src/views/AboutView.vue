@@ -4,7 +4,7 @@
     <section id="our-office" class="relative z-30 overflow-hidden">
       <HeroOld />
     </section>
-    <section id="speech" class="relative">
+    <section id="our-leaders" class="relative">
       <div
         class="bg-[url(../../assets/img/Home/msiWebPattern2.png)] w-[70%] h-[500px] bg-no-repeat z-20 bg-[length:100%_100%] absolute top-0 left-0"
         alt=""
@@ -28,12 +28,12 @@
         <VicePresidentSpeech />
       </div>
     </section> -->
-    <section id="mission">
+    <section id="strategy">
       <div class="container md:px-6 md:py-12">
         <Visions />
       </div>
     </section>
-    <section id="our-partner" class="relative">
+    <section id="why-msi" class="relative">
       <img
         src="../assets/img/AboutUs/MSI-Website-New-Design-Themes-About-Us-(12-Dec-23)_2.png"
         alt=""
@@ -43,11 +43,11 @@
         class="bg-[url(../../assets/img/Home/msiWebPattern.png)] w-[100%] h-[1800px] bg-no-repeat bg-[length:100%_100%] absolute bottom-10 right-0"
         alt=""
       ></div>
-      <div class="container relative z-30" id="our_partner">
+      <div class="container relative z-30" id="our-partner">
         <OurPartner />
       </div>
     </section>
-    <section class="container" id="award">
+    <section class="container" id="achievements">
       <div>
         <AwardTimeline />
       </div>

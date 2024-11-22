@@ -4,13 +4,13 @@
       <h3
         class="uppercase md:cus-heading ssm:text-md ssm:font-bold text-cus-secondary text-shadow-sm cus-shadow-color"
       >
-        Why Msi
+        Why MSI?
       </h3>
-      <h3 class="uppercase text-cus-secondary font-bold">
+      <!-- <h3 class="uppercase text-cus-secondary font-bold">
         Our Excellent services
-      </h3>
+      </h3> -->
       <p class="mt-5">
-        We are recognized as a award-winning education consultancy by partner
+        We are recognized as an award-winning education consultancy by partner
         universities, which can support guidance for your learning journey. We
         are providing One-Stop Quality services to the students with the right
         understanding and the right thinking.

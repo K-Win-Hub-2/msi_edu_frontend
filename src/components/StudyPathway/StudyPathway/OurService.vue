@@ -4,7 +4,7 @@
       <h1
         class="md:cus-heading relative ssm:text-md ssm:text-cus-primary ssm:font-semibold text-center"
       >
-        Our Services
+        One-Stop Quality Services
         <div
           class="bg-[url(@/assets/img/Services/confettiblue.png)] md:left-[300px] ssm:left-14 w-[130px] h-[120px] bg-no-repeat bg-[length:100%_100%] absolute md:top-[-15px] lg:left-[480px]"
         ></div>
@@ -403,12 +403,12 @@
 </template>
 
 <script setup>
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination, Navigation } from "swiper";
+import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/vue/24/solid';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination, Navigation } from 'swiper';
 const modules = [Navigation, Pagination];
-import MySwiper from "@/components/MySwiper.vue";
-import { ref } from "vue";
+import MySwiper from '@/components/MySwiper.vue';
+import { ref } from 'vue';
 // swiper
 const start = ref(true);
 const end = ref(false);
@@ -449,8 +449,8 @@ const swiperOptions = {
     },
   },
   navigation: {
-    nextEl: ".swiper-service-card-button-next-unique",
-    prevEl: ".swiper-service-card-button-prev-unique",
+    nextEl: '.swiper-service-card-button-next-unique',
+    prevEl: '.swiper-service-card-button-prev-unique',
   },
 };
 </script>
