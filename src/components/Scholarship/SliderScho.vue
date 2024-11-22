@@ -1,9 +1,9 @@
 <template>
   <div
-    class="lg:w-[965px] md:w-[600px] w-[530px] flex items-center justify-center lg:h-[450px] md:h-[400px] h-[360px] bg-carousel overflow-hidden lg:rounded-[41px] md:rounded-[36px] rounded-[24px]"
+    class="lg:w-[965px] md:w-[600px] w-[530px] flex items-center justify-center lg:h-[450px] md:h-[400px] h-[360px] bg-slider-carousel overflow-hidden lg:rounded-[41px] md:rounded-[36px] rounded-[24px]"
     v-if="props.data"
   >
-    <div class="flex lg:gap-8 md:gap-4 w-full px-12 items-center -center">
+    <div class="flex lg:gap-8 md:gap-4 w-full px-12 items-center">
       <div
         class="flex items-center justify-center lg:w-[380px] md:w-[315px] w-[280px] md:block ssm:hidden"
       >
@@ -128,4 +128,14 @@ const props = defineProps(['data']);
 console.log(props.data, 'slider');
 </script>
 
-<style></style>
+<style scoped>
+.bg-slider-carousel {
+  background: linear-gradient(
+    100deg,
+    #f6fbff 2.14%,
+    rgba(225, 241, 255, 0) 105.75%,
+    rgba(162, 213, 255, 0) 105.75%
+  );
+  border: 1px solid #B2ADAD;
+}
+</style>
