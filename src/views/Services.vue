@@ -17,7 +17,7 @@
     </div>
   </section>
 
-  <section id="faq" class="bg-white mt-10">
+  <section id="faqs" class="bg-white mt-10">
     <div class="container px-6 md:py-20 ssm:py-9">
       <Faq />
     </div>
@@ -25,10 +25,10 @@
 </template>
 
 <script setup>
-import OurService from "../components/StudyPathway/StudyPathway/OurService.vue";
-import Faq from "../components/Services/Faq.vue";
-import Hero from "../components/Services/Hero.vue";
-import ServiceList from "../components/Services/ServiceList.vue";
+import OurService from '../components/StudyPathway/StudyPathway/OurService.vue';
+import Faq from '../components/Services/Faq.vue';
+import Hero from '../components/Services/Hero.vue';
+import ServiceList from '../components/Services/ServiceList.vue';
 </script>
 
 <style lang="scss" scoped></style>
