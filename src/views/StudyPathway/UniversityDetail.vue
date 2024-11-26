@@ -178,7 +178,7 @@ onMounted(() => {
       <div class="flex justify-center lg:py-10 py-7">
         <div class="md:w-[1290px] ssm:w-[320px]">
           <div
-            class="flex justify-between items-end sm:flex-col sm:items-start sm:gap-4"
+            class="flex justify-between lg:flex-row lg:items-end sm:flex-col sm:items-start sm:gap-4"
           >
             <ul
               class="flex flex-col gap-3 p-2 lg:items-start items-center grow text-[#205887]"
