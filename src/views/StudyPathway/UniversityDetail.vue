@@ -322,36 +322,40 @@ onMounted(() => {
             <h1 class="my-5 md:text-lg ssm:text-md font-semibold">
               Available Programs
             </h1>
-            <div class="">
-              <div
-                class="flex justify-between"
-                v-for="p in university.program_course"
-                :key="p.id"
-              >
-                <div class="">
-                  <h1 class="text-md text-primary-600 my-8 font-[600]">
-                    {{ p.name }}
-                  </h1>
-                  <ul
-                    class="md:text-[24px] smm:text-[18px] space-y-2 mt-5 font-[500]"
-                  >
-                    <li
-                      v-for="(course, index) in p.pivot.course_name
-                        .split(',')
-                        .filter((c) => c.trim())"
-                      :key="index"
+            <div
+              class="flex justify-between lg:flex-row lg:items-end sm:flex-col sm:items-start sm:gap-4"
+            >
+              <div class="grow pb-8">
+                <div
+                  class="flex"
+                  v-for="p in university.program_course"
+                  :key="p.id"
+                >
+                  <div class="">
+                    <h1 class="text-md text-primary-600 my-8 font-[600]">
+                      {{ p.name }}
+                    </h1>
+                    <ul
+                      class="md:text-[24px] smm:text-[18px] space-y-2 mt-5 font-[500]"
                     >
-                      - {{ course.trim() }}
-                    </li>
-                  </ul>
+                      <li
+                        v-for="(course, index) in p.pivot.course_name
+                          .split(',')
+                          .filter((c) => c.trim())"
+                        :key="index"
+                      >
+                        - {{ course.trim() }}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div class="">
-                  <img
-                    src="../../assets/img/StudyPathway/program.png"
-                    class="w-[296px] h-[296px] ssm:hidden md:block"
-                    alt=""
-                  />
-                </div>
+              </div>
+              <div class="flex items-end">
+                <img
+                  src="../../assets/img/StudyPathway/program.png"
+                  class="w-[296px] h-[296px] ssm:hidden md:block"
+                  alt=""
+                />
               </div>
             </div>
           </div>

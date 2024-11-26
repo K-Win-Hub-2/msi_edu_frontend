@@ -18,7 +18,7 @@ import TheBestPerformingPartnerin2021 from "@/assets/img/home/Awards/TheBestPerf
 import TheExcellenceAward from "@/assets/img/home/Awards/TheExcellenceAward.png";
 import TheMostOutstandingAgentAward from "@/assets/img/home/Awards/TheMostOutstandingAgentAward.png";
 import TopAgentAward from "@/assets/img/home/Awards/TopAgentAward.png";
-import SingaporeEducationSpecialistCertificate from "@/assets/img/home/Awards/SingaporeEducationSpecialistCertificate.jpg";
+import SingaporeEducationSpecialistCertificate from "@/assets/img/home/Awards/SingaporeEducationSpecialistCertificate.png";
 import PartnershipAppreciationAward from "@/assets/img/home/Awards/PartnershipAppreciationAward.png";
 import BestPartnerAwardMDIS from "@/assets/img/home/Awards/BestPartnerAwardMDIS.png";
 import BestUprisingAward from "@/assets/img/home/Awards/BestUprisingAward.png";
