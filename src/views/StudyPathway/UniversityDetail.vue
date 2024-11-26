@@ -169,7 +169,7 @@ onMounted(() => {
 </script>
 <template>
   <div>
-    <div class="lg:my-28 ssm:my-4" v-if="university">
+    <div class="lg:mt-28 ssm:mt-4" v-if="university">
       <img
         class="w-full lg:h-[693px] md:h-[500px] object-cover"
         :src="bannerImage"
@@ -315,10 +315,7 @@ onMounted(() => {
           </div>
 
           <!-- program -->
-          <div
-            class="mb-14 mt-9 md:px-10 ssm:px-2"
-            v-if="university.program_course"
-          >
+          <div class="mt-9 md:px-10 ssm:px-2" v-if="university.program_course">
             <h1 class="my-5 md:text-lg ssm:text-md font-semibold">
               Available Programs
             </h1>
@@ -353,8 +350,8 @@ onMounted(() => {
               <div class="flex items-end">
                 <img
                   src="../../assets/img/StudyPathway/program.png"
-                  class="w-[296px] h-[296px] ssm:hidden md:block"
-                  alt=""
+                  class="w-96 h-96 ssm:hidden md:block"
+                  :alt="university.university_name + ' Program'"
                 />
               </div>
             </div>
@@ -406,7 +403,7 @@ onMounted(() => {
             </div>
           </div> -->
 
-          <div class="relative" v-if="scholarshipOffer?.length > 0">
+          <div class="relative mt-14" v-if="scholarshipOffer?.length > 0">
             <h1
               class="md:my-10 md:ml-14 lg:ml-0 ssm:my-3 md:text-lg ssm:text-md font-semibold"
             >
