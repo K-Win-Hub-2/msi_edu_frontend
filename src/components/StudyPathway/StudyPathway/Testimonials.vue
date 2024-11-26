@@ -27,7 +27,7 @@
             <!-- card start-->
             <div class="flex">
               <img
-                class="md:w-[430px] ssm:h-[300px] md:h-[450px] rounded-[25px] ssm:px-3 md:mx-0"
+                class="md:w-[430px] ssm:h-[300px] md:h-[450px] rounded-[25px] ssm:px-3 md:mx-0 object-cover"
                 :src="testimonial.imageURL"
                 alt=""
               />
