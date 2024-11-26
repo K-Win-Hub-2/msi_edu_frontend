@@ -1,26 +1,25 @@
 <script setup>
-
-import Button from "../../components/partials/Button.vue";
-import ScholarshipOfferCard from "../../components/Scholarship/ScholarshipOfferCard.vue";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
-import { Pagination, Navigation ,Autoplay, EffectCoverflow} from "swiper";
-import { onMounted, ref } from "vue";
-import axios from "axios";
-import { onBeforeRouteUpdate } from "vue-router";
-import AwardCard from "../../components/Home/AwardCard.vue";
+import Button from '../../components/partials/Button.vue';
+import ScholarshipOfferCard from '../../components/Scholarship/ScholarshipOfferCard.vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/vue/24/solid';
+import { Pagination, Navigation, Autoplay, EffectCoverflow } from 'swiper';
+import { onMounted, ref } from 'vue';
+import axios from 'axios';
+import { onBeforeRouteUpdate } from 'vue-router';
+import AwardCard from '../../components/Home/AwardCard.vue';
 const modules = [Navigation, Pagination, Autoplay, EffectCoverflow];
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/autoplay";
-import "swiper/css/effect-coverflow";
-import PrizeCard from "../../components/Home/PrizeCard.vue";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/autoplay';
+import 'swiper/css/effect-coverflow';
+import PrizeCard from '../../components/Home/PrizeCard.vue';
 const start = ref(true);
 const end = ref(false);
 const scholarshipOffer = ref();
 // scholarship-type-list/university/1
-const award=ref([])
+const award = ref([]);
 const currentAwards = ref([]);
 const currentActiveAward = ref({});
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -33,8 +32,6 @@ import {
 // swiper start
 
 const onSlideChange = (event) => {
-
-    
   if (event.isEnd) {
     end.value = true;
   } else {
@@ -68,8 +65,8 @@ const swiperOptions = {
     },
   },
   navigation: {
-    nextEl: ".swiper-scholarship-school-lists-button-next-unique",
-    prevEl: ".swiper-scholarship-school-lists-button-prev-unique",
+    nextEl: '.swiper-scholarship-school-lists-button-next-unique',
+    prevEl: '.swiper-scholarship-school-lists-button-prev-unique',
   },
 };
 const onPrizeSlideChange = (event) => {
@@ -113,8 +110,8 @@ const swiperPrizeOptions = {
     },
   },
   navigation: {
-    nextEl: ".swiper-home-award-button-next-unique",
-    prevEl: ".swiper-home-award-button-prev-unique",
+    nextEl: '.swiper-home-award-button-next-unique',
+    prevEl: '.swiper-home-award-button-prev-unique',
   },
   coverflowEffect: {
     rotate: 0,
@@ -129,25 +126,25 @@ const swiperPrizeOptions = {
   // },
 };
 // university data
-const props = defineProps(["id"]);
+const props = defineProps(['id']);
 const university = ref();
-const bannerImage = ref("");
-const prizeImage = ref("");
+const bannerImage = ref('');
+const prizeImage = ref('');
 const program = ref();
 const fetchData = async () => {
-  const res = await axios.get("university-details/" + props.id);
-  console.log(res.data.university, 'data')
-  university.value = res.data.university
-  award.value=res.data.university.onPrizeSlideChange
+  const res = await axios.get('university-details/' + props.id);
+  console.log(res.data.university, 'data');
+  university.value = res.data.university;
+  award.value = res.data.university.onPrizeSlideChange;
   if (res.data.university) {
-      if (res.data.university.id == props.id) {
-        bannerImage.value =
-          "http://adminpanel.msieducation.edu.mm/postImage/" +
-          res.data.university.uni_image;
-        prizeImage.value =
-          "http://adminpanel.msieducation.edu.mm/postImage/" + res.data.university.prize_image;
-      }
-  
+    if (res.data.university.id == props.id) {
+      bannerImage.value =
+        'http://adminpanel.msieducation.edu.mm/postImage/' +
+        res.data.university.uni_banner_image;
+      prizeImage.value =
+        'http://adminpanel.msieducation.edu.mm/postImage/' +
+        res.data.university.prize_image;
+    }
   }
 };
 
@@ -174,21 +171,26 @@ onMounted(() => {
   <div>
     <div class="lg:my-28 ssm:my-4" v-if="university">
       <img
-      
-        class="w-full lg:h-[693px] md:h-[500px]"
-        :src="university.imageURL"
-        alt=""
+        class="w-full lg:h-[693px] md:h-[500px] object-cover"
+        :src="bannerImage"
+        :alt="university.university_name"
       />
       <div class="flex justify-center lg:py-10 py-7">
         <div class="md:w-[1290px] ssm:w-[320px]">
-          <div class="flex justify-between items-end">
-            <ul class="flex flex-col gap-3 p-2 lg:items-start items-center grow text-[#205887]">
+          <div
+            class="flex justify-between items-end sm:flex-col sm:items-start sm:gap-4"
+          >
+            <ul
+              class="flex flex-col gap-3 p-2 lg:items-start items-center grow text-[#205887]"
+            >
               <li class="flex gap-6 w-full items-center justify-start">
                 <p
                   class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
                 >
-                  <font-awesome-icon :icon="faGlobe" class="text-[#FE005F]" />&nbsp;
-                  COUNTRY:
+                  <font-awesome-icon
+                    :icon="faGlobe"
+                    class="text-[#FE005F]"
+                  />&nbsp; COUNTRY:
                 </p>
                 <p
                   class="font-[510] text-[12px] md:text-[16px] lg:text-[18px] text-[#0E314E]"
@@ -229,11 +231,11 @@ onMounted(() => {
             </ul>
             <div class="flex items-end">
               <Button
-              class="lg:px-[50px] lg:py-[16px] lg:text-[15px] md:px-[40px] md:py-[8px] md:text-[10px] px-[30px] py-[8px] rounded-[20px] text-[10px]"
-              type="gradient"
-              data-te-ripple-color="light"
-              >Get Free Counselling</Button
-            >
+                class="lg:px-[50px] lg:py-[16px] lg:text-[15px] md:px-[40px] md:py-[8px] md:text-[10px] px-[30px] py-[8px] rounded-[20px] text-[10px]"
+                type="gradient"
+                data-te-ripple-color="light"
+                >Get Free Counselling</Button
+              >
             </div>
           </div>
           <h1
@@ -245,7 +247,10 @@ onMounted(() => {
           <hr class="mt-6" />
 
           <!-- prize award -->
-          <div v-if="university.prizes.length > 0" class="md:mt-20 ssm:mt-8 md:px-10 ssm:px-2">
+          <div
+            v-if="university.prizes.length > 0"
+            class="md:mt-20 ssm:mt-8 md:px-10 ssm:px-2"
+          >
             <div class="flex justify-between items-center">
               <div class="">
                 <h1 class="md:text-lg ssm:text-md">Prize Award</h1>
@@ -261,12 +266,12 @@ onMounted(() => {
                 />
               </div>
             </div>
-          
-              <div class="relative flex justify-between items-center mb-3 h-[600px]">
-      <div
-        class="absolute w-full h-[60%]"
-      ></div>
-      <!-- <div
+
+            <div
+              class="relative flex justify-between items-center mb-3 h-[600px]"
+            >
+              <div class="absolute w-full h-[60%]"></div>
+              <!-- <div
         class="swiper-home-award-button-prev-unique hover:cursor-pointer z-[20]"
       >
         <ChevronLeftIcon
@@ -274,28 +279,31 @@ onMounted(() => {
           class="w-12 h-12 text-cus-primary"
         />
       </div> -->
-      <swiper
+              <swiper
+                :navigation="true"
+                :modules="modules"
+                class="mySwiper"
+                @slideChange="onPrizeSlideChange"
+                :autoplay="{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }"
+                :pagination="{
+                  dynamicBullets: true,
+                }"
+                :spaceBetween="30"
+                :centeredSlides="true"
+              >
+                <swiper-slide
+                  class="my-3 shrink-0"
+                  v-for="(prize, index) in university.prizes"
+                  :key="index"
+                >
+                  <PrizeCard :image="prize.imageURL" class="select-none" />
+                </swiper-slide>
+              </swiper>
 
-    
-   :navigation="true" :modules="modules" class="mySwiper"
-       @slideChange="onPrizeSlideChange"
-       :autoplay="{
-        delay: 2500,
-        disableOnInteraction: false,
-    }"
-    :pagination="{
-        dynamicBullets: true,
-    }"
-    :spaceBetween="30" :centeredSlides="true"
-      >
-       
-          <swiper-slide class="my-3 shrink-0" v-for="(prize, index) in university.prizes" :key="index">
-            <PrizeCard :image="prize.imageURL" class="select-none" />
-          </swiper-slide>
-       
-      </swiper>
-
-      <!-- <div
+              <!-- <div
         class="swiper-home-award-button-next-unique hover:cursor-pointer z-[20]"
       >
         <ChevronRightIcon
@@ -303,9 +311,7 @@ onMounted(() => {
           class="w-12 h-12 text-cus-primary"
         />
       </div> -->
-    </div>
-            
-           
+            </div>
           </div>
 
           <!-- program -->
