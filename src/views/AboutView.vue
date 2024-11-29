@@ -35,7 +35,7 @@
     </section>
     <section id="why-msi" class="relative">
       <img
-        src="../assets/img/AboutUs/MSI-Website-New-Design-Themes-About-Us-(12-Dec-23)_2.png"
+        src="../assets/img/AboutUs/MSI-Why-MSI.png"
         alt=""
         class="w-[1000px] absolute right-0 bottom-10 z-30"
       />
