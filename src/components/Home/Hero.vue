@@ -1,6 +1,6 @@
 <template>
   <div class="relative lg:h-[800px]">
-    <BgSlider class="z-10 relative" />
+    <BgSlider class="relative z-10" />
     <div
       class="absolute left-1/2 -translate-x-1/2 bottom-2 max-w-[1000px] z-20"
     >

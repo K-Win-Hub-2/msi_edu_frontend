@@ -1,9 +1,9 @@
 <template>
   <div class="">
     <h1
-      class="lg:mt-[110px] md:mt-[20px] lg:text-[40px] md:text-[32px] text-[24px] shadow-title text-[#FE005F] text-center lg:mb-[133px] mb-[40px] md:mb-[40px] uppercase md:font-[600] font-[530] lg:font-[700]"
+      class="lg:mt-[110px] md:mt-[20px] lg:text-[40px] md:text-[32px] text-[24px] shadow-title text-[#FE005F] text-center lg:mb-[20px] mb-[40px] md:mb-[20px] uppercase md:font-[600] font-[530] lg:font-[700]"
     >
-      50% SCHOLARSHIP ACHIEVERS
+      {{ scholar }} SCHOLARSHIP ACHIEVERS
     </h1>
     <div
       class="flex justify-between items-center lg:min-w-[1300px] md:min-w-[700px] ssm:max-w-[320px] sm:w-auto overflow-hidden container relative"
@@ -42,7 +42,7 @@
         </swiper-slide> -->
       </swiper>
       <div
-        class="swiper-achieve-card-50-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
+        class="absolute left-0 -translate-y-1/2 swiper-achieve-card-50-button-prev-unique top-1/2"
       >
         <ChevronLeftIcon
           :class="{ 'opacity-50': start }"
@@ -50,7 +50,7 @@
         />
       </div>
       <div
-        class="swiper-achieve-card-50-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
+        class="absolute right-0 -translate-y-1/2 swiper-achieve-card-50-button-next-unique top-1/2"
       >
         <ChevronRightIcon
           :class="{ 'opacity-50': end }"
@@ -71,8 +71,13 @@ import Button from "../partials/Button.vue";
 import AchieverCard from "./AchieverCard.vue";
 import axios from "axios";
 const scholarships = ref();
+
 const start = ref(true);
 const end = ref(false);
+
+
+const props = defineProps(["type","scholar"]);
+
 const onSlideChange = (event) => {
   if (event.isEnd) {
     end.value = true;
@@ -113,13 +118,14 @@ const swiperOptions = {
 };
 const fetchData = async () => {
   // http://adminpanel.msieducation.edu.mm/api/scholarship-achievers/scholar-type/11
-  const res = await axios.get("scholarship-achievers/scholar-type/12");
+  const res = await axios.get(`scholarship-achievers/scholar-type/${props.type}`);
   scholarships.value = res.data.scholarAchiever;
-  // console.log("scholar", res.data.scholarAchiever);
+  console.log("scholar", res.data.scholarAchiever);
   // scholarships.value = res.data.scholarAchiever.filter((p) => {
   //   return p.scholarship_type == 12;
   // });
 };
+
 onMounted(() => {
   fetchData();
 });

@@ -21,7 +21,7 @@ import Facts from "../components/Home/Facts.vue";
         class="bg-[url(../../assets/img/Home/msiWebPattern2.png)] w-[100%] h-[500px] bg-no-repeat bg-[length:100%_100%] absolute top-0 left-1/2 -translate-x-1/2"
         alt=""
       ></div>
-      <div class="container py-10 relative z-40">
+      <div class="container relative z-40 py-10">
         <Pathway />
       </div>
     </section>
@@ -31,7 +31,7 @@ import Facts from "../components/Home/Facts.vue";
       </div>
     </section>
     <section>
-      <div class="container py-12 relative z-30">
+      <div class="container relative z-30 py-12">
         <Facts />
       </div>
     </section>
@@ -40,8 +40,9 @@ import Facts from "../components/Home/Facts.vue";
         class="bg-[url(../../assets/img/Home/msiWebPattern.png)] w-[100%] h-[1800px] bg-no-repeat bg-[length:100%_100%] absolute bottom-[-800px] right-0"
         alt=""
       ></div>
+    
       <div
-        class="container px-6 md:pt-12 ssm:pt-6 md:pb-24 ssm:pb-8 relative z-30"
+        class="container relative z-30 px-6 md:pt-12 ssm:pt-6 md:pb-24 ssm:pb-8"
       >
         <Awards></Awards>
       </div>
@@ -51,12 +52,12 @@ import Facts from "../components/Home/Facts.vue";
         <ScholarshipAchievers></ScholarshipAchievers>
       </div>
     </section>
-    <section class="md:mt-12 md:mb-24 lg:mb-36 relative">
+    <section class="relative md:mt-12 md:mb-24 lg:mb-36">
       <div
         class="bg-[url(../../assets/img/Home/eventUnviersityBg.png)] w-[80%] h-[650px] bg-no-repeat bg-[length:100%_100%] absolute bottom-[280px] right-0"
         alt=""
       ></div>
-      <div class="container px-0 relative z-20 overflow-hidden">
+      <div class="container relative z-20 px-0 overflow-hidden">
         <div class="">
           <Events></Events>
         </div>

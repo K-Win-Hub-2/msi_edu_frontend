@@ -13,38 +13,47 @@ const urls = [
 </script>
 
 <template>
-  <footer class="bg-[url('@/assets/img/footer.jpg')] dark:bg-gray-900 bg-[length:100%_100%]">
-    <div class="bg-stone-700 bg-opacity-80 text-white">
+  <footer class="bg-cus-primary">
+    <div class="text-sm text-white">
       <div class="container">
-        <div class="grid grid-cols-2 gap-8 px-6 py-8 lg:grid-cols-7">
+        <div class="grid grid-cols-2 gap-4 px-4 py-8 lg:grid-cols-7">
           <div class="lg:col-span-2">
             <h2 class="mb-6 text-sm font-semibold uppercase">
               <img
-              src="@/assets/img/logo.png"
-              class="h-20"
+              src="@/assets/img/footer-logo.png"
+              class="h-20 mr-2"
               alt=""
               loading="lazy"
             />
             </h2>
-            <ul class="">
+            <ul class="ml-7">
               <li v-for="(url, index) in urls" :key="index" class="mb-2">
                 <RouterLink class="mb-4 hover:underline" :to="{ name: url.url }">{{ url.name }}</RouterLink>
               </li>
             </ul>
           </div>
-          <div class="col-span-2 lg:col-span-5 grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div class="grid grid-cols-1 col-span-3 gap-0 gap-y-5 lg:col-span-5 lg:grid-cols-2">
             <div>
               <h2 class="mb-6 text-sm font-semibold uppercase">Address</h2>
               <div class="text-sm">
-                <div class="mb-3">
+                <div class="mb-10">
                   <div class="font-semibold">Yangon (Head) Office</div>
-                  No-234, 2nd Fl. (R), Shwebontha St. (MID BL), Pabedan Tsp, Yangon, Myanmar.
+                  <div class="text-white">
+                    <p>No.234, 2nd Fl.(R), Shwebontha St.&nbsp;(MID BL),</p>
+                    <p>Pabedan Tsp, Yangon, Myanmar.</p>
+                  </div>
                 </div>
+
 
                 <div class="mb-3">
                   <div class="font-semibold">Mandalay (Branch) Office</div>
-                  No. 31/3, Between 79 st × 80 st, 38th St, Mahar Aung Myay Township, Mandalay, Myanmar (Burma), Mandalay, Myanmar
+                  <div class="leading-relaxed text-white">
+                    <p>No. 31/3, Between 79 St × 80 St,</p>
+                    <p>38th Street, Mahar Aung Myay Township,</p>
+                    <p>Mandalay, Myanmar (Burma)</p>
+                  </div>
                 </div>
+
 
                 
               </div>
@@ -54,23 +63,23 @@ const urls = [
               <ul class="text-sm">
                 <li class="mb-3">
                   <span class="font-semibold">Yangon (Head) Office</span>
-                  <div>+95 1 389915,</div>
-                  <div>+95 1 381 408,</div>
-                  <div>+95 1 373 461,</div>
+                  <div>+95 1 389915</div>
+                  <div>+95 1 381 408</div>
+                  <div>+95 1 373 461</div>
                   <div>+95 1 250 929</div>
                 </li>
                 <li class="mb-3">
                   <span class="font-semibold">Mandalay (Branch) Office</span>
-                  <div>+95 9 444 443 916, </div>
+                  <div>+95 9 444 443 916</div>
                   <div>+95 9 444 443 917</div>
                 </li>
                
-                <li class="mb-3 flex flex-col space-y-1">
+                <li class="flex flex-col mb-3 space-y-1">
                   <a href="mailto:info@msieducation.edu.mm" class="hover:underline">info@msieducation.edu.mm</a>
                   <a href="mailto:admission@msieducation.edu.mm" class="hover:underline">admission@msieducation.edu.mm</a>
                   <a href="mailto:IR.department@msieducation.edu.mm" class="hover:underline">IR.department@msieducation.edu.mm</a>
                 </li>
-                <li class="mb-3 flex">
+                <li class="flex mb-3">
                   <a href="#" class="mr-3">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path fill-rule="evenodd"
@@ -101,10 +110,10 @@ const urls = [
         </div>
       </div>
     </div>
-    <div class="bg-stone-900 bg-opacity-80 text-white">
+    <div class="text-[#BC1F40] bg-[#D0F1FF]">
       <div class="container">
-        <div class="px-4 py-6 text-center">
-          <span class="text-lg sm:text-center">Copyright © 2023. <a
+        <div class="px-4 py-3 text-center">
+          <span class="text-sm sm:text-center">Copyright © 2023. <a
               href="#">Myanmar Search International</a>. All Rights Reserved.
           </span>
         </div>

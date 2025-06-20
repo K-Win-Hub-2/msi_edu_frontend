@@ -4,6 +4,7 @@ import { onMounted, ref } from "vue";
 const UniName = ref();
 
 const props = defineProps(["data"]);
+console.log("img ", props.data)
 const studentImage = ref("");
 studentImage.value =
   "http://adminpanel.msieducation.edu.mm/postImage/" + props.data.student_image;
@@ -15,7 +16,7 @@ onMounted(() => {
       const res = await axios.get(
         "university-lists/university/" + props.data?.scholar_type.uni_id
       );
-      UniName.value = res.data.university[0].university_name;
+      UniName.value = res.data?.university[0]?.university_name;
     };
     fetchUni();
   }
@@ -37,27 +38,32 @@ onMounted(() => {
         <h1
           class="text-[#205887] text-[15px] font-[600] uppercase shadow-title"
         >
-          100% sCHOLARSHIP ACHIEVER
+          {{ props.data.scholar_type.scholar_name }}
+        </h1>
+        <h1
+          class="text-[#205887] text-[15px] font-[600] uppercase shadow-title"
+        >
+          {{ props.data.student_name }}
         </h1>
         <h1 class="text-[#205887] mt-3 text-[13px]">
           <span
             class="text-[#FE005F] text-[12px] font-[700] uppercase shadow-title"
-            >{{ props.data.university_name }}</span
+            >{{ props.data.course_name }} </span
           >
           <span class="text-[11px] font-[400] uppercase shadow-title"
-            >( {{ props.data.university_name }} )</span
+            > ({{ props.data.country.name }}) </span
           >
-          <span
+          <!-- <span
             class="text-[11px] text-[#205887] mt-3 font-[400] uppercase shadow-title"
           >
             HORIZON INTL SCHOOL (YANGON)
-          </span>
+          </span> -->
         </h1>
-        <h1
+        <!-- <h1
           class="text-[#FE005F] font-[600] uppercase text-[11.5px] mt-3 shadow-title"
         >
           ({{ props.data?.university_name }})
-        </h1>
+        </h1> -->
       </div>
     </div>
   </div>

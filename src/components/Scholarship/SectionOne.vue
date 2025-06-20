@@ -1,11 +1,11 @@
 <template>
   <div class="">
-    <div class="w-full relative overflow-hidden">
+    <div class="relative w-full overflow-hidden">
       <!-- section one -->
       <div
         class="bg-[url(../../assets/img/scholarship/image.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute top-0"
       ></div>
-      <div class="lg:mb-[280px] ssm:mb-[50px] md:mb-[180px]">
+      <div class="lg:mb-[80px] ssm:mb-[20px] md:mb-[60px]">
         <!-- <div
           class="bg-[url(../../assets/img/scholarship/ellipse9.png)] z-30 w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute rotate-180 lg:bottom-[-150px] right-[450px] lg:left-[-1200px] md:bottom-[-80px] bottom-[-50px] md:left-[-550px]"
         ></div> -->
@@ -31,7 +31,7 @@
             </div>
           </div>
           <p
-            class="text-center lg:text-[32px] text-[20px] font-[520] md:text-[28px] text-cus-primary uppercase md:font-[510] lg:font-[700] shadow-title md:mt-[80px] ssm:mt-[20px] md:mb-[30px] mb-[25px] lg:mb-[50px]"
+            class="text-center lg:text-[32px] text-[20px] font-[520] md:text-[28px] text-cus-primary uppercase md:font-[510] lg:font-[700] shadow-title md:mt-[80px] ssm:mt-[20px] md:mb-[15px] mb-[10px] lg:mb-[15px]"
           >
             GENERAL tIPS TO APPLY SCHOLARSHIP
           </p>
@@ -39,7 +39,7 @@
         <!-- hello -->
         <div class="flex justify-center">
           <div
-            class="flex flex-wrap justify-center lg:max-w-[1200px] md:min-w-[800px] z-40 lg:gap-4 md:gap-1 md:gap-y-4 gap-y-3 md:mx-4"
+            class="flex flex-wrap justify-center lg:max-w-[1200px] md:min-w-[800px] z-40 lg:gap-4 md:gap-1 md:gap-y- gap-y-3 md:mx-4"
           >
             <!-- loop -->
             <div class="" v-for="course in courses" :key="course">

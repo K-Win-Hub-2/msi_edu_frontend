@@ -92,7 +92,7 @@ const videoLink = (val) => {
           alt=""
         />
       </div>
-      <div class="container md:pt-32 ssm:pt-10 relative z-40">
+      <div class="container relative z-40 md:pt-32 ssm:pt-10">
         <div class="flex justify-center">
           <TestSection v-if="currentCountry" :country="currentCountry" />
         </div>
@@ -101,7 +101,7 @@ const videoLink = (val) => {
   </section>
   <!-- program start -->
   <section>
-    <div class="px-6 pb-24 relative overflow-hidden md:mt-10">
+    <div class="relative px-6 pb-24 overflow-hidden md:mt-10">
       <div
         class="bg-[url(@/assets/img/scholarship/ellipse9.png)] z-30 w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute rotate-180 lg:bottom-[-150px] right-[450px] lg:left-[-1180px] md:bottom-[-80px] bottom-[-50px] md:left-[-600px]"
       ></div>
@@ -129,7 +129,7 @@ const videoLink = (val) => {
   </section>
   <section>
     <div class="container px-6 pt-6 pb-24">
-      <h1 class="cus-heading text-cus-primary text-center capitalize mb-12">
+      <h1 class="mb-12 text-center capitalize cus-heading text-cus-primary">
         Testimonials
       </h1>
       <div class="grid lg:grid-cols-3 md:grid-cols-2 ssm:grid-col-1 gap-x-10">

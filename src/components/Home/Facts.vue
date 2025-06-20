@@ -1,62 +1,41 @@
 <template>
-  <div
-    class="flex flex-col justify-between xl:flex-row gap-12 wow ssm:px-4 md:px-0"
-  >
-    <div
-      class="flex justify-between items-center gap-6 bg-gray-100 px-5 py-3 cus-rounded"
-    >
-      <img :src="education" class="w-12 h-12" />
-      <div
-        class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
-        id="studentCounter"
-      >
-        <span class="">2600</span>
-        <span class="">Students</span>
+  <div class="flex flex-col justify-between gap-12 xl:flex-row wow ssm:px-4 md:px-0">
+    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-gray-100 cus-rounded">
+      <img :src="education" class="w-10 h-10" />
+      <div class="flex flex-col items-center text-base font-semibold text-cus-secondary" id="studentCounter">
+        <span class="text-lg font-bold">2600</span>
+        <span class="text-sm">Students</span>
       </div>
     </div>
 
-    <div
-      class="flex justify-between items-center gap-6 bg-gray-100 px-5 py-3 cus-rounded"
-    >
-      <img :src="university" class="w-12 h-12" />
-      <div
-        class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
-        id="universityCounter"
-      >
-        <span class="">200</span>
-        <span class="">Universities</span>
+    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-gray-100 cus-rounded">
+      <img :src="university" class="w-10 h-10" />
+      <div class="flex flex-col items-center text-base font-semibold text-cus-secondary" id="universityCounter">
+        <span class="text-lg font-bold">200</span>
+        <span class="text-sm">Universities</span>
       </div>
     </div>
 
-    <div
-      class="flex justify-between items-center gap-6 bg-gray-100 px-5 py-3 cus-rounded"
-    >
-      <img :src="trophy" class="w-12 h-12" />
-      <div
-        class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
-        id="awardCounter"
-      >
-        <span class="">24</span>
-        <span class="">Awards</span>
+    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-gray-100 cus-rounded">
+      <img :src="trophy" class="w-10 h-10" />
+      <div class="flex flex-col items-center text-base font-semibold text-cus-secondary" id="awardCounter">
+        <span class="text-lg font-bold">26</span>
+        <span class="text-sm">Awards</span>
       </div>
     </div>
 
-    <div
-      class="flex justify-between items-center gap-6 bg-gray-100 px-5 py-3 cus-rounded"
-      >
-      <img :src="mortarboard" class="w-12 h-12" />
-      <div
-        class="flex flex-col items-center text-xl md:font-bold text-cus-secondary"
-        id="scholarshipCounter"
-      >
-        <span class="">350</span>
-        <div class="flex xl:flex-col lg:flex-row md:flex-row sm:flex-col ssm:flex-col space-x-1">
-          <span class="">Scholarship</span>
-          <span class="">Achievers</span>
+    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-gray-100 cus-rounded">
+      <img :src="mortarboard" class="w-10 h-10" />
+      <div class="flex flex-col items-center text-base font-semibold text-cus-secondary" id="scholarshipCounter">
+        <span class="text-lg font-bold">400</span>
+        <div class="flex space-x-1 text-sm text-center xl:flex-col lg:flex-row md:flex-row sm:flex-col ssm:flex-col">
+          <span>Scholarship</span>
+          <span>Achievers</span>
         </div>
       </div>
     </div>
   </div>
+
 </template>
 
 <script setup>

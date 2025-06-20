@@ -10,12 +10,12 @@
     >
       <template v-for="image in universitiesImages">
         <swiper-slide>
-          <img :src="image.image" />
+          <img :src="image.image" class="h-[100px]"/>
         </swiper-slide>
       </template>
     </swiper>
     <div
-      class="absolute top-1/2 -translate-y-1/2 -left-12 md:-left-14 lg:-left-14 z-20 swiper-button-prev-universities-name hover:cursor-pointer"
+      class="absolute z-20 -translate-y-1/2 top-1/2 -left-12 md:-left-14 lg:-left-14 swiper-button-prev-universities-name hover:cursor-pointer"
     >
       <ChevronLeftIcon
         :class="{ 'opacity-50': start }"
@@ -23,7 +23,7 @@
       />
     </div>
     <div
-      class="absolute top-1/2 -translate-y-1/2 -right-12 md:-right-14 lg:-right-14 z-20 swiper-button-next-universities-name hover:cursor-pointer"
+      class="absolute z-20 -translate-y-1/2 top-1/2 -right-12 md:-right-14 lg:-right-14 swiper-button-next-universities-name hover:cursor-pointer"
     >
       <ChevronRightIcon
         :class="{ 'opacity-50': end }"

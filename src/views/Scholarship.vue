@@ -1,8 +1,8 @@
 <template>
   <div class="w-full">
     <div class="h-auto">
-      <div class="overflow-hidden relative">
-        <video autoplay loop muted plays-inline class="right-0 w-full bottom-0">
+      <div class="relative overflow-hidden">
+        <video autoplay loop muted plays-inline class="bottom-0 right-0 w-full">
           <source src="@/assets/videos/banner.mp4" type="video/mp4" />
         </video>
 
@@ -16,41 +16,22 @@
         </div>
       </div>
     </div>
+   
     <SectionOne />
     <!-- carousel start -->
-    <CarouselSch />
+    <!-- <CarouselSch /> -->
     <!-- carousel end -->
 
     <!-- achiever -->
     <SectionTwo />
-    <!-- achiever end -->
-
-    <!-- 50% SCHOLARSHIP Section start -->
-    <SectionThree />
-    <!-- 50% SCHOLARSHIP Section end -->
-
-    <!-- 25%,50% SCHOLARSHIP Section start -->
-    <SectionFour />
-    <!-- 25%,50% SCHOLARSHIP Section end -->
-
-    <!-- 25%,80% SCHOLARSHIP Section start -->
-    <SectionFive />
-    <!-- 25%,80% SCHOLARSHIP Section end -->
-    <!-- 30%,50% SCHOLARSHIP Section start -->
-    <SectionSix />
-    <!-- 30%,50% SCHOLARSHIP  Section end -->
-    <!-- 30%,50% SCHOLARSHIP Section start -->
-    <MBAScholarShip />
-    <!-- 30%,50% SCHOLARSHIP  Section end -->
-    <!-- Study Grant 1500 1400 start -->
-    <SectionSeven />
-    <!-- 3Study Grant 1500 1400  end -->
-    <!-- Study Grant 2000 5000  start -->
-    <SectionEight />
-    <!-- 3Study Grant 2000 5000  end -->
-    <!-- cny 4500-9000  start -->
-    <SectionNine />
-    <!-- cny 4500-9000  end -->
+     
+    <SectionThree
+      v-for="section in types"
+      :key="section.id"
+      :type="section.id"
+      :scholar="section.scholar_name"
+    />
+    
   </div>
 </template>
 
@@ -66,12 +47,35 @@ import SectionSeven from "../components/Scholarship/SectionSeven.vue";
 import SectionEight from "../components/Scholarship/SectionEight.vue";
 import SectionNine from "../components/Scholarship/SectionNine.vue";
 import Button from "../components/partials/Button.vue";
+import { onMounted, ref } from "vue";
 import MBAScholarShip from "../components/Scholarship/MBAScholarShip.vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
+import axios from "axios";
+
 const toGetAppointment = () => {
   router.push({ name: "appointment-form" });
 };
+
+const types = ref();
+const achievers = ref();
+
+const fetchTypes = async () => {
+    // http://adminpanel.msieducation.edu.mm/api/scholarship-achievers/scholar-type/11
+    const res = await axios.get(`/scholarship-types`);
+   types.value = res.data.types;
+    console.log("types ", res.data.types);
+    // scholarships.value = res.data.scholarAchiever.filter((p) => {
+    //   return p.scholarship_type == 12;
+    // });
+};
+
+
+onMounted(() => {
+  fetchTypes();
+});
+
+  
 </script>
 
 <style>

@@ -3,15 +3,12 @@ import { onMounted, ref } from "vue";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
 import AwardCard from "../../components/Home/AwardCard.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation, Autoplay, EffectCoverflow } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 
-
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-import "swiper/css/effect-coverflow";
+
 import { awards } from "../../mocks/awards";
 
 const start = ref(true);
@@ -19,142 +16,113 @@ const end = ref(false);
 const currentAwards = ref([]);
 const currentActiveAward = ref({});
 
-// swiper start
-const modules = [Navigation, Autoplay, EffectCoverflow];
+const modules = [Navigation, Autoplay];
 
 const onSlideChange = (event) => {
   currentActiveAward.value = awards[event.activeIndex];
-
-  if (event.isEnd) {
-    end.value = true;
-  } else {
-    end.value = false;
-  }
-
-  if (event.isBeginning) {
-    start.value = true;
-  } else {
-    start.value = false;
-  }
+  start.value = event.isBeginning;
+  end.value = event.isEnd;
 };
 
 const swiperOptions = {
-  loop: true,
-  breakpoints: {
-    // when window width is >= 320px
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 20,
-    },
-    // when window width is >= 480px
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 30,
-    },
-    // when window width is >= 640px
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 40,
-    },
-    // when window width is >= 640px
-    1280: {
-      slidesPerView: 3.7,
-      spaceBetween: 50,
-    },
-  },
+  initialSlide: 2, 
+  loop: false,
+  centeredSlides: true,
+  slidesPerView: 5,
+  spaceBetween: 20,
   navigation: {
     nextEl: ".swiper-home-award-button-next-unique",
     prevEl: ".swiper-home-award-button-prev-unique",
   },
-  coverflowEffect: {
-    rotate: 0,
-    stretch: -5,
-    depth: 100,
-    modifier: 3,
-    slideShadows: false,
+  effect: "slide",
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
   },
-  // autoplay: {
-  //   delay: 3000,
-  //   disableOnInteraction: false,
-  // },
 };
-// swiper end
 
 onMounted(() => {
   currentAwards.value = [...awards];
-  currentActiveAward.value = awards[4];
+  currentActiveAward.value = awards[1];
 });
 </script>
 
 <template>
-  <div>
-    <h1
-      class="cus-heading text-center uppercase md:mb-12 text-shadow cus-shadow-color"
-    >
-      <span
-        class="text-cus-primary md:text-[40px] ssm:text-md text-shadow-sm cus-shadow-color"
-        >24 awards</span
-      >
-      <span
-        class="text-cus-secondary md:text-4xl ssm:text-md text-shadow-sm cus-shadow-color"
-      >
+  <div class="w-full max-w-[1600px] mx-auto px-2">
+    <!-- Title -->
+    <h1 class="text-center uppercase cus-heading md:mb-12 text-shadow cus-shadow-color">
+      <span class="text-cus-primary md:text-[40px] ssm:text-md text-shadow-sm">
+        24 awards
+      </span>
+      <span class="text-cus-secondary md:text-4xl ssm:text-md text-shadow-sm">
         Showcase of Excellence
       </span>
     </h1>
-    <div class="relative flex justify-between items-center mb-3">
-      <div
-        class="absolute cus-glass-card cus-rounded shadow w-full h-[60%]"
-      ></div>
-      <div
-        class="swiper-home-award-button-prev-unique hover:cursor-pointer z-[20]"
-      >
-        <ChevronLeftIcon
-          :class="{ 'opacity-50': start }"
-          class="w-12 h-12 text-cus-primary"
-        />
+
+    <!-- Navigation + Swiper -->
+    <div class="relative flex items-center justify-between mb-3">
+      <div class="absolute cus-glass-card cus-rounded shadow w-full h-[90%]"></div>
+
+      <!-- Prev Button -->
+      <div class="swiper-home-award-button-prev-unique hover:cursor-pointer z-[20]">
+        <ChevronLeftIcon :class="{ 'opacity-50': start }" class="w-12 h-12 text-cus-primary" />
       </div>
+
+      <!-- Swiper -->
       <swiper
-        :effect="'coverflow'"
-        :autoplay="swiperOptions.autoplay"
-        :space-between="10"
-        @slideChange="onSlideChange"
-        :breakpoints="swiperOptions.breakpoints"
-        :navigation="swiperOptions.navigation"
         :modules="modules"
-        :coverflowEffect="swiperOptions.coverflowEffect"
-        :grabCursor="true"
-        :centeredSlides="true"
-        initialSlide="4"
+        :slides-per-view="swiperOptions.slidesPerView"
+        :centeredSlides="swiperOptions.centeredSlides"
+        :initial-slide="swiperOptions.initialSlide"
+        :space-between="swiperOptions.spaceBetween"
+        :navigation="swiperOptions.navigation"
+        :autoplay="swiperOptions.autoplay"
+        :loop="swiperOptions.loop"
+        :effect="swiperOptions.effect"
+        @slideChange="onSlideChange"
+        class="z-10"
       >
         <template v-for="(award, index) in currentAwards" :key="index">
-          <swiper-slide class="my-3 shrink-0">
-            <AwardCard :image="award.photo" class="select-none" />
+          <swiper-slide class="my-3 transition-transform duration-300 shrink-0">
+            <div class="flex justify-center w-full award-card">
+              <AwardCard :image="award.photo" class="w-full max-w-xs select-none" />
+            </div>
           </swiper-slide>
         </template>
       </swiper>
 
-      <div
-        class="swiper-home-award-button-next-unique hover:cursor-pointer z-[20]"
-      >
-        <ChevronRightIcon
-          :class="{ 'opacity-50': end }"
-          class="w-12 h-12 text-cus-primary"
-        />
+      <!-- Next Button -->
+      <div class="swiper-home-award-button-next-unique hover:cursor-pointer z-[20]">
+        <ChevronRightIcon :class="{ 'opacity-50': end }" class="w-12 h-12 text-cus-primary" />
       </div>
     </div>
-    <div class="flex flex-col justify-center items-center capitalize space-y-3">
-      <h4 class="text-cus-primary text-xl select-none">
-        <!-- {{ currentActiveAward.country }} ({{ currentActiveAward.university }}) -->
+
+    <!-- Award Info -->
+    <div class="flex flex-col items-center justify-center space-y-3 capitalize">
+      <h4 class="text-xl select-none text-cus-primary">
         {{ currentActiveAward.description }}
       </h4>
-      <h3 class="text-cus-primary text-2xl select-none font-semibold">
+      <h3 class="text-2xl font-semibold select-none text-cus-primary">
         {{ currentActiveAward.title }}
       </h3>
-      <h4 class="text-cus-primary text-xl select-none">
+      <h4 class="text-xl select-none text-cus-primary">
         {{ currentActiveAward.year }}
       </h4>
     </div>
   </div>
 </template>
 
-<style></style>
+<style scoped>
+.swiper-slide {
+  transform: scale(0.9);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-slide-active {
+  transform: scale(1.6);
+  z-index: 10;
+}
+</style>

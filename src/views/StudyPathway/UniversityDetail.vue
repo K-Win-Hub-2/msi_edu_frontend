@@ -183,7 +183,7 @@ onMounted(() => {
             <ul
               class="flex flex-col gap-3 p-2 lg:items-start items-center grow text-[#205887]"
             >
-              <li class="flex gap-6 w-full items-center justify-start">
+              <li class="flex items-center justify-start w-full gap-6">
                 <p
                   class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
                 >
@@ -198,7 +198,7 @@ onMounted(() => {
                   {{ university.country?.name }}
                 </p>
               </li>
-              <li class="flex gap-6 w-full items-start justify-start">
+              <li class="flex items-start justify-start w-full gap-6">
                 <p
                   class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
                 >
@@ -213,7 +213,7 @@ onMounted(() => {
                   {{ university.location }}
                 </p>
               </li>
-              <li class="flex gap-6 w-full items-center justify-start">
+              <li class="flex items-center justify-start w-full gap-6">
                 <p
                   class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
                 >
@@ -251,7 +251,7 @@ onMounted(() => {
             v-if="university.prizes.length > 0"
             class="md:mt-20 ssm:mt-8 md:px-10 ssm:px-2"
           >
-            <div class="flex justify-between items-center">
+            <div class="flex items-center justify-between">
               <div class="">
                 <h1 class="md:text-lg ssm:text-md">Prize Award</h1>
                 <p class="text-[20px] mb-7 font-semibold text-primary-600">
@@ -316,13 +316,13 @@ onMounted(() => {
 
           <!-- program -->
           <div class="mt-9 md:px-10 ssm:px-2" v-if="university.program_course">
-            <h1 class="my-5 md:text-lg ssm:text-md font-semibold">
+            <h1 class="my-5 font-semibold md:text-lg ssm:text-md">
               Available Programs
             </h1>
             <div
               class="flex justify-between lg:flex-row lg:items-end sm:flex-col sm:items-start sm:gap-4"
             >
-              <div class="grow pb-8">
+              <div class="pb-8 grow">
                 <div
                   class="flex"
                   v-for="p in university.program_course"
@@ -405,7 +405,7 @@ onMounted(() => {
 
           <div class="relative mt-14" v-if="scholarshipOffer?.length > 0">
             <h1
-              class="md:my-10 md:ml-14 lg:ml-0 ssm:my-3 md:text-lg ssm:text-md font-semibold"
+              class="font-semibold md:my-10 md:ml-14 lg:ml-0 ssm:my-3 md:text-lg ssm:text-md"
             >
               Scholarship offers
             </h1>
@@ -415,7 +415,7 @@ onMounted(() => {
             ></div> -->
 
             <div class="flex justify-center">
-              <div class="relative container">
+              <div class="container relative">
                 <swiper
                   :pagination="{
                     clickable: true,
@@ -429,13 +429,13 @@ onMounted(() => {
                   <swiper-slide
                     v-for="item in scholarshipOffer"
                     :key="item.id"
-                    class="flex justify-center px-4 py-12"
+                    class="flex justify-center w-full px-4 py-12"
                   >
                     <ScholarshipOfferCard :item="item" />
                   </swiper-slide>
                 </swiper>
                 <div
-                  class="swiper-scholarship-school-lists-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
+                  class="absolute left-0 -translate-y-1/2 swiper-scholarship-school-lists-button-prev-unique top-1/2"
                 >
                   <ChevronLeftIcon
                     :class="{ 'opacity-50': start }"
@@ -443,7 +443,7 @@ onMounted(() => {
                   />
                 </div>
                 <div
-                  class="swiper-scholarship-school-lists-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
+                  class="absolute right-0 -translate-y-1/2 swiper-scholarship-school-lists-button-next-unique top-1/2"
                 >
                   <ChevronRightIcon
                     :class="{ 'opacity-50': end }"

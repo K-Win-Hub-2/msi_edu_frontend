@@ -1,11 +1,11 @@
 <template>
-  <div class="my-12 pb-12 border-b">
+  <div class="pb-12 my-12 border-b">
     <ul class="flex justify-center gap-3 ml-3">
       <li class="md:flex ssm:space-y-3 md:space-y-0">
         <div class="">
           <button
             @click="yangon = true"
-            class="px-5 py-3 mx-4 cursor-pointer font-bold hover:bg-cus-primary hover:text-white cus-standout"
+            class="px-5 py-3 mx-4 font-bold cursor-pointer hover:bg-cus-primary hover:text-white cus-standout"
             :class="[yangon ? 'bg-cus-primary text-white' : '']"
           >
             Yangon Head Office
@@ -15,7 +15,7 @@
           <button
             @click="yangon = false"
             :class="[!yangon ? 'bg-cus-primary text-white' : '']"
-            class="px-5 py-3 cursor-pointer font-bold hover:bg-cus-primary hover:text-white cus-standout"
+            class="px-5 py-3 font-bold cursor-pointer hover:bg-cus-primary hover:text-white cus-standout"
           >
             Mandalay Head Office
           </button>
@@ -28,7 +28,7 @@
           'bg-cus-primary text-white': i === datas.id,
           'bg-white': i !== datas.id,
         }"
-        class="px-5 py-3 cursor-pointer font-bold hover:bg-cus-primary hover:text-white cus-standout"
+        class="px-5 py-3 font-bold cursor-pointer hover:bg-cus-primary hover:text-white cus-standout"
         @click="changeId(i)"
       >
         {{ dat.city }}
@@ -88,29 +88,31 @@
             </p>
           </div>
           <div class="contact-card py-3 px-5 w-[301px] mt-8">
-            <h1 class="text-[16px] text-left font-[600] font-cus-primary mb-3">
+            <h1 class="mb-3 text-sm font-semibold text-left font-cus-primary">
               Address
             </h1>
-            <p class="text-[12px] text-left font-[600] text-[#9D0038]">
-              {{
+            <p
+              class="text-[13px] font-semibold text-[#9D0038] leading-relaxed text-left"
+              v-html="
                 yangon
-                  ? ` No-234, 2nd Fl. (R), Shwebontha St. (MID BL), Pabedan Tsp, Yangon,
-              Myanmar.`
-                  : `No. 31/3, Between 79 st × 80 st, 38th St, Mahar Aung Myay Township, Mandalay, Myanmar (Burma), Mandalay, Myanmar`
-              }}
-            </p>
+                  ? `No.234, 2nd Fl. (R),<br/> Shwebontha St. (MID BL),<br/>Pabedan Tsp, Yangon,<br/>Myanmar.`
+                  : `No. 31/3, Between 79 St × 80 St,<br/>38th St, Mahar Aung Myay Township,<br/>Mandalay, Myanmar (Burma)`
+              "
+            ></p>
+
           </div>
+
         </div>
       </div>
       <div class="md:w-[488px] md:h-[520px] md:border-l-2">
-        <form class="py-5 px-12 text-left">
+        <form class="px-12 py-5 text-left">
           <div class="mb-3">
             <label class="text-[15px] font-[600] mb-3">NAME</label>
             <br />
             <input
               type="text"
               placeholder="Name"
-              class="contact-card py-4 px-5 w-full"
+              class="w-full px-5 py-4 contact-card"
             />
           </div>
           <div class="mb-3">
@@ -119,7 +121,7 @@
             <input
               type="text"
               placeholder="Email"
-              class="contact-card py-4 px-5 w-full"
+              class="w-full px-5 py-4 contact-card"
             />
           </div>
           <div class="mb-3">
@@ -128,12 +130,12 @@
             <input
               type="text"
               placeholder="Phone number"
-              class="contact-card py-4 px-5 w-full"
+              class="w-full px-5 py-4 contact-card"
             />
           </div>
           <div class="mb-2">
             <textarea
-              class="contact-card w-full pt-4 px-5"
+              class="w-full px-5 pt-4 contact-card"
               placeholder="Write your thoughts here"
               cols="30"
               rows="4"
@@ -148,7 +150,7 @@
             </div>
           </div>
           <div class="float-right mb-5">
-            <button class="sent-button py-2 px-8">Sent</button>
+            <button class="px-8 py-2 sent-button">Sent</button>
           </div>
         </form>
       </div>
@@ -161,24 +163,24 @@
         <div class="text-left md:text-center">
           <div>
             <i
-              class="fa-solid fa-phone p-3 rounded-full bg-cus-primary text-white mb-3"
+              class="p-3 mb-3 text-white rounded-full fa-solid fa-phone bg-cus-primary"
             ></i>
           </div>
-          <h3 class="font-bold mb-3">Phone</h3>
+          <h3 class="mb-3 font-bold">Phone</h3>
           <ul>
             <li>{{ datas.data[datas.id].phone[0] }}</li>
             <li>{{ datas.data[datas.id].phone[1] }}</li>
           </ul>
         </div>
       </div>
-      <div class="p-3 bg-white cus-standout break-words">
+      <div class="p-3 break-words bg-white cus-standout">
         <div class="text-left md:text-center">
           <div>
             <i
-              class="fa-regular fa-message p-3 rounded-full bg-cus-primary text-white mb-3"
+              class="p-3 mb-3 text-white rounded-full fa-regular fa-message bg-cus-primary"
             ></i>
           </div>
-          <h3 class="font-bold mb-3">Email</h3>
+          <h3 class="mb-3 font-bold">Email</h3>
           <p>
             {{ datas.data[datas.id].email }}
           </p>
@@ -187,11 +189,11 @@
       <div class="p-3 bg-white cus-standout">
         <div>
           <i
-            class="fa-solid fa-location-dot p-3 rounded-full bg-cus-primary text-white mb-3"
+            class="p-3 mb-3 text-white rounded-full fa-solid fa-location-dot bg-cus-primary"
           ></i>
         </div>
         <div class="text-left w-[70%] md:text-center md:w-[100%]">
-          <h3 class="font-bold mb-3">Address</h3>
+          <h3 class="mb-3 font-bold">Address</h3>
           <p>
             {{ datas.data[datas.id].address }}
           </p>
@@ -209,14 +211,14 @@
       <div
         class="h-fit max-w-[700px] mx-auto shadow-xl border border-5 relative backdrop-blur-sm bg-gray-50 bg-opacity-60 rounded-t-lg overflow-hidden"
       >
-        <h1 class="text-left font-bold text-slate-50 px-5 py-4 bg-blue-500">
+        <h1 class="px-5 py-4 font-bold text-left bg-blue-500 text-slate-50">
           Email Us
         </h1>
         <div class="">
           
           <div class="w-100 my-[30px] px-5 items-center gap-3">
             <div class="flex flex-col">
-              <div class="flex justify-between gap-3 flex-wrap lg:flex-nowrap">
+              <div class="flex flex-wrap justify-between gap-3 lg:flex-nowrap">
               
 
                 <div class="flex w-[100%] shadow-md md:w-[270px] lg:w[100%]">
@@ -270,7 +272,7 @@
                 </div>
                 <div class="flex w-[100%] shadow-md md:w-[270px] lg:w[48%]">
                   <span
-                    class="inline-flex items-center px-3 text-sm text-black-900 bg-blue-400 border border-r-0 border-gray-300 rounded-l-md"
+                    class="inline-flex items-center px-3 text-sm bg-blue-400 border border-r-0 border-gray-300 text-black-900 rounded-l-md"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -319,7 +321,7 @@
           <br />
 
           <button
-            class="bg-cyan-500 flex px-4 py-3 absolute bottom-3 left-3 rounded-full text-white"
+            class="absolute flex px-4 py-3 text-white rounded-full bg-cyan-500 bottom-3 left-3"
           >
             send message
             <svg
@@ -343,25 +345,25 @@
     </div>
   </div> -->
   <!-- <div class="container my-12">
-    <div class="flex justify-around items-center mt-5">
+    <div class="flex items-center justify-around mt-5">
       <div
         class="border-black bg-white shadow-2xl px-[100px] py-[175px] rounded-lg border-r-2"
       >
         <h1 class="text-2xl font-bold text-black">Contact Information</h1>
-        <div class="bg-blue-200 p-4 rounded-lg mt-5">
-          <p class="text-black font-bold text-md">Phone</p>
+        <div class="p-4 mt-5 bg-blue-200 rounded-lg">
+          <p class="font-bold text-black text-md">Phone</p>
           <p class="text-red-400 font-bold text-[15px]">
             +95 1 389915, +95 1 381 408
           </p>
         </div>
-        <div class="bg-blue-200 p-4 mt-5 rounded-lg">
-          <p class="text-black font-bold text-md">Phone</p>
+        <div class="p-4 mt-5 bg-blue-200 rounded-lg">
+          <p class="font-bold text-black text-md">Phone</p>
           <p class="text-red-400 font-bold text-[15px]">
             +95 1 389915, +95 1 381 408
           </p>
         </div>
-        <div class="bg-blue-200 p-4 mt-5 rounded-lg">
-          <p class="text-black font-bold text-md">Phone</p>
+        <div class="p-4 mt-5 bg-blue-200 rounded-lg">
+          <p class="font-bold text-black text-md">Phone</p>
           <p class="text-red-400 font-bold text-[15px]">
             +95 1 389915, +95 1 381 408
           </p>
@@ -369,7 +371,7 @@
       </div>
       <div class="-ml-[100px]">
         <div
-          class="text-left bg-white shadow-2xl rounded-lg px-11 py-11 border-l-5 border-black"
+          class="text-left bg-white border-black rounded-lg shadow-2xl px-11 py-11 border-l-5"
         >
           <p class="text-[18px] font-bold mb-2">Name</p>
           <input
@@ -389,7 +391,7 @@
             class="text-[14px] font-medium bg-blue-200 px-[100px] py-4 mt-2 rounded-lg"
             placeholder="Phone Number"
           />
-          <div class="text-left mt-5">
+          <div class="mt-5 text-left">
             <textarea
               rows="4"
               class="px-[100px] border-2 bg-blue-200 border-blue-300 mt-5 rounded-lg"
@@ -398,12 +400,12 @@
               Write your thoughts here
             </textarea>
             <div class="mt-5">
-              <input type="checkbox" class="px-5 py-2 w-5 h-5 rounded-sm" />
+              <input type="checkbox" class="w-5 h-5 px-5 py-2 rounded-sm" />
               <span class="mx-5 font-bold"
                 >You agreed to the terms and conditions</span
               >
             </div>
-            <div class="text-right mt-5">
+            <div class="mt-5 text-right">
               <Button type="gradient" class="p-3 px-8 text-right">Send</Button>
             </div>
           </div>

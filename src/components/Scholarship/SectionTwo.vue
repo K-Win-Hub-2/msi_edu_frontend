@@ -1,12 +1,12 @@
 <template>
   <div class="">
     <h1
-      class="text-center lg:mt-[110px] md:mt-[50px] lg:text-[40px] md:text-[32px] text-[24px] shadow-title text-cus-primary uppercase lg:font-[700] md:font-[600] font-[510]"
+      class="text-center lg:mt-[60px] md:mt-[20px] lg:text-[40px] md:text-[32px] text-[24px] shadow-title text-cus-primary uppercase lg:font-[700] md:font-[600] font-[510]"
     >
       SCHOLARSHIP ACHIEVERS
     </h1>
     <h1
-      class="md:mt-[24px] lg:mt-[20px] mt-[16px] lg:text-[32px] md:text-[24px] text-[20px] shadow-title text-[#FE005F] text-center lg:mb-[133px] md:mb-[40px] ssm:mb-[10px] uppercase font-semibold"
+      class="md:mt-[24px] lg:mt-[20px] mt-[16px] lg:text-[32px] md:text-[24px] text-[20px] shadow-title text-[#FE005F] text-center lg:mb-[50px] md:mb-[20px] ssm:mb-[5px] uppercase font-semibold"
     >
       100 % SCHOLARSHIP ACHIEVERS
     </h1>
@@ -47,7 +47,7 @@
         </swiper-slide> -->
       </swiper>
       <div
-        class="swiper-achieve-card-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
+        class="absolute left-0 -translate-y-1/2 swiper-achieve-card-button-prev-unique top-1/2"
       >
         <ChevronLeftIcon
           :class="{ 'opacity-50': start }"
@@ -55,7 +55,7 @@
         />
       </div>
       <div
-        class="swiper-achieve-card-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
+        class="absolute right-0 -translate-y-1/2 swiper-achieve-card-button-next-unique top-1/2"
       >
         <ChevronRightIcon
           :class="{ 'opacity-50': end }"

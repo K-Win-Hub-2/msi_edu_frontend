@@ -12,7 +12,7 @@
         Featured Universities
       </h1>
       <!-- <Button
-        class="px-14 sm:px-8 sm:py-2 py-4 text-md float-right mt-8"
+        class="float-right py-4 mt-8 px-14 sm:px-8 sm:py-2 text-md"
         type="gradient"
         data-te-toggle="modal"
         data-te-target="#appointmentFormModal"
@@ -23,7 +23,7 @@
 
       <!-- carousel start -->
       <div
-        class="container flex justify-center md:mt-20 xl:mt-14 ssm:mt-0 relative"
+        class="container relative flex justify-center md:mt-20 xl:mt-14 ssm:mt-0"
       >
         <div class="">
           <swiper
@@ -41,7 +41,7 @@
           >
             <!-- slider one -->
             <swiper-slide
-              class="flex justify-center py-12 w-full"
+              class="flex justify-center w-full py-12"
               v-for="uni in data.university"
               :key="uni.id"
             >
@@ -49,7 +49,7 @@
             </swiper-slide>
           </swiper>
           <div
-            class="swiper-event-more-list-button-prev-unique absolute left-0 lg:-left-14 top-1/2 -translate-y-1/2"
+            class="absolute left-0 -translate-y-1/2 swiper-event-more-list-button-prev-unique lg:-left-14 top-1/2"
           >
             <ChevronLeftIcon
               :class="{ 'opacity-50': start }"
@@ -57,7 +57,7 @@
             />
           </div>
           <div
-            class="swiper-event-more-list-button-next-unique absolute right-0 lg:-right-14 top-1/2 -translate-y-1/2"
+            class="absolute right-0 -translate-y-1/2 swiper-event-more-list-button-next-unique lg:-right-14 top-1/2"
           >
             <ChevronRightIcon
               :class="{ 'opacity-50': end }"
@@ -74,12 +74,12 @@
       <Countries></Countries>
     </div>
   </section>
-  <section id="mission" class="bg-white">
+  <section id="mission" class="bg-[#D0F1FF]">
     <div class="container px-6 ssm:py-8 md:py-16">
       <OurService />
     </div>
   </section>
-  <section class="bg-white">
+  <section class="bg-[#D0F1FF] mt-2">
     <Testimonials />
   </section>
 </template>

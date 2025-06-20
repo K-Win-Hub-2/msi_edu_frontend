@@ -80,7 +80,7 @@ onMounted(() => {
 
 <template>
   <div class="bg-white bg-opacity-70 p-2 cus-rounded group max-h-[200px]">
-    <div class="flex justify-between items-center">
+    <div class="flex items-center justify-between">
       <div
         class="swiper-hero-university-prev-unique hover:cursor-pointer w-[50px] shrink-0"
       >

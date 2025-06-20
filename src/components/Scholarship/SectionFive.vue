@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="">
-      <div class="lg:pt-[15px] md:pt-[10px] ssm:py-5 md:pb-[20px] lg:pb-[40px]">
+      <div class="lg:pt-[15px] md:pt-[5px] ssm:py-5 md:pb-[10px] lg:pb-[20px]">
         <h1
           class="text-[#FE005F] lg:text-[40px] md:text-[32px] text-[24px] shadow-title leading-[43.5px] text-center md:font-[600] font-[700]"
         >
@@ -14,7 +14,7 @@
         </h1>
       </div>
     </div>
-    <div class="flex justify-evenly items-center">
+    <div class="flex items-center justify-evenly">
       <div class="">
         <!-- carousel start -->
         <div
@@ -28,7 +28,7 @@
             :breakpoints="swiperOptions.breakpoints"
             :navigation="swiperOptions.navigation"
             :modules="modules"
-            class="mySwiper -mx-10"
+            class="-mx-10 mySwiper"
             v-if="scholarshipChunks"
           >
             <!-- slider one -->
@@ -53,7 +53,7 @@
             </swiper-slide>
           </swiper>
           <div
-            class="swiper-business-card-button-prev-25-50-unique absolute sm:hidden md:block lg:left-0 md:-left-4 top-1/2 -translate-y-1/2"
+            class="absolute -translate-y-1/2 swiper-business-card-button-prev-25-50-unique sm:hidden md:block lg:left-0 md:-left-4 top-1/2"
           >
             <ChevronLeftIcon
               :class="{ 'opacity-50': start }"
@@ -61,7 +61,7 @@
             />
           </div>
           <div
-            class="swiper-business-card-button-next-25-50-unique absolute sm:hidden md:block lg:right-0 md:-right-3 top-1/2 -translate-y-1/2"
+            class="absolute -translate-y-1/2 swiper-business-card-button-next-25-50-unique sm:hidden md:block lg:right-0 md:-right-3 top-1/2"
           >
             <ChevronRightIcon
               :class="{ 'opacity-50': end }"

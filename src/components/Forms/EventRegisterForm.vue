@@ -8,7 +8,7 @@
     ></div>
     <div class="relative z-40">
       <div
-        class="xl:w-[926px] md:w-[700px] ssm:w-[310px] sm:w-[390px] rounded-lg md:border flex justify-center mb-20 overflow-hidden md:shadow-2xl px-2"
+        class="xl:w-[926px] md:w-[700px] ssm:w-[310px] sm:w-[390px] rounded-lg md:border flex justify-center mb-20 overflow-hidden mt-5 px-2"
       >
         <div class="">
           <h1
@@ -18,7 +18,7 @@
           </h1>
           <hr class="md:hidden" />
 
-          <div class="md:flex justify-center mt-2">
+          <div class="justify-center mt-2 md:flex">
             <div
               class="flex justify-center xl:w-full lg:600px md:w-[600px] ssm:w-[370px]"
             >
@@ -212,7 +212,7 @@
               <div class="lg:w-[820px] md:w-[600px] ssm:w-[320px]">
                 <Button
                   @click="toRegisterForm"
-                  class="flex items-center ssm:px-5 lg:px-10 lg:py-5 ssm:py-2 float-right ssm:mr-5 mb-20"
+                  class="flex items-center float-right mb-20 ssm:px-5 lg:px-10 lg:py-5 ssm:py-2 ssm:mr-5"
                   type="gradient"
                   data-te-toggle="modal"
                   data-te-target="#appointmentFormModal"
@@ -247,7 +247,7 @@
       </div>
     </div>
   </div>
-  <div class="flex justify-center items-center mt-52" v-else>
+  <div class="flex items-center justify-center mt-52" v-else>
     <div role="status flex justify-center items-center w-full h-[600px]">
       <div class="">
         <svg

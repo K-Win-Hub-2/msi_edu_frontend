@@ -154,11 +154,11 @@ const isActive = (url) => {
 <template>
   <nav
     id="navbar"
-    class="absolute z-50 flex-no-wrap flex w-full items-center justify-between lg:flex-wrap lg:justify-start"
+    class="absolute z-50 flex flex-no-wrap items-center justify-between w-full !bg-[#D0F1FF] lg:flex-wrap lg:justify-start"
     data-te-navbar-ref
   >
     <div class="container">
-      <div class="flex w-full flex-wrap items-center justify-end px-6 lg:px-0">
+      <div class="flex flex-wrap items-center justify-end w-full px-6 lg:px-0">
         <button
           v-if="!navbar"
           @click="handleNavbar"
@@ -201,17 +201,7 @@ const isActive = (url) => {
           id="navbarSupportedContent1"
           data-te-collapse-item
         >
-          <a
-            class="mt-2 py-3 mb-8 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mt-0 lg:mb-0"
-            href="#"
-          >
-            <img
-              src="../assets/img/msiLogo.png"
-              class="h-32 object-cover"
-              alt=""
-              loading="lazy"
-            />
-          </a>
+       
           <!-- Left links -->
           <ul
             class="space-y-4 h-[80px] items-center list-style-none mb-5 mr-auto lg:mr-0 flex flex-col pl-0 lg:mb-0 lg:flex-row lg:space-x-2 lg:space-y-0"
@@ -226,7 +216,7 @@ const isActive = (url) => {
               >
             </li>
             <li
-              class="relative flex items-center lg:pr-2 group py-10"
+              class="relative flex items-center py-8 lg:pr-2 group"
               data-te-nav-item-ref
             >
               <router-link
@@ -283,7 +273,7 @@ const isActive = (url) => {
               </div>
             </li>
             <li
-              class="relative flex group items-center py-10 lg:pr-2"
+              class="relative flex items-center py-8 group lg:pr-2"
               data-te-nav-item-ref
             >
               <router-link
@@ -293,7 +283,7 @@ const isActive = (url) => {
                 >Services</router-link
               >
               <div
-                class="hidden p-3 bg-white absolute top-[85px] shadow border cus-standout group-hover:block"
+                class="hidden p-3 bg-white absolute top-[85px] shadow border cus-standout group-hover:block w-[150px]"
               >
                 <ul class="space-y-2">
                   <li
@@ -310,14 +300,14 @@ const isActive = (url) => {
               </div>
             </li>
             <li
-              class="relative group flex items-center py-10 lg:pr-2"
+              class="relative flex items-center py-8 group lg:pr-2"
               data-te-nav-item-ref
             >
               <router-link
                 :to="{ name: 'study-pathway' }"
                 class="text-cus-primary text-base font-semibold disabled:text-black/30 lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                 data-te-nav-link-ref
-                >StudyPathway</router-link
+                >Study Pathway</router-link
               >
               <div
                 class="hidden p-3 bg-white absolute top-[85px] shadow border cus-standout group-hover:block"
@@ -381,7 +371,7 @@ const isActive = (url) => {
                   :url="url"
                   :key="url.url"
                   :isActive="isActive(url)"
-                  class="group h-full"
+                  class="h-full group"
                 >
                   <template #childElement>
                     <div
@@ -410,6 +400,19 @@ const isActive = (url) => {
             </template> -->
           </ul>
           <!-- Left links -->
+
+          <a
+          class="flex items-center py-3 mt-2 mb-8 text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mt-0 lg:mb-0"
+          href="#"
+        >
+        <img
+        src="../assets/img/msiLogo.png"
+        class="object-cover h-20 lg:h-18"
+        alt=""
+        loading="lazy"
+      />
+
+        </a>
         </div>
         <!-- Collapsible wrapper -->
       </div>

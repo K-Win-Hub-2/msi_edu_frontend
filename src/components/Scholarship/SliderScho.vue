@@ -3,7 +3,7 @@
     class="lg:w-[965px] md:w-[600px] w-[530px] flex items-center justify-center lg:h-[450px] md:h-[400px] h-[360px] bg-slider-carousel overflow-hidden lg:rounded-[41px] md:rounded-[36px] rounded-[24px]"
     v-if="props.data"
   >
-    <div class="flex lg:gap-8 md:gap-4 w-full px-12 items-center">
+    <div class="flex items-center w-full px-12 lg:gap-8 md:gap-4">
       <div
         class="flex items-center justify-center lg:w-[380px] md:w-[315px] w-[280px] md:block ssm:hidden"
       >
@@ -11,14 +11,14 @@
           class="lg:w-[340.66px] md:w-[300.66px] border border-1 md:h-[300.66px] w-[270px] h-[270px] lg:h-[340.66px] rounded-full overflow-hidden"
         >
           <img
-            class="w-full h-full rounded-full object-cover"
+            class="object-contain w-full h-[100px] rounded-full"
             :src="props.data.imageURL"
             :alt="props.data.university_name"
           />
         </div>
       </div>
       <div
-        class="flex flex-col gap-6 lg:grow-0 lg:items-start grow items-center"
+        class="flex flex-col items-center gap-6 lg:grow-0 lg:items-start grow"
       >
         <h1
           class="text-[#FE005F] lg:text-[28px] md:text-[15px] text-[14px] shadow-title"
@@ -26,9 +26,9 @@
           {{ props.data.university_name }}
         </h1>
         <ul
-          class="flex flex-col gap-3 w-full p-2 lg:items-start lg:grow-0 grow items-center"
+          class="flex flex-col items-center w-full gap-3 p-2 lg:items-start lg:grow-0 grow"
         >
-          <li class="flex gap-6 w-full items-center justify-start">
+          <li class="flex items-center justify-start w-full gap-6">
             <p
               class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
             >
@@ -41,7 +41,7 @@
               {{ props.data.country?.name }}
             </p>
           </li>
-          <li class="flex gap-6 w-full items-start justify-start">
+          <li class="flex items-start justify-start w-full gap-6">
             <p
               class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
             >
@@ -56,7 +56,7 @@
               {{ props.data.location }}
             </p>
           </li>
-          <li class="flex gap-6 w-full items-center justify-start">
+          <li class="flex items-center justify-start w-full gap-6">
             <p
               class="text-[12px] md:text-[18px] lg:text-[20px] uppercase lg:min-w-[145px] sm:min-w-[80px] font-bold"
             >
@@ -72,7 +72,7 @@
             </p>
           </li>
         </ul>
-        <div class="flex w-full gap-4 xl:justify-start lg:justify-start items-center justify-center">
+        <div class="flex items-center justify-center w-full gap-4 xl:justify-start lg:justify-start">
           <router-link
             :to="{
               name: 'universities.detail',

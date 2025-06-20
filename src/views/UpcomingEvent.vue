@@ -2,12 +2,12 @@
   <div class="container mx-auto lg:my-32 md:my-24 ssm:my-10" v-if="data">
     <div class="">
       <h1
-        class="text-cus-primary text-md font-semibold underline ssm:text-center md:text-start"
+        class="font-semibold underline text-cus-primary text-md ssm:text-center md:text-start"
       >
         Upcoming Events
       </h1>
       <div
-        class="flex flex-wrap ssm:justify-center md:justify-start gap-4 ssm:space-y-5 md:space-y-0 mt-7"
+        class="flex flex-wrap gap-4 ssm:justify-center md:justify-start ssm:space-y-5 md:space-y-0 mt-7"
       >
         <div
           class="flex ssm:mx-3 sm:mx-9 ms:mx-10 md:mx-0"

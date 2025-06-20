@@ -1,6 +1,6 @@
 <template>
   <div
-    class="lg:max-w-[342px] hover:bg-[#d1e8ff] min-w-[300px] border lg:min-w-[342px] max-w-[280px] card-pp shadow-md rounded-lg py-[22px] px-[30px]"
+    class="lg:max-w-[342px] bg-white hover:bg-[#d1e8ff] min-w-[300px] border lg:min-w-[342px] max-w-[280px] card-pp shadow-md rounded-lg py-[22px] px-[30px]"
   >
     <h1
       class="uppercase text-[#FE005F] mb-[10px] text-[14.7px] text-center font-[700]"

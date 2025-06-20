@@ -14,7 +14,7 @@
         </h1>
       </div>
     </div>
-    <div class="flex justify-between items-center">
+    <div class="flex items-center justify-between">
       <!-- carousel start -->
       <div
         class="relative container lg:min-w-[1350px] md:min-w-[700px] ssm:max-w-[310px]"
@@ -54,19 +54,19 @@
           </swiper-slide>
         </swiper>
         <div
-          class="swiper-business-card-30-50-button-prev-unique sm:hidden md:block absolute lg:left-0 md:-left-10 top-1/2 -translate-y-1/2"
+          class="absolute -translate-y-1/2 swiper-business-card-30-50-button-prev-unique sm:hidden md:block lg:left-0 md:-left-10 top-1/2"
         >
           <ChevronLeftIcon
             :class="{ 'opacity-50': start }"
-            class="w-12 h-12 text-cus-primary cursor-pointer md:block ssm:hidden"
+            class="w-12 h-12 cursor-pointer text-cus-primary md:block ssm:hidden"
           />
         </div>
         <div
-          class="swiper-business-card-30-50-button-next-unique absolute sm:hidden md:block lg:right-0 md:-right-10 top-1/2 -translate-y-1/2"
+          class="absolute -translate-y-1/2 swiper-business-card-30-50-button-next-unique sm:hidden md:block lg:right-0 md:-right-10 top-1/2"
         >
           <ChevronRightIcon
             :class="{ 'opacity-50': end }"
-            class="w-12 h-12 text-cus-primary cursor-pointer ssm:hidden md:block"
+            class="w-12 h-12 cursor-pointer text-cus-primary ssm:hidden md:block"
           />
         </div>
       </div>

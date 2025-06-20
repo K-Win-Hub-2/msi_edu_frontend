@@ -12,7 +12,7 @@ const props = defineProps(["item"]);
           <div class="text-[#205887] md:flex font-semibold">
             <p class="md:min-w-[260px]">Scholarship Name</p>
             <div class="text-[#FE005F] flex md:space-x-2">
-              <p class="ssm:hidden md:block text-gray-500">-</p>
+              <p class="text-gray-500 ssm:hidden md:block">-</p>
               <p>{{ props.item.scholar_name }}</p>
             </div>
           </div>
@@ -26,7 +26,7 @@ const props = defineProps(["item"]);
             <div
               class="text-[#FE005F] flex md:space-x-2 text-wrap ssm:max-w-[280px] md:max-w-[1000px]"
             >
-              <p class="ssm:hidden md:block text-gray-500">-</p>
+              <p class="text-gray-500 ssm:hidden md:block">-</p>
               <p>{{ props.item.description }}</p>
             </div>
           </div>
@@ -39,7 +39,7 @@ const props = defineProps(["item"]);
             <div
               class="text-[#FE005F] flex md:space-x-2 ssm:max-w-[280px] md:max-w-[1000px] text-wrap"
             >
-              <p class="ssm:hidden md:block text-gray-500">-</p>
+              <p class="text-gray-500 ssm:hidden md:block">-</p>
               <p>{{ props.item.requirement }}</p>
             </div>
           </div>
@@ -52,7 +52,7 @@ const props = defineProps(["item"]);
             <p
               class="text-[#FE005F] ssm:max-w-[280px] md:max-w-[1000px] text-wrap"
             >
-              <span class="ssm:hidden md:inline text-gray-500">-</span>
+              <span class="text-gray-500 ssm:hidden md:inline">-</span>
               {{ props.item.year_intake }}
             </p>
           </div>

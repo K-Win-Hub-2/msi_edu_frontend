@@ -25,25 +25,19 @@ const toAppointment = () => {
 </script>
 
 <template>
-  <div ref="socialBar" class="flex justify-between items-center gap-3">
-    <div class="md:flex gap-6 ssm:hidden">
-      <p>
-        <i
-          class="fa-solid fa-phone text-lg text-cus-primary group-hover:text-white mr-3"
-        ></i>
-        <span>Phone: +95 9 510 4872 </span>
+  <div ref="socialBar" class="flex items-center justify-between gap-3">
+    <div class="gap-6 md:flex ssm:hidden">
+      <p class="inline-flex items-center">
+        <i class="mr-2 text-base fa-solid fa-phone text-cus-primary group-hover:text-white"></i>
+        <span>Phone: +95 9 510 4872</span>
       </p>
-      <p>
-        <i
-          class="fa-solid fa-envelope text-lg text-cus-primary group-hover:text-white mr-3"
-        ></i>
-        <a href="mailto:info@msieducation.edu.mm"
-          >Email: info@msieducation.edu.mm</a
-        >
+      <p class="inline-flex items-center">
+        <i class="mr-2 text-base fa-solid fa-envelope text-cus-primary group-hover:text-white"></i>
+        <a href="mailto:info@msieducation.edu.mm">Email: info@msieducation.edu.mm</a>
       </p>
     </div>
     <div class="flex gap-3">
-      <div class="">
+      <div>
         <Button
           @click="toAppointment"
           class="px-3 rounded-[20px]"
@@ -52,24 +46,13 @@ const toAppointment = () => {
           data-te-target="#appointmentFormModal"
           data-te-ripple-init
           data-te-ripple-color="light"
-          >Get Appointment</Button
         >
+          Get Appointment
+        </Button>
       </div>
-      <!-- <SocialButton
-        type="facebook"
-        url="https://www.facebook.com/MyanmarSearchInternational?mibextid=ZbWKwL"
-      />
-      <SocialButton type="telegram" url="https://t.me/msieducation" />
-      <SocialButton
-        type="viber"
-        url="https://invite.viber.com/?g2=AQAtldgj44bKy1E%2B99iRJeGTwNTZkAat1yjGtaEf%2FrmfbyU6ljwpfXYnOAP2sDw0"
-      />
-      <SocialButton
-        type="instagram"
-        url="https://instagram.com/msi.education?igshid=ZGUzMzM3NWJiOQ=="
-      /> -->
     </div>
   </div>
+
 </template>
 
 <style lang="scss" scoped></style>

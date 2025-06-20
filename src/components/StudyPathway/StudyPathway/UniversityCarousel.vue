@@ -93,7 +93,7 @@ onMounted(() => {
       <UniversityCard :data="university" />
     </div>
     <div v-else class="flex justify-center">
-      <div class="text-center text-gray-500 text-xl py-28">
+      <div class="text-xl text-center text-gray-500 py-28">
         There is no data
       </div>
     </div>
@@ -105,7 +105,7 @@ onMounted(() => {
     <div
       class="mt-[100px] mx-auto bg-white rounded-lg lg:w-[1000px] md:w-[800px] animate__animated animate__fadeIn"
     >
-      <div class="flex justify-between border-b-2 py-4 px-14">
+      <div class="flex justify-between py-4 border-b-2 px-14">
         <h1>Scholarship Detail</h1>
         <div class="">
           <i
@@ -225,7 +225,7 @@ onMounted(() => {
             </swiper-slide>
           </swiper>
           <div
-            class="swiper-scholarship-school-lists-button-prev-unique absolute cursor-pointer md:-left-12 lg:-left-20 top-1/2 -translate-y-1/2"
+            class="absolute -translate-y-1/2 cursor-pointer swiper-scholarship-school-lists-button-prev-unique md:-left-12 lg:-left-20 top-1/2"
           >
             <ChevronLeftIcon
               :class="{ 'opacity-50': start }"
@@ -233,7 +233,7 @@ onMounted(() => {
             />
           </div>
           <div
-            class="swiper-scholarship-school-lists-button-next-unique absolute lg:-right-20 md:-right-12 top-1/2 cursor-pointer -translate-y-1/2"
+            class="absolute -translate-y-1/2 cursor-pointer swiper-scholarship-school-lists-button-next-unique lg:-right-20 md:-right-12 top-1/2"
           >
             <ChevronRightIcon
               :class="{ 'opacity-50': end }"
@@ -241,7 +241,7 @@ onMounted(() => {
             />
           </div>
         </div>
-        <div class="text-center text-gray-500 text-xl py-28" v-else>
+        <div class="text-xl text-center text-gray-500 py-28" v-else>
           There is no data
         </div>
       </div>

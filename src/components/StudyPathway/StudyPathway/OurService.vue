@@ -2,7 +2,7 @@
   <div class="">
     <div class="ssm:mb-4 md:mb-[100px] relative">
       <h1
-        class="md:cus-heading relative ssm:text-md ssm:text-cus-primary ssm:font-semibold text-center"
+        class="relative text-center md:cus-heading ssm:text-md ssm:text-cus-primary ssm:font-semibold"
       >
         One-Stop Quality Services
         <div
@@ -13,7 +13,7 @@
 
     <!-- carousel start -->
     <div
-      class="container flex justify-center md:mt-20 xl:mt-14 sm:mt-10 relative"
+      class="container relative flex justify-center md:mt-20 xl:mt-14 sm:mt-10"
     >
       <div class="">
         <swiper
@@ -29,16 +29,16 @@
           class="mySwiper flex justify-center xl:w-[1040px] md:w-[590px] ssm:w-[320px] sm:w-[375px]"
         >
           <!-- slider one -->
-          <swiper-slide class="flex justify-center py-12 w-full">
+          <swiper-slide class="flex justify-center w-full py-12">
             <div
-              class="flex flex-col gap-3 text-center w-[245px] h-[290px] shadow-xl bg-service-card rounded-2xl"
+              class="flex flex-col gap-3 text-center w-[245px] h-[290px] shadow-xl bg-white rounded-2xl"
             >
               <img
                 src="@/assets/img/Services/services-logo/1.png"
                 class="w-[139px] h-[139px] mx-auto border-[10px] service-profile border-[#2468A7] service-profile rounded-[50%] -mt-8"
               />
               <h3 class="service-title">Education Counseling</h3>
-              <p class="service-desc p-2">
+              <p class="p-2 service-desc">
                 MSI initiates a comprehensive and solid Education Counseling
                 Guidance (ECG) mechanism for all students and parents with a
                 view to completely understand, appreciate and conceive of
@@ -48,16 +48,16 @@
             </div>
           </swiper-slide>
           <!-- slider two -->
-          <swiper-slide class="flex justify-center py-12 w-full">
+          <swiper-slide class="flex justify-center w-full py-12">
             <div
-              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
             >
               <img
                 src="@/assets/img/Services/services-logo/4.png"
                 class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
               />
               <h3 class="service-title">Aptitude Testing</h3>
-              <p class="service-desc p-2">
+              <p class="p-2 service-desc">
                 MSI conforms to apply the Aptitude Test in MSI office for the
                 students after submitting a prior registration in advance to MSI
                 for a correct, decisive and effective studying and learning the
@@ -66,16 +66,16 @@
             </div>
           </swiper-slide>
           <!-- slider -->
-          <swiper-slide class="flex justify-center py-12 w-full">
+          <swiper-slide class="flex justify-center w-full py-12">
             <div
-              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl "
             >
               <img
                 src="@/assets/img/Services/services-logo/5.png"
                 class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
               />
               <h3 class="service-title">Scholarship Support</h3>
-              <p class="service-desc p-2">
+              <p class="p-2 service-desc">
                 MSI consolidates in applying for the international scholarships
                 and module exemption by submitting formally process of
                 application to the Academic Institutions concerned.
@@ -84,16 +84,16 @@
           </swiper-slide>
 
           <!-- slider -->
-          <swiper-slide class="flex justify-center py-12 w-full">
+          <swiper-slide class="flex justify-center w-full py-12">
             <div
-              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
             >
               <img
                 src="@/assets/img/Services/services-logo/6.png"
                 class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
               />
               <h3 class="service-title">Parental Visa Support</h3>
-              <p class="service-desc p-2">
+              <p class="p-2 service-desc">
                 MSI materializes the heart-felt feeling of sending and
                 accompanying the students to the Academic Institutions concerned
                 regarding the parents for a visit visa
@@ -102,7 +102,7 @@
           </swiper-slide>
         </swiper>
         <!-- <div
-        class="swiper-service-card-button-prev-unique absolute left-0 lg:-left-32 top-1/2 -translate-y-1/2"
+        class="absolute left-0 -translate-y-1/2 swiper-service-card-button-prev-unique lg:-left-32 top-1/2"
       >
         <ChevronLeftIcon
           :class="{ 'opacity-50': start }"
@@ -110,7 +110,7 @@
         />
       </div>
       <div
-        class="swiper-service-card-button-next-unique absolute right-0 lg:-right-32 top-1/2 -translate-y-1/2"
+        class="absolute right-0 -translate-y-1/2 swiper-service-card-button-next-unique lg:-right-32 top-1/2"
       >
         <ChevronRightIcon
           :class="{ 'opacity-50': end }"
@@ -121,16 +121,16 @@
     </div>
     <!-- carousel end -->
 
-    <!-- <div class="grid grid-cols-4 gap-x-6 justify-center">
+    <!-- <div class="grid justify-center grid-cols-4 gap-x-6">
     <div
-      class="flex flex-col gap-3 text-center w-[245px] h-[290px] shadow-xl bg-service-card rounded-2xl"
+      class="flex flex-col gap-3 text-center w-[245px] h-[290px] shadow-xl bg-white rounded-2xl"
     >
       <img
         src="@/assets/img/Services/services-logo/1.png"
         class="w-[139px] h-[139px] mx-auto border-[10px] service-profile border-[#2468A7] service-profile rounded-[50%] -mt-8"
       />
       <h3 class="service-title">Education Counseling</h3>
-      <p class="service-desc p-2">
+      <p class="p-2 service-desc">
         MSI initiates a comprehensive and solid Education Counseling Guidance
         (ECG) mechanism for all students and parents with a view to completely
         understand, appreciate and conceive of Vision, Mission and Strategy of
@@ -139,14 +139,14 @@
     </div>
 
     <div
-      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
     >
       <img
         src="@/assets/img/Services/services-logo/4.png"
         class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
       />
       <h3 class="service-title">Aptitude Testing</h3>
-      <p class="service-desc p-2">
+      <p class="p-2 service-desc">
         MSI conforms to apply the Aptitude Test in MSI office for the students
         after submitting a prior registration in advance to MSI for a correct,
         decisive and effective studying and learning the subject with talent and
@@ -155,14 +155,14 @@
     </div>
 
     <div
-      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
     >
       <img
         src="@/assets/img/Services/services-logo/5.png"
         class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
       />
       <h3 class="service-title">Scholarship Support</h3>
-      <p class="service-desc p-2">
+      <p class="p-2 service-desc">
         MSI consolidates in applying for the international scholarships and
         module exemption by submitting formally process of application to the
         Academic Institutions concerned.
@@ -170,14 +170,14 @@
     </div>
 
     <div
-      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
     >
       <img
         src="@/assets/img/Services/services-logo/6.png"
         class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
       />
       <h3 class="service-title">Parental Visa Support</h3>
-      <p class="service-desc p-2">
+      <p class="p-2 service-desc">
         MSI materializes the heart-felt feeling of sending and accompanying the
         students to the Academic Institutions concerned regarding the parents
         for a visit visa
@@ -189,7 +189,7 @@
       <div class="flex flex-wrap justify-center">
         <!-- card 1 -->
         <div
-          class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl mt-5"
+          class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl mt-5"
         >
           <img
             src="@/assets/img/Services/services-logo/7.png"
@@ -210,7 +210,7 @@
 
         <!-- card 3 -->
         <div
-          class="flex flex-col gap-6 text-center md:mt-20 lg:mt-5 w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl mt-5"
+          class="flex flex-col gap-6 text-center md:mt-20 lg:mt-5 w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl mt-5"
         >
           <img
             src="@/assets/img/Services/services-logo/10.png"
@@ -227,8 +227,8 @@
     </div>
 
     <!-- carousel start -->
-    <div
-      class="container flex justify-center md:mt-20 xl:mt-14 sm:mt-10 relative"
+    <!-- <div
+      class="container relative flex justify-center md:mt-20 xl:mt-14 sm:mt-10"
     >
       <div class="">
         <swiper
@@ -243,17 +243,16 @@
           :modules="modules"
           class="mySwiper flex justify-center xl:w-[1040px] md:w-[590px] ssm:w-[320px] sm:[370px]"
         >
-          <!-- slider one -->
-          <swiper-slide class="flex justify-center py-12 w-full">
+          <swiper-slide class="flex justify-center w-full py-12">
             <div
-              class="flex flex-col gap-3 text-center w-[245px] h-[290px] shadow-xl bg-service-card rounded-2xl"
+              class="flex flex-col gap-3 text-center w-[245px] h-[290px] shadow-xl bg-white rounded-2xl"
             >
               <img
                 src="@/assets/img/Services/services-logo/1.png"
                 class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-8"
               />
               <h3 class="service-title">Education Counseling</h3>
-              <p class="service-desc p-2">
+              <p class="p-2 service-desc">
                 MSI initiates a comprehensive and solid Education Counseling
                 Guidance (ECG) mechanism for all students and parents with a
                 view to completely understand, appreciate and conceive of
@@ -262,17 +261,16 @@
               </p>
             </div>
           </swiper-slide>
-          <!-- slider two -->
-          <swiper-slide class="flex justify-center py-12 w-full">
+          <swiper-slide class="flex justify-center w-full py-12">
             <div
-              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
             >
               <img
                 src="@/assets/img/Services/services-logo/4.png"
                 class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
               />
               <h3 class="service-title">Aptitude Testing</h3>
-              <p class="service-desc p-2">
+              <p class="p-2 service-desc">
                 MSI conforms to apply the Aptitude Test in MSI office for the
                 students after submitting a prior registration in advance to MSI
                 for a correct, decisive and effective studying and learning the
@@ -280,17 +278,16 @@
               </p>
             </div>
           </swiper-slide>
-          <!-- slider three -->
-          <swiper-slide class="flex justify-center py-12 w-full">
+          <swiper-slide class="flex justify-center w-full py-12">
             <div
-              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
             >
               <img
                 src="@/assets/img/Services/services-logo/5.png"
                 class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
               />
               <h3 class="service-title">Scholarship Support</h3>
-              <p class="service-desc p-2">
+              <p class="p-2 service-desc">
                 MSI consolidates in applying for the international scholarships
                 and module exemption by submitting formally process of
                 application to the Academic Institutions concerned.
@@ -298,17 +295,16 @@
             </div>
           </swiper-slide>
 
-          <!-- slider four-->
-          <swiper-slide class="flex justify-center py-12 w-full">
+          <swiper-slide class="flex justify-center w-full py-12">
             <div
-              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+              class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
             >
               <img
                 src="@/assets/img/Services/services-logo/6.png"
                 class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
               />
               <h3 class="service-title">Parental Visa Support</h3>
-              <p class="service-desc p-2">
+              <p class="p-2 service-desc">
                 MSI materializes the heart-felt feeling of sending and
                 accompanying the students to the Academic Institutions concerned
                 regarding the parents for a visit visa
@@ -316,8 +312,8 @@
             </div>
           </swiper-slide>
         </swiper>
-        <!-- <div
-        class="swiper-service-card-button-prev-unique absolute left-0 lg:-left-32 top-1/2 -translate-y-1/2"
+        <div
+        class="absolute left-0 -translate-y-1/2 swiper-service-card-button-prev-unique lg:-left-32 top-1/2"
       >
         <ChevronLeftIcon
           :class="{ 'opacity-50': start }"
@@ -325,27 +321,27 @@
         />
       </div>
       <div
-        class="swiper-service-card-button-next-unique absolute right-0 lg:-right-32 top-1/2 -translate-y-1/2"
+        class="absolute right-0 -translate-y-1/2 swiper-service-card-button-next-unique lg:-right-32 top-1/2"
       >
         <ChevronRightIcon
           :class="{ 'opacity-50': end }"
           class="w-12 h-12 text-cus-primary ssm:hidden md:block"
         />
-      </div> -->
       </div>
-    </div>
+      </div>
+    </div> -->
     <!-- carousel end -->
 
     <!-- <div class="grid grid-cols-4 gap-x-6 justify-center mt-[80px]">
     <div
-      class="flex flex-col gap-3 text-center w-[245px] h-[290px] shadow-xl bg-service-card rounded-2xl"
+      class="flex flex-col gap-3 text-center w-[245px] h-[290px] shadow-xl bg-white rounded-2xl"
     >
       <img
         src="@/assets/img/Services/services-logo/1.png"
         class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-8"
       />
       <h3 class="service-title">Education Counseling</h3>
-      <p class="service-desc p-2">
+      <p class="p-2 service-desc">
         MSI initiates a comprehensive and solid Education Counseling Guidance
         (ECG) mechanism for all students and parents with a view to completely
         understand, appreciate and conceive of Vision, Mission and Strategy of
@@ -354,14 +350,14 @@
     </div>
 
     <div
-      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
     >
       <img
         src="@/assets/img/Services/services-logo/4.png"
         class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
       />
       <h3 class="service-title">Aptitude Testing</h3>
-      <p class="service-desc p-2">
+      <p class="p-2 service-desc">
         MSI conforms to apply the Aptitude Test in MSI office for the students
         after submitting a prior registration in advance to MSI for a correct,
         decisive and effective studying and learning the subject with talent and
@@ -370,14 +366,14 @@
     </div>
 
     <div
-      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
     >
       <img
         src="@/assets/img/Services/services-logo/5.png"
         class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
       />
       <h3 class="service-title">Scholarship Support</h3>
-      <p class="service-desc p-2">
+      <p class="p-2 service-desc">
         MSI consolidates in applying for the international scholarships and
         module exemption by submitting formally process of application to the
         Academic Institutions concerned.
@@ -385,14 +381,14 @@
     </div>
 
     <div
-      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-service-card rounded-2xl"
+      class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl"
     >
       <img
         src="@/assets/img/Services/services-logo/6.png"
         class="w-[139px] h-[139px] mx-auto border-[10px] border-[#2468A7] service-profile rounded-[50%] -mt-11"
       />
       <h3 class="service-title">Parental Visa Support</h3>
-      <p class="service-desc p-2">
+      <p class="p-2 service-desc">
         MSI materializes the heart-felt feeling of sending and accompanying the
         students to the Academic Institutions concerned regarding the parents
         for a visit visa

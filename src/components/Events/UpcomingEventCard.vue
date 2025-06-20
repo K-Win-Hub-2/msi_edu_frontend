@@ -9,15 +9,15 @@
         class="mx-2 mt-3 ssm:w-[280px] sm:w-[300px] h-[200px] rounded-md"
         alt=""
       />
-      <p class="ml-3 mt-2">
+      <p class="mt-2 ml-3">
         {{ props.event.title }}
       </p>
       <p class="ml-3 mt-1 text-[14px]">
-        <i class="fa-solid fa-calendar-days mr-2"></i>
+        <i class="mr-2 fa-solid fa-calendar-days"></i>
         {{ props.event.start_date }}
       </p>
       <p class="text-[14px] ml-3 mb-2">
-        <i class="fa-solid fa-location-dot mr-4"></i>
+        <i class="mr-4 fa-solid fa-location-dot"></i>
         <span v-if="props.event.event_location_id == 1">Yangon</span>
         <span v-else>Mandalay</span>
       </p>
