@@ -1,19 +1,19 @@
 <template>
-  <div class="shrink-0 m-3">
+  <div class="m-3 shrink-0">
     <router-link
       :to="{ name: 'event.upcomingDetail', params: { id: props.event.id } }"
     >
       <div
-        class="bg-white border cus-standout overflow-hidden hover:border-black transition"
+        class="overflow-hidden transition bg-white border cus-standout hover:border-black"
       >
         <img
           :src="props.event.imageURL"
           alt=""
           class="border-b w-[600px] md:h-[300px] ssm:h-[150px] select-none"
         />
-        <div class="grid grid-cols-4 p-3 gap-3" v-if="detail">
+        <div class="grid grid-cols-4 gap-3 p-3" v-if="detail">
           <div class="col-span-1">
-            <div class="p-2 flex flex-col items-center">
+            <div class="flex flex-col items-center p-2">
               <div class="font-bold text-cus-primary-pale">
                 {{ getShortMonth(props.event.date) }}
               </div>
@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="col-span-3 space-y-2">
-            <h3 class="text-md font-semibold capitalize truncate">
+            <h3 class="font-semibold capitalize truncate text-md">
               {{ props.event.title }}
             </h3>
 
@@ -44,6 +44,7 @@
 import { getShortMonth, getDay } from "@/utils/date.js";
 
 const props = defineProps(["event", "detail"]);
+console.log('props ',props.event)
 </script>
 
 <style lang="scss" scoped></style>

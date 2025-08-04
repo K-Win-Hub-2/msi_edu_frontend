@@ -154,7 +154,7 @@ const isActive = (url) => {
 <template>
   <nav
     id="navbar"
-    class="absolute z-50 flex flex-no-wrap items-center justify-between w-full !bg-[#D0F1FF] lg:flex-wrap lg:justify-start"
+    class="absolute z-50 flex flex-no-wrap items-center justify-between w-full !bg-white lg:flex-wrap lg:justify-start"
     data-te-navbar-ref
   >
     <div class="container">

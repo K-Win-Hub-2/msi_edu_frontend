@@ -24,6 +24,9 @@ import BestPartnerAwardMDIS from "@/assets/img/home/Awards/BestPartnerAwardMDIS.
 import BestUprisingAward from "@/assets/img/home/Awards/BestUprisingAward.png";
 import BestPerformingPartnerAward from "@/assets/img/home/Awards/BestPerformingPartnerAward.png";
 import TopRecruitmentPartnerAward from "@/assets/img/home/Awards/TopRecruitmentPartnerAward.png";
+import BestCollaborationAward from "@/assets/img/home/Awards/BestCollaborationAward.png";
+import BestPerformingAward from "@/assets/img/home/Awards/BestPerformingAward.png";
+
 
 const generateRandomColor = () => {
   // Generate random R, G, and B values
@@ -175,7 +178,7 @@ export const awards = [
   },
   {
     title: "In Appreciation of Our Partnership",
-    description: "Asia-University (Malaysia)",
+    description: "Asia Pacific University of Technology and Innovation",
     university: "university",
     country: "country",
     year: "2019",
@@ -285,11 +288,33 @@ export const awards = [
   },
   {
     title: "Top Recruitment Partner Award",
-    description: "Tunku Abdul Rahman University of Management and Technology (Malaysia)",
+    description:
+      "Tunku Abdul Rahman University of Management and Technology (Malaysia)",
     university: "university",
     country: "country",
     year: "2023-2024",
     photo: TopRecruitmentPartnerAward,
+    order: "test",
+    show_on_website: "test",
+  },
+  {
+    title: "Best Collaboration & Partnership Excellence Award",
+    description:
+      "Tunku Abdul Rahman University of Management and Technology (Malaysia)",
+    university: "university",
+    country: "country",
+    year: "2024-2025",
+    photo: BestCollaborationAward,
+    order: "test",
+    show_on_website: "test",
+  },
+  {
+    title: "Best Performing Partner Award 2024",
+    description: "Best Performing Partner Award 2024",
+    university: "university",
+    country: "country",
+    year: "2024",
+    photo: BestPerformingAward,
     order: "test",
     show_on_website: "test",
   },

@@ -1,32 +1,32 @@
 <template>
   <div class="flex flex-col justify-between gap-12 xl:flex-row wow ssm:px-4 md:px-0">
-    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-gray-100 cus-rounded">
+    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-[#BC1F40] cus-rounded">
       <img :src="education" class="w-10 h-10" />
-      <div class="flex flex-col items-center text-base font-semibold text-cus-secondary" id="studentCounter">
+      <div class="flex flex-col items-center text-base font-semibold text-white" id="studentCounter">
         <span class="text-lg font-bold">2600</span>
         <span class="text-sm">Students</span>
       </div>
     </div>
 
-    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-gray-100 cus-rounded">
+    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-[#BC1F40] cus-rounded">
       <img :src="university" class="w-10 h-10" />
-      <div class="flex flex-col items-center text-base font-semibold text-cus-secondary" id="universityCounter">
+      <div class="flex flex-col items-center text-base font-semibold text-white" id="universityCounter">
         <span class="text-lg font-bold">200</span>
         <span class="text-sm">Universities</span>
       </div>
     </div>
 
-    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-gray-100 cus-rounded">
+    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-[#BC1F40] cus-rounded">
       <img :src="trophy" class="w-10 h-10" />
-      <div class="flex flex-col items-center text-base font-semibold text-cus-secondary" id="awardCounter">
+      <div class="flex flex-col items-center text-base font-semibold text-white" id="awardCounter">
         <span class="text-lg font-bold">26</span>
         <span class="text-sm">Awards</span>
       </div>
     </div>
 
-    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-gray-100 cus-rounded">
+    <div class="flex items-center justify-between gap-6 px-5 py-3 bg-[#BC1F40] cus-rounded">
       <img :src="mortarboard" class="w-10 h-10" />
-      <div class="flex flex-col items-center text-base font-semibold text-cus-secondary" id="scholarshipCounter">
+      <div class="flex flex-col items-center text-base font-semibold text-white" id="scholarshipCounter">
         <span class="text-lg font-bold">400</span>
         <div class="flex space-x-1 text-sm text-center xl:flex-col lg:flex-row md:flex-row sm:flex-col ssm:flex-col">
           <span>Scholarship</span>

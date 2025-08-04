@@ -12,20 +12,24 @@ const appStore = useAppStore();
 const { data, fetchData } = getData();
 const { appointmentDate, appointmentTime } = storeToRefs(appStore);
 const universityList = ref();
-const uniSpecific = ref(false);
+const uniSpecific = ref();
 const countryUrl = ref("country-lists");
 const scholarshipList = ref([]);
-const countryId = ref();
-const universityId = ref();
+const countryId = ref('');
+const other = ref(false);
+ const customCountryName = ref('');
+ const customUniName = ref('');
+ const customProgramName = ref('');
+const universityId = ref('');
 const programList = ref();
 const courses = ref(false);
-const programId = ref();
+const programId = ref('');
 const courseList = ref();
 const course_flag = ref();
 const name = ref();
 const phone = ref();
 const email = ref();
-const scholarId = ref();
+const scholarId = ref('');
 const inquiry = ref();
 const courseName = ref();
 const university_flag = ref();
@@ -48,6 +52,12 @@ const selectAttribute = ref(false);
 const onTimeSelect = (e, definedTime) => {
   selectedTime.value = definedTime;
 };
+
+const updateOther = () => {
+  uniSpecific.value = undefined
+  other.value = true;
+}
+
 const fetchUni = async () => {
   const res = await axios.get(
     "university-lists/partner/yes/country/" + countryId.value
@@ -84,11 +94,20 @@ const handleSubmit = () => {
     appointment_time: appointmentTime.value,
     university_flag: university_flag.value,
     scholarship_flag: scholarship_flag.value,
+
+    customs: {
+      country: customCountryName.value,
+      university: customUniName.value,
+      program: customProgramName.value
+    }
+
+    
   };
+
 
   const appointmentStore = async () => {
     try {
-      const res = await axios.post("appointment/register", data);
+      const res = await axios.post("api/appointment/register", data);
       if (res.status == 200) {
         $toast.success("Appointment Confirmed", { position: "top-right" });
         success.value = true;
@@ -142,9 +161,7 @@ const handleUni = () => {
 };
 
 //  university specific
-const uniSpecificBtn = () => {
-  uniSpecific.value = true;
-};
+
 // fetch scholarship
 const fetchScholar = async () => {
   const res = await axios.get("scholarship-type-lists");
@@ -183,7 +200,7 @@ onMounted(() => {
       class="bg-[url(@/assets/img/scholarship/image.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute top-0 bottom-0"
     ></div>
 
-    <div class="flex justify-center relative z-40 md:mt-36 ssm:mt-8">
+    <div class="relative z-40 flex justify-center md:mt-36 ssm:mt-8">
       <div
         class="w-[719px] md:shadow-2xl rounded-2xl md:px-20 ssm:px-3 md:py-8 md:border mb-28"
       >
@@ -198,29 +215,26 @@ onMounted(() => {
               :class="[errors?.name ? 'border-red-500' : '']"
               v-model="name"
               type="text"
-              placeholder=" Name"
-              class="border-2 py-4 px-3 w-full border-gray-300 rounded-md"
+              placeholder="Name"
+              class="w-full px-3 py-4 border-2 border-gray-300 rounded-md"
             />
             <p v-if="errors?.name" class="text-red-500">{{ errors.name[0] }}</p>
           </div>
+
           <div class="mb-5">
-            <label for="">Email </label>
-            <br />
+            <label for="">Email</label> <br />
             <input
               v-model="email"
               type="email"
               :class="[errors?.email ? 'border-red-500' : '']"
-              placeholder=" Email"
-              class="border-2 py-4 px-3 w-full border-gray-300 rounded-md"
+              placeholder="Email"
+              class="w-full px-3 py-4 border-2 border-gray-300 rounded-md"
             />
-            <p v-if="errors?.email" class="text-red-500">
-              {{ errors.email[0] }}
-            </p>
+            <p v-if="errors?.email" class="text-red-500">{{ errors.email[0] }}</p>
           </div>
-          <div class="mx-auto">
-            <label for="zip-input" class="block mb-2 text-sm font-medium"
-              >Phone</label
-            >
+
+          <div class="mb-5">
+            <label for="zip-input" class="block mb-2 text-sm font-medium">Phone</label>
             <div class="relative">
               <div
                 class="absolute inset-y-0 start-0 px-3 top-0 flex items-center ps-3.5 pointer-events-none border-r-2 border-gray-300"
@@ -237,37 +251,124 @@ onMounted(() => {
                 v-model="phone"
                 type="number"
                 id="zip-input"
-                aria-describedby="helper-text-explanation"
                 class="bg-gray-50 py-4 border-2 ssm:pl-24 border-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5"
                 placeholder="Contact Number"
               />
             </div>
-            <p v-if="errors?.phone" class="text-red-500">
-              {{ errors.phone[0] }}
+            <p v-if="errors?.phone" class="text-red-500">{{ errors.phone[0] }}</p>
+          </div>
+
+          <!-- Appointment Date -->
+          <div class="mb-5">
+            <label for="appointment-date" class="block mb-2 text-sm font-medium">Appointment Date</label>
+            <input
+              v-model="appointmentDate"
+              type="date"
+              id="appointment-date"
+              :class="[errors?.appointmentDate ? 'border-red-500' : '']"
+              class="w-full px-3 py-4 border-2 border-gray-300 rounded-md"
+            />
+            <p v-if="errors?.appointmentDate" class="text-red-500">
+              {{ errors.appointmentDate[0] }}
             </p>
           </div>
-          <div class="flex mt-14 items-center gap-x-6">
+
+          <!-- Appointment Time -->
+          <div class="mb-5">
+            <label for="appointment-time" class="block mb-2 text-sm font-medium">Appointment Time</label>
+            <select
+              v-model="appointmentTime"
+              :class="[errors?.appointmentTime ? 'border-red-500' : '']"
+              class="w-full px-3 py-4 border-2 border-gray-300 rounded-md"
+            >
+              <option disabled value="">Select a time slot</option>
+              <option value="9:30-10:30">9:30 - 10:30</option>
+              <option value="10:30-11:30">10:30 - 11:30</option>
+              <option value="11:30-12:30">11:30 - 12:30</option>
+              <option value="1:00-2:00">1:00 - 2:00</option>
+              <option value="2:00-3:00">2:00 - 3:00</option>
+              <option value="3:00-4:00">3:00 - 4:00</option>
+            </select>
+            <p v-if="errors?.appointmentTime" class="text-red-500">
+              {{ errors.appointmentTime[0] }}
+            </p>
+          </div>
+
+          
+          
+          <div class="flex items-center mt-14 gap-x-6">
             <p>University specific</p>
-            <div class="ml-4 flex items-center gap-2">
-              <input type="radio" class="w-5 h-5" @click="uniSpecificBtn" />
+            <div class="flex items-center gap-2 ml-4">
+              <input type="radio" class="w-5 h-5" 
+               :value="true" v-model="uniSpecific"
+               @click="other=false"
+               />
               <div class="">Yes</div>
             </div>
             <div class="flex items-center gap-2">
               <input
                 type="radio"
                 class="w-5 h-5"
-                @click="uniSpecific = false"
+                :value="false" v-model="uniSpecific"
+               @click="other=false"
+
               />
               <div class="">No</div>
             </div>
+
+            <div class="flex items-center gap-2">
+              <input
+                type="radio"
+                class="w-5 h-5"
+                :value="true"
+                @click="updateOther"
+                v-model="other"
+              />
+              <div class="">Other</div>
+            </div>
           </div>
+
+          <div v-if="other" class="mt-4 space-y-6">
+            <div class="p-5 bg-white shadow-sm rounded-xl">
+              <label class="block mb-1 text-sm text-gray-600">Country</label>
+              <input
+                type="text"
+                v-model="customCountryName"
+                placeholder="Your answer"
+                class="w-full text-sm placeholder-gray-400 border-0 border-b border-gray-300 focus:ring-0 focus:border-black"
+              />
+            </div>
+
+            <div class="p-5 bg-white shadow-sm rounded-xl">
+              <label class="block mb-1 text-sm text-gray-600">University</label>
+              <input
+                type="text"
+                v-model="customUniName"
+                placeholder="Your answer"
+                class="w-full text-sm placeholder-gray-400 border-0 border-b border-gray-300 focus:ring-0 focus:border-black"
+              />
+            </div>
+
+            <div class="p-5 bg-white shadow-sm rounded-xl">
+              <label class="block mb-1 text-sm text-gray-600">Program</label>
+              <input
+                type="text"
+                v-model="customProgramName"
+                placeholder="Your answer"
+                class="w-full text-sm placeholder-gray-400 border-0 border-b border-gray-300 focus:ring-0 focus:border-black"
+              />
+            </div>
+          </div>
+
+          
           <div class="my-5" v-if="uniSpecific">
             <select
               @change="countryList"
               v-model="countryId"
-              class="border-2 py-4 px-3 w-full border-gray-300 bg-gray-50 rounded-md"
+              class="w-full px-3 py-4 border-2 border-gray-300 rounded-md bg-gray-50"
             >
-              <option class="text-[#717171]" selected disabled>Country</option>
+              <option class="text-[#717171]" disabled value="">Country</option>
+
               <option
                 class="text-[#717171]"
                 :value="data.id"
@@ -279,13 +380,14 @@ onMounted(() => {
             </select>
           </div>
 
-          <div class="my-5" v-if="universityList">
+
+          <div class="my-5" v-if="universityList && uniSpecific && other != 'other' ">
             <select
               v-model="universityId"
               @change="handleUni"
-              class="border-2 py-4 px-3 w-full border-gray-300 bg-gray-50 rounded-md"
+              class="w-full px-3 py-4 border-2 border-gray-300 rounded-md bg-gray-50"
             >
-              <option class="text-[#717171]" value="" disabled selected>
+              <option class="text-[#717171]" value="" disabled>
                 University
               </option>
               <option
@@ -299,24 +401,24 @@ onMounted(() => {
             </select>
           </div>
 
-          <div class="flex mt-10 items-center gap-x-6">
+          <div class="flex items-center mt-10 gap-x-6" v-if="!other">
             <p>Course specific</p>
-            <div class="ml-9 flex items-center gap-2">
-              <input type="radio" class="w-5 h-5" @click="course = true" />
+            <div class="flex items-center gap-2 ml-9">
+              <input type="radio" class="w-5 h-5" :value="true" v-model="course" />
               <div class="">Yes</div>
             </div>
             <div class="flex items-center gap-2">
-              <input type="radio" class="w-5 h-5" @click="course = false" />
+              <input type="radio" class="w-5 h-5" :value="false" v-model="course" />
               <div class="">No</div>
             </div>
           </div>
-          <div class="my-5" v-if="course">
+          <div class="my-5" v-if="course && !other">
             <select
               @change="programHandle"
               v-model="programId"
-              class="border-2 py-4 px-3 w-full border-gray-300 bg-gray-50 rounded-md"
+              class="w-full px-3 py-4 border-2 border-gray-300 rounded-md bg-gray-50"
             >
-              <option class="text-[#717171]" value="" disabled selected>
+              <option class="text-[#717171]" value="" disabled>
                 Program
               </option>
               <option
@@ -329,10 +431,12 @@ onMounted(() => {
             </select>
           </div>
 
-          <div class="my-5" v-if="courses">
+
+         
+          <div class="my-5" v-if="courses" >
             <select
               v-model="courseName"
-              class="border-2 py-4 px-3 w-full border-gray-300 bg-gray-50 rounded-md"
+              class="w-full px-3 py-4 border-2 border-gray-300 rounded-md bg-gray-50"
             >
               <option class="text-[#717171]" value="" disabled selected>
                 Course
@@ -348,17 +452,19 @@ onMounted(() => {
             </select>
           </div>
 
-          <div class="flex mt-10 items-center gap-x-6">
+          <div class="flex items-center mt-10 gap-x-6">
             <p>Scholarship specific</p>
             <div class="flex items-center gap-2">
-              <input type="radio" class="w-5 h-5" @click="scholarship = true" />
+              <input type="radio" class="w-5 h-5" v-model="scholarship" :value="true" />
               <div class="">Yes</div>
             </div>
             <div class="flex items-center gap-2">
               <input
                 type="radio"
                 class="w-5 h-5"
-                @click="scholarship = false"
+                v-model="scholarship"
+                :value="false"
+               
               />
               <div class="">No</div>
             </div>
@@ -366,8 +472,9 @@ onMounted(() => {
           <div class="my-5" v-if="scholarship">
             <select
               v-model="scholarId"
-              class="border-2 py-4 px-3 w-full border-gray-300 bg-gray-50 rounded-md"
+              class="w-full px-3 py-4 border-2 border-gray-300 rounded-md bg-gray-50"
             >
+              <option value="" disabled>Scholarship</option>
               <option
                 :value="data.id"
                 v-for="data in scholarshipList"
@@ -386,12 +493,12 @@ onMounted(() => {
               id=""
               cols="10"
               rows="5"
-              class="border-2 px-3 w-full border-gray-300 bg-gray-50 rounded-md"
+              class="w-full px-3 border-2 border-gray-300 rounded-md bg-gray-50"
             ></textarea>
           </div>
 
           <Button
-            class="w-full text-center py-4 mt-16 flex justify-center"
+            class="flex justify-center w-full py-4 mt-16 text-center"
             type="gradient"
             data-te-toggle="modal"
             data-te-target="#appointmentFormModal"
@@ -407,7 +514,7 @@ onMounted(() => {
           <div
             class="border border-[#2e4b62] flex justify-center py-[60px] mt-14"
           >
-            <div class="flex justify-between items-center">
+            <div class="flex items-center justify-between">
               <img src="@/assets/img/scholarship/CalendarCheck.svg" alt="" />
               <div class="space-y-2">
                 <p class="text-[20px] text-[#0E314E] font-[500]">
@@ -422,7 +529,7 @@ onMounted(() => {
           <hr class="mt-20 text-black" />
           <button
             @click="close"
-            class="bg-gray-600 text-white px-5 py-2 rounded-md float-right mt-4"
+            class="float-right px-5 py-2 mt-4 text-white bg-gray-600 rounded-md"
           >
             Close
           </button>
@@ -439,7 +546,7 @@ onMounted(() => {
           <div class="space-y-3">
             <template v-for="definedTime in definedTimes.morning">
               <div
-                class="p-3 cus-rounded border cursor-pointer hover:bg-gray-300"
+                class="p-3 border cursor-pointer cus-rounded hover:bg-gray-300"
                 :class="{ 'bg-gray-300': selectedTime.time == definedTime.time }"
                 @click="onTimeSelect(e, definedTime)"
               >
@@ -449,11 +556,11 @@ onMounted(() => {
           </div>
         </div>
         <div>
-          <h4 class="text-md font-semibold mb-3 text-center">Afternoon</h4>
+          <h4 class="mb-3 font-semibold text-center text-md">Afternoon</h4>
           <div class="space-y-3">
             <template v-for="definedTime in definedTimes.afternoon">
               <div
-                class="p-3 cus-rounded border cursor-pointer hover:bg-gray-300"
+                class="p-3 border cursor-pointer cus-rounded hover:bg-gray-300"
                 :class="{ 'bg-gray-300': selectedTime.time == definedTime.time }"
                 @click="onTimeSelect(e, definedTime)"
               >
@@ -463,11 +570,11 @@ onMounted(() => {
           </div>
         </div>
         <div>
-          <h4 class="text-md font-semibold mb-3 text-center">Evening</h4>
+          <h4 class="mb-3 font-semibold text-center text-md">Evening</h4>
           <div class="space-y-3">
             <template v-for="definedTime in definedTimes.evening">
               <div
-                class="p-3 cus-rounded border cursor-pointer hover:bg-gray-300"
+                class="p-3 border cursor-pointer cus-rounded hover:bg-gray-300"
                 :class="{ 'bg-gray-300': selectedTime.time == definedTime.time }"
                 @click="onTimeSelect(e, definedTime)"
               >

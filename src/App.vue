@@ -51,7 +51,7 @@ onMounted(() => {
 <template>
   <div class="relative">
     <header>
-      <div class="p-3 bg-white border-b">
+      <div class="p-3 border-b bg-cus-primary">
         <div class="container">
           <TopBar />
         </div>
@@ -76,7 +76,7 @@ onMounted(() => {
           navbar == true ? 'animate__fadeInLeft' : 'animate__fadeInRight',
         ]"
       >
-        <ul class="space-y-8 mt-20 ml-10">
+        <ul class="mt-20 ml-10 space-y-8">
           <li>
             <router-link
               :to="{ name: 'home' }"
@@ -217,7 +217,7 @@ onMounted(() => {
               ></i>
             </div>
             <ul
-              class="ml-2 animate__animated animate__fadeIn mt-2"
+              class="mt-2 ml-2 animate__animated animate__fadeIn"
               v-if="(data, studyDropdown)"
             >
               <li

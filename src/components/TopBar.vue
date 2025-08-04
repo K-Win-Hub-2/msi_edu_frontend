@@ -28,12 +28,12 @@ const toAppointment = () => {
   <div ref="socialBar" class="flex items-center justify-between gap-3">
     <div class="gap-6 md:flex ssm:hidden">
       <p class="inline-flex items-center">
-        <i class="mr-2 text-base fa-solid fa-phone text-cus-primary group-hover:text-white"></i>
-        <span>Phone: +95 9 510 4872</span>
+        <i class="mr-2 text-base text-white fa-solid fa-phone group-hover:text-white"></i>
+        <span class="text-white">Phone: +95 9 510 4872</span>
       </p>
       <p class="inline-flex items-center">
-        <i class="mr-2 text-base fa-solid fa-envelope text-cus-primary group-hover:text-white"></i>
-        <a href="mailto:info@msieducation.edu.mm">Email: info@msieducation.edu.mm</a>
+        <i class="mr-2 text-base text-white fa-solid fa-envelope group-hover:text-white"></i>
+        <a href="mailto:info@msieducation.edu.mm" class="text-white">Email: info@msieducation.edu.mm</a>
       </p>
     </div>
     <div class="flex gap-3">

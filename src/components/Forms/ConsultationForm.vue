@@ -120,9 +120,9 @@ const postStudentInfo = async () => {
   }
 };
 onMounted(async () => {
-  let studentsListRes = await studentStore.fetchStudentList();
-  studentList.value = studentsListRes.data;
-  console.log(studentList.value);
+  // let studentsListRes = await studentStore.fetchStudentList();
+  // studentList.value = studentsListRes.data;
+  // console.log(studentList.value);
 });
 </script>
 <template>
@@ -144,7 +144,7 @@ onMounted(async () => {
             class="rounded-lg border text-black bg-gray-100 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
             placeholder="Enter Your Name"
           />
-          <span v-if="validation.fullName" class="text-red-500 relative"
+          <span v-if="validation.fullName" class="relative text-red-500"
             >please fill the full name</span
           >
         </div>
@@ -159,10 +159,10 @@ onMounted(async () => {
             class="rounded-lg border bg-gray-100 text-black block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
             placeholder="Please enter Your Email address"
           />
-          <span v-if="validation.email" class="text-red-500 relative"
+          <span v-if="validation.email" class="relative text-red-500"
             >please fill the email address</span
           >
-          <span v-if="emailAlreadyExist" class="text-red-500 relative"
+          <span v-if="emailAlreadyExist" class="relative text-red-500"
             >email already exists</span
           >
         </div>
@@ -179,7 +179,7 @@ onMounted(async () => {
             class="rounded-lg border bg-gray-100 text-black block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
             placeholder="Enter Your Phone no."
           />
-          <span v-if="validation.studentPh" class="text-red-600 relative"
+          <span v-if="validation.studentPh" class="relative text-red-600"
             >please fill the phone NO.</span
           >
         </div>
@@ -194,7 +194,7 @@ onMounted(async () => {
             class="rounded-lg border bg-gray-100 text-black block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
             placeholder="Please enter the contact phone number for guidance."
           />
-          <span v-if="validation.guidancePh" class="text-red-600 relative"
+          <span v-if="validation.guidancePh" class="relative text-red-600"
             >please fill the phone NO.</span
           >
         </div>
@@ -213,7 +213,7 @@ onMounted(async () => {
  
 Please provide your date of birth."
           />
-          <span v-if="validation.birth" class="text-red-600 relative"
+          <span v-if="validation.birth" class="relative text-red-600"
             >birthday field is required</span
           >
         </div>
@@ -240,10 +240,10 @@ Please provide your date of birth."
           class="rounded-lg border text-black bg-gray-100 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
           placeholder="Please input your NRC (National Registration Card) number."
         />
-        <span class="text-red-600 relative" v-if="validation.studentNrc"
+        <span class="relative text-red-600" v-if="validation.studentNrc"
           >NRC field is required</span
         >
-        <span v-if="nrcAlreadyExist" class="text-red-500 relative"
+        <span v-if="nrcAlreadyExist" class="relative text-red-500"
           >NRC already exists</span
         >
       </div>
@@ -262,7 +262,7 @@ Please provide your date of birth."
             placeholder="
 Input your home number."
           />
-          <span v-if="validation.homeNo" class="text-red-600 relative"
+          <span v-if="validation.homeNo" class="relative text-red-600"
             >please fill the home no.</span
           >
         </div>
@@ -277,7 +277,7 @@ Input your home number."
             class="rounded-lg border bg-gray-100 text-black block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
             placeholder="Enter the name of your street or road."
           />
-          <span v-if="validation.street" class="text-red-600 relative"
+          <span v-if="validation.street" class="relative text-red-600"
             >please fill the street field</span
           >
         </div>
@@ -293,7 +293,7 @@ Input your home number."
             placeholder="
 Enter your quarter/village name."
           />
-          <span v-if="validation.quarter" class="text-red-600 relative"
+          <span v-if="validation.quarter" class="relative text-red-600"
             >please fill the quarter field</span
           >
         </div>
@@ -308,7 +308,7 @@ Enter your quarter/village name."
             class="rounded-lg border bg-gray-100 text-black block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
             placeholder="Specify your township."
           />
-          <span v-if="validation.township" class="text-red-600 relative"
+          <span v-if="validation.township" class="relative text-red-600"
             >please enter your township</span
           >
         </div>
@@ -365,7 +365,7 @@ Enter your quarter/village name."
       <div class="flex justify-end">
         <button
           @click="postStudentInfo"
-          class="text-center flex px-5 py-3 border transition-all duration-75 shadow-md bg-cyan-500 text-white hover:bg-white hover:text-cus-primary"
+          class="flex px-5 py-3 text-center text-white transition-all duration-75 border shadow-md bg-cyan-500 hover:bg-white hover:text-cus-primary"
         >
           Register
           <svg

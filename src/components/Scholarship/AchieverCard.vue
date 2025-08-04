@@ -4,7 +4,6 @@ import { onMounted, ref } from "vue";
 const UniName = ref();
 
 const props = defineProps(["data"]);
-console.log("img ", props.data)
 const studentImage = ref("");
 studentImage.value =
   "http://adminpanel.msieducation.edu.mm/postImage/" + props.data.student_image;

@@ -28,7 +28,11 @@
           v-for="d in scholarships"
           :key="d"
         >
-          <AchieverCard :data="d" />
+          <AchieverCard
+            v-if="d.scholar_type.scholar_name === '50% Scholarship'"
+            :data="d"
+          />
+          <AchieverCard2 v-else :data="d" />
         </swiper-slide>
 
         <!-- slider two  -->
@@ -69,14 +73,14 @@ const modules = [Navigation, Pagination];
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
 import Button from "../partials/Button.vue";
 import AchieverCard from "./AchieverCard.vue";
+import AchieverCard2 from "./AchieverCard2.vue";
 import axios from "axios";
 const scholarships = ref();
 
 const start = ref(true);
 const end = ref(false);
 
-
-const props = defineProps(["type","scholar"]);
+const props = defineProps(["type", "scholar"]);
 
 const onSlideChange = (event) => {
   if (event.isEnd) {
@@ -108,7 +112,7 @@ const swiperOptions = {
     },
     // when window width is >= 640px
     1280: {
-      slidesPerView: 2,
+      slidesPerView: 3,
     },
   },
   navigation: {
@@ -118,14 +122,15 @@ const swiperOptions = {
 };
 const fetchData = async () => {
   // http://adminpanel.msieducation.edu.mm/api/scholarship-achievers/scholar-type/11
-  const res = await axios.get(`scholarship-achievers/scholar-type/${props.type}`);
+  const res = await axios.get(
+    `scholarship-achievers/scholar-type/${props.type}`
+  );
   scholarships.value = res.data.scholarAchiever;
-  console.log("scholar", res.data.scholarAchiever);
+  // console.log("scholar", res.data.scholarAchiever);
   // scholarships.value = res.data.scholarAchiever.filter((p) => {
   //   return p.scholarship_type == 12;
   // });
 };
-
 onMounted(() => {
   fetchData();
 });

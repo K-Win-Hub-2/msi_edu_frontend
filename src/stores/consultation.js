@@ -7,16 +7,16 @@ export const useStudentStore = defineStore("counter", {
     // user: JSON.parse(sessionStorage.getItem("DATA")),
   }),
   actions: {
-    fetchStudentList() {
-      return getAxiosClient()
-        .get("students")
-        .then((res) => {
-          return res;
-        })
-        .catch((error) => {
-          throw error;
-        });
-    },
+    // fetchStudentList() {
+    //   return getAxiosClient()
+    //     .get("students")
+    //     .then((res) => {
+    //       return res;
+    //     })
+    //     .catch((error) => {
+    //       throw error;
+    //     });
+    // },
     addStudent(payload) {
       return getAxiosClient()
         .post("students", payload)

@@ -28,8 +28,8 @@ const swiperOptions = {
   initialSlide: 2, 
   loop: false,
   centeredSlides: true,
-  slidesPerView: 5,
-  spaceBetween: 20,
+  slidesPerView: 4,
+  spaceBetween: 30,
   navigation: {
     nextEl: ".swiper-home-award-button-next-unique",
     prevEl: ".swiper-home-award-button-prev-unique",
@@ -52,7 +52,7 @@ onMounted(() => {
     <!-- Title -->
     <h1 class="text-center uppercase cus-heading md:mb-12 text-shadow cus-shadow-color">
       <span class="text-cus-primary md:text-[40px] ssm:text-md text-shadow-sm">
-        24 awards
+        26 awards
       </span>
       <span class="text-cus-secondary md:text-4xl ssm:text-md text-shadow-sm">
         Showcase of Excellence
@@ -60,7 +60,7 @@ onMounted(() => {
     </h1>
 
     <!-- Navigation + Swiper -->
-    <div class="relative flex items-center justify-between mb-3">
+    <div class="relative flex items-center justify-between mt-5 mb-3">
       <div class="absolute cus-glass-card cus-rounded shadow w-full h-[90%]"></div>
 
       <!-- Prev Button -->
@@ -84,7 +84,7 @@ onMounted(() => {
       >
         <template v-for="(award, index) in currentAwards" :key="index">
           <swiper-slide class="my-3 transition-transform duration-300 shrink-0">
-            <div class="flex justify-center w-full award-card">
+            <div class="flex justify-center w-full award-card h-[380px] mb-5">
               <AwardCard :image="award.photo" class="w-full max-w-xs select-none" />
             </div>
           </swiper-slide>
