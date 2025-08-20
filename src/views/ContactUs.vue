@@ -1,7 +1,7 @@
 <template>
-  <div class="text-center">
+  <div>
     <section>
-      <div class="flex justify-center lg:mt-36 md:mt-24 ssm:mt-14 mb-10">
+      <div class="flex justify-center mb-10 lg:mt-36 md:mt-24 ssm:mt-14">
         <img
           src="@/assets/img/logo.png"
           class="md:w-[600px] ssm:w-[200px] md:h-[250px] ssm:h-[50px]"

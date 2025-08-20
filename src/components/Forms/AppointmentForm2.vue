@@ -107,7 +107,7 @@ const handleSubmit = () => {
 
   const appointmentStore = async () => {
     try {
-      const res = await axios.post("api/appointment/register", data);
+      const res = await axios.post("appointment/register", data);
       if (res.status == 200) {
         $toast.success("Appointment Confirmed", { position: "top-right" });
         success.value = true;
