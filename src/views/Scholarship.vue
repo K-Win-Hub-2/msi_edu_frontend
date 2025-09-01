@@ -18,19 +18,16 @@
     </div>
    
     <SectionOne />
+
+    
     <!-- carousel start -->
     <!-- <CarouselSch /> -->
     <!-- carousel end -->
 
     <!-- achiever -->
-    <SectionTwo />
+    <SectionTwo :scholarships="topAchievers"/>
      
-    <SectionThree
-      v-for="section in types"
-      :key="section.id"
-      :type="section.id"
-      :scholar="section.scholar_name"
-    />
+    <SectionThree :scholarships="filteredAchievers" :types="types"/>
     
   </div>
 </template>
@@ -47,7 +44,7 @@ import SectionSeven from "../components/Scholarship/SectionSeven.vue";
 import SectionEight from "../components/Scholarship/SectionEight.vue";
 import SectionNine from "../components/Scholarship/SectionNine.vue";
 import Button from "../components/partials/Button.vue";
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import MBAScholarShip from "../components/Scholarship/MBAScholarShip.vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
@@ -57,21 +54,40 @@ const toGetAppointment = () => {
   router.push({ name: "appointment-form" });
 };
 
-const types = ref();
-const achievers = ref();
+const types = ref([]);
+const achievers = ref([]);
+const topAchievers = ref([]);
 
-const fetchTypes = async () => {
-    // http://adminpanel.msieducation.edu.mm/api/scholarship-achievers/scholar-type/11
-    const res = await axios.get(`/scholarship-types`);
-   types.value = res.data.types;
-    console.log("types ", res.data.types);
-    // scholarships.value = res.data.scholarAchiever.filter((p) => {
-    //   return p.scholarship_type == 12;
-    // });
+
+
+
+
+
+const fetchAchievers = async () => {
+    const res = await axios.get(`scholarship-achievers`);
+    achievers.value = res.data.scholarAchiever;
+    topAchievers.value = achievers.value.filter(
+      (a) => a.scholarship_type === 11
+    );
+    console.log("achievers ", res.data.scholarAchiever);
 };
 
 
+const fetchTypes = async () => {
+  const res = await axios.get(`scholarship-types`);
+  types.value = res.data.types;
+  console.log("types ", res.data.types);
+};
+    
+
+const filteredAchievers = computed(() =>
+  achievers.value.filter(a => a.scholarship_type != 11)
+);
+
+
+
 onMounted(() => {
+  fetchAchievers();
   fetchTypes();
 });
 

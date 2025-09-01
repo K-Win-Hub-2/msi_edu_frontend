@@ -16,7 +16,7 @@
       </swiper-slide>
       <swiper-slide>
         <div
-          class="bg-[url('@/assets/img/home/36.png')] w-full ssm:h-[230px] md:h-[600px] lg:h-[800px] no-repeat bg-cover"
+          class="bg-[url('@/assets/img/home/38.jpg')] w-full ssm:h-[230px] md:h-[600px] lg:h-[800px] no-repeat bg-cover"
         ></div>
       </swiper-slide>
       <!-- <swiper-slide>
@@ -26,7 +26,7 @@
       </swiper-slide> -->
     </swiper>
     <div
-      class="absolute top-1/2 -translate-y-1/2 left-3 z-20 swiper-button-prev-unique cursor-pointer opacity-0 group-hover:opacity-100"
+      class="absolute z-20 -translate-y-1/2 opacity-0 cursor-pointer top-1/2 left-3 swiper-button-prev-unique group-hover:opacity-100"
     >
       <ChevronLeftIcon
         :class="{ 'opacity-50': start }"
@@ -34,7 +34,7 @@
       />
     </div>
     <div
-      class="absolute top-1/2 -translate-y-1/2 right-3 z-20 swiper-button-next-unique cursor-pointer opacity-0 group-hover:opacity-100"
+      class="absolute z-20 -translate-y-1/2 opacity-0 cursor-pointer top-1/2 right-3 swiper-button-next-unique group-hover:opacity-100"
     >
       <ChevronRightIcon
         :class="{ 'opacity-50': start }"

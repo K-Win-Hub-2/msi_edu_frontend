@@ -1,25 +1,13 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
-const UniName = ref();
 
 const props = defineProps(["data"]);
 const studentImage = ref("");
 studentImage.value =
   "http://adminpanel.msieducation.edu.mm/postImage/" + props.data.student_image;
 
-// {{ props.data?.scholar_type.uni_id }}
-onMounted(() => {
-  if (props.data) {
-    const fetchUni = async () => {
-      const res = await axios.get(
-        "university-lists/university/" + props.data?.scholar_type.uni_id
-      );
-      UniName.value = res.data?.university[0]?.university_name;
-    };
-    fetchUni();
-  }
-});
+  
 </script>
 <template>
   <div
@@ -34,11 +22,6 @@ onMounted(() => {
         />
       </div>
       <div class="md:ml-[35px] ssm:ml-4">
-        <h1
-          class="text-[#205887] text-[15px] font-[600] uppercase shadow-title"
-        >
-          {{ props.data.scholar_type.scholar_name }}
-        </h1>
         <h1
           class="text-[#205887] text-[15px] font-[600] uppercase shadow-title"
         >

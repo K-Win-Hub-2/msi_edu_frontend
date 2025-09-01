@@ -42,8 +42,8 @@ const confirm = () => {
 };
 
 const university = ref(false);
-const course = ref(false);
-const scholarship = ref(false);
+const course = ref(null);
+const scholarship = ref(null);
 
 const date = ref(new Date());
 const selectedTime = ref("");

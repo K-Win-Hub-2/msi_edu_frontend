@@ -35,16 +35,6 @@
         >
           <AchieverCard :data="d" />
         </swiper-slide>
-
-        <!-- slider two  -->
-        <!-- <swiper-slide class="flex justify-center py">
-          <AchieverCard />
-        </swiper-slide> -->
-
-        <!-- slider three  -->
-        <!-- <swiper-slide class="flex justify-center">
-          <AchieverCard />
-        </swiper-slide> -->
       </swiper>
       <div
         class="absolute left-0 -translate-y-1/2 swiper-achieve-card-button-prev-unique top-1/2"
@@ -85,6 +75,9 @@ import axios from "axios";
 
 const start = ref(true);
 const end = ref(false);
+const props = defineProps(["scholarships"]);
+console.log("scholarships in section two ", props.scholarships);
+
 const onSlideChange = (event) => {
   if (event.isEnd) {
     end.value = true;
@@ -98,16 +91,7 @@ const onSlideChange = (event) => {
     start.value = false;
   }
 };
-const scholarships = ref();
-const fetchData = async () => {
-  const res = await axios.get("scholarship-achievers/scholar-type/11");
-  scholarships.value = res.data.scholarAchiever;
-  console.log("two", res.data.scholarAchiever);
-  // console.log("scholar", res.data.scholarAchiever);
-  // scholarships.value = res.data.scholarAchiever.filter((p) => {
-  //   return p.scholarship_type == 11;
-  // });
-};
+
 
 const data = ref([
   {
@@ -165,7 +149,5 @@ const swiperOptions = {
     prevEl: ".swiper-achieve-card-button-prev-unique",
   },
 };
-onMounted(() => {
-  fetchData();
-});
+
 </script>

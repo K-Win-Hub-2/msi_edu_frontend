@@ -309,8 +309,8 @@ export const awards = [
     show_on_website: "test",
   },
   {
-    title: "Best Performing Partner Award 2024",
-    description: "Best Performing Partner Award 2024",
+    title: "Best Performing Partner Award",
+    description: "James Cook University (Australia, Singapore Campus)",
     university: "university",
     country: "country",
     year: "2024",

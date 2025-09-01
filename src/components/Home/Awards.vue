@@ -84,7 +84,7 @@ onMounted(() => {
       >
         <template v-for="(award, index) in currentAwards" :key="index">
           <swiper-slide class="my-3 transition-transform duration-300 shrink-0">
-            <div class="flex justify-center w-full award-card h-[380px] mb-5">
+            <div class="flex justify-center w-full award-card h-[500px] mb-5">
               <AwardCard :image="award.photo" class="w-full max-w-xs select-none" />
             </div>
           </swiper-slide>

@@ -33,7 +33,7 @@ const toAppointment = () => {
       </p>
       <p class="inline-flex items-center">
         <i class="mr-2 text-base text-white fa-solid fa-envelope group-hover:text-white"></i>
-        <a href="mailto:info@msieducation.edu.mm" class="text-white">Email: info@msieducation.edu.mm</a>
+        <a href="mailto:myanmarsearchinternational@gmail.com" class="text-white">Email: myanmarsearchinternational@gmail.com</a>
       </p>
     </div>
     <div class="flex gap-3">

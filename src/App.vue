@@ -23,7 +23,7 @@ const serviceDropdown = ref(false);
 const studyDropdown = ref(false);
 
 onMounted(() => {
-  fetchData(url.value);
+  // fetchData(url.value);
   let navbar = document.getElementById("navbar");
   let mainView = main.value;
   let sticky = navbar.offsetTop;

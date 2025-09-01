@@ -63,10 +63,10 @@ const urls = [
               <ul class="text-sm">
                 <li class="mb-3">
                   <span class="font-semibold">Yangon (Head) Office</span>
-                  <div>+95 1 389915</div>
-                  <div>+95 1 381 408</div>
-                  <div>+95 1 373 461</div>
-                  <div>+95 1 250 929</div>
+                  <div>+95 1 838 991 5</div>
+                  <div>+95 1 838 140 8</div>
+                  <div>+95 1 837 346 1</div>
+                  <div>+95 1 825 092 9</div>
                 </li>
                 <li class="mb-3">
                   <span class="font-semibold">Mandalay (Branch) Office</span>
