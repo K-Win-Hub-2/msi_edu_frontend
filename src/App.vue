@@ -51,7 +51,7 @@ onMounted(() => {
 <template>
   <div
     class="relative text-center bg-center bg-no-repeat bg-cover"
-    style="background-image: url('/src/assets/img/home/backaground2.jpg')"
+    style="background-image: url('/src/assets/img/home/background2.jpg')"
   >
     <header>
       <div class="p-3 border-b bg-cus-primary">
