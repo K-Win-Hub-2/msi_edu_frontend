@@ -7,8 +7,8 @@ import Button from "../partials/Button.vue";
 const props = defineProps({
   data: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 });
 
 // Router
@@ -21,7 +21,8 @@ watch(
   (newData) => {
     if (newData?.student_image) {
       studentImage.value =
-        "http://adminpanel.msieducation.edu.mm/postImage/" + newData.student_image;
+        "http://adminpanel.msieducation.edu.mm/postImage/" +
+        newData.student_image;
     } else {
       studentImage.value = ""; // fallback if image missing
     }
@@ -49,7 +50,7 @@ const goToScholarshipPage = () => {
               alt=""
             />
           </div>
-          <div class="flex flex-col justify-between">
+          <div class="flex flex-col text-left">
             <div>
               <h3
                 class="mb-3 font-bold capitalize md:text-2xl ssm:text-md text-cus-primary text-shadow-sm cus-shadow-color"
@@ -65,17 +66,17 @@ const goToScholarshipPage = () => {
               </div>
 
               <h4
-                class="md:text-lg ssm:text-[16px] text-cus-primary capitalize text-shadow-sm cus-shadow-color"
+                class="md:text-xl ssm:text-[16px] text-cus-primary capitalize text-shadow-sm cus-shadow-color"
               >
                 {{ data.course_name }}
               </h4>
               <h4
-                class="md:text-lg ssm:text-[20px] text-shadow-sm cus-shadow-color mt-2"
+                class="md:text-xl ssm:text-[20px] text-shadow-sm cus-shadow-color mt-2"
               >
                 {{ data.scholar_type.scholar_name }}
               </h4>
               <h4
-                class="md:text-lg ssm:text-[20px] text-shadow-sm cus-shadow-color mt-2"
+                class="md:text-xl ssm:text-[20px] text-shadow-sm cus-shadow-color mt-2"
               >
                 {{ data.country.name }}
               </h4>

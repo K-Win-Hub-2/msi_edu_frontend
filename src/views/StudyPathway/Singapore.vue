@@ -19,11 +19,11 @@ const props = defineProps(["id"]);
 const url = ref("country-lists");
 const currentCountry = ref();
 const bannerImage = ref();
-const countryData = ref([])
+const countryData = ref([]);
 
 const fetchData = async (countryId) => {
   const res = await axios("country-lists");
-  var country = res.data.countries.filter(el=>el.id == countryId)[0];
+  var country = res.data.countries.filter((el) => el.id == countryId)[0];
 
   countryData.value = country?.youtube_video;
 
@@ -43,14 +43,15 @@ onMounted(() => {
 });
 
 watch(
-  () => props.id, (newId) => {
+  () => props.id,
+  (newId) => {
     fetchData(newId);
   }
 );
 
 const videoLink = (val) => {
-  return "https://www.youtube.com/embed/"+val?.split("/")[3]
-}
+  return "https://www.youtube.com/embed/" + val?.split("/")[3];
+};
 </script>
 
 <template>
@@ -82,7 +83,7 @@ const videoLink = (val) => {
   <section>
     <div class="relative">
       <div
-        class="bg-[url(@/assets/img/scholarship/image.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute rotate-180 top-0"
+        class="w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute rotate-180 top-0"
       ></div>
 
       <div class="absolute top-0 right-0">
@@ -134,7 +135,8 @@ const videoLink = (val) => {
       </h1>
       <div class="grid lg:grid-cols-3 md:grid-cols-2 ssm:grid-col-1 gap-x-10">
         <div
-          class=" rounded-lg h-[294px] overflow-hidden"  v-for="(data, idx) in countryData"
+          class="rounded-lg h-[294px] overflow-hidden"
+          v-for="(data, idx) in countryData"
           :key="idx"
         >
           <iframe
@@ -146,9 +148,7 @@ const videoLink = (val) => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
-     
         </div>
-     
       </div>
     </div>
   </section>

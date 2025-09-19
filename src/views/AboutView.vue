@@ -6,7 +6,7 @@
     </section>
     <section id="our-leaders" class="relative">
       <div
-        class="bg-[url(../../assets/img/Home/msiWebPattern2.png)] w-[70%] h-[500px] bg-no-repeat z-20 bg-[length:100%_100%] absolute top-0 left-0"
+        class="w-[70%] h-[500px] bg-no-repeat z-20 bg-[length:100%_100%] absolute top-0 left-0"
         alt=""
       ></div>
       <div class="container md:py-12">
@@ -14,17 +14,17 @@
       </div>
     </section>
     <!-- <section>
-      <div class="bg-white py-20">
+      <div class="py-20 bg-white">
         <PrincipleSpeech />
       </div>
     </section> -->
     <!-- <section>
-      <div class="bg-white py-20">
+      <div class="py-20 bg-white">
         <PresidentSpeech />
       </div>
     </section> -->
     <!-- <section>
-      <div class="bg-white py-20">
+      <div class="py-20 bg-white">
         <VicePresidentSpeech />
       </div>
     </section> -->
@@ -40,7 +40,7 @@
         class="w-[1000px] absolute right-0 bottom-10 z-30"
       />
       <div
-        class="bg-[url(../../assets/img/Home/msiWebPattern.png)] w-[100%] h-[1800px] bg-no-repeat bg-[length:100%_100%] absolute bottom-10 right-0"
+        class="w-[100%] h-[1800px] bg-no-repeat bg-[length:100%_100%] absolute bottom-10 right-0"
         alt=""
       ></div>
       <div class="container relative z-30" id="our-partner">
@@ -53,12 +53,12 @@
       </div>
     </section>
     <!-- <section id="our-team">
-      <div class="bg-white py-16">
+      <div class="py-16 bg-white">
         <OurTeam />
       </div>
     </section> -->
     <!-- <section id="testimonial">
-      <div class="bg-white py-16">
+      <div class="py-16 bg-white">
         <Testimonial />
       </div>
     </section>

@@ -49,8 +49,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative text-center bg-center bg-no-repeat bg-cover"
-     style="background-image: url('/src/assets/img/home/background.jpg');">
+  <div
+    class="relative text-center bg-center bg-no-repeat bg-cover"
+    style="background-image: url('/src/assets/img/home/backaground2.jpg')"
+  >
     <header>
       <div class="p-3 border-b bg-cus-primary">
         <div class="container">
@@ -59,7 +61,7 @@ onMounted(() => {
       </div>
       <Navbar></Navbar>
     </header>
-    <div ref="main" id="main" >
+    <div ref="main" id="main">
       <RouterView />
     </div>
     <Footer></Footer>

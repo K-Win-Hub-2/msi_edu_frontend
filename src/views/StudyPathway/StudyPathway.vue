@@ -2,9 +2,9 @@
   <section>
     <BannerMotion></BannerMotion>
   </section>
-  <section class="bg-white">
+  <section class="">
     <div
-      class="container md:w-[1199px] sm:w-[320px] h-[624px] bg-[#EDF7FF] mt-6 py-10 px-10"
+      class="container md:w-[1199px] sm:w-[320px] h-[624px] mt-6 py-10 px-10"
     >
       <h1
         class="text-cus-primary lg:text-[48px] ssm:text-md md:text-lg sm:text-md shadow-title font-bold text-center"
@@ -74,12 +74,12 @@
       <Countries></Countries>
     </div>
   </section>
-  <section id="mission" class="bg-[#D0F1FF]">
+  <section id="mission" class="">
     <div class="container px-6 ssm:py-8 md:py-16">
       <OurService />
     </div>
   </section>
-  <section class="bg-[#D0F1FF] mt-2">
+  <section class="mt-2">
     <Testimonials />
   </section>
 </template>

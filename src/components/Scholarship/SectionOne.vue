@@ -3,7 +3,7 @@
     <div class="relative w-full overflow-hidden">
       <!-- section one -->
       <div
-        class="bg-[url(../../assets/img/scholarship/image.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute top-0"
+        class="w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute top-0"
       ></div>
       <div class="lg:mb-[80px] ssm:mb-[20px] md:mb-[60px]">
         <!-- <div

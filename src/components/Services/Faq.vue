@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="h-auto overflow-hidden border-2 rounded-lg">
+    <div class="h-auto overflow-hidden bg-white border-2 rounded-lg">
       <h1
         class="md:cus-heading ssm:text-md ssm:font-semibold text-white bg-[#8BB5FC] text-center p-3"
       >

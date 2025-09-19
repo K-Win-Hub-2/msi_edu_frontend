@@ -1,14 +1,14 @@
 <script setup>
-import NavItem from '@/components/partials/NavItem.vue';
-import TopBar from './TopBar.vue';
-import { useRoute } from 'vue-router';
-import { onMounted, ref } from 'vue';
-import { useAppStore } from '../stores/app';
-import { storeToRefs } from 'pinia';
-import getData from '../axios/getData';
+import NavItem from "@/components/partials/NavItem.vue";
+import TopBar from "./TopBar.vue";
+import { useRoute } from "vue-router";
+import { onMounted, ref } from "vue";
+import { useAppStore } from "../stores/app";
+import { storeToRefs } from "pinia";
+import getData from "../axios/getData";
 const appStore = useAppStore();
 const { navbar } = storeToRefs(appStore);
-const url = ref('country-lists');
+const url = ref("country-lists");
 const { data, fetchData } = getData();
 const handleNavbar = () => {
   navbar.value = true;
@@ -16,125 +16,125 @@ const handleNavbar = () => {
 
 const urls = [
   {
-    name: 'Home',
-    url: 'home',
+    name: "Home",
+    url: "home",
   },
   {
-    name: 'About us',
-    url: 'about-us',
+    name: "About us",
+    url: "about-us",
     dropdown: [
       {
-        name: 'Our Office',
-        url: 'about-us',
-        hash: '#our-office',
+        name: "Our Office",
+        url: "about-us",
+        hash: "#our-office",
       },
       {
-        name: 'Who we are',
-        url: 'about-us',
-        hash: '#about',
+        name: "Who we are",
+        url: "about-us",
+        hash: "#about",
       },
       {
-        name: 'Speech',
-        url: 'about-us',
-        hash: '#speech',
+        name: "Speech",
+        url: "about-us",
+        hash: "#speech",
       },
       {
-        name: 'Mission',
-        url: 'about-us',
-        hash: '#mission',
+        name: "Mission",
+        url: "about-us",
+        hash: "#mission",
       },
       {
-        name: 'Our Partner',
-        url: 'about-us',
-        hash: '#our-partner',
+        name: "Our Partner",
+        url: "about-us",
+        hash: "#our-partner",
       },
       {
-        name: 'Our Team',
-        url: 'about-us',
-        hash: '#our-team',
+        name: "Our Team",
+        url: "about-us",
+        hash: "#our-team",
       },
       {
-        name: 'Testimonial',
-        url: 'about-us',
-        hash: '#testimonial',
+        name: "Testimonial",
+        url: "about-us",
+        hash: "#testimonial",
       },
       {
-        name: 'Why MSI',
-        url: 'about-us',
-        hash: '#why-msi',
+        name: "Why MSI",
+        url: "about-us",
+        hash: "#why-msi",
       },
       {
-        name: 'Roadmap',
-        url: 'about-us',
-        hash: '#roadmap',
+        name: "Roadmap",
+        url: "about-us",
+        hash: "#roadmap",
       },
     ],
   },
   {
-    name: 'Services',
-    url: 'services',
+    name: "Services",
+    url: "services",
     dropdown: [
       {
-        name: 'Our Services',
-        url: 'services',
-        hash: '#our-services',
+        name: "Our Services",
+        url: "services",
+        hash: "#our-services",
       },
       {
-        name: 'Faq',
-        url: 'services',
-        hash: '#faq',
+        name: "Faq",
+        url: "services",
+        hash: "#faq",
       },
     ],
   },
   {
-    name: 'StudyPathway',
-    url: 'study-pathway',
+    name: "StudyPathway",
+    url: "study-pathway",
     dropdown: [
       {
-        name: 'Main Page',
-        url: 'study-pathway',
+        name: "Main Page",
+        url: "study-pathway",
       },
       {
-        name: 'Singapore',
-        url: 'study-pathway.countries.singapore',
+        name: "Singapore",
+        url: "study-pathway.countries.singapore",
       },
       {
-        name: 'Thailand',
-        url: 'study-pathway.countries.thailand',
+        name: "Thailand",
+        url: "study-pathway.countries.thailand",
       },
       {
-        name: 'Malaysia',
-        url: 'study-pathway.countries.malaysia',
+        name: "Malaysia",
+        url: "study-pathway.countries.malaysia",
       },
       {
-        name: 'Canada',
-        url: 'study-pathway.countries.canada',
+        name: "Canada",
+        url: "study-pathway.countries.canada",
       },
       {
-        name: 'UK',
-        url: 'study-pathway.countries.uk',
+        name: "UK",
+        url: "study-pathway.countries.uk",
       },
       {
-        name: 'Switzerland',
-        url: 'study-pathway.countries.switzerland',
+        name: "Switzerland",
+        url: "study-pathway.countries.switzerland",
       },
       {
-        name: 'Vietnam',
-        url: 'study-pathway.countries.vietnam',
+        name: "Vietnam",
+        url: "study-pathway.countries.vietnam",
       },
       {
-        name: 'Italy',
-        url: 'study-pathway.countries.italy',
+        name: "Italy",
+        url: "study-pathway.countries.italy",
       },
       {
-        name: 'USA',
-        url: 'study-pathway.countries.usa',
+        name: "USA",
+        url: "study-pathway.countries.usa",
       },
     ],
   },
-  { name: 'Scholarship', url: 'scholarship' },
-  { name: 'Events', url: 'events' },
-  { name: 'Contact Us', url: 'contact-us' },
+  { name: "Scholarship", url: "scholarship" },
+  { name: "Events", url: "events" },
+  { name: "Contact Us", url: "contact-us" },
 ];
 
 onMounted(() => {
@@ -201,8 +201,22 @@ const isActive = (url) => {
           id="navbarSupportedContent1"
           data-te-collapse-item
         >
-       
           <!-- Left links -->
+
+          <a
+            class="flex items-center py-3 mt-2 mb-8 text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mt-0 lg:mb-0"
+            href="#"
+          >
+            <img
+              src="../assets/img/msiLogo.png"
+              class="object-cover h-20 lg:h-18"
+              alt=""
+              loading="lazy"
+            />
+          </a>
+          <!-- left links-->
+
+          <!--right links-->
           <ul
             class="space-y-4 h-[80px] items-center list-style-none mb-5 mr-auto lg:mr-0 flex flex-col pl-0 lg:mb-0 lg:flex-row lg:space-x-2 lg:space-y-0"
             data-te-navbar-nav-ref
@@ -399,20 +413,7 @@ const isActive = (url) => {
               ></NavItem>
             </template> -->
           </ul>
-          <!-- Left links -->
-
-          <a
-          class="flex items-center py-3 mt-2 mb-8 text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mt-0 lg:mb-0"
-          href="#"
-        >
-        <img
-        src="../assets/img/msiLogo.png"
-        class="object-cover h-20 lg:h-18"
-        alt=""
-        loading="lazy"
-      />
-
-        </a>
+          <!-- right links -->
         </div>
         <!-- Collapsible wrapper -->
       </div>

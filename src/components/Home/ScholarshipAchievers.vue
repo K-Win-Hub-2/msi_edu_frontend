@@ -44,7 +44,9 @@ const previousScholarshipAchiever = () => {
   if (scholarshipAchievers.value.length === 0) return;
 
   currentScholarshipAchieverIndex.value =
-    (currentScholarshipAchieverIndex.value - 1 + scholarshipAchievers.value.length) %
+    (currentScholarshipAchieverIndex.value -
+      1 +
+      scholarshipAchievers.value.length) %
     scholarshipAchievers.value.length;
 
   updateCurrentScholarshipAchiever();
@@ -57,34 +59,34 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative overflow-hidden">
-    <h1
-      class="text-center capitalize md:cus-heading ssm:text-md ssm:font-semibold text-cus-secondary md:mt-12 text-shadow-sm cus-shadow-color"
-    >
-      Scholarship Achievers
-    </h1>
-
-    <!-- Left arrow fixed on the left side -->
+  <div class="relative w-full overflow-hidden">
+    <!-- Left arrow moved closer to center -->
     <div
       @click="previousScholarshipAchiever"
-      class="absolute z-20 transform -translate-y-1/2 top-1/2 left-2 hover:cursor-pointer"
+      class="absolute z-20 transform -translate-y-1/2 top-[62%] left-60 hover:cursor-pointer"
     >
-      <ChevronLeftIcon class="w-12 h-12 text-cus-primary" />
+      <ChevronLeftIcon class="w-10 h-10 text-cus-primary" />
     </div>
 
     <div
       v-if="currentScholarshipAchiever"
-      class="flex items-center ssm:bg-[#EDF7FF] md:bg-white justify-center md:gap-3 mt-11"
+      class="flex flex-col ssm:bg-[#EDF7FF] w-full md:bg-white justify-center md:gap-3 mt-11 items-center"
     >
+      <h1
+        class="mb-6 text-center capitalize md:cus-heading ssm:text-md ssm:font-semibold text-cus-secondary md:mt-12 text-shadow-sm cus-shadow-color"
+      >
+        Scholarship Achievers
+      </h1>
+
       <ScholarshipAchieverCard :data="currentScholarshipAchiever" />
     </div>
 
-    <!-- Right arrow fixed on the right side -->
+    <!-- Right arrow moved closer to center -->
     <div
       @click="nextScholarshipAchiever"
-      class="absolute z-20 transform -translate-y-1/2 top-1/2 right-2 hover:cursor-pointer"
+      class="absolute z-20 transform -translate-y-1/2 top-[62%] right-60 hover:cursor-pointer"
     >
-      <ChevronRightIcon class="w-12 h-12 text-cus-primary" />
+      <ChevronRightIcon class="w-10 h-10 text-cus-primary" />
     </div>
   </div>
 </template>

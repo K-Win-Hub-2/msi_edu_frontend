@@ -18,7 +18,7 @@ import Facts from "../components/Home/Facts.vue";
     </section>
     <section class="relative">
       <div
-        class="bg-[url(../../assets/img/Home/msiWebPattern2.png)] w-[100%] h-[500px] bg-no-repeat bg-[length:100%_100%] absolute top-0 left-1/2 -translate-x-1/2"
+        class="w-[100%] h-[500px] bg-no-repeat bg-[length:100%_100%] absolute top-0 left-1/2 -translate-x-1/2"
         alt=""
       ></div>
       <div class="container relative z-40 py-10">
@@ -37,21 +37,22 @@ import Facts from "../components/Home/Facts.vue";
     </section>
     <section class="relative">
       <div
-        class="bg-[url(../../assets/img/Home/msiWebPattern.png)] w-[100%] h-[1800px] bg-no-repeat bg-[length:100%_100%] absolute bottom-[-800px] right-0"
+        class="w-[100%] h-[1800px] bg-no-repeat bg-[length:100%_100%] absolute bottom-[-800px] right-0"
         alt=""
       ></div>
-    
+
       <div
         class="container relative z-30 px-6 md:pt-12 ssm:pt-6 md:pb-24 ssm:pb-8"
       >
         <Awards></Awards>
       </div>
     </section>
-    <section>
-      <div class="container px-6 md:pb-24 relative md:mb-[130px] ssm:mb-5 z-30">
-        <ScholarshipAchievers></ScholarshipAchievers>
+    <section class="flex justify-center w-full p-0 m-0">
+      <div class="relative z-30 w-full max-w-full">
+        <ScholarshipAchievers />
       </div>
     </section>
+
     <section class="relative md:mt-12 md:mb-24 lg:mb-36">
       <div
         class="bg-[url(../../assets/img/Home/eventUnviersityBg.png)] w-[80%] h-[650px] bg-no-repeat bg-[length:100%_100%] absolute bottom-[280px] right-0"

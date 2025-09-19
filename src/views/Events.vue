@@ -1,12 +1,15 @@
 <template>
   <div>
-    <div class="bg-white lg:mt-30 md:mt-16 ssm:mt-14" v-if="oldEvents || latestEvent">
+    <div class="lg:mt-30 md:mt-16 ssm:mt-14" v-if="oldEvents || latestEvent">
       <div class="relative overflow-hidden">
         <div
           class="bg-[url(@/assets/img/scholarship/image.png)] bg-[length:100%_100%] bottom-0 z-30 w-[100%] h-[100%] bg-no-repeat absolute top-0"
         ></div>
 
-        <div class="container relative z-30 lg:mt-48 md:mt-16 ssm:mt-14" v-if="latestEvent.length">
+        <div
+          class="container relative z-30 lg:mt-48 md:mt-16 ssm:mt-14"
+          v-if="latestEvent.length"
+        >
           <!-- title start-->
           <div class="flex justify-between lg:mx-20 ssm:mx-5">
             <h1
@@ -73,7 +76,6 @@
                   >See more</Button
                 >
               </router-link>
-
             </div>
           </div>
           <!-- upcoming card end -->
@@ -102,7 +104,7 @@
             class="grid gap-4 mb-5 lg:grid-cols-3 md:grid-cols-2 ssm:grid-cols-1 md:gap-y-5 lg:mt-20 md:mt-10"
           >
             <div
-              class="w-[320px] h-[380px] oldEventCard "
+              class="w-[320px] h-[380px] oldEventCard"
               v-for="event in oldEvents"
               :key="event.id"
             >
@@ -140,7 +142,6 @@
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
@@ -169,7 +170,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script setup>

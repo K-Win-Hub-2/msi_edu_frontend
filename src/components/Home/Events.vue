@@ -148,12 +148,12 @@ onMounted(() => {
   <div>
     <div class="px-3">
       <h3
-        class="md:text-4xl ssm:text-md font-semibold text-cus-primary uppercase"
+        class="font-semibold uppercase md:text-4xl ssm:text-md text-cus-primary"
       >
         events & seminars
       </h3>
       <h4
-        class="md:text-3xl ssm:text-md font-semibold text-cus-secondary uppercase"
+        class="font-semibold uppercase md:text-3xl ssm:text-md text-cus-secondary"
       >
         Coming soon
       </h4>
@@ -193,7 +193,7 @@ onMounted(() => {
       class="grid grid-cols-4 p-3 gap-3 md:w-[500px] md:ml-[68px] cus-glass-card cus-rounded mb-6"
     >
       <div class="col-span-1">
-        <div class="p-2 flex flex-col items-center">
+        <div class="flex flex-col items-center p-2">
           <div class="font-bold text-cus-primary-pale">
             {{
               new Date(currentActiveEvent.start_date).toLocaleString("en-US", {
@@ -216,7 +216,7 @@ onMounted(() => {
           class="md:text-md ssm:text-[20px] font-semibold capitalize truncate"
         >
           {{ currentActiveEvent.title }}
-          <p class="text-sm truncate-two text-wrap font-normal">
+          <p class="text-sm font-normal truncate-two text-wrap">
             {{ currentActiveEvent.description }}
           </p>
         </h3>
@@ -224,11 +224,11 @@ onMounted(() => {
     </div>
   </div>
   <!-- <div class="w-[600px] mx-auto">
-    <div class="flex flex-col sm:flex-row gap-6">
+    <div class="flex flex-col gap-6 sm:flex-row">
       <div class="w-full min-w-[160px]">
         <div class="relative" data-te-dropdown-ref>
           <a
-            class="w-full border cus-rounded bg-white flex items-center justify-between px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+            class="w-full border cus-rounded  flex items-center justify-between px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
             href="#"
             type="button"
             id="dropdownMenuButton2"
@@ -238,12 +238,12 @@ onMounted(() => {
             data-te-ripple-color="light"
           >
             {{ filters.country?.name ?? "Country" }}
-            <span class="ml-2 w-2">
+            <span class="w-2 ml-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="h-5 w-5"
+                class="w-5 h-5"
               >
                 <path
                   fill-rule="evenodd"
@@ -254,14 +254,14 @@ onMounted(() => {
             </span>
           </a>
           <ul
-            class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-hidden border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
+            class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-hidden border-none  bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
             aria-labelledby="dropdownMenuButton2"
             data-te-dropdown-menu-ref
           >
             <li v-for="(country, index) in currentCountries" :key="index">
               <div
                 @click="handleCountriesSelect(country)"
-                class="block w-full bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                class="block w-full px-4 py-2 text-sm font-normal bg-transparent text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
                 data-te-dropdown-item-ref
               >
                 {{ country.name }}
@@ -273,7 +273,7 @@ onMounted(() => {
       <div class="w-full min-w-[160px]">
         <div class="relative" data-te-dropdown-ref>
           <a
-            class="w-full border cus-rounded bg-white flex items-center justify-between px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+            class="w-full border cus-rounded  flex items-center justify-between px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
             href="#"
             type="button"
             id="dropdownMenuButton3"
@@ -283,12 +283,12 @@ onMounted(() => {
             data-te-ripple-color="light"
           >
             {{ filters.university?.name ?? "University" }}
-            <span class="ml-2 w-2">
+            <span class="w-2 ml-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="h-5 w-5"
+                class="w-5 h-5"
               >
                 <path
                   fill-rule="evenodd"
@@ -299,14 +299,14 @@ onMounted(() => {
             </span>
           </a>
           <ul
-            class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-hidden border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
+            class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-hidden border-none  bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
             aria-labelledby="dropdownMenuButton3"
             data-te-dropdown-menu-ref
           >
             <li v-for="(uni, index) in currentUniversities" :key="index">
               <div
                 @click="handleUniversitySelect(uni)"
-                class="block w-full bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                class="block w-full px-4 py-2 text-sm font-normal bg-transparent text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
                 data-te-dropdown-item-ref
               >
                 {{ uni.name }}

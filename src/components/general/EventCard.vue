@@ -4,7 +4,7 @@
       :to="{ name: 'event.upcomingDetail', params: { id: props.event.id } }"
     >
       <div
-        class="overflow-hidden transition bg-white border cus-standout hover:border-black"
+        class="overflow-hidden transition border cus-standout hover:border-black"
       >
         <img
           :src="props.event.imageURL"
@@ -44,7 +44,7 @@
 import { getShortMonth, getDay } from "@/utils/date.js";
 
 const props = defineProps(["event", "detail"]);
-console.log('props ',props.event)
+console.log("props ", props.event);
 </script>
 
 <style lang="scss" scoped></style>

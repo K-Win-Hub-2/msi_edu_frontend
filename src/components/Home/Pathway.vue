@@ -1,12 +1,12 @@
 <script setup>
-import Button from '@/components/partials/Button.vue';
-import { onMounted, ref, watch } from 'vue';
-import { universities } from '../../mocks/universities';
-import { programs } from '../../mocks/programs';
-import Loading from '../general/Loading.vue';
-import axios from 'axios';
-import { useToast } from 'vue-toast-notification';
-import { useRouter } from 'vue-router';
+import Button from "@/components/partials/Button.vue";
+import { onMounted, ref, watch } from "vue";
+import { universities } from "../../mocks/universities";
+import { programs } from "../../mocks/programs";
+import Loading from "../general/Loading.vue";
+import axios from "axios";
+import { useToast } from "vue-toast-notification";
+import { useRouter } from "vue-router";
 
 const $toast = useToast();
 const router = useRouter();
@@ -19,9 +19,9 @@ const programList = ref();
 const courseList = ref();
 
 // selected data
-const selectedCourse = ref('default');
-const selectedProgramId = ref('default');
-const selectedCountry = ref('default');
+const selectedCourse = ref("default");
+const selectedProgramId = ref("default");
+const selectedCountry = ref("default");
 const selectedUniversity = ref();
 const selectedProgram = ref();
 
@@ -35,7 +35,7 @@ const currentPrograms = ref([]);
 
 // methods
 const fetchCountries = async (setSelected = true) => {
-  const res = await axios.get('country-lists');
+  const res = await axios.get("country-lists");
   selectedCountry.value = setSelected
     ? res.data.countries[0]?.id
     : selectedCountry.value;
@@ -45,7 +45,7 @@ const fetchCountries = async (setSelected = true) => {
 const fetchPrograms = async () => {
   if (checkCountry()) {
     const res = await axios.get(
-      'country-program-course-search/' + selectedCountry.value
+      "country-program-course-search/" + selectedCountry.value
     );
     const resProgramList = res.data.program_courses;
     programList.value = resProgramList.filter(
@@ -61,7 +61,7 @@ const fetchPrograms = async () => {
     //   return;
     // }
   }
-  selectedProgramId.value = 'default';
+  selectedProgramId.value = "default";
   selectedProgram.value = {};
 };
 
@@ -73,31 +73,31 @@ const fetchCourses = async () => {
     };
 
     const res = await axios.post(
-      'courses?country_id=' +
+      "courses?country_id=" +
         payload.country_id +
-        '&program_id=' +
+        "&program_id=" +
         payload.program_id
     );
 
-    if (res.data.status == 'success') {
+    if (res.data.status == "success") {
       let courses = [];
       const courseArray = res.data.courses;
       courseArray.forEach((course) => {
-        courses = [...courses, ...course.course_name.split(',')];
+        courses = [...courses, ...course.course_name.split(",")];
       });
 
       const formattedArray = courses.map((course) => course.trim());
 
       courseList.value = [
-        ...new Set(formattedArray.filter((value) => value != '')),
+        ...new Set(formattedArray.filter((value) => value != "")),
       ];
-      selectedCourse.value = 'default';
+      selectedCourse.value = "default";
 
       return;
     }
   }
 
-  selectedCourse.value = 'default';
+  selectedCourse.value = "default";
   courseList.value = [];
 };
 
@@ -119,7 +119,7 @@ const handleCourseSelect = (event) => {
 
 const checkCountry = () => {
   if (selectedCountry.value) {
-    if (selectedCountry.value !== 'default') {
+    if (selectedCountry.value !== "default") {
       return true;
     }
   }
@@ -129,7 +129,7 @@ const checkCountry = () => {
 
 const checkProgramId = () => {
   if (selectedProgramId.value) {
-    if (selectedProgramId.value !== 'default') {
+    if (selectedProgramId.value !== "default") {
       return true;
     }
   }
@@ -139,7 +139,7 @@ const checkProgramId = () => {
 
 const checkCourse = () => {
   if (selectedCourse.value) {
-    if (selectedCourse.value !== 'default') {
+    if (selectedCourse.value !== "default") {
       return true;
     }
   }
@@ -152,22 +152,22 @@ const handleSearch = async () => {
     let universityArray = [];
     uniLoading.value = true;
 
-    let url = 'universities';
+    let url = "universities";
     if (checkCountry()) {
-      url += '?country_id=' + selectedCountry.value;
+      url += "?country_id=" + selectedCountry.value;
 
       if (checkProgramId()) {
-        url += '&program_id=' + selectedProgramId.value;
+        url += "&program_id=" + selectedProgramId.value;
 
         if (checkCourse()) {
-          url += '&course_name=' + encodeURIComponent(selectedCourse.value);
+          url += "&course_name=" + encodeURIComponent(selectedCourse.value);
         }
       }
     }
 
     const res = await axios.post(url);
 
-    if (res.data.status == 'success') {
+    if (res.data.status == "success") {
       universityArray = res.data.universities;
 
       filteredUniversityList.value = universityArray;
@@ -176,10 +176,10 @@ const handleSearch = async () => {
     }
 
     filteredUniversityList.value = [];
-    $toast.error('Not Found !', { position: 'top-right' });
+    $toast.error("Not Found !", { position: "top-right" });
   } catch {
     filteredUniversityList.value = [];
-    $toast.error('Not Found !', { position: 'top-right' });
+    $toast.error("Not Found !", { position: "top-right" });
   } finally {
     uniLoading.value = false;
   }
@@ -234,7 +234,7 @@ const updateSelectedProgram = () => {
 };
 
 const handleUniversitySelect = (payload) => {
-  if (payload.index !== 'university') {
+  if (payload.index !== "university") {
     console.log(payload);
     filters.value.uni = { name: payload.name, slug: payload.slug };
     updateCurrentPrograms();
@@ -245,7 +245,7 @@ const handleUniversitySelect = (payload) => {
 // fetch university
 const fetchUniversities = async () => {
   const res = await axios.get(
-    'university-lists/partner/yes/country/' + selectedCountry.value
+    "university-lists/partner/yes/country/" + selectedCountry.value
   );
   // const res = await axios.get("university-lists/partner/yes");
   // console.log("uni", res.data.university);
@@ -259,7 +259,7 @@ const fetchUniversities = async () => {
 
 const searchCountry = async () => {
   const res = await axios.get(
-    'university-lists/partner/yes/country/' + selectedCountry.value
+    "university-lists/partner/yes/country/" + selectedCountry.value
   );
   if (res.data.university.length) {
     const uni = res.data.university.filter((data) => {
@@ -269,10 +269,10 @@ const searchCountry = async () => {
     //   return p.id == uni[0].program_id;
     // });
     // if (selectedProgram.value == program[0].id) {
-    router.push({ name: 'universities.detail', params: { id: uni[0].id } });
+    router.push({ name: "universities.detail", params: { id: uni[0].id } });
     // }
   } else {
-    $toast.error('Not Found !', { position: 'top-right' });
+    $toast.error("Not Found !", { position: "top-right" });
   }
 };
 const searchHandle = () => {
@@ -301,28 +301,25 @@ watch(
   <template v-else>
     <div class="flex flex-col gap-12">
       <div
-        class="flex md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5 lg:space-y-0 lg:flex-row justify-between items-center"
+        class="flex items-center justify-between md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5 lg:space-y-0 lg:flex-row"
       >
-        <div class="flex flex-col select-none">
-          <h1 class="cus-subheading text-cus-primary uppercase">
+        <div class="flex flex-col select-none md:ml-10">
+          <h1 class="uppercase cus-subheading text-cus-primary">
             find your right
           </h1>
-          <h1 class="cus-subheading text-cus-secondary uppercase">
+          <h1 class="font-bold uppercase text-cus-secondary">
             education pathway
           </h1>
         </div>
-        <div class="flex sm:flex-col md:flex-row gap-6">
-          <div class="lg:w-[180px]">
+        <div class="flex gap-8 sm:flex-col md:flex-row">
+          <div>
             <div class="relative" data-te-dropdown-ref>
               <select
-                name=""
                 v-model="selectedCountry"
                 @change="handleCountrySelect"
-                class="border min-w-[200px] md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+                class="flex items-center justify-between w-40 px-2 py-2 font-medium leading-normal uppercase transition duration-75 ease-in-out bg-white border cus-rounded whitespace-nowrap text-cus-primary focus:outline-none focus:ring-0 motion-reduce:transition-none"
               >
-                <option class="overflow-x-scroll text-[13px]" value="default">
-                  - Country -
-                </option>
+                <option class="text-[13px]" value="default">Country</option>
                 <template v-if="countryList">
                   <option
                     class="text-[13px]"
@@ -336,17 +333,15 @@ watch(
               </select>
             </div>
           </div>
-          <div class="w-[200px]">
+
+          <div>
             <div class="relative" data-te-dropdown-ref>
               <select
                 v-model="selectedProgramId"
-                name=""
                 @change="handleProgramSelect"
-                class="border md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+                class="flex items-center justify-between w-40 px-2 py-2 font-medium leading-normal uppercase transition duration-75 ease-in-out bg-white border cus-rounded whitespace-nowrap text-cus-primary focus:outline-none focus:ring-0 motion-reduce:transition-none"
               >
-                <option class="overflow-x-scroll text-[13px]" value="default">
-                  - Program -
-                </option>
+                <option class="text-[13px]" value="default">Program</option>
                 <template v-if="programList">
                   <option
                     class="text-[13px]"
@@ -360,20 +355,18 @@ watch(
               </select>
             </div>
           </div>
-          <div class="lg:w-[170px] md:w-[200px] md:-ml-5">
+
+          <div>
             <div class="relative" data-te-dropdown-ref>
               <select
-                name=""
                 v-model="selectedCourse"
                 @change="handleCourseSelect"
-                class="border md:text-md ssm:text-[16px] max-w-[200px] cus-rounded bg-white flex items-center justify-between whitespace-nowrap px-2 pt-2.5 pb-2 font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
+                class="flex items-center justify-between w-40 px-2 py-2 font-medium leading-normal uppercase transition duration-75 ease-in-out bg-white border cus-rounded whitespace-nowrap text-cus-primary focus:outline-none focus:ring-0 motion-reduce:transition-none"
               >
-                <option class="overflow-x-scroll text-[13px]" value="default">
-                  - Course -
-                </option>
+                <option class="text-[13px]" value="default">Course</option>
                 <template v-if="courseList">
                   <option
-                    class="overflow-x-scroll text-[13px]"
+                    class="text-[13px]"
                     v-for="(course, idx) in courseList"
                     :key="idx"
                     :value="course"
@@ -387,7 +380,7 @@ watch(
 
           <Button
             @click="handleSearch"
-            class="flex justify-center md:ml-4 md:px-6 items-center"
+            class="flex items-center justify-center md:ml-4 md:px-6"
             type="gradient"
             >Search</Button
           >
@@ -400,7 +393,7 @@ watch(
       <template v-else>
         <template v-if="filteredUniversityList.length > 0">
           <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 first-letter justify-items-center gap-12"
+            class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 first-letter justify-items-center"
           >
             <template
               v-for="university in visibleUniversities()"
@@ -415,14 +408,14 @@ watch(
                 class="block bg-white w-full h-[150px] group relative cus-standout overflow-hidden"
               >
                 <img
-                  class="w-full h-full object-contain p-3"
+                  class="object-contain w-full h-full p-3"
                   :src="university.imageURL"
                 />
                 <div
-                  class="flex items-center justify-center absolute top-0 left-0 group-hover:bg-gray-900 group-hover:bg-opacity-40 w-full h-full transition"
+                  class="absolute top-0 left-0 flex items-center justify-center w-full h-full transition group-hover:bg-gray-900 group-hover:bg-opacity-40"
                 >
                   <span
-                    class="opacity-0 group-hover:opacity-100 transition z-10 text-white text-center"
+                    class="z-10 text-center text-white transition opacity-0 group-hover:opacity-100"
                     >{{ university.university_name }}</span
                   >
                 </div>
@@ -431,11 +424,11 @@ watch(
           </div>
           <div
             v-if="currentIndex < filteredUniversityList.length"
-            class="w-full flex items-center justify-center"
+            class="flex items-center justify-center w-full"
           >
             <button
               @click="handleShowMore"
-              class="border-2 hover:bg-cus-primary shadow-xl hover:text-white border-gray-400 rounded-lg md:px-4 ssm:py-1 ssm:px-1 md:py-2"
+              class="border-2 border-gray-400 rounded-lg shadow-xl hover:bg-cus-primary hover:text-white md:px-4 ssm:py-1 ssm:px-1 md:py-2"
             >
               Show More
             </button>
@@ -443,7 +436,7 @@ watch(
         </template>
         <div
           v-else
-          class="flex md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5 justify-between items-center"
+          class="flex items-center justify-between md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5"
         >
           No University Found!
         </div>
