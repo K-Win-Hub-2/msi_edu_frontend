@@ -58,7 +58,7 @@ const { data, fetchData } = getData();
 
 // const fetchEvent = async () => {
 //   const res = await axios.get(
-//     "http://adminpanel.msieducation.edu.mm/api/latestEventList"
+//     "https://adminpanel.msieducation.edu.mm/api/latestEventList"
 //   );
 //   if (res) {
 //     events.value = res.data.latestEvent;

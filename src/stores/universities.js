@@ -8,7 +8,7 @@ export const useUniversityStore = defineStore("university", {
   actions: {
     fetchUniversities() {
       return getAxiosClient()
-        .get(`http://adminpanel.msieducation.edu.mm/api/allUniversityList`)
+        .get(`https://adminpanel.msieducation.edu.mm/api/allUniversityList`)
         .then((res) => {
           return res;
         })
@@ -19,7 +19,7 @@ export const useUniversityStore = defineStore("university", {
     fetchUniversity(payload) {
       return getAxiosClient()
         .get(
-          `http://adminpanel.msieducation.edu.mm/api/universityList/${payload}`
+          `https://adminpanel.msieducation.edu.mm/api/universityList/${payload}`
         )
 
         .then((res) => {

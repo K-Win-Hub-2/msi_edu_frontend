@@ -131,7 +131,7 @@ const swiperOptions = {
 // fetch data
 const fetchData = async () => {
   const res = await axios.get(
-    "http://adminpanel.msieducation.edu.mm/api/testimonials"
+    "https://adminpanel.msieducation.edu.mm/api/testimonials"
   );
   testimonials.value = res.data.testimonials;
 };

@@ -133,7 +133,7 @@ const swiperOptions = {
 const fetchData = async () => {
   try {
     const res = await axios.get(
-      "http://adminpanel.msieducation.edu.mm/api/scholarship-achievers/scholar-type/3"
+      "https://adminpanel.msieducation.edu.mm/api/scholarship-achievers/scholar-type/3"
     );
     console.log(res);
     return res.data.scholarAchiever;
