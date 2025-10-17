@@ -38,58 +38,64 @@ const goToScholarshipPage = () => {
 
 
 <template>
-  <div class="flex justify-center my-12">
+  <div class="flex justify-center">
     <!-- Fixed width container -->
-    <div class="w-full max-w-[900px]">
+    <div class="w-full">
       <div class="flex items-end justify-between gap-10">
-        <div class="flex gap-6 md:flex-row ssm:flex-col">
+        <div class="flex justify-center w-[550px] gap-6 md:flex-row ssm:flex-col">
+          <!-- Image -->
           <div class="relative shrink-0">
             <img
               :src="studentImage"
-              class="relative md:h-[280px] ssm:h-[180px] ssm:w-[200px] md:w-[300px] z-10 select-none rounded-[50%] object-cover"
-              alt=""
+              class="relative md:h-[160px] md:w-[160px] ssm:h-[110px] ssm:w-[110px] z-10 select-none rounded-full object-cover"
+              alt="student image"
             />
           </div>
-          <div class="flex flex-col text-left">
+
+          <!-- Info -->
+          <div class="flex flex-col text-left max-w-[600px] w-full break-words whitespace-normal">
             <div>
               <h3
-                class="mb-3 font-bold capitalize md:text-2xl ssm:text-md text-cus-primary text-shadow-sm cus-shadow-color"
+                class="mb-2 font-bold capitalize md:text-lg ssm:text-base text-cus-primary text-shadow-sm cus-shadow-color"
               >
                 {{ data.title }}
               </h3>
-              <div
-                class="mb-3 capitalize text-cus-primary text-shadow-sm cus-shadow-color"
+
+              <h3
+                class="mb-1 capitalize md:text-[18px] ssm:text-sm text-cus-primary text-shadow-sm cus-shadow-color"
               >
-                <h3 class="mb-1 md:text-2xl ssm:text-md">
-                  {{ data.student_name }}
-                </h3>
-              </div>
+                {{ data.student_name }}
+              </h3>
 
               <h4
-                class="md:text-xl ssm:text-[16px] text-cus-primary capitalize text-shadow-sm cus-shadow-color"
+                class="capitalize md:text-base ssm:text-sm text-cus-primary text-shadow-sm cus-shadow-color"
               >
                 {{ data.course_name }}
               </h4>
+
               <h4
-                class="md:text-xl ssm:text-[20px] text-shadow-sm cus-shadow-color mt-2"
+                class="mt-1 capitalize md:text-sm ssm:text-sm text-shadow-sm cus-shadow-color"
               >
                 {{ data.scholar_type.scholar_name }}
               </h4>
+
               <h4
-                class="md:text-xl ssm:text-[20px] text-shadow-sm cus-shadow-color mt-2"
+                class="md:text-xs ssm:text-[11px] text-shadow-sm cus-shadow-color mt-1 capitalize"
               >
                 {{ data.country.name }}
               </h4>
             </div>
-            <div class="flex justify-end ssm:mt-3 md:mt-0">
-              <Button class="px-6" type="gradient" @click="goToScholarshipPage"
-                >See More</Button
-              >
+
+            <div class="flex justify-start mt-5">
+              <Button class="px-6" type="gradient" @click="goToScholarshipPage">
+                See More
+              </Button>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 

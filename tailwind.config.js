@@ -64,7 +64,7 @@ module.exports = {
       colors: {
         "cus-primary": {
           light: "#f90",
-          DEFAULT: "#01437d",
+          DEFAULT: "#0F2948",
         },
         "cus-primary-pale": {
           DEFAULT: colors.sky[800],

@@ -158,7 +158,7 @@ onMounted(() => {
         Coming soon
       </h4>
     </div>
-    <div class="flex items-center justify-between mb-3">
+    <div class="flex items-center justify-between">
       <swiper
         :effect="'coverflow'"
         :autoplay="swiperOptions.autoplay"
@@ -176,7 +176,7 @@ onMounted(() => {
         v-if="comingSoonEvent"
       >
         <template v-for="event in comingSoonEvent" :key="event.id">
-          <swiper-slide class="my-3">
+          <swiper-slide>
             <EventCard
               :event="event"
               class="md:ml-[200px] ssm:ml-[350px] lg:ml-0 md:w-[500px] ssm:w-[280px]"
@@ -186,11 +186,11 @@ onMounted(() => {
       </swiper>
     </div>
     <div
-      class="swiper-home-event-pagination mx-auto flex justify-center h-[50px]"
+      class="swiper-home-event-pagination mx-auto flex justify-center h-[10px]"
     ></div>
     <div
       v-if="currentActiveEvent"
-      class="grid grid-cols-4 p-3 gap-3 md:w-[500px] md:ml-[68px] cus-glass-card cus-rounded mb-6"
+      class="grid grid-cols-4 p-3 gap-3 md:w-[500px] md:ml-[68px] cus-glass-card cus-rounded"
     >
       <div class="col-span-1">
         <div class="flex flex-col items-center p-2">
@@ -327,6 +327,6 @@ onMounted(() => {
 
 <style>
 #homeEventSwiper .swiper-wrapper {
-  margin-left: -350px;
+  margin-left: -320px;
 }
 </style>

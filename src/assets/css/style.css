@@ -28,7 +28,7 @@
   }
 
   .cus-rounded {
-    @apply rounded-xl
+    @apply rounded-md
   }
 
   .cus-shadow {

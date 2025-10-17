@@ -59,34 +59,42 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative w-full overflow-hidden">
-    <!-- Left arrow moved closer to center -->
-    <div
-      @click="previousScholarshipAchiever"
-      class="absolute z-20 transform -translate-y-1/2 top-[62%] left-60 hover:cursor-pointer"
-    >
-      <ChevronLeftIcon class="w-10 h-10 text-cus-primary" />
-    </div>
+  <div class="relative overflow">
+    <div class="relative w-full max-w-4xl mx-auto">
+      <div class="relative p-6 overflow-hidden bg-white/60 rounded-3xl md:p-6">
+        <button
+          @click="previousScholarshipAchiever"
+          aria-label="Previous scholarship achiever"
+          class="absolute z-30 flex items-center justify-center w-12 h-12 transition transform -translate-y-1/2 bg-white border border-gray-200 rounded-full shadow-sm top-1/2 left-8 hover:shadow-md hover:scale-105"
+        >
+          <ChevronLeftIcon class="w-6 h-6 text-cus-primary" />
+        </button>
 
-    <div
-      v-if="currentScholarshipAchiever"
-      class="flex flex-col ssm:bg-[#EDF7FF] w-full md:bg-white justify-center md:gap-3 mt-11 items-center"
-    >
-      <h1
-        class="mb-6 text-center capitalize md:cus-heading ssm:text-md ssm:font-semibold text-cus-secondary md:mt-12 text-shadow-sm cus-shadow-color"
-      >
-        Scholarship Achievers
-      </h1>
+        <div
+          v-if="currentScholarshipAchiever"
+          class="flex flex-col items-center justify-center py-2 md:gap-3"
+        >
+          <h1
+            class="mb-6 text-center capitalize md:cus-heading ssm:text-md ssm:font-semibold text-cus-secondary md:mt-2 text-shadow-sm"
+          >
+            Scholarship Achievers
+          </h1>
 
-      <ScholarshipAchieverCard :data="currentScholarshipAchiever" />
-    </div>
+          <ScholarshipAchieverCard
+            :data="currentScholarshipAchiever"
+            class="pb-6"
+          />
+        </div>
 
-    <!-- Right arrow moved closer to center -->
-    <div
-      @click="nextScholarshipAchiever"
-      class="absolute z-20 transform -translate-y-1/2 top-[62%] right-60 hover:cursor-pointer"
-    >
-      <ChevronRightIcon class="w-10 h-10 text-cus-primary" />
+
+        <button
+          @click="nextScholarshipAchiever"
+          aria-label="Next scholarship achiever"
+          class="absolute z-30 flex items-center justify-center w-12 h-12 transition transform -translate-y-1/2 bg-white border border-gray-200 rounded-full shadow-sm top-1/2 right-8 hover:shadow-md hover:scale-105"
+        >
+          <ChevronRightIcon class="w-6 h-6 text-cus-primary" />
+        </button>
+      </div>
     </div>
   </div>
 </template>

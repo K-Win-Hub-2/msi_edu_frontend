@@ -49,9 +49,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
-    class="relative text-center bg-center bg-no-repeat bg-cover bg-[url('@/assets/img/home/background.jpg')]"
-  >
+    <div
+      class="relative text-center bg-center bg-repeat bg-contain  bg-[url('@/assets/img/home/body.jpg')]"
+    >
     <header>
       <div class="p-3 border-b bg-cus-primary">
         <div class="container">
@@ -73,7 +73,7 @@ onMounted(() => {
     <div class="relative">
       <div
         v-if="navbar"
-        class="md:w-[300px] flex animate__animated ssm:w-[300px] fixed top-0 left-0 transition-all duration-900 h-screen bottom-0 rounded-r-[50px] z-50 bg-slate-200"
+        class="md:w-[300px] flex animate__animated ssm:w-[300px] fixed top-0 left-0 transition-all duration-900 h-screen bottom-0 rounded-r-[50px] z-50 0"
         :class="[
           navbar == true ? 'animate__fadeInLeft' : 'animate__fadeInRight',
         ]"

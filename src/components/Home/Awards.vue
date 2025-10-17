@@ -25,7 +25,7 @@ const onSlideChange = (event) => {
 };
 
 const swiperOptions = {
-  initialSlide: 2, 
+  initialSlide: 2,
   loop: false,
   centeredSlides: true,
   slidesPerView: 4,
@@ -50,7 +50,9 @@ onMounted(() => {
 <template>
   <div class="w-full max-w-[1600px] mx-auto px-2">
     <!-- Title -->
-    <h1 class="text-center uppercase cus-heading md:mb-12 text-shadow cus-shadow-color">
+    <h1
+      class="mt-[240px] text-center uppercase cus-heading md:mb-12 text-shadow cus-shadow-color"
+    >
       <span class="text-cus-primary md:text-[40px] ssm:text-md text-shadow-sm">
         26 awards
       </span>
@@ -61,11 +63,16 @@ onMounted(() => {
 
     <!-- Navigation + Swiper -->
     <div class="relative flex items-center justify-between mt-5 mb-3">
-      <div class="absolute cus-glass-card cus-rounded shadow w-full h-[90%]"></div>
+      <!-- <div class="absolute cus-rounded shadow w-full h-[90%]"></div> -->
 
       <!-- Prev Button -->
-      <div class="swiper-home-award-button-prev-unique hover:cursor-pointer z-[20]">
-        <ChevronLeftIcon :class="{ 'opacity-50': start }" class="w-12 h-12 text-cus-primary" />
+      <div
+        class="swiper-home-award-button-prev-unique hover:cursor-pointer z-[20]"
+      >
+        <ChevronLeftIcon
+          :class="{ 'opacity-50': start }"
+          class="w-12 h-12 text-cus-primary"
+        />
       </div>
 
       <!-- Swiper -->
@@ -84,16 +91,24 @@ onMounted(() => {
       >
         <template v-for="(award, index) in currentAwards" :key="index">
           <swiper-slide class="my-3 transition-transform duration-300 shrink-0">
-            <div class="flex justify-center w-full award-card h-[500px] mb-5">
-              <AwardCard :image="award.photo" class="w-full max-w-xs select-none" />
+            <div class="flex justify-center w-full award-card h-[300px] mb-5">
+              <AwardCard
+                :image="award.photo"
+                class="w-full max-w-xs select-none"
+              />
             </div>
           </swiper-slide>
         </template>
       </swiper>
 
       <!-- Next Button -->
-      <div class="swiper-home-award-button-next-unique hover:cursor-pointer z-[20]">
-        <ChevronRightIcon :class="{ 'opacity-50': end }" class="w-12 h-12 text-cus-primary" />
+      <div
+        class="swiper-home-award-button-next-unique hover:cursor-pointer z-[20]"
+      >
+        <ChevronRightIcon
+          :class="{ 'opacity-50': end }"
+          class="w-12 h-12 text-cus-primary"
+        />
       </div>
     </div>
 

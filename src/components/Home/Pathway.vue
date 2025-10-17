@@ -304,12 +304,8 @@ watch(
         class="flex items-center justify-between md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5 lg:space-y-0 lg:flex-row"
       >
         <div class="flex flex-col select-none md:ml-10">
-          <h1 class="uppercase cus-subheading text-cus-primary">
-            find your right
-          </h1>
-          <h1 class="font-bold uppercase text-cus-secondary">
-            education pathway
-          </h1>
+          <h1 class="text-white uppercase cus-subheading">find your right</h1>
+          <h1 class="font-bold text-white uppercase">education pathway</h1>
         </div>
         <div class="flex gap-8 sm:flex-col md:flex-row">
           <div>
@@ -436,7 +432,7 @@ watch(
         </template>
         <div
           v-else
-          class="flex items-center justify-between md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5"
+          class="flex items-center justify-between text-white md:flex-col ssm:mt-3 md:mt-0 ssm:flex-col md:space-y-5"
         >
           No University Found!
         </div>

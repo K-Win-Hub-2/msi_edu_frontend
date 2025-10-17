@@ -1,6 +1,6 @@
 <template>
   <button
-    class="p-1 cus-rounded transition"
+    class="p-1 transition cus-rounded"
     :class="{
       'bg-white [&>div>*]:text-cus-primary border border-cus-primary':
         type === 'outline',
@@ -12,12 +12,13 @@
         type === 'default',
       'bg-transparent border text-white border-secondary-300':
         type === 'outline-white',
-      'bg-gradient-to-r from-yellow-200 to-pink-200 transition hover:from-cus-primary hover:to-cus-secondary hover:text-[#fff]':
-        type === 'gradient',
+      'bg-gradient-to-r from-cus-primary to-cus-secondary text-white transition':
+      type === 'gradient'
+
     }"
   >
     <div
-      class="capitalize font-semibold"
+      class="font-semibold capitalize"
     >
       <!-- <slot name="icon"></slot> -->
       <span>
