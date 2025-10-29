@@ -2,7 +2,7 @@
   <div>
     <div class="h-auto overflow-hidden bg-white border-2 rounded-lg">
       <h1
-        class="md:cus-heading ssm:text-md ssm:font-semibold text-white bg-[#8BB5FC] text-center p-3"
+        class="p-3 text-center text-white md:cus-heading ssm:text-md ssm:font-semibold bg-cus-primary"
       >
         Frequently Asked Questions
       </h1>

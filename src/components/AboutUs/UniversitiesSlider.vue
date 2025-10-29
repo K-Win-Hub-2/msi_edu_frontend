@@ -9,8 +9,8 @@
       :modules="modules"
     >
       <template v-for="image in universitiesImages">
-        <swiper-slide>
-          <img :src="image.image" class="h-[100px]"/>
+        <swiper-slide class="my-3 md:!w-[150px]">
+          <img :src="image.image" class="md:!w-[150px] h-[100px]" />
         </swiper-slide>
       </template>
     </swiper>

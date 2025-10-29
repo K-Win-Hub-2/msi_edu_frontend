@@ -6,13 +6,18 @@ import { onMounted, ref } from "vue";
 import { useAppStore } from "../stores/app";
 import { storeToRefs } from "pinia";
 import getData from "../axios/getData";
+import axios from "axios"; // ✅ imported axios directly
+
 const appStore = useAppStore();
 const { navbar } = storeToRefs(appStore);
 const url = ref("country-lists");
 const { data, fetchData } = getData();
+
 const handleNavbar = () => {
   navbar.value = true;
 };
+
+const logoUrl = ref(null);
 
 const urls = [
   {
@@ -137,8 +142,21 @@ const urls = [
   { name: "Contact Us", url: "contact-us" },
 ];
 
+const fetchLogo = async () => {
+  try {
+    const res = await axios.get("statistics/logo");
+    if (res.data?.success) {
+      logoUrl.value = res.data.data.logo;
+    } else {
+      console.warn("Failed to load logo:", res.data?.message);
+    }
+  } catch (err) {
+    console.error("Error fetching logo:", err);
+  }
+};
 onMounted(() => {
   fetchData(url.value);
+  fetchLogo();
 });
 
 const route = useRoute();
@@ -208,9 +226,10 @@ const isActive = (url) => {
             href="#"
           >
             <img
-              src="../assets/img/msiLogo.png"
+              v-if="logoUrl"
+              :src="logoUrl"
               class="object-cover h-20 lg:h-18"
-              alt=""
+              alt="Logo"
               loading="lazy"
             />
           </a>

@@ -145,20 +145,19 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <div class="px-3">
-      <h3
-        class="font-semibold uppercase md:text-4xl ssm:text-md text-cus-primary"
-      >
+  <div class="mt-12 overflow-hidden">
+    <div class="px-4 sm:px-6">
+      <h3 class="text-2xl font-semibold uppercase md:text-4xl text-cus-primary">
         events & seminars
       </h3>
       <h4
-        class="font-semibold uppercase md:text-3xl ssm:text-md text-cus-secondary"
+        class="mb-8 text-xl font-semibold uppercase md:text-3xl text-cus-secondary"
       >
         Coming soon
       </h4>
     </div>
-    <div class="flex items-center justify-between">
+
+    <div class="flex items-center justify-center">
       <swiper
         :effect="'coverflow'"
         :autoplay="swiperOptions.autoplay"
@@ -169,40 +168,38 @@ onMounted(() => {
         :pagination="swiperOptions.pagination"
         :modules="modules"
         :coverflowEffect="swiperOptions.coverflowEffect"
-        :grabCursor="false"
+        :grabCursor="true"
         :centeredSlides="true"
         id="homeEventSwiper"
-        class="lg:w-[1300px] md:w-[800px] ssm:w-[300px]"
+        class="w-full"
         v-if="comingSoonEvent"
       >
         <template v-for="event in comingSoonEvent" :key="event.id">
           <swiper-slide>
-            <EventCard
-              :event="event"
-              class="md:ml-[200px] ssm:ml-[350px] lg:ml-0 md:w-[500px] ssm:w-[280px]"
-            />
+            <EventCard :event="event" class="w-full" />
           </swiper-slide>
         </template>
       </swiper>
     </div>
+
     <div
-      class="swiper-home-event-pagination mx-auto flex justify-center h-[10px]"
+      class="swiper-home-event-pagination mx-auto flex justify-center h-[10px] mt-4"
     ></div>
+
     <div
       v-if="currentActiveEvent"
-      class="grid grid-cols-4 p-3 gap-3 md:w-[500px] md:ml-[68px] cus-glass-card cus-rounded"
+      class="grid max-w-lg grid-cols-4 gap-3 p-3 px-4 mx-auto mt-8 cus-glass-card cus-rounded sm:px-6"
     >
       <div class="col-span-1">
         <div class="flex flex-col items-center p-2">
-          <div class="font-bold text-cus-primary-pale">
+          <div class="text-sm font-bold text-cus-primary-pale">
             {{
               new Date(currentActiveEvent.start_date).toLocaleString("en-US", {
                 month: "short",
               })
             }}
-            <!-- {{ getShortMonth(currentActiveEvent.start_date) }} -->
           </div>
-          <div class="font-bold">
+          <div class="text-xl font-bold">
             {{
               new Date(currentActiveEvent.start_date).toLocaleString("en-US", {
                 day: "2-digit",
@@ -211,118 +208,17 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="col-span-3 space-y-2">
-        <h3
-          class="md:text-md ssm:text-[20px] font-semibold capitalize truncate"
-        >
+
+      <div class="col-span-3 space-y-1">
+        <h3 class="text-lg font-semibold capitalize">
           {{ currentActiveEvent.title }}
-          <p class="text-sm font-normal truncate-two text-wrap">
-            {{ currentActiveEvent.description }}
-          </p>
         </h3>
+        <p class="text-sm font-normal text-wrap line-clamp-2">
+          {{ currentActiveEvent.description }}
+        </p>
       </div>
     </div>
   </div>
-  <!-- <div class="w-[600px] mx-auto">
-    <div class="flex flex-col gap-6 sm:flex-row">
-      <div class="w-full min-w-[160px]">
-        <div class="relative" data-te-dropdown-ref>
-          <a
-            class="w-full border cus-rounded  flex items-center justify-between px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
-            href="#"
-            type="button"
-            id="dropdownMenuButton2"
-            data-te-dropdown-toggle-ref
-            aria-expanded="false"
-            data-te-ripple-init
-            data-te-ripple-color="light"
-          >
-            {{ filters.country?.name ?? "Country" }}
-            <span class="w-2 ml-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-          </a>
-          <ul
-            class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-hidden border-none  bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
-            aria-labelledby="dropdownMenuButton2"
-            data-te-dropdown-menu-ref
-          >
-            <li v-for="(country, index) in currentCountries" :key="index">
-              <div
-                @click="handleCountriesSelect(country)"
-                class="block w-full px-4 py-2 text-sm font-normal bg-transparent text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                data-te-dropdown-item-ref
-              >
-                {{ country.name }}
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="w-full min-w-[160px]">
-        <div class="relative" data-te-dropdown-ref>
-          <a
-            class="w-full border cus-rounded  flex items-center justify-between px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
-            href="#"
-            type="button"
-            id="dropdownMenuButton3"
-            data-te-dropdown-toggle-ref
-            aria-expanded="false"
-            data-te-ripple-init
-            data-te-ripple-color="light"
-          >
-            {{ filters.university?.name ?? "University" }}
-            <span class="w-2 ml-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-          </a>
-          <ul
-            class="max-h-[300px] w-full absolute cus-rounded z-[1000] float-left m-0 hidden list-none overflow-y-scroll overflow-x-hidden border-none  bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block duration-75"
-            aria-labelledby="dropdownMenuButton3"
-            data-te-dropdown-menu-ref
-          >
-            <li v-for="(uni, index) in currentUniversities" :key="index">
-              <div
-                @click="handleUniversitySelect(uni)"
-                class="block w-full px-4 py-2 text-sm font-normal bg-transparent text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                data-te-dropdown-item-ref
-              >
-                {{ uni.name }}
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="flex items-center">
-        <Button class="px-6" type="gradient" @click="onSearchClick"
-          >Search</Button
-        >
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <style>

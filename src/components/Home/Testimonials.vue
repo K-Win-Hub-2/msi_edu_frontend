@@ -83,13 +83,13 @@ const currentTestimonial = ref({
 
 <template>
   <div class="overflow-hidden">
-    <!-- <h1 class="cus-heading text-cus-primary text-center capitalize mt-12">
+    <!-- <h1 class="mt-12 text-center capitalize cus-heading text-cus-primary">
       Testimonials
     </h1> -->
     <div class="flex items-center justify-center gap-3 group">
       <div
         @click="previousTestimonial"
-        class="swiper-home-testimonial-prev-unique hover:cursor-pointer opacity-0 group-hover:opacity-100"
+        class="opacity-0 swiper-home-testimonial-prev-unique hover:cursor-pointer group-hover:opacity-100"
       >
         <!-- <ChevronLeftIcon class="w-12 h-12 text-cus-primary" /> -->
       </div>
@@ -102,7 +102,7 @@ const currentTestimonial = ref({
 
       <div
         @click="nextTestimonial"
-        class="swiper-home-testimonial-next-unique hover:cursor-pointer opacity-0 group-hover:opacity-100"
+        class="opacity-0 swiper-home-testimonial-next-unique hover:cursor-pointer group-hover:opacity-100"
       >
         <!-- <ChevronRightIcon class="w-12 h-12 text-cus-primary" /> -->
       </div>

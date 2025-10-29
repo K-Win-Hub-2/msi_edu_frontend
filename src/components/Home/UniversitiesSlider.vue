@@ -52,13 +52,13 @@ const swiperOptions = {
     },
     // when window width is >= 640px
     1024: {
-      slidesPerView: 3,
-      spaceBetween: 40,
+      slidesPerView: 4,
+      spaceBetween: 25,
     },
     // when window width is >= 640px
     1280: {
-      slidesPerView: 6,
-      spaceBetween: 50,
+      slidesPerView: 5,
+      spaceBetween: 30,
     },
   },
   navigation: {
@@ -97,10 +97,10 @@ onMounted(() => {
         :breakpoints="swiperOptions.breakpoints"
         :navigation="swiperOptions.navigation"
         :modules="modules"
-        class="ssm:max-w-[180px] sm:max-w-[240px] md:max-w-[700px] lg:max-w-[1200px]"
+        class="ssm:max-w-[180px] sm:max-w-[240px] md:max-w-[800px] lg:max-w-[1400px]"
       >
         <template v-for="university in currentUniversities">
-          <swiper-slide class="my-3">
+          <swiper-slide class="my-3 md:!w-[150px]">
             <UniversityCard
               :image="university.image"
               :description="university.description"

@@ -49,9 +49,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div
-      class="relative text-center bg-center bg-repeat bg-contain  bg-[url('@/assets/img/home/body.jpg')]"
-    >
+  <div class="relative text-center bg-center bg-repeat bg-contain">
     <header>
       <div class="p-3 border-b bg-cus-primary">
         <div class="container">
@@ -279,3 +277,13 @@ onMounted(() => {
     <!-- md sm nav link end -->
   </div>
 </template>
+<style>
+body {
+  background-image: url("@/assets/img/home/body.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+</style>
+

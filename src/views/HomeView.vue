@@ -41,7 +41,7 @@ import Facts from "../components/Home/Facts.vue";
 
       <!-- Facts Section -->
       <section>
-        <div class="container relative z-30 py-12">
+        <div class="container relative z-30 md:py-12">
           <Facts />
         </div>
       </section>
@@ -49,7 +49,7 @@ import Facts from "../components/Home/Facts.vue";
       <!-- Awards Section -->
       <section class="relative">
         <div
-          class="w-[100%] h-[1800px] bg-no-repeat bg-[length:100%_100%] absolute bottom-[-800px] right-0"
+          class="w-[100%] h-[1800px] absolute bottom-[-800px] right-0"
           alt=""
         ></div>
         <div

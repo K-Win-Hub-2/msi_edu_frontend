@@ -1,16 +1,16 @@
 <script setup>
-import { onMounted, ref } from 'vue';
-import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/vue/24/solid';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation } from 'swiper';
+import { onMounted, ref } from "vue";
+import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper";
 
 const currentAwards = ref([]);
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { awards } from '../../../mocks/awards';
-import AwardTimelineCard from './AwardTimelineCard.vue';
+import "swiper/css";
+import "swiper/css/navigation";
+import { awards } from "../../../mocks/awards";
+import AwardTimelineCard from "./AwardTimelineCard.vue";
 
 const start = ref(true);
 const end = ref(false);
@@ -55,8 +55,8 @@ const swiperOptions = {
     },
   },
   navigation: {
-    nextEl: '.swiper-home-award-button-next-unique',
-    prevEl: '.swiper-home-award-button-prev-unique',
+    nextEl: ".swiper-home-award-button-next-unique",
+    prevEl: ".swiper-home-award-button-prev-unique",
   },
 };
 // swiper end
@@ -68,11 +68,11 @@ onMounted(() => {
 
 <template>
   <div>
-    <h1 class="cus-heading text-center uppercase mb-12">
+    <h1 class="mb-12 text-center uppercase cus-heading">
       <!-- <span class="text-cus-primary text-7xl">22 awards</span> -->
-      <span class="text-cus-secondary text-4xl"> Showcase of Excellence </span>
+      <span class="text-4xl text-cus-secondary"> Showcase of Excellence </span>
     </h1>
-    <div class="relative flex justify-between items-center mb-3">
+    <div class="relative flex items-center justify-between mb-3">
       <div
         class="swiper-home-award-button-prev-unique hover:cursor-pointer z-[20]"
       >
