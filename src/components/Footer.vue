@@ -13,22 +13,23 @@ const urls = [
 
 <template>
   <footer
-    class="text-white bg-[url('@/assets/img/home/footer.png')] bg-cover bg-bottom bg-no-repeat relative"
+    class="text-white bg-[url('@/assets/img/home/footer.png')] bg-no-repeat bg-bottom bg-cover pt-40 sm:pt-60 lg:pt-80 relative"
   >
-    <div class="pt-20 pb-6 md:pt-40 lg:pt-80">
+    <div class="pt-20">
       <div class="container mx-auto">
         <div
           class="grid grid-cols-1 gap-12 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-7"
         >
+          <!-- Left Menu (Logo & Links) -->
           <div
-            class="text-center lg:col-span-2 sm:text-left text-[#0F2948] sm:text-white"
+            class="text-center lg:self-end lg:col-span-2 sm:text-left text-[#0F2948] sm:text-white"
           >
             <h2
               class="flex justify-center mb-6 text-sm font-semibold uppercase sm:justify-start"
             >
               <img
                 src="@/assets/img/footer-logo.png"
-                class="h-12 mr-0 md:h-16 sm:mr-2"
+                class="h-20 mr-0 md:h-24 sm:mr-2"
                 alt="Footer Logo"
                 loading="lazy"
               />
@@ -49,17 +50,23 @@ const urls = [
             </ul>
           </div>
 
+          <!-- Right Columns (Address & Contact) -->
           <div
-            class="grid grid-cols-1 gap-10 lg:col-span-5 lg:grid-cols-2 text-[#0F2948] sm:text-white"
+            class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-3 text-[#0F2948] sm:text-white"
           >
-            <div class="text-center sm:text-left">
-              <h2 class="mt-24 mb-2 text-base font-semibold uppercase">
+            <!-- Address Section -->
+            <div class="text-center lg:self-end sm:text-left lg:col-span-2">
+              <!-- Adjusted margin: small mt-8 on mobile, large mt-20 on large screens -->
+              <h2 class="mt-8 mb-2 text-base font-semibold uppercase lg:mt-20">
                 Address
               </h2>
               <div class="space-y-4 text-sm leading-relaxed">
                 <div>
                   <div class="font-semibold">Yangon (Head) Office</div>
-                  <p>No.234, 2nd Fl.(R), Shwebontha St. (MID BL),</p>
+                  <p>
+                    No.234, 2nd Fl.(R), Shwebontha St.
+                    <span class="whitespace-nowrap">(MID BL),</span>
+                  </p>
                   <p>Pabedan Tsp, Yangon, Myanmar.</p>
                 </div>
 
@@ -72,13 +79,17 @@ const urls = [
               </div>
             </div>
 
-            <div class="text-center sm:text-left lg:ml-20">
-              <h2 class="mt-4 mb-3 text-base font-semibold uppercase">
+            <!-- Contact Section -->
+            <div class="text-center sm:text-left lg:ml-10 lg:col-span-1">
+              <!-- Adjusted margin: mt-8 on mobile when stacked, mt-4 on md/lg for horizontal alignment -->
+              <h2 class="mt-8 mb-3 text-base font-semibold uppercase md:mt-4">
                 Contact Us
               </h2>
               <ul class="space-y-3 text-sm">
                 <li>
-                  <span class="block font-semibold">Yangon (Head) Office</span>
+                  <span class="font-semibold whitespace-nowrap"
+                    >Yangon (Head) Office</span
+                  >
                   <div>+95 1 838 991 5</div>
                   <div>+95 1 838 140 8</div>
                   <div>+95 1 837 346 1</div>
@@ -112,6 +123,7 @@ const urls = [
                 </li>
 
                 <li class="flex justify-center mt-4 space-x-4 sm:justify-start">
+                  <!-- Social Media Icons (SVGs are incomplete mock paths but layout is correct) -->
                   <a
                     href="#"
                     aria-label="Instagram"
@@ -165,10 +177,11 @@ const urls = [
           </div>
         </div>
 
+        <!-- Footer Bottom (Copyright) -->
         <div class="mt-10 border-t border-gray-700">
           <div class="container">
             <div
-              class="px-4 py-4 text-xs text-center sm:text-sm text-[#0F2948] sm:text-white"
+              class="px-4 py-6 text-xs text-center sm:text-sm text-[#0F2948] sm:text-white"
             >
               <span>
                 Copyright © 2023.

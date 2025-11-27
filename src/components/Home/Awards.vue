@@ -60,14 +60,20 @@ onMounted(async () => {
     <h1
       class="px-4 mb-6 text-center uppercase cus-heading sm:mb-10 text-shadow cus-shadow-color"
     >
-      <span class="block font-bold text-cus-primary xs:text-3xl sm:text-5xl">
-        <span class="text-7xl md:text-7xl xs:text-5xl sm:text-6xl lg:text-7xl">
+      <span class="block font-bold text-cus-primary">
+        <span
+          class="text-[#E2A623] text-6xl xs:text-7xl sm:text-8xl md:text-9xl lg:text-[10rem]"
+        >
           {{ totalAward }}
         </span>
-        <span class="text-xl text-cus-primary xs:text-2xl sm:text-4xl">
+
+        <span
+          class="block text-xl leading-tight xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-cus-primary"
+        >
           awards
         </span>
       </span>
+
       <span class="block text-base text-cus-secondary sm:text-lg md:text-2xl">
         Showcase of Excellence
       </span>

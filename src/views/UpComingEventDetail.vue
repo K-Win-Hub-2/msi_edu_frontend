@@ -1,7 +1,7 @@
 <template>
   <div class="" v-if="currentEvent">
     <div class="">
-      <div class="flex justify-center relative">
+      <div class="relative flex justify-center">
         <div
           class="absolute bottom-1 lg:left-[180px] md:left-[60px] sm:left-10"
         >
@@ -22,7 +22,7 @@
           class="xl:w-full md:w-full sm:w-full md:h-[500px] xl:h-[800px] xl:mt-40 md:mt-20"
         />
       </div>
-      <div class="w-full relative overflow-hidden pb-10">
+      <div class="relative w-full pb-10 overflow-hidden">
         <div class="">
           <div
             class="bg-[url(@/assets/img/scholarship/image.png)] bg-[length:100%_100%] bottom-0 z-30 w-[100%] h-[100%] bg-no-repeat absolute top-0"
@@ -39,7 +39,7 @@
               <h1
                 class="sm:text-md ssm:text-[20px] md:mt-14 ssm:mt-5 text-red-500"
               >
-                <i class="fa-solid fa-calendar-days mr-2"></i
+                <i class="mr-2 fa-solid fa-calendar-days"></i
                 >{{ currentEvent.start_date }}
                 <span v-if="currentEvent.event_location_id == 1">(Yangon)</span>
                 <span v-else>(Mandalay)</span>
@@ -49,9 +49,10 @@
               >
                 {{ currentEvent.title }}
               </h1>
-              <h1 class="md:text-md ssm:text-sm ssm:mr-5">
-                {{ currentEvent.description }}
-              </h1>
+              <h1
+                class="md:text-md ssm:text-sm ssm:mr-5"
+                v-html="currentEvent.description.replace(/\n/g, '<br>')"
+              ></h1>
             </div>
           </div>
           <!-- event detail end -->
@@ -97,12 +98,12 @@
       </div>
       <div class="container md:mt-14 ssm:mt-8">
         <h1
-          class="md:text-lg ssm:mx-5 ssm:text-md text-cus-primary font-semibold text-shadow-lg"
+          class="font-semibold md:text-lg ssm:mx-5 ssm:text-md text-cus-primary text-shadow-lg"
         >
           More Events
         </h1>
         <!-- event card end -->
-        <div class="flex w-full justify-center">
+        <div class="flex justify-center w-full">
           <div class="relative">
             <div class="">
               <swiper
@@ -118,7 +119,7 @@
                 class="mySwiper flex lg:min-w-[1050px] md:min-w-[800px] ssm:max-w-[300px] sm:max-w-[320px] lg:max-w-[1050px]"
               >
                 <swiper-slide
-                  class="flex justify-center py-12 w-full"
+                  class="flex justify-center w-full py-12"
                   v-for="event in moreEvents"
                   :key="event.id"
                 >
@@ -138,15 +139,15 @@
                             class="sm:w-[300px] ssm:w-[290px] rounded-md sm:mx-0 h-[200px]"
                             alt=""
                           />
-                          <h1 class="text-sm ssm:ml-4 sm:mx-0 mt-2">
+                          <h1 class="mt-2 text-sm ssm:ml-4 sm:mx-0">
                             {{ event.title }}
                           </h1>
                           <h1 class="ssm:ml-4 sm:mx-0">
-                            <i class="fa-solid fa-calendar-days mr-2"></i>
+                            <i class="mr-2 fa-solid fa-calendar-days"></i>
                             {{ event.start_date }}
                           </h1>
-                          <p class="text-sm mb-2 ssm:ml-4 sm:mx-0">
-                            <i class="fa-solid fa-location-dot mr-2"></i>
+                          <p class="mb-2 text-sm ssm:ml-4 sm:mx-0">
+                            <i class="mr-2 fa-solid fa-location-dot"></i>
                             <span v-if="event.event_location_id == 1"
                               >Yangon</span
                             >
@@ -165,7 +166,7 @@
                 </swiper-slide>
               </swiper>
               <div
-                class="swiper-event-more-list-button-prev-unique absolute left-0 top-1/2 -translate-y-1/2"
+                class="absolute left-0 -translate-y-1/2 swiper-event-more-list-button-prev-unique top-1/2"
               >
                 <ChevronLeftIcon
                   :class="{ 'opacity-50': start }"
@@ -173,7 +174,7 @@
                 />
               </div>
               <div
-                class="swiper-event-more-list-button-next-unique absolute right-0 top-1/2 -translate-y-1/2"
+                class="absolute right-0 -translate-y-1/2 swiper-event-more-list-button-next-unique top-1/2"
               >
                 <ChevronRightIcon
                   :class="{ 'opacity-50': end }"

@@ -441,6 +441,6 @@ const isActive = (url) => {
 </template>
 <style>
 a.router-link-active {
-  color: #01437d;
+  border-bottom: 4px solid #fedd76;
 }
 </style>
