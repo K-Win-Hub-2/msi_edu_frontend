@@ -6,8 +6,6 @@ const props = defineProps(["data"]);
 const studentImage = ref("");
 studentImage.value =
   "http://adminpanel.msieducation.edu.mm/postImage/" + props.data.student_image;
-
-  
 </script>
 <template>
   <div
@@ -17,7 +15,7 @@ studentImage.value =
       <div class="w-[131px] h-[131px]">
         <img
           class="rounded-full w-[100%] h-[100%]"
-          :src="studentImage"
+          src="C:\Users\User\Downloads\test.jpg"
           alt=""
         />
       </div>
@@ -30,11 +28,11 @@ studentImage.value =
         <h1 class="text-[#205887] mt-3 text-[13px]">
           <span
             class="text-[#FE005F] text-[12px] font-[700] uppercase shadow-title"
-            >{{ props.data.course_name }} </span
-          >
-          <span class="text-[11px] font-[400] uppercase shadow-title"
-            > ({{ props.data.country.name }}) </span
-          >
+            >{{ props.data.course_name }}
+          </span>
+          <span class="text-[11px] font-[400] uppercase shadow-title">
+            ({{ props.data.country.name }})
+          </span>
           <!-- <span
             class="text-[11px] text-[#205887] mt-3 font-[400] uppercase shadow-title"
           >

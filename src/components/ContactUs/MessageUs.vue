@@ -99,9 +99,7 @@
                   : `No. 31/3, Between 79 St × 80 St,<br/>38th St, Mahar Aung Myay Township,<br/>Mandalay, Myanmar (Burma)`
               "
             ></p>
-
           </div>
-
         </div>
       </div>
       <div class="md:w-[488px] md:h-[520px] md:border-l-2">
@@ -136,7 +134,7 @@
           <div class="mb-2">
             <textarea
               class="w-full px-5 pt-4 contact-card"
-              placeholder="Write your thoughts here"
+              placeholder="Write your question here.. "
               cols="30"
               rows="4"
             ></textarea>
@@ -145,7 +143,7 @@
             <div class="flex items-center">
               <input type="checkbox" class="w-5 h-5" />
               <h1 class="ml-4 py-2 md:text-normal ssm:text-[12px]">
-                You agreed to the terms and conditions
+                You agree to the terms and conditions
               </h1>
             </div>
           </div>

@@ -70,14 +70,14 @@ const fetchData = async (countryId) => {
   university.value = res.data.university;
 };
 watch(
-  () => props.id, (newId) => {
+  () => props.id,
+  (newId) => {
     fetchData(newId);
   }
 );
 onMounted(() => {
   fetchData(props.id);
 });
-
 </script>
 <template>
   <div

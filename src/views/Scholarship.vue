@@ -16,19 +16,17 @@
         </div>
       </div>
     </div>
-   
+
     <SectionOne />
 
-    
     <!-- carousel start -->
     <!-- <CarouselSch /> -->
     <!-- carousel end -->
 
     <!-- achiever -->
-    <SectionTwo :scholarships="topAchievers"/>
-     
-    <SectionThree :scholarships="filteredAchievers" :types="types"/>
-    
+    <SectionTwo :scholarships="topAchievers" />
+
+    <SectionThree :scholarships="filteredAchievers" :types="types" />
   </div>
 </template>
 
@@ -58,40 +56,27 @@ const types = ref([]);
 const achievers = ref([]);
 const topAchievers = ref([]);
 
-
-
-
-
-
 const fetchAchievers = async () => {
-    const res = await axios.get(`scholarship-achievers`);
-    achievers.value = res.data.scholarAchiever;
-    topAchievers.value = achievers.value.filter(
-      (a) => a.scholarship_type === 11
-    );
-    console.log("achievers ", res.data.scholarAchiever);
+  const res = await axios.get(`scholarship-achievers`);
+  achievers.value = res.data.scholarAchiever;
+  topAchievers.value = achievers.value.filter((a) => a.scholarship_type === 11);
+  console.log("achievers ", res.data.scholarAchiever);
 };
-
 
 const fetchTypes = async () => {
   const res = await axios.get(`scholarship-types`);
   types.value = res.data.types;
   console.log("types ", res.data.types);
 };
-    
 
 const filteredAchievers = computed(() =>
-  achievers.value.filter(a => a.scholarship_type != 11)
+  achievers.value.filter((a) => a.scholarship_type != 11)
 );
-
-
 
 onMounted(() => {
   fetchAchievers();
   fetchTypes();
 });
-
-  
 </script>
 
 <style>
