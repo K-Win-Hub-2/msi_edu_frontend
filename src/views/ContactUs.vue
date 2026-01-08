@@ -227,7 +227,6 @@ const selectLocation = (location) => {
 };
 
 const handleSubmit = async () => {
-  alert("hit");
   errors.value = {};
   successMessage.value = "";
 
