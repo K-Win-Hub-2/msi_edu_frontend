@@ -15,7 +15,7 @@ studentImage.value =
       <div class="w-[131px] h-[131px]">
         <img
           class="rounded-full w-[100%] h-[100%]"
-          src="C:\Users\User\Downloads\test.jpg"
+          src=""
           alt=""
         />
       </div>

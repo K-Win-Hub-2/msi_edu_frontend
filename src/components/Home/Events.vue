@@ -37,28 +37,9 @@ const onSwiper = (swiper) => {
 
 const swiperOptions = {
   loop: true,
-  breakpoints: {
-    // Mobile (0px and up)
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 20,
-    },
-    // Tablet (768px and up)
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 30,
-    },
-    // Desktop (1024px and up)
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 40,
-    },
-    // Wide Desktop (1280px and up)
-    1280: {
-      slidesPerView: 3.5, // Slightly less than 4 to keep focus on the center slide
-      spaceBetween: 50,
-    },
-  },
+  slidesPerView: 'auto',
+  spaceBetween: 30,
+  centeredSlides: true,
   pagination: {
     el: ".swiper-home-event-pagination",
     clickable: true,
@@ -162,18 +143,18 @@ onMounted(() => {
         :space-between="swiperOptions.spaceBetween"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
-        :breakpoints="swiperOptions.breakpoints"
         :pagination="swiperOptions.pagination"
         :modules="modules"
         :grabCursor="true"
         :centeredSlides="true"
+        :slidesPerView="'auto'"
         id="homeEventSwiper"
         class="w-full py-6"
         v-if="comingSoonEvent && comingSoonEvent.length > 0"
       >
         <template v-for="event in comingSoonEvent" :key="event.id">
-          <swiper-slide>
-            <EventCard :event="event" class="w-full h-auto" />
+          <swiper-slide class="flex justify-center min-w-[300px] sm:min-w-[350px] md:min-w-[400px] lg:min-w-[450px]">
+               <EventCard :event="event" class="w-full h-auto" />
           </swiper-slide>
         </template>
       </swiper>

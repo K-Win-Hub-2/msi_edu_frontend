@@ -6,11 +6,13 @@
       <div
         class="overflow-hidden transition border cus-standout hover:border-black"
       >
-        <img
-          :src="props.event.imageURL"
-          alt=""
-          class="border-b w-[600px] md:h-[300px] ssm:h-[150px] select-none"
-        />
+  <div class="relative w-full overflow-hidden aspect-video flex justify-center items-center">
+    <img
+      :src="props.event.imageURL"
+      alt="Event image"
+      class="w-full h-full object-cover select-none"
+    />
+  </div>
         <div class="grid grid-cols-4 gap-3 p-3" v-if="detail">
           <div class="col-span-1">
             <div class="flex flex-col items-center p-2">
