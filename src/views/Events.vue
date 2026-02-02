@@ -81,7 +81,6 @@
           <!-- upcoming card end -->
         </div>
       </div>
-      <hr class="mb-5" />
       <div class="container my-20">
         <div class="flex justify-between mb-4 lg:mx-20 sm:mx-5 ssm:mx-3">
           <h1
