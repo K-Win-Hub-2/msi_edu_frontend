@@ -53,7 +53,7 @@
       </div>
 
       <div class="ssm:max-w-[320px] ssm:px-3 md:px-0 md:max-w-[1000px]">
-        <h1 class="cus-paragraph-title text-shadow-sm cus-shadow-color mb-3">
+        <h1 class="cus-paragraph-title text-white text-shadow-sm cus-shadow-color mb-3">
           {{ currentCard.title }}
         </h1>
         <h2 class="cus-paragraph-subTitle mb-3">

@@ -16,6 +16,9 @@
         </div>
       </div>
     </div>
+      <div
+      class="relative bg-[url('@/assets/img/home/header.png')] bg-contain bg-no-repeat"
+    >
 
     <SectionOne />
 
@@ -27,6 +30,7 @@
     <SectionTwo :scholarships="topAchievers" />
 
     <SectionThree :scholarships="filteredAchievers" :types="types" />
+    </div>
   </div>
 </template>
 

@@ -13,7 +13,7 @@ const urls = [
 
 <template>
   <footer
-    class="text-white bg-[url('@/assets/img/home/footer.png')] bg-no-repeat bg-bottom bg-cover pt-40 sm:pt-60 lg:pt-80 relative"
+    class="text-white bg-[#0F2948] bg-[url('@/assets/img/home/footer.png')] bg-no-repeat bg-bottom bg-cover bg-[size:100%_auto] pt-40 sm:pt-60 lg:pt-80 relative"
   >
     <div class="pt-20">
       <div class="container mx-auto">
@@ -22,7 +22,7 @@ const urls = [
         >
           <!-- Left Menu (Logo & Links) -->
           <div
-            class="text-center lg:self-end lg:col-span-2 sm:text-left text-[#0F2948] sm:text-white"
+            class="text-center lg:self-end lg:col-span-2 sm:text-left"
           >
             <h2
               class="flex justify-center mb-6 text-sm font-semibold uppercase sm:justify-start"
@@ -52,7 +52,7 @@ const urls = [
 
           <!-- Right Columns (Address & Contact) -->
           <div
-            class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-3 text-[#0F2948] sm:text-white"
+            class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-3"
           >
             <!-- Address Section -->
             <div class="text-center lg:self-end sm:text-left lg:col-span-2">
@@ -181,7 +181,7 @@ const urls = [
         <div class="mt-10 border-t border-gray-700">
           <div class="container">
             <div
-              class="px-4 py-6 text-xs text-center sm:text-sm text-[#0F2948] sm:text-white"
+              class="px-4 py-6 text-xs text-center sm:text-sm"
             >
               <span>
                 Copyright © 2023.

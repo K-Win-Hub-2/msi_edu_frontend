@@ -3,7 +3,7 @@
     <div class="lg:mt-30 md:mt-16 ssm:mt-14" v-if="oldEvents || latestEvent">
       <div class="relative overflow-hidden">
         <div
-          class="bg-[url(@/assets/img/scholarship/image.png)] bg-[length:100%_100%] bottom-0 z-30 w-[100%] h-[100%] bg-no-repeat absolute top-0"
+          class="bg-[url('@/assets/img/home/header.png')] bg-[length:100%_100%] bottom-0 z-30 w-[100%] h-[100%] bg-no-repeat absolute top-0"
         ></div>
 
         <div
@@ -13,7 +13,7 @@
           <!-- title start-->
           <div class="flex justify-between lg:mx-20 ssm:mx-5">
             <h1
-              class="text-cus-primary text-shadow-lg md:text-lg ssm:text-[20px] sm:text-md font-semibold"
+              class="text-white text-shadow-lg md:text-lg ssm:text-[20px] sm:text-md font-semibold"
             >
               UpcomingEvents
             </h1>

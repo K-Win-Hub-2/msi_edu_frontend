@@ -2,12 +2,15 @@
   <section>
     <BannerMotion></BannerMotion>
   </section>
+    <div
+      class="relative bg-[url('@/assets/img/home/header.png')] bg-contain bg-no-repeat"
+    >
   <section class="">
     <div
       class="container md:w-[1199px] sm:w-[320px] h-[624px] mt-6 py-10 px-10"
     >
       <h1
-        class="text-cus-primary lg:text-[48px] ssm:text-md md:text-lg sm:text-md shadow-title font-bold text-center"
+        class="text-cus-secondary lg:text-[48px] ssm:text-md md:text-lg sm:text-md shadow-title font-bold text-center"
       >
         Featured Universities
       </h1>
@@ -82,6 +85,7 @@
   <section class="mt-2">
     <Testimonials />
   </section>
+</div>
 </template>
 
 <script setup>

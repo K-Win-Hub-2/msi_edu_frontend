@@ -2,7 +2,7 @@
   <div class="">
     <div class="ssm:mb-4 md:mb-[100px] relative">
       <h1
-        class="relative text-center md:cus-heading ssm:text-md ssm:text-cus-primary ssm:font-semibold"
+        class="relative text-center md:cus-heading ssm:text-md text-cus-secondary ssm:font-semibold"
       >
         One-Stop Quality Services
         <div

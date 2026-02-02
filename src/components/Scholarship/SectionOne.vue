@@ -18,20 +18,20 @@
             ></div> -->
             <div>
               <h1
-                class="text-center lg:text-[48px] md:text-[32px] ssm:text-[20px] z-40 shadow-title text-cus-primary uppercase lg:font-[700] font-[550] md:font-[600]"
+                class="text-center lg:text-[48px] md:text-[32px] ssm:text-[20px] z-40 shadow-title text-white uppercase lg:font-[700] font-[550] md:font-[600]"
               >
                 Scholarship Admission <br class="ssm:block md:hidden" />
                 (2007 - 2023)
               </h1>
               <h1
-                class="text-center lg:text-[48px] md:text-[28px] ssm:text-[20px] md:font-[530] font-[520] text-cus-primary uppercase my-4 shadow-title"
+                class="text-center lg:text-[48px] md:text-[28px] ssm:text-[20px] md:font-[530] font-[520] text-white yuppercase my-4 shadow-title"
               >
-                Over <span class="text-red-500">350</span> Scholarship Achievers
+                Over <span class="text-cus-secondary">350</span> Scholarship Achievers
               </h1>
             </div>
           </div>
           <p
-            class="text-center lg:text-[32px] text-[20px] font-[520] md:text-[28px] text-cus-primary uppercase md:font-[510] lg:font-[700] shadow-title md:mt-[80px] ssm:mt-[20px] md:mb-[15px] mb-[10px] lg:mb-[15px]"
+            class="text-center lg:text-[32px] text-[20px] font-[520] md:text-[28px] text-white uppercase md:font-[510] lg:font-[700] shadow-title md:mt-[80px] ssm:mt-[20px] md:mb-[15px] mb-[10px] lg:mb-[15px]"
           >
             GENERAL tIPS TO APPLY SCHOLARSHIP
           </p>

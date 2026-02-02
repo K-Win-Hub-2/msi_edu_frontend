@@ -1,5 +1,8 @@
 <template>
-  <div class="pb-12 my-12 border-b">
+  <div
+      class="relative bg-[url('@/assets/img/home/header.png')] bg-contain bg-no-repeat"
+    >
+  <div class="pb-12 my-12">
     <ul class="flex justify-center gap-3 ml-3">
       <li class="md:flex ssm:space-y-3 md:space-y-0">
         <div>
@@ -200,6 +203,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script setup>

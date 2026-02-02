@@ -4,6 +4,9 @@
     <section id="our-office" class="relative z-30 overflow-hidden">
       <HeroOld />
     </section>
+    <div
+      class="relative bg-[url('@/assets/img/home/header.png')] bg-contain bg-no-repeat"
+    >
     <section id="our-leaders" class="relative">
       <div
         class="w-[70%] h-[500px] bg-no-repeat z-20 bg-[length:100%_100%] absolute top-0 left-0"
@@ -52,6 +55,7 @@
         <AwardTimeline />
       </div>
     </section>
+    </div>
     <!-- <section id="our-team">
       <div class="py-16 bg-white">
         <OurTeam />

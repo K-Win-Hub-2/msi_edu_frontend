@@ -3,6 +3,9 @@
     <Hero />
   </section>
 
+  <div
+      class="relative bg-[url('@/assets/img/home/header.png')] bg-contain bg-no-repeat"
+    >
   <section id="our-services " class="relative overflow-hidden">
     <!-- <div
       class="bg-[url(@/assets/img/scholarship/ellipse9.png)] z-30 w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute rotate-180 lg:bottom-[-150px] right-[450px] lg:left-[-1250px] md:bottom-[-80px] bottom-[-50px] md:left-[-600px]"
@@ -22,6 +25,7 @@
       <Faq />
     </div>
   </section>
+</div>
 </template>
 
 <script setup>
