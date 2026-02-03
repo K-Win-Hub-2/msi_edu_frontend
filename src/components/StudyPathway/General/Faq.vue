@@ -1,8 +1,8 @@
 <template>
-  <div id="accordionExample" class="cus-standout overflow-hidden">
+  <div id="accordionExample" class="overflow-hidden cus-standout">
     <template v-for="faq in currentFaqs">
       <div
-        class="border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800"
+        class="bg-white border border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800"
       >
         <h2 class="mb-0" :id="faq.triggerId">
           <button
@@ -24,7 +24,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="h-6 w-6"
+                class="w-6 h-6"
               >
                 <path
                   stroke-linecap="round"

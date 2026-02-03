@@ -2,19 +2,19 @@
   <section>
     <BannerMotion></BannerMotion>
   </section>
-    <div
-      class="relative bg-[url('@/assets/img/home/header.png')] bg-contain bg-no-repeat"
-    >
-  <section class="">
-    <div
-      class="container md:w-[1199px] sm:w-[320px] h-[624px] mt-6 py-10 px-10"
-    >
-      <h1
-        class="text-cus-secondary lg:text-[48px] ssm:text-md md:text-lg sm:text-md shadow-title font-bold text-center"
+  <div
+    class="relative bg-[url('@/assets/img/home/header.png')] bg-contain bg-no-repeat"
+  >
+    <section class="">
+      <div
+        class="container md:w-[1199px] sm:w-[320px] h-[624px] mt-6 py-10 px-10"
       >
-        Featured Universities
-      </h1>
-      <!-- <Button
+        <h1
+          class="text-white lg:text-[48px] mt-[30px] ssm:text-md md:text-lg sm:text-md shadow-title font-bold text-center"
+        >
+          Featured Universities
+        </h1>
+        <!-- <Button
         class="float-right py-4 mt-8 px-14 sm:px-8 sm:py-2 text-md"
         type="gradient"
         data-te-toggle="modal"
@@ -24,68 +24,68 @@
         >See More</Button
       > -->
 
-      <!-- carousel start -->
-      <div
-        class="container relative flex justify-center md:mt-20 xl:mt-14 ssm:mt-0"
-      >
-        <div class="">
-          <swiper
-            :pagination="{
-              clickable: true,
-            }"
-            space-between="30
+        <!-- carousel start -->
+        <div
+          class="container relative flex justify-center md:mt-20 xl:mt-14 ssm:mt-0"
+        >
+          <div class="">
+            <swiper
+              :pagination="{
+                clickable: true,
+              }"
+              space-between="30
                   "
-            :breakpoints="swiperOptions.breakpoints"
-            @slideChange="onSlideChange"
-            :navigation="swiperOptions.navigation"
-            :modules="modules"
-            class="mySwiper flex justify-center xl:w-[930px] md:w-[590px] ssm:w-[320px]"
-            v-if="data"
-          >
-            <!-- slider one -->
-            <swiper-slide
-              class="flex justify-center w-full py-12"
-              v-for="uni in data.university"
-              :key="uni.id"
+              :breakpoints="swiperOptions.breakpoints"
+              @slideChange="onSlideChange"
+              :navigation="swiperOptions.navigation"
+              :modules="modules"
+              class="mySwiper flex justify-center xl:w-[930px] md:w-[590px] ssm:w-[320px]"
+              v-if="data"
             >
-              <Featureuni :uni="uni" />
-            </swiper-slide>
-          </swiper>
-          <div
-            class="absolute left-0 -translate-y-1/2 swiper-event-more-list-button-prev-unique lg:-left-14 top-1/2"
-          >
-            <ChevronLeftIcon
-              :class="{ 'opacity-50': start }"
-              class="w-12 h-12 text-cus-primary ssm:hidden md:block"
-            />
-          </div>
-          <div
-            class="absolute right-0 -translate-y-1/2 swiper-event-more-list-button-next-unique lg:-right-14 top-1/2"
-          >
-            <ChevronRightIcon
-              :class="{ 'opacity-50': end }"
-              class="w-12 h-12 text-cus-primary ssm:hidden md:block"
-            />
+              <!-- slider one -->
+              <swiper-slide
+                class="flex justify-center w-full py-12"
+                v-for="uni in data.university"
+                :key="uni.id"
+              >
+                <Featureuni :uni="uni" />
+              </swiper-slide>
+            </swiper>
+            <div
+              class="absolute left-0 -translate-y-1/2 swiper-event-more-list-button-prev-unique lg:-left-14 top-1/2"
+            >
+              <ChevronLeftIcon
+                :class="{ 'opacity-50': start }"
+                class="w-12 h-12 text-cus-primary ssm:hidden md:block"
+              />
+            </div>
+            <div
+              class="absolute right-0 -translate-y-1/2 swiper-event-more-list-button-next-unique lg:-right-14 top-1/2"
+            >
+              <ChevronRightIcon
+                :class="{ 'opacity-50': end }"
+                class="w-12 h-12 text-cus-primary ssm:hidden md:block"
+              />
+            </div>
           </div>
         </div>
+        <!-- carousel end -->
       </div>
-      <!-- carousel end -->
-    </div>
-  </section>
-  <section>
-    <div class="container px-6 pt-6 ssm:pb-8 lg:pb-24">
-      <Countries></Countries>
-    </div>
-  </section>
-  <section id="mission" class="">
-    <div class="container px-6 ssm:py-8 md:py-16">
-      <OurService />
-    </div>
-  </section>
-  <section class="mt-2">
-    <Testimonials />
-  </section>
-</div>
+    </section>
+    <section>
+      <div class="container px-6 pt-6 ssm:pb-8 lg:pb-24">
+        <Countries></Countries>
+      </div>
+    </section>
+    <section id="mission" class="">
+      <div class="container px-6 ssm:py-8 md:py-16">
+        <OurService />
+      </div>
+    </section>
+    <section class="mt-2">
+      <Testimonials />
+    </section>
+  </div>
 </template>
 
 <script setup>

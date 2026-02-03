@@ -88,7 +88,6 @@ const videoLink = (val) => {
 
       <div class="absolute top-0 right-0">
         <img
-          src="@/assets/img/universities/curvedwire.png"
           class="relative z-40 lg:w-[300px] md:w-[200px] ssm:w-[100px]"
           alt=""
         />
@@ -104,24 +103,17 @@ const videoLink = (val) => {
   <section>
     <div class="relative px-6 pb-24 overflow-hidden md:mt-10">
       <div
-        class="bg-[url(@/assets/img/scholarship/ellipse9.png)] z-30 w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute rotate-180 lg:bottom-[-150px] right-[450px] lg:left-[-1180px] md:bottom-[-80px] bottom-[-50px] md:left-[-600px]"
+        class="z-30 w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute rotate-180 lg:bottom-[-150px] right-[450px] lg:left-[-1180px] md:bottom-[-80px] bottom-[-50px] md:left-[-600px]"
       ></div>
       <div
-        class="bg-[url(@/assets/img/scholarship/ellipse9.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute lg:top-[-7px] md:top-[-12px] md:right-[-600px] right-[-400px] top-[-8px] lg:right-[-1200px]"
+        class="w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute lg:top-[-7px] md:top-[-12px] md:right-[-600px] right-[-400px] top-[-8px] lg:right-[-1200px]"
       ></div>
       <Programs v-if="currentCountry" :country="currentCountry" />
-      <img
-        src="../../assets/img/universities/curvedwire2.png"
-        class="absolute md:top-0 ssm:top-24 lg:w-[200px] md:w-[150px] ssm:w-[80px] md:h-[150px] lg:h-[200px] left-0"
-        alt=""
-      />
     </div>
   </section>
   <!-- program end -->
   <section class="relative">
-    <div
-      class="bg-[url(@/assets/img/scholarship/image.png)] w-[100%] h-[100%] bg-no-repeat bg-[length:100%_100%] absolute top-0"
-    ></div>
+    <div class="w-[100%] h-[100%]"></div>
     <div class="">
       <div class="container relative z-40 px-6 pt-6 pb-24">
         <Faq :id="props.id" />

@@ -100,7 +100,7 @@ onMounted(() => {
         class="ssm:max-w-[180px] sm:max-w-[240px] md:max-w-[800px] lg:max-w-[1400px]"
       >
         <template v-for="university in currentUniversities">
-          <swiper-slide class="my-3 md:!w-[150px]">
+          <swiper-slide class="my-3 md:!w-[200px]">
             <UniversityCard
               :image="university.image"
               :description="university.description"

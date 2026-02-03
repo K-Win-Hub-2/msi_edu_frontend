@@ -21,9 +21,7 @@ const urls = [
           class="grid grid-cols-1 gap-12 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-7"
         >
           <!-- Left Menu (Logo & Links) -->
-          <div
-            class="text-center lg:self-end lg:col-span-2 sm:text-left"
-          >
+          <div class="text-center lg:self-end lg:col-span-2 sm:text-left">
             <h2
               class="flex justify-center mb-6 text-sm font-semibold uppercase sm:justify-start"
             >
@@ -113,7 +111,7 @@ const urls = [
                   <a
                     href="mailto:admission@msieducation.edu.mm"
                     class="hover:underline"
-                    >admission@msieducation.edu.mm</a
+                    >admissions@msieducation.edu.mm</a
                   >
                   <a
                     href="mailto:IR.department@msieducation.edu.mm"
@@ -180,9 +178,7 @@ const urls = [
         <!-- Footer Bottom (Copyright) -->
         <div class="mt-10 border-t border-gray-700">
           <div class="container">
-            <div
-              class="px-4 py-6 text-xs text-center sm:text-sm"
-            >
+            <div class="px-4 py-6 text-xs text-center sm:text-sm">
               <span>
                 Copyright © 2023.
                 <a href="#" class="hover:underline text-inherit"

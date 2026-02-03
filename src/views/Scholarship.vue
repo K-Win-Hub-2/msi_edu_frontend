@@ -16,20 +16,19 @@
         </div>
       </div>
     </div>
-      <div
+    <div
       class="relative bg-[url('@/assets/img/home/header.png')] bg-contain bg-no-repeat"
     >
+      <SectionOne />
 
-    <SectionOne />
+      <!-- carousel start -->
+      <!-- <CarouselSch /> -->
+      <!-- carousel end -->
 
-    <!-- carousel start -->
-    <!-- <CarouselSch /> -->
-    <!-- carousel end -->
+      <!-- achiever -->
+      <SectionTwo :scholarships="topAchievers" />
 
-    <!-- achiever -->
-    <SectionTwo :scholarships="topAchievers" />
-
-    <SectionThree :scholarships="filteredAchievers" :types="types" />
+      <SectionThree :scholarships="filteredAchievers" :types="types" />
     </div>
   </div>
 </template>

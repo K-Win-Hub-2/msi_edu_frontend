@@ -82,7 +82,7 @@ onMounted(() => {
 <template>
   <div
     v-if="university"
-    class="w-full text-2xl text-cus-primary uppercase mt-10 font-semibold ssm:mb-10 md:mb-10 bg-[#FFFFFF]"
+    class="w-full mt-10 text-2xl font-semibold uppercase text-cus-primary ssm:mb-10 md:mb-10"
   >
     <h1
       class="text-center lg:text-[48px] md:text-[32px] shadow-title lg:mb-[40px] md:mb-[20px]"

@@ -9,7 +9,7 @@ defineProps(["image", "content", "showContent"]);
     >
       <div>
         <img
-          :src="image"
+          src="C:\Users\User\Downloads\aw.png"
           class="object-contain h-[150px] sm:h-[200px] md:h-[250px] lg:h-[300px] mx-auto"
           alt=""
         />

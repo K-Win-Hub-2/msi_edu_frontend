@@ -259,7 +259,7 @@ const isActive = (url) => {
                 >About Us</router-link
               >
               <div
-                class="hidden p-3 w-[140px] bg-white absolute top-[85px] shadow border cus-standout group-hover:block"
+                class="hidden p-3 w-[150px] bg-white absolute top-[85px] shadow border cus-standout group-hover:block"
               >
                 <ul class="space-y-2">
                   <li

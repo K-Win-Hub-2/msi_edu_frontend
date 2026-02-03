@@ -1,6 +1,6 @@
 <template>
   <div class="relative z-30">
-    <!-- <div class="flex justify-around items-center mb-11 mx-11">
+    <!-- <div class="flex items-center justify-around mb-11 mx-11">
       <div class="">
         <h1 class="text-cus-secondary font-bold text-[20px] uppercase text-shadow-sm cus-shadow-color">Our Services</h1>
         <p class="text-cus-secondary text-[20px]  font-bold text-xl uppercase text-shadow-sm cus-shadow-color">FOr your education</p>
@@ -10,8 +10,8 @@
           href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
           data-te-ripple-init data-te-ripple-color="light">
           <p class="pr-11 text-black font-bold text-[15px]">Service</p>
-          <span class="ml-2 w-2">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+          <span class="w-2 ml-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
               <path fill-rule="evenodd"
                 d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
                 clip-rule="evenodd" />
@@ -23,15 +23,15 @@
         <Button class="px-6" type="gradient">Search</Button>
       </div>
     </div> -->
-    <div class="text-center text-3xl mb-11">
+    <div class="text-3xl text-center mb-11">
       <h1
-        class="text-cus-secondary md:cus-heading font-bold text-shadow-sm cus-shadow-color uppercase"
+        class="font-bold uppercase text-cus-secondary md:cus-heading text-shadow-sm cus-shadow-color"
       >
         Leader Speeches
       </h1>
     </div>
     <div
-      class="flex md:flex-row ssm:flex-col justify-between items-center gap-6"
+      class="flex items-center justify-between gap-6 md:flex-row ssm:flex-col"
     >
       <div class="">
         <img
@@ -44,7 +44,7 @@
             <div @click="updateCurrentCard(index)">
               <img
                 :src="card.image"
-                class="ssm:w-16 ssn:h-16 rounded overflow-hidden object-cover cursor-pointer shadow-2xl"
+                class="object-cover overflow-hidden rounded shadow-2xl cursor-pointer ssm:w-16 ssn:h-16"
                 alt="Avatar"
               />
             </div>
@@ -53,10 +53,12 @@
       </div>
 
       <div class="ssm:max-w-[320px] ssm:px-3 md:px-0 md:max-w-[1000px]">
-        <h1 class="cus-paragraph-title text-white text-shadow-sm cus-shadow-color mb-3">
+        <h1
+          class="mb-3 text-white cus-paragraph-title text-shadow-sm cus-shadow-color"
+        >
           {{ currentCard.title }}
         </h1>
-        <h2 class="cus-paragraph-subTitle mb-3">
+        <h2 class="mb-3 cus-paragraph-subTitle">
           <template v-for="eachLine in currentCard.subTitle" :key="eachLine">
             {{ eachLine }} <br />
           </template>

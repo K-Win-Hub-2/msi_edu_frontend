@@ -21,25 +21,26 @@
                 class="text-center lg:text-[48px] md:text-[32px] ssm:text-[20px] z-40 shadow-title text-white uppercase lg:font-[700] font-[550] md:font-[600]"
               >
                 Scholarship Admission <br class="ssm:block md:hidden" />
-                (2007 - 2023)
+                (2007 - 2025)
               </h1>
               <h1
                 class="text-center lg:text-[48px] md:text-[28px] ssm:text-[20px] md:font-[530] font-[520] text-white yuppercase my-4 shadow-title"
               >
-                Over <span class="text-cus-secondary">350</span> Scholarship Achievers
+                Over
+                <span class="text-[80px] text-cus-secondary">400</span>
+                Scholarship Achievers
               </h1>
             </div>
           </div>
+        </div>
+        <div class="flex flex-col justify-center mt-[200px]">
           <p
-            class="text-center lg:text-[32px] text-[20px] font-[520] md:text-[28px] text-white uppercase md:font-[510] lg:font-[700] shadow-title md:mt-[80px] ssm:mt-[20px] md:mb-[15px] mb-[10px] lg:mb-[15px]"
+            class="text-center lg:text-[32px] text-[20px] font-[520] md:text-[28px] text-black uppercase md:font-[510] lg:font-[700] shadow-title md:mt-[80px] ssm:mt-[20px] md:mb-[15px] mb-[10px] lg:mb-[15px]"
           >
             GENERAL tIPS TO APPLY SCHOLARSHIP
           </p>
-        </div>
-        <!-- hello -->
-        <div class="flex justify-center">
           <div
-            class="flex flex-wrap justify-center lg:max-w-[1200px] md:min-w-[800px] z-40 lg:gap-4 md:gap-1 md:gap-y- gap-y-3 md:mx-4"
+            class="flex flex-wrap justify-end lg:max-w-[1200px] md:min-w-[800px] z-40 lg:gap-4 md:gap-1 md:gap-y- gap-y-3 md:mx-4"
           >
             <!-- loop -->
             <div class="" v-for="course in courses" :key="course">
