@@ -62,7 +62,7 @@ onMounted(() => {
   <div class="relative px-4 overflow-hidden sm:px-6">
     <div class="relative w-full max-w-3xl mx-auto">
       <div
-        class="relative p-4 overflow-hidden sm:p-6 md:p-8 bg-white/60 rounded-2xl md:rounded-3xl"
+        class="relative p-4 overflow-hidden sm:p-6 md:p-8 bg-white/60 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl lg:shadow-[0_100px_100px_rgba(0,0,0,0.3)]"
       >
         <!-- Prev Button -->
         <button

@@ -13,7 +13,7 @@ const urls = [
 
 <template>
   <footer
-    class="text-white bg-[#0F2948] bg-[url('@/assets/img/home/footer.png')] bg-no-repeat bg-bottom bg-cover bg-[size:100%_auto] pt-40 sm:pt-60 lg:pt-80 relative"
+    class="text-white bg-[url('@/assets/img/home/footer.png')] bg-no-repeat bg-bottom bg-cover bg-[size:100%_auto] pt-40 sm:pt-60 lg:pt-80 relative"
   >
     <div class="pt-20">
       <div class="container mx-auto">

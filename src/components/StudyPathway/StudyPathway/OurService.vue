@@ -2,11 +2,11 @@
   <div class="">
     <div class="ssm:mb-4 md:mb-[100px] relative">
       <h1
-        class="relative text-center md:cus-heading ssm:text-md text-cus-secondary ssm:font-semibold"
+        class="relative text-center md:cus-heading ssm:text-md text-white ssm:font-semibold"
       >
         One-Stop Quality Services
         <div
-          class="bg-[url(@/assets/img/Services/confettiblue.png)] md:left-[300px] ssm:left-14 w-[130px] h-[120px] bg-no-repeat bg-[length:100%_100%] absolute md:top-[-15px] lg:left-[480px]"
+          class=" md:left-[300px] ssm:left-14 w-[130px] h-[120px] bg-no-repeat bg-[length:100%_100%] absolute md:top-[-15px] lg:left-[480px]"
         ></div>
       </h1>
     </div>
@@ -189,7 +189,7 @@
       <div class="flex flex-wrap justify-center">
         <!-- card 1 -->
         <div
-          class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl mt-5"
+          class="flex flex-col gap-6 text-center w-[245px] h-[290px] shadow-2xl p-2 bg-white rounded-2xl mt-5"
         >
           <img
             src="@/assets/img/Services/services-logo/7.png"
@@ -210,7 +210,7 @@
 
         <!-- card 3 -->
         <div
-          class="flex flex-col gap-6 text-center md:mt-20 lg:mt-5 w-[245px] h-[290px] shadow-xl p-2 bg-white rounded-2xl mt-5"
+          class="flex flex-col gap-6 text-center md:mt-20 lg:mt-5 w-[245px] h-[290px] shadow-2xl p-2 bg-white rounded-2xl mt-5"
         >
           <img
             src="@/assets/img/Services/services-logo/10.png"

@@ -227,68 +227,64 @@ watch(
           </h1>
         </div>
 
+      <div class="w-full md:w-auto">
         <div
-          class="flex flex-wrap w-full gap-3 sm:flex-row sm:gap-4 md:gap-6 sm:w-auto"
+          class="grid grid-cols-1 gap-3
+                sm:grid-cols-3 sm:items-start"
         >
+          <!-- Country -->
           <select
             v-model="selectedCountry"
-            @change="handleCountrySelect"
-            class="w-full px-3 py-2 font-medium border rounded-lg text-cus-primary focus:outline-none focus:ring-2 focus:ring-cus-primary sm:w-40"
+            @change="fetchPrograms"
+            class="w-full sm:w-40 rounded-lg border px-3 py-2
+                  font-medium text-cus-primary focus:ring-2 focus:ring-cus-primary"
           >
             <option value="default">Country</option>
-            <template v-if="countryList">
-              <option
-                v-for="data in countryList"
-                :key="data.id"
-                :value="data.id"
-              >
-                {{ data.name }}
-              </option>
-            </template>
+            <option v-for="c in countryList" :key="c.id" :value="c.id">
+              {{ c.name }}
+            </option>
           </select>
 
+          <!-- Program -->
           <select
             v-model="selectedProgramId"
-            @change="handleProgramSelect"
-            class="w-full px-3 py-2 font-medium border rounded-lg text-cus-primary focus:outline-none focus:ring-2 focus:ring-cus-primary sm:w-40"
+            class="w-full sm:w-40 rounded-lg border px-3 py-2
+                  font-medium text-cus-primary focus:ring-2 focus:ring-cus-primary"
           >
             <option value="default">Program</option>
-            <template v-if="programList">
-              <option
-                v-for="data in programList"
-                :key="data.id"
-                :value="data.id"
-              >
-                {{ data.name }}
-              </option>
-            </template>
+            <option v-for="p in programList" :key="p.id" :value="p.id">
+              {{ p.name }}
+            </option>
           </select>
 
+          <!-- Course -->
           <select
             v-model="selectedCourse"
-            @change="handleCourseSelect"
-            class="w-full px-3 py-2 font-medium border rounded-lg text-cus-primary focus:outline-none focus:ring-2 focus:ring-cus-primary sm:w-40"
+            class="w-full sm:w-40 rounded-lg border px-3 py-2
+                  font-medium text-cus-primary focus:ring-2 focus:ring-cus-primary"
           >
             <option value="default">Course</option>
-            <template v-if="courseList">
-              <option
-                v-for="(course, idx) in courseList"
-                :key="idx"
-                :value="course"
-              >
-                {{ course }}
-              </option>
-            </template>
+            <option v-for="(c, i) in courseList" :key="i" :value="c">
+              {{ c }}
+            </option>
           </select>
 
-          <Button
-            @click="handleSearch"
-            class="w-full px-4 py-2 sm:w-auto md:px-6 md:py-2"
-            type="gradient"
+          <!-- Search -->
+          <div
+            class="flex justify-center
+                  sm:col-start-2 sm:row-start-2"
           >
-            Search
-          </Button>
+            <Button
+              @click="handleSearch"
+              type="gradient"
+              class="w-full sm:w-40 px-6 py-2"
+            >
+              Search
+            </Button>
+          </div>
         </div>
+      </div>
+
       </div>
 
       <template v-if="uniLoading">
