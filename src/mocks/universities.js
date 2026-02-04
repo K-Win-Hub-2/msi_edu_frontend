@@ -1,26 +1,54 @@
-import bu from "@/assets/img/universities/bu.jpg";
-import caas from "@/assets/img/universities/caas.png";
-import keele from "@/assets/img/universities/keele.jpg";
-import seg from "@/assets/img/universities/seg.jpg";
-import uob from "@/assets/img/universities/uob.png";
-
-import kaplan from "@/assets/img/universities/kaplan.png";
-import mdis from "@/assets/img/universities/mdis.png";
-import nim from "@/assets/img/universities/nim.png";
-import psb from "@/assets/img/universities/psb.png";
-import raffles from "@/assets/img/universities/raffles.png";
-import sim from "@/assets/img/universities/sim.jpg";
-
-import assumption from "@/assets/img/universities/assumption.png";
-import bangkok from "@/assets/img/universities/bangkok.jpg";
-import rangsit from "@/assets/img/universities/rangsit.png";
-import stamford from "@/assets/img/universities/stamford.png";
-import utcc from "@/assets/img/universities/utcc.png";
-
-import greenRiver from "@/assets/img/universities/greenRiver.jpg";
-import portsmouth from "@/assets/img/universities/portsmouth.jpg";
-import uon from "@/assets/img/universities/uon.jpg";
-import taylor from "@/assets/img/universities/taylor.png";
+import university1 from "@/assets/img/universities/1.png";
+import university2 from "@/assets/img/universities/2.png";
+import university3 from "@/assets/img/universities/3.png";
+import university4 from "@/assets/img/universities/4.png";
+import university5 from "@/assets/img/universities/5.png";
+import university6 from "@/assets/img/universities/6.png";
+import university7 from "@/assets/img/universities/7.png";
+import university8 from "@/assets/img/universities/8.png";
+import university9 from "@/assets/img/universities/9.png";
+import university10 from "@/assets/img/universities/10.png";
+import university11 from "@/assets/img/universities/11.png";
+import university12 from "@/assets/img/universities/12.png";
+import university13 from "@/assets/img/universities/13.png";
+import university14 from "@/assets/img/universities/14.png";
+import university15 from "@/assets/img/universities/15.png";
+import university16 from "@/assets/img/universities/16.png";
+import university17 from "@/assets/img/universities/17.png";
+import university18 from "@/assets/img/universities/18.png";
+import university19 from "@/assets/img/universities/19.png";
+import university20 from "@/assets/img/universities/20.png";
+import university21 from "@/assets/img/universities/21.png";
+import university22 from "@/assets/img/universities/22.png";
+import university23 from "@/assets/img/universities/23.png";
+import university24 from "@/assets/img/universities/24.png";
+import university25 from "@/assets/img/universities/25.png";
+import university26 from "@/assets/img/universities/26.png";
+import university27 from "@/assets/img/universities/27.png";
+import university28 from "@/assets/img/universities/28.png";
+import university29 from "@/assets/img/universities/29.png";
+import university30 from "@/assets/img/universities/30.png";
+import university31 from "@/assets/img/universities/31.png";
+import university32 from "@/assets/img/universities/32.png";
+import university33 from "@/assets/img/universities/33.png";
+import university34 from "@/assets/img/universities/34.png";
+import university35 from "@/assets/img/universities/35.png";
+import university36 from "@/assets/img/universities/36.png";
+import university37 from "@/assets/img/universities/37.png";
+import university38 from "@/assets/img/universities/38.png";
+import university39 from "@/assets/img/universities/39.png";
+import university40 from "@/assets/img/universities/40.png";
+import university41 from "@/assets/img/universities/41.png";
+import university42 from "@/assets/img/universities/42.png";
+import university43 from "@/assets/img/universities/43.png";
+import university44 from "@/assets/img/universities/44.png";
+import university45 from "@/assets/img/universities/45.png";
+import university46 from "@/assets/img/universities/46.png";
+import university47 from "@/assets/img/universities/47.png";
+import university48 from "@/assets/img/universities/48.png";
+import university49 from "@/assets/img/universities/49.png";
+import university50 from "@/assets/img/universities/50.png";
+import university51 from "@/assets/img/universities/51.png";
 
 import portsmouthCampus from "@/assets/img/campus/portsmouthCampus.jpg";
 import bangkokCampus from "@/assets/img/campus/bangkokCampus.jpg";
@@ -29,36 +57,64 @@ import mdisCampus from "@/assets/img/campus/mdisCampus.jpg";
 import taylorCampus from "@/assets/img/campus/taylorCampus.jpg";
 import uonCampus from "@/assets/img/campus/uonCampus.jpg";
 
-import sunway from "@/assets/img/universities/sunway.png";
-import help from "@/assets/img/universities/help.png";
-import monash from "@/assets/img/universities/monash.png";
-import segi from "@/assets/img/universities/segi.png";
-import tarumt from "@/assets/img/universities/tarumt.png";
-import apu from "@/assets/img/universities/apu.jpg";
+// Create an array of valid university images for easy access
+const universityImages = [
+  university1, university2, university3, university4, university5,
+  university6, university7, university8, university9, university10,
+  university11, university12, university13, university14, university15,
+  university16, university17, university18, university19, university20,
+  university21, university22, university23, university24, university25,
+  university26, university27, university28, university29, university30,
+  university31, university32, university33, university34, university35,
+  university36, university37, university38, university39, university40,
+  university41, university42, university43, university44, university45,
+  university46, university47, university48, university49, university50,
+  university51
+];
 
-import edvoy from "@/assets/img/universities/edvoy.png";
-import ucw from "@/assets/img/universities/ucw.png";
-
-import coventry from "@/assets/img/universities/coventry.png";
-import lancaster from "@/assets/img/universities/lancaster.jpg";
-import kingston from "@/assets/img/universities/kingston.png";
-import northumbria from "@/assets/img/universities/northumbria.png";
-import sheffield from "@/assets/img/universities/sheffield.png";
-
-import bhms from "@/assets/img/universities/bhms.jpg";
-import cesarRitz from "@/assets/img/universities/cesarRitz.png";
-import him from "@/assets/img/universities/him.png";
-import shms from "@/assets/img/universities/shms.jpg";
-import studyGroup from "@/assets/img/universities/studyGroup.jpg";
-
-import deanza from "@/assets/img/universities/deanza.png";
-import orangeCoast from "@/assets/img/universities/orangeCoast.png";
-import webster from "@/assets/img/universities/webster.png";
+export const featuredUniversities = [
+  {
+    name: "University 1",
+    image: universityImages[0],
+    campusImage: portsmouthCampus,
+    url: "https://www.example.com"
+  },
+  {
+    name: "University 2",
+    image: universityImages[1],
+    campusImage: bangkokCampus,
+    url: "https://www.example.com"
+  },
+  {
+    name: "University 3",
+    image: universityImages[2],
+    campusImage: greenRiverCampus,
+    url: "https://www.example.com"
+  },
+  {
+    name: "University 4",
+    image: universityImages[3],
+    campusImage: mdisCampus,
+    url: "https://www.example.com"
+  },
+  {
+    name: "University 5",
+    image: universityImages[4],
+    campusImage: taylorCampus,
+    url: "https://www.example.com"
+  },
+  {
+    name: "University 6",
+    image: universityImages[5],
+    campusImage: uonCampus,
+    url: "https://www.example.com"
+  }
+];
 
 export const universities = [
   {
     country: "singapore",
-    image: kaplan,
+    image: universityImages[0],
     content: "Kaplan",
     name: "Kaplan",
     slug: "kaplan",
@@ -68,7 +124,7 @@ export const universities = [
   },
   {
     country: "singapore",
-    image: mdis,
+    image: universityImages[1],
     content: "MDIS",
     name: "MDIS",
     slug: "mdis",
@@ -78,7 +134,7 @@ export const universities = [
   },
   {
     country: "singapore",
-    image: nim,
+    image: universityImages[2],
     content: "NANYANG",
     name: "NANYANG",
     slug: "nim",
@@ -88,7 +144,7 @@ export const universities = [
   },
   {
     country: "singapore",
-    image: raffles,
+    image: universityImages[3],
     content: "Raffles",
     name: "Raffles",
     slug: "raffles",
@@ -98,7 +154,7 @@ export const universities = [
   },
   {
     country: "singapore",
-    image: psb,
+    image: universityImages[4],
     content: "Psb ACADEMY",
     name: "Psb ACADEMY",
     slug: "psb-academy",
@@ -108,7 +164,7 @@ export const universities = [
   },
   {
     country: "singapore",
-    image: sim,
+    image: universityImages[5],
     content: "SIM",
     name: "SIM",
     slug: "sim",
@@ -119,7 +175,7 @@ export const universities = [
   //thailand
   {
     country: "thailand",
-    image: assumption,
+    image: universityImages[6],
     content: "assumption",
     name: "Assumption University if Thailand",
     slug: "assumption",
@@ -129,7 +185,7 @@ export const universities = [
   },
   {
     country: "thailand",
-    image: bangkok,
+    image: universityImages[7],
     content: "bangkok",
     name: "Bangkok University",
     slug: "bangkok",
@@ -139,7 +195,7 @@ export const universities = [
   },
   {
     country: "thailand",
-    image: rangsit,
+    image: universityImages[8],
     content: "rangsit",
     name: "Rangsit University",
     slug: "rangsit",
@@ -149,7 +205,7 @@ export const universities = [
   },
   {
     country: "thailand",
-    image: stamford,
+    image: universityImages[9],
     content: "stamford",
     name: "stamford",
     slug: "stamford",
@@ -158,7 +214,7 @@ export const universities = [
   },
   {
     country: "thailand",
-    image: utcc,
+    image: universityImages[10],
     content: "utcc",
     name: "UTCC, Thainland ",
     slug: "utcc",
@@ -169,7 +225,7 @@ export const universities = [
   //malaysia
   {
     country: "malaysia",
-    image: taylor,
+    image: universityImages[11],
     content: "taylor",
     name: "Taylor’s University, Malaysia",
     slug: "taylor",
@@ -179,7 +235,7 @@ export const universities = [
   },
   {
     country: "malaysia",
-    image: sunway,
+    image: universityImages[12],
     content: "Sunway University, Malaysia",
     name: "Sunway University, Malaysia",
     slug: "Sunway University, Malaysia",
@@ -189,7 +245,7 @@ export const universities = [
   },
   {
     country: "malaysia",
-    image: monash,
+    image: universityImages[13],
     content: "Monash University, Malaysia",
     name: "Monash University, Malaysia",
     slug: "monash",
@@ -199,7 +255,7 @@ export const universities = [
   },
   {
     country: "malaysia",
-    image: bangkok,
+    image: universityImages[14],
     content: "Xiamen University, Malaysia",
     name: "Xiamen University, Malaysia",
     slug: "xmum",
@@ -209,7 +265,7 @@ export const universities = [
   },
   {
     country: "malaysia",
-    image: help,
+    image: universityImages[15],
     content: "Help University, Malaysia",
     name: "Help University, Malaysia",
     slug: "help",
@@ -219,7 +275,7 @@ export const universities = [
   },
   {
     country: "malaysia",
-    image: segi,
+    image: universityImages[16],
     content: "Segi University, Malaysia",
     name: "Segi University, Malaysia",
     slug: "Segi University, Malaysia",
@@ -229,7 +285,7 @@ export const universities = [
   },
   {
     country: "malaysia",
-    image: apu,
+    image: universityImages[17],
     content: "The Asia Pacific University",
     name: "The Asia Pacific University",
     slug: "The Asia Pacific University",
@@ -239,7 +295,7 @@ export const universities = [
   },
   {
     country: "malaysia",
-    image: tarumt,
+    image: universityImages[18],
     content: "TARUMT",
     name: "TARUMT",
     slug: "TARUMT",
@@ -251,7 +307,7 @@ export const universities = [
   // canada
   {
     country: "canada",
-    image: edvoy,
+    image: universityImages[19],
     content: "edvoy",
     name: "edvoy",
     slug: "edvoy",
@@ -260,7 +316,7 @@ export const universities = [
   },
   {
     country: "canada",
-    image: ucw,
+    image: universityImages[20],
     content: "ucw",
     name: "ucw",
     slug: "ucw",
@@ -271,7 +327,7 @@ export const universities = [
   // uk
   {
     country: "uk",
-    image: coventry,
+    image: universityImages[21],
     content: "coventry",
     name: "coventry",
     slug: "coventry",
@@ -281,7 +337,7 @@ export const universities = [
   },
   {
     country: "uk",
-    image: lancaster,
+    image: universityImages[22],
     content: "lancaster",
     name: "lancaster",
     slug: "lancaster",
@@ -291,7 +347,7 @@ export const universities = [
   },
   {
     country: "uk",
-    image: keele,
+    image: universityImages[23],
     content: "keele",
     name: "keele",
     slug: "keele",
@@ -301,7 +357,7 @@ export const universities = [
   },
   {
     country: "uk",
-    image: kingston,
+    image: universityImages[24],
     content: "kingston",
     name: "kingston",
     slug: "kingston",
@@ -311,7 +367,7 @@ export const universities = [
   },
   {
     country: "uk",
-    image: northumbria,
+    image: universityImages[25],
     content: "northumbria",
     name: "northumbria",
     slug: "northumbria",
@@ -321,7 +377,7 @@ export const universities = [
   },
   {
     country: "uk",
-    image: sheffield,
+    image: universityImages[26],
     content: "sheffield",
     name: "sheffield",
     slug: "sheffield",
@@ -331,7 +387,7 @@ export const universities = [
   },
   {
     country: "uk",
-    image: uob,
+    image: universityImages[27],
     content: "uob",
     name: "uob",
     slug: "uob",
@@ -341,7 +397,7 @@ export const universities = [
   },
   {
     country: "uk",
-    image: portsmouth,
+    image: universityImages[28],
     content: "portsmouth",
     name: "portsmouth",
     slug: "portsmouth",
@@ -351,7 +407,7 @@ export const universities = [
   },
   {
     country: "uk",
-    image: uon,
+    image: universityImages[29],
     content: "uon",
     name: "uon",
     slug: "uon",
@@ -363,7 +419,7 @@ export const universities = [
   // switzerland
   {
     country: "switzerland",
-    image: bhms,
+    image: universityImages[30],
     content: "bhms",
     name: "bhms",
     slug: "bhms",
@@ -373,7 +429,7 @@ export const universities = [
   },
   {
     country: "switzerland",
-    image: caas,
+    image: universityImages[31],
     content: "caas",
     name: "caas",
     slug: "caas",
@@ -383,7 +439,7 @@ export const universities = [
   },
   {
     country: "switzerland",
-    image: cesarRitz,
+    image: universityImages[32],
     content: "cesarRitz",
     name: "cesarRitz",
     slug: "cesarRitz",
@@ -393,7 +449,7 @@ export const universities = [
   },
   {
     country: "switzerland",
-    image: him,
+    image: universityImages[33],
     content: "him",
     name: "him",
     slug: "him",
@@ -403,7 +459,7 @@ export const universities = [
   },
   {
     country: "switzerland",
-    image: seg,
+    image: universityImages[34],
     content: "seg",
     name: "seg",
     slug: "seg",
@@ -413,7 +469,7 @@ export const universities = [
   },
   {
     country: "switzerland",
-    image: shms,
+    image: universityImages[35],
     content: "shms",
     name: "shms",
     slug: "shms",
@@ -423,7 +479,7 @@ export const universities = [
   },
   {
     country: "switzerland",
-    image: studyGroup,
+    image: universityImages[36],
     content: "studyGroup",
     name: "studyGroup",
     slug: "studyGroup",
@@ -435,7 +491,7 @@ export const universities = [
   //italy
   {
     country: "italy",
-    image: assumption,
+    image: universityImages[37],
     content: "assumption",
     name: "assumption",
     slug: "assumption",
@@ -445,7 +501,7 @@ export const universities = [
   },
   {
     country: "italy",
-    image: bangkok,
+    image: universityImages[38],
     content: "bangkok",
     name: "bangkok",
     slug: "bangkok",
@@ -455,7 +511,7 @@ export const universities = [
   },
   {
     country: "italy",
-    image: rangsit,
+    image: universityImages[39],
     content: "rangsit",
     name: "rangsit",
     slug: "rangsit",
@@ -465,7 +521,7 @@ export const universities = [
   },
   {
     country: "italy",
-    image: stamford,
+    image: universityImages[40],
     content: "stamford",
     name: "stamford",
     slug: "stamford",
@@ -475,7 +531,7 @@ export const universities = [
   },
   {
     country: "italy",
-    image: utcc,
+    image: universityImages[41],
     content: "utcc",
     name: "utcc",
     slug: "utcc",
@@ -483,11 +539,10 @@ export const universities = [
     description:
       "With an approach to education that focuses on what really matters: performance in the New Economy, PSB Academy provides quality education to shape and nurture future-ready graduates with the necessary skills and tools to stay relevant in a digitally-driven economy.",
   },
-
   //vietnam
   {
     country: "vietnam",
-    image: assumption,
+    image: universityImages[42],
     content: "assumption",
     name: "assumption",
     slug: "assumption",
@@ -497,7 +552,7 @@ export const universities = [
   },
   {
     country: "vietnam",
-    image: bangkok,
+    image: universityImages[43],
     content: "bangkok",
     name: "bangkok",
     slug: "bangkok",
@@ -507,7 +562,7 @@ export const universities = [
   },
   {
     country: "vietnam",
-    image: rangsit,
+    image: universityImages[44],
     content: "rangsit",
     name: "rangsit",
     slug: "rangsit",
@@ -517,7 +572,7 @@ export const universities = [
   },
   {
     country: "vietnam",
-    image: stamford,
+    image: universityImages[45],
     content: "stamford",
     name: "stamford",
     slug: "stamford",
@@ -527,7 +582,7 @@ export const universities = [
   },
   {
     country: "vietnam",
-    image: utcc,
+    image: universityImages[46],
     content: "utcc",
     name: "utcc",
     slug: "utcc",
@@ -536,295 +591,41 @@ export const universities = [
       "With an approach to education that focuses on what really matters: performance in the New Economy, PSB Academy provides quality education to shape and nurture future-ready graduates with the necessary skills and tools to stay relevant in a digitally-driven economy.",
   },
 
-  //usa
+  // additional universities to use remaining images
   {
-    id: 1,
-    country: "usa",
-    image: deanza,
-    content: "deanza",
-    name: "deanza",
-    slug: "deanza",
+    country: "australia",
+    image: universityImages[47],
+    content: "australia1",
+    name: "Australian University 1",
+    slug: "australia1",
     url: "https://www.kaplan.com.sg/",
-    description:
-      "One of the largest private education institutions in Singapore, with campuses located in the heart of the city.",
+    description: "A leading university in Australia known for its excellent academic programs and research opportunities.",
   },
   {
-    id: 2,
-    country: "usa",
-    image: greenRiver,
-    content: "greenRiver",
-    name: "greenRiver",
-    slug: "greenRiver",
+    country: "australia",
+    image: universityImages[48],
+    content: "australia2",
+    name: "Australian University 2",
+    slug: "australia2",
     url: "https://www.kaplan.com.sg/",
-    description:
-      "One of the largest private education institutions in Singapore, with campuses located in the heart of the city.",
+    description: "Renowned for its strong industry connections and practical learning approach.",
   },
   {
-    id: 3,
-    country: "usa",
-    image: orangeCoast,
-    content: "orangeCoast",
-    name: "orangeCoast",
-    slug: "orangeCoast",
+    country: "newzealand",
+    image: universityImages[49],
+    content: "newzealand1",
+    name: "New Zealand University 1",
+    slug: "newzealand1",
     url: "https://www.kaplan.com.sg/",
-    description:
-      "One of the largest private education institutions in Singapore, with campuses located in the heart of the city.",
+    description: "Offers world-class education in a beautiful and welcoming environment.",
   },
   {
-    id: 4,
-    country: "usa",
-    image: webster,
-    content: "webster",
-    name: "webster",
-    slug: "webster",
+    country: "japan",
+    image: universityImages[50],
+    content: "japan1",
+    name: "Japanese University 1",
+    slug: "japan1",
     url: "https://www.kaplan.com.sg/",
-    description:
-      "One of the largest private education institutions in Singapore, with campuses located in the heart of the city.",
-  },
-];
-
-// export const featuredUniversities = [
-//   {
-//     country: "singapore",
-//     image: bu,
-//     content: "SpaceEggActivity",
-//     name: "SpaceEggActivity",
-//     slug: "SpaceEggActivity",
-//     url: "https://www.google.com/",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-//   },
-//   {
-//     country: "singapore",
-//     image: caas,
-//     content: "SpaceEggActivity",
-//     name: "SpaceEggActivity",
-//     slug: "SpaceEggActivity",
-//     url: "https://www.google.com/",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-//   },
-//   {
-//     country: "singapore",
-//     image: keele,
-//     content: "SpaceEggActivity",
-//     name: "SpaceEggActivity",
-//     slug: "SpaceEggActivity",
-//     url: "https://www.google.com/",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-//   },
-//   {
-//     country: "singapore",
-//     image: seg,
-//     content: "SpaceEggActivity",
-//     name: "SpaceEggActivity",
-//     slug: "SpaceEggActivity",
-//     url: "https://www.google.com/",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-//   },
-//   {
-//     country: "singapore",
-//     image: uob,
-//     content: "SpaceEggActivity",
-//     name: "SpaceEggActivity",
-//     slug: "SpaceEggActivity",
-//     url: "https://www.google.com/",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-//   },
-//   {
-//     country: "singapore",
-//     image: uob,
-//     content: "SpaceEggActivity",
-//     name: "SpaceEggActivity",
-//     slug: "SpaceEggActivity",
-//     url: "https://www.google.com/",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-//   },
-// ];
-
-export const universitiesImages = [
-  {
-    country: "singapore",
-    image: kaplan,
-    content: "Kaplan",
-    name: "Kaplan",
-    slug: "kaplan",
-    url: "https://www.kaplan.com.sg/",
-    description:
-      "One of the largest private education institutions in Singapore, with campuses located in the heart of the city.",
-  },
-  {
-    country: "singapore",
-    image: mdis,
-    content: "MDIS",
-    name: "MDIS",
-    slug: "mdis",
-    url: "https://www.mdis.edu.sg/",
-    description:
-      "The success of MDIS' graduates is attributed to the institute's strong commitment to high standards of education. Our lecturers are industry practitioners and with relevant practical experience. In addition, the lecturers are approved by MDIS Academic Quality and Examination Board and our partner universities.",
-  },
-  {
-    country: "singapore",
-    image: nim,
-    content: "NANYANG",
-    name: "NANYANG",
-    slug: "nim",
-    url: "https://nanyang.edu.sg",
-    description:
-      "Advance in your professional development journey with Nanyang Institute of Management with our industry relevant programmes. We offer a wide range of courses leading to Certificate, Diploma, Advanced Diploma, Bachelor, as well as Master Degrees and other Post-Graduate courses.",
-  },
-  {
-    country: "singapore",
-    image: raffles,
-    content: "Raffles",
-    name: "Raffles",
-    slug: "raffles",
-    url: "https://raffles-college.edu.sg/",
-    description:
-      "Raffles College of Higher Education is a premier design and business education provider that aims at bringing you personalised, boutique and exclusive hands-on ",
-  },
-  {
-    country: "singapore",
-    image: psb,
-    content: "Psb ACADEMY",
-    name: "Psb ACADEMY",
-    slug: "psb-academy",
-    url: "https://www.psb-academy.edu.sg/",
-    description:
-      "With an approach to education that focuses on what really matters: performance in the New Economy, PSB Academy provides quality education to shape and nurture future-ready graduates with the necessary skills and tools to stay relevant in a digitally-driven economy.",
-  },
-  {
-    country: "singapore",
-    image: sim,
-    content: "SIM",
-    name: "SIM",
-    slug: "sim",
-    url: "https://www.sim.edu.sg/",
-    description:
-      "With a blend of 40 nationalities from across the globe, SIM GE's remarkable global mix of cultural diversities provides an excellent platform for cultural exchange and knowledge sharing. A diverse student population, coupled with international faculty, is your gateway to a learning experience with a global mindset.",
-  },
-  //thailand
-  {
-    country: "thailand",
-    image: assumption,
-    content: "assumption",
-    name: "assumption",
-    slug: "assumption",
-    url: "https://www.kaplan.com.sg/",
-    description:
-      "One of the largest private education institutions in Singapore, with campuses located in the heart of the city.",
-  },
-  {
-    country: "thailand",
-    image: bangkok,
-    content: "bangkok",
-    name: "bangkok",
-    slug: "bangkok",
-    url: "https://www.mdis.edu.sg/",
-    description:
-      "The success of MDIS' graduates is attributed to the institute's strong commitment to high standards of education. Our lecturers are industry practitioners and with relevant practical experience. In addition, the lecturers are approved by MDIS Academic Quality and Examination Board and our partner universities.",
-  },
-  {
-    country: "thailand",
-    image: rangsit,
-    content: "rangsit",
-    name: "rangsit",
-    slug: "rangsit",
-    url: "https://nanyang.edu.sg",
-    description:
-      "Advance in your professional development journey with Nanyang Institute of Management with our industry relevant programmes. We offer a wide range of courses leading to Certificate, Diploma, Advanced Diploma, Bachelor, as well as Master Degrees and other Post-Graduate courses.",
-  },
-  {
-    country: "thailand",
-    image: stamford,
-    content: "stamford",
-    name: "stamford",
-    slug: "stamford",
-    url: "https://raffles-college.edu.sg/",
-    description:
-      "Raffles College of Higher Education is a premier design and business education provider that aims at bringing you personalised, boutique and exclusive hands-on ",
-  },
-  {
-    country: "thailand",
-    image: utcc,
-    content: "utcc",
-    name: "utcc",
-    slug: "utcc",
-    url: "https://www.psb-academy.edu.sg/",
-    description:
-      "With an approach to education that focuses on what really matters: performance in the New Economy, PSB Academy provides quality education to shape and nurture future-ready graduates with the necessary skills and tools to stay relevant in a digitally-driven economy.",
-  },
-];
-
-export const featuredUniversities = [
-  {
-    country: "singapore",
-    image: taylor,
-    content: "SpaceEggActivity",
-    name: "Taylor University",
-    slug: "SpaceEggActivity",
-    url: "https://university.taylors.edu.my/en.html",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-    campusImage: taylorCampus,
-  },
-  {
-    country: "singapore",
-    image: mdis,
-    content: "SpaceEggActivity",
-    name: "MDIS",
-    slug: "SpaceEggActivity",
-    url: "https://www.mdis.edu.sg/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-    campusImage: mdisCampus,
-  },
-  {
-    country: "singapore",
-    image: bangkok,
-    content: "SpaceEggActivity",
-    name: "Bangkok University",
-    slug: "SpaceEggActivity",
-    url: "https://bu.ac.th/en/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-    campusImage: bangkokCampus,
-  },
-  {
-    country: "singapore",
-    image: greenRiver,
-    content: "SpaceEggActivity",
-    name: "Green River",
-    slug: "SpaceEggActivity",
-    url: "https://www.greenriver.edu/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-    campusImage: greenRiverCampus,
-  },
-  {
-    country: "singapore",
-    image: portsmouth,
-    content: "SpaceEggActivity",
-    name: "University of Portsmount, London",
-    slug: "SpaceEggActivity",
-    url: "https://www.port.ac.uk/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-    campusImage: portsmouthCampus,
-  },
-  {
-    country: "singapore",
-    image: uon,
-    content: "University of Northampton",
-    name: "University of Northampton",
-    slug: "SpaceEggActivity",
-    url: "https://www.northampton.ac.uk/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus perspiciatis facere fugit non sit totam, distinctio voluptatem sequi commodi impedit! Tempora consequuntur alias nisi possimus cumque delectus, aut animi consequatur.",
-    campusImage: uonCampus,
+    description: "Known for its innovative teaching methods and cutting-edge research facilities.",
   },
 ];

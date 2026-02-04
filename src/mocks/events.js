@@ -1,4 +1,4 @@
-import bu from "@/assets/img/universities/bu.jpg";
+import university1 from "@/assets/img/universities/1.png";
 import eventOne from "@/assets/img/events/event-1.jpg";
 import eventTwo from "@/assets/img/events/event-2.jpg";
 import eventThree from "@/assets/img/events/event-3.jpg";
