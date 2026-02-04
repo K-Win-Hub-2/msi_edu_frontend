@@ -13,7 +13,7 @@
             <fwb-accordion-header>
               <p class="font-semibold">{{ faq.question }}</p>
             </fwb-accordion-header>
-            <fwb-accordion-content>
+            <fwb-accordion-content class="text-left">
               <p class="mb-2 text-gray-700 dark:text-gray-400">
                 {{ faq.answer }}
               </p>

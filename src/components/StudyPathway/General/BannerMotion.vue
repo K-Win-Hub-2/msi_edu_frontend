@@ -14,7 +14,7 @@ const toGetAppointment = () => {
       loop
       muted
       plays-inline
-      class="right-0 w-full bottom-0"
+      class="bottom-0 right-0 w-full"
     >
       <source
         src="../../../assets/img/StudyPathway/banner.mp4"
@@ -22,8 +22,8 @@ const toGetAppointment = () => {
       />
     </video>
   </div> -->
-  <div class="overflow-hidden relative">
-    <video autoplay loop muted plays-inline class="right-0 w-full bottom-0">
+  <div class="relative overflow-hidden">
+    <video autoplay loop muted plays-inline class="bottom-0 right-0 w-full">
       <source src="@/assets/videos/studyPath.mp4" type="video/mp4" />
     </video>
 

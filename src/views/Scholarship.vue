@@ -3,7 +3,7 @@
     <div class="h-auto">
       <div class="relative overflow-hidden">
         <video autoplay loop muted plays-inline class="bottom-0 right-0 w-full">
-          <source src="@/assets/videos/banner.mp4" type="video/mp4" />
+          <source src="@/assets/videos/scholarship.mp4" type="video/mp4" />
         </video>
 
         <div class="absolute bottom-2 left-11">
