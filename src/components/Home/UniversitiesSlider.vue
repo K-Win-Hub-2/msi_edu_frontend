@@ -4,7 +4,6 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
 import UniversityCard from "@/components/Home/UniversityCard.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Autoplay } from "swiper";
-import { universitiesImages } from "../../mocks/universities";
 
 const currentUniversities = ref([]);
 
@@ -19,9 +18,9 @@ const end = ref(false);
 // swiper start
 const modules = [Navigation, Autoplay];
 
-const onSwiper = (swiper) => {
-  console.log(swiper);
-};
+// const onSwiper = (swiper) => {
+//   console.log(swiper);
+// };
 
 const onSlideChange = (event) => {
   if (event.isEnd) {
@@ -73,8 +72,11 @@ const swiperOptions = {
 // swiper end
 
 onMounted(() => {
-  currentUniversities.value = [...universitiesImages];
-  console.log(currentUniversities.value);
+  currentUniversities.value = Array.from({ length: 51 }, (_, i) => ({
+    image: new URL(`../../assets/img/universities/${i + 1}.png`, import.meta.url).href,
+    description: ""
+  }));
+  // console.log(currentUniversities.value);
 });
 </script>
 
@@ -101,10 +103,7 @@ onMounted(() => {
       >
         <template v-for="university in currentUniversities">
           <swiper-slide class="my-3 md:!w-[200px]">
-            <UniversityCard
-              :image="university.image"
-              :description="university.description"
-            />
+            <UniversityCard :image="university.image" />
           </swiper-slide>
         </template>
       </swiper>

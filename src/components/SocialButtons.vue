@@ -5,30 +5,29 @@
         <img src="../assets/img/message.png" class="p-3" alt="">
       </div>
       <span style="--i: 1">
-        <a
-          href="https://www.facebook.com/MyanmarSearchInternational?mibextid=ZbWKwL"
-          target="_blank"
-          ><i class="fa-brands fa-facebook"></i
-        ></a>
+        <a href="https://www.facebook.com/MyanmarSearchInternational?mibextid=ZbWKwL" target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
       </span>
       <span style="--i: 2">
-        <a href="https://t.me/msieducation" target="_blank"
-          ><i class="fa-brands fa-telegram"></i
-        ></a>
+        <a href="https://t.me/msieducation" target="_blank">
+          <i class="fa-brands fa-telegram"></i>
+        </a>
       </span>
       <span style="--i: 3">
-        <a
-          href="https://invite.viber.com/?g2=AQAtldgj44bKy1E%2B99iRJeGTwNTZkAat1yjGtaEf%2FrmfbyU6ljwpfXYnOAP2sDw0"
-          target="_blank"
-          ><i class="fa-brands fa-viber"></i
-        ></a>
+        <a href="https://invite.viber.com/?g2=AQAtldgj44bKy1E%2B99iRJeGTwNTZkAat1yjGtaEf%2FrmfbyU6ljwpfXYnOAP2sDw0" target="_blank">
+          <i class="fa-brands fa-viber"></i>
+        </a>
       </span>
       <span style="--i: 4">
-        <a
-          href="https://instagram.com/msi.education?igshid=ZGUzMzM3NWJiOQ=="
-          target="_blank"
-          ><i class="fa-brands fa-instagram"></i
-        ></a>
+        <a href="https://instagram.com/msi.education?igshid=ZGUzMzM3NWJiOQ==" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </span>
+      <span style="--i: 5">
+        <a href="https://www.tiktok.com/@msi_overseas_education?_r=1&_t=ZS-93bqtC4kLRa" target="_blank">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
       </span>
     </div>
   </nav>
