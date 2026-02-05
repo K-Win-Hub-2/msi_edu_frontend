@@ -1,15 +1,35 @@
 <template>
   <div class="">
-    <h1
-      class="text-center lg:mt-[60px] md:mt-[20px] lg:text-[40px] md:text-[32px] text-[24px] shadow-title text-cus-primary uppercase lg:font-[700] md:font-[600] font-[510]"
-    >
-      SCHOLARSHIP ACHIEVERS
-    </h1>
-    <h1
+     <div>
+              <h1
+                class="text-center lg:text-[48px] md:text-[32px] ssm:text-[20px] z-40 shadow-title text-cus-primary uppercase lg:font-[700] font-[550] md:font-[600]"
+              >
+                Scholarship Admission <br class="ssm:block md:hidden" />
+                (2007 - 2025)
+              </h1>
+              <h1
+                class="text-center lg:text-[48px] md:text-[28px] ssm:text-[20px] md:font-[530] font-[520] text-cus-primary yuppercase my-4 shadow-title"
+              >
+                Over
+                <span class="text-[80px] text-cus-secondary">400</span>
+                Scholarship Achievers
+              </h1>
+            </div>
+                <h1
       class="md:mt-[24px] lg:mt-[20px] mt-[16px] lg:text-[32px] md:text-[24px] text-[20px] shadow-title text-[#FE005F] text-center lg:mb-[50px] md:mb-[20px] ssm:mb-[5px] uppercase font-semibold"
     >
       100 % SCHOLARSHIP ACHIEVERS
     </h1>
+    <!-- <h1
+      class="text-center lg:mt-[60px] md:mt-[20px] lg:text-[40px] md:text-[32px] text-[24px] shadow-title text-cus-primary uppercase lg:font-[700] md:font-[600] font-[510]"
+    >
+      Scholarship Admission (2007 - 2025)
+    </h1>
+    <h1
+      class="md:mt-[24px] lg:mt-[20px] mt-[16px] lg:text-[32px] md:text-[24px] text-[20px] shadow-title text-[#FE005F] text-center lg:mb-[50px] md:mb-[20px] ssm:mb-[5px] uppercase font-semibold"
+    >
+      Over 400 Scholarship Achievers
+    </h1> -->
     <div
       class="flex justify-between items-center lg:min-w-[1300px] md:min-w-[700px] ssm:max-w-[320px] sm:w-auto overflow-hidden container relative"
     >

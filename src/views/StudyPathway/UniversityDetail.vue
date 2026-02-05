@@ -315,47 +315,48 @@ onMounted(() => {
           </div>
 
           <!-- program -->
-          <div class="mt-9 md:px-10 ssm:px-2" v-if="university.program_course">
-            <h1 class="my-5 font-semibold md:text-lg ssm:text-md">
-              Available Programs
-            </h1>
-            <div
-              class="flex justify-between lg:flex-row lg:items-end sm:flex-col sm:items-start sm:gap-4"
+<div class="mt-9 md:px-10 ssm:px-2" v-if="university.program_course">
+ 
+
+  <div class="mt-9 md:px-10 ssm:px-2" v-if="university.program_course">
+  <h1 class="my-5 font-bold !text-center !text-[32px] md:!text-[48px] shadow-title text-cus-primary">
+    Available Programs
+  </h1>
+
+  <div class="flex flex-col lg:flex-row justify-between gap-8">
+    <div class="grow">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+        <div 
+          v-for="p in university.program_course" 
+          :key="p.id"
+          class="flex flex-col"
+        >
+          <h2 class="text-lg text-primary-200 font-bold mb-4 text-left">
+            {{ p.name }}
+          </h2>
+
+          <ul class="md:text-[20px] ssm:text-[16px] space-y-3 font-medium text-left">
+            <li
+              v-for="(course, index) in p.pivot.course_name.split(',').filter((c) => c.trim())"
+              :key="index"
+              class="leading-tight"
             >
-              <div class="pb-8 grow">
-                <div
-                  class="flex"
-                  v-for="p in university.program_course"
-                  :key="p.id"
-                >
-                  <div class="">
-                    <h1 class="text-md text-primary-600 my-8 font-[600]">
-                      {{ p.name }}
-                    </h1>
-                    <ul
-                      class="md:text-[24px] smm:text-[18px] space-y-2 mt-5 font-[500]"
-                    >
-                      <li
-                        v-for="(course, index) in p.pivot.course_name
-                          .split(',')
-                          .filter((c) => c.trim())"
-                        :key="index"
-                      >
-                        - {{ course.trim() }}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-end">
-                <img
-                  src="../../assets/img/StudyPathway/program.png"
-                  class="w-96 h-96 ssm:hidden md:block"
-                  :alt="university.university_name + ' Program'"
-                />
-              </div>
-            </div>
-          </div>
+              - {{ course.trim() }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="flex items-end justify-center lg:justify-end">
+      <img
+        src="../../assets/img/StudyPathway/program.png"
+        class="w-80 h-auto ssm:hidden md:block lg:w-96"
+        :alt="university.university_name + ' Program'"
+      />
+    </div>
+</div>
 
           <!-- <div class="bg-[#F4FAFF] md:px-10 smm:px-8 md:py-7 ssm:py-4">
             <h1

@@ -56,23 +56,23 @@ const urls = [
             <div class="text-center lg:self-end sm:text-left lg:col-span-2">
               <!-- Adjusted margin: small mt-8 on mobile, large mt-20 on large screens -->
               <h2 class="mt-8 mb-2 text-base font-semibold uppercase lg:mt-20">
-                Address
+                Addresses
               </h2>
               <div class="space-y-4 text-sm leading-relaxed">
                 <div>
-                  <div class="font-semibold">Yangon (Head) Office</div>
+                  <div class="font-semibold">Yangon Office (Head)</div>
                   <p>
-                    No.234, 2nd Fl.(R), Shwebontha St.
-                    <span class="whitespace-nowrap">(MID BL),</span>
+                    No.234, 2nd Floor (Right), Shwebontha Street
+                    <span class="whitespace-nowrap">(Middle Block),</span>
                   </p>
-                  <p>Pabedan Tsp, Yangon, Myanmar.</p>
+                  <p>Pabedan Township, Yangon, Myanmar</p>
                 </div>
 
                 <div>
-                  <div class="font-semibold">Mandalay (Branch) Office</div>
-                  <p>No. 31/3, Between 79 St × 80 St,</p>
+                  <div class="font-semibold">Mandalay Office (Branch)</div>
+                  <p>No. 31/3, Between 79 St × 80 Street,</p>
                   <p>38th Street, Mahar Aung Myay Township,</p>
-                  <p>Mandalay, Myanmar (Burma)</p>
+                  <p>Mandalay, Myanmar </p>
                 </div>
               </div>
             </div>
@@ -103,16 +103,23 @@ const urls = [
                 </li>
 
                 <li class="flex flex-col items-center space-y-1 sm:items-start">
+                  <span class="block font-semibold whitespace-nowrap"
+                    >General Inquiries:</span
+                  >
                   <a
                     href="mailto:info@msieducation.edu.mm"
                     class="hover:underline"
                     >info@msieducation.edu.mm</a
                   >
+                                    <span class="block font-semibold whitespace-nowrap"
+                    >Admissions:</span>
                   <a
                     href="mailto:admission@msieducation.edu.mm"
                     class="hover:underline"
                     >admissions@msieducation.edu.mm</a
                   >
+                                    <span class="block font-semibold whitespace-nowrap"
+                    >Marketing & Partnerships:</span>
                   <a
                     href="mailto:IR.department@msieducation.edu.mm"
                     class="hover:underline"
@@ -120,8 +127,8 @@ const urls = [
                   >
                 </li>
 
-                <li class="flex justify-center mt-4 space-x-4 sm:justify-start">
-                  <!-- Social Media Icons (SVGs are incomplete mock paths but layout is correct) -->
+                <!-- <li class="flex justify-center mt-4 space-x-4 sm:justify-start">
+                  
                   <a
                     href="#"
                     aria-label="Instagram"
@@ -169,7 +176,7 @@ const urls = [
                       <path d="M8.29 20.251c7.547 0 11.675-6.253 ..." />
                     </svg>
                   </a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>

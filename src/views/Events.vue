@@ -15,7 +15,7 @@
             <h1
               class="text-white text-shadow-lg md:text-lg ssm:text-[20px] sm:text-md font-semibold"
             >
-              UpcomingEvents
+              Upcoming Events
             </h1>
             <Button
               @click="upcomingEventPage"

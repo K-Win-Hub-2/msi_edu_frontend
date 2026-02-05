@@ -52,13 +52,13 @@ const fallbackFaqs = [
     question:
       "Can students who haven't finished high school continue their international education?",
     answer:
-      "You can apply to universities around the world by preparing international high school certificates such as GED and IGCSE. Otherwise, you can apply to community colleges in the United States with a Grade 9 certificate.",
+      "You can apply to universities around the world by preparing international high school certificates such as GED and IGCSE. Otherwise, you can apply to Foundation Certificate Program in Singapore with a Grade 9 certificate.",
   },
   {
     id: 2,
     question: "Which countries allow part-time jobs?",
     answer:
-      "There are countries such as the UK, US, Australia, and Vietnam that allow part-time jobs by the government.",
+      "There are countries such as the UK, Europe, and some Asian Countries that allow part-time jobs by the government.",
   },
   {
     id: 3,

@@ -20,23 +20,23 @@
               <h1
                 class="text-center lg:text-[48px] md:text-[32px] ssm:text-[20px] z-40 shadow-title text-white uppercase lg:font-[700] font-[550] md:font-[600]"
               >
-                Scholarship Admission <br class="ssm:block md:hidden" />
-                (2007 - 2025)
+                MSI always supports students in applying for university scholarships from 10% up to 100%, subject to the scholarship schemes provided by each respective university
               </h1>
-              <h1
+              <!-- <h1
                 class="text-center lg:text-[48px] md:text-[28px] ssm:text-[20px] md:font-[530] font-[520] text-white yuppercase my-4 shadow-title"
               >
                 Over
                 <span class="text-[80px] text-cus-secondary">400</span>
                 Scholarship Achievers
-              </h1>
+              </h1> -->
             </div>
           </div>
         </div>
         <div class="flex flex-col justify-center mt-[200px]">
           <p
             class="text-center lg:text-[32px] text-[20px] font-[520] md:text-[28px] text-black uppercase md:font-[510] lg:font-[700] shadow-title md:mt-[80px] ssm:mt-[20px] md:mb-[15px] mb-[10px] lg:mb-[15px]"
-          >
+          style="margin-right:5rem;"
+            >
             GENERAL tIPS TO APPLY SCHOLARSHIP
           </p>
           <div

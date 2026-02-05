@@ -11,7 +11,7 @@
                 formData.location === 'yangon' ? ' text-white' : 'text-white',
               ]"
             >
-              Yangon Head Office
+              Yangon Office (Head) 
             </button>
           </div>
           <div>
@@ -19,12 +19,12 @@
               @click="selectLocation('mandalay')"
               :class="[
                 formData.location === 'mandalay'
-                  ? 'bg-cus-primary text-white'
-                  : '',
+                  ? 'text-white'
+                  : 'text-white',
               ]"
-              class="px-5 py-3 font-bold cursor-pointer hover:bg-cus-primary hover:text-white cus-standout"
+              class="px-5 py-3 mx-4 font-bold cursor-pointer bg-gradient-to-r from-cus-primary to-cus-secondary cus-standout"
             >
-              Mandalay Head Office
+              Mandalay Branch Office
             </button>
           </div>
         </li>
@@ -95,8 +95,8 @@
                 class="text-[13px] font-semibold text-[#9D0038] leading-relaxed text-left"
                 v-html="
                   formData.location === 'yangon'
-                    ? `No.234, 2nd Fl. (R),<br/> Shwebontha St. (MID BL),<br/>Pabedan Tsp, Yangon,<br/>Myanmar.`
-                    : `No. 31/3, Between 79 St × 80 St,<br/>38th St, Mahar Aung Myay Township,<br/>Mandalay, Myanmar (Burma)`
+                    ? `No.234, 2nd Floor (Right), <br/> Shwebontha Street. (Middle Block), Pabedan Township, Yangon, Myanmar`
+                    : `No. 31/3, Between 79 St × 80 Street,<br/>38th Street, Mahar Aung Myay Township, Mandalay, Myanmar`
                 "
               ></p>
             </div>

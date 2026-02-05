@@ -228,7 +228,7 @@ const isActive = (url) => {
             <img
               v-if="logoUrl"
               :src="logoUrl"
-              class="object-cover h-20 lg:h-18"
+              class="object-cover h-24 lg:h-28"
               alt="Logo"
               loading="lazy"
             />
@@ -256,7 +256,7 @@ const isActive = (url) => {
                 :to="{ name: 'about-us' }"
                 class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                 data-te-nav-link-ref
-                >About Us</router-link
+                >About MSI</router-link
               >
               <div
                 class="hidden p-3 w-[150px] bg-white absolute top-[85px] shadow border cus-standout group-hover:block"
@@ -340,12 +340,18 @@ const isActive = (url) => {
                 :to="{ name: 'study-pathway' }"
                 class="text-cus-primary text-base font-semibold disabled:text-black/30 lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                 data-te-nav-link-ref
-                >Study Pathway</router-link
+                >Study Pathways</router-link
               >
               <div
                 class="hidden p-3 bg-white absolute top-[85px] shadow border cus-standout group-hover:block"
               >
                 <ul v-if="data" class="space-y-2">
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90 w-60"
+                  >
+                    <a href="/study-pathway#mission">More Countries</a>
+                  </li>
+                  
                   <li
                     v-for="data in data.countries"
                     :key="data"
@@ -379,7 +385,7 @@ const isActive = (url) => {
                 :to="{ name: 'scholarship' }"
                 class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                 data-te-nav-link-ref
-                >Scholarship</router-link
+                >Scholarships</router-link
               >
             </li>
             <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
@@ -395,7 +401,7 @@ const isActive = (url) => {
                 :to="{ name: 'contact-us' }"
                 class="text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
                 data-te-nav-link-ref
-                >Contact Us</router-link
+                >Contact MSI</router-link
               >
             </li>
             <!-- <template v-for="url in urls">

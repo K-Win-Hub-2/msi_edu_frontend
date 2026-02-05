@@ -27,7 +27,7 @@
       <h1
         class="font-bold uppercase text-cus-secondary md:cus-heading text-shadow-sm cus-shadow-color"
       >
-        Leader Speeches
+        Leaders' Speeches
       </h1>
     </div>
     <div
@@ -58,12 +58,12 @@
         >
           {{ currentCard.title }}
         </h1>
-        <h2 class="mb-3 cus-paragraph-subTitle">
+        <h2 class="mb-3 cus-paragraph-subTitle" style="font-size: 1.24rem !important;">
           <template v-for="eachLine in currentCard.subTitle" :key="eachLine">
             {{ eachLine }} <br />
           </template>
         </h2>
-        <p class="cus-paragraph text-justify mb-3 md:w-[500px]">
+        <p class="text-justify mb-3 md:w-[500px] font-semibold">
           <template v-for="eachPara in currentCard.para">
             {{ eachPara }}
             <template v-if="currentCard.para.length > 1">
@@ -112,8 +112,8 @@ const cards = ref([
     image: tas,
   },
   {
-    title: "VICE PRESIDENT SPEECH",
-    subTitle: ["Mr. Thet Win Naing (Vice President)"],
+    title: "VICE-PRESIDENT SPEECH",
+    subTitle: ["Mr. Thet Win Naing (Vice-President)"],
     para: [
       "• To achieve human and business empowerment, it is crucial to invest in human resources.",
       "• Our aim is to foster international investment and facilitate transformation.",
@@ -139,4 +139,5 @@ const currentCard = ref({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>

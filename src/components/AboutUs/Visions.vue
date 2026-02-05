@@ -113,7 +113,12 @@ const swiperOptions = {
     >
       <template v-for="vision in visions">
         <swiper-slide class="my-3">
-          <VisionCard :vision="vision" class="lg:w-[500px]" />
+          <VisionCard
+  :vision="vision"
+  class="lg:w-[500px] bg-gradient-to-r from-cus-primary to-cus-secondary text-white"
+/>
+
+
         </swiper-slide>
       </template>
     </swiper>
