@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section id="our-office" class="relative z-30 overflow-hidden">
+    <section id="our-office" class="relative z-30 overflow-hidden pt-0 lg:pt-20 sm:pt-2">
       <HeroOld />
     </section>
 

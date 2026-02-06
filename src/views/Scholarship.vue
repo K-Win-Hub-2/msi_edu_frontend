@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <div class="h-auto">
+    <div class="h-auto pt-0 lg:pt-20 sm:pt-5 ssm:pt-5">
       <div class="relative overflow-hidden">
         <video autoplay loop muted plays-inline class="bottom-0 right-0 w-full">
           <source src="@/assets/videos/scholarship.mp4" type="video/mp4" />

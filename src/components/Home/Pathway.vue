@@ -103,6 +103,7 @@ const handleProgramSelect = (event) => {
   selectedProgram.value = programList.value.filter(
     (program) => program.id == selectedProgramId.value
   )?.[0];
+  fetchCourses();
 };
 
 const handleCourseSelect = (event) => {
@@ -248,6 +249,7 @@ watch(
           <!-- Program -->
           <select
             v-model="selectedProgramId"
+            @change="handleProgramSelect"
             class="w-full sm:w-40 rounded-lg border px-3 py-2
                   font-medium text-cus-primary focus:ring-2 focus:ring-cus-primary"
           >

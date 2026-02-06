@@ -84,7 +84,10 @@ const fetchFaq = async (countryId) => {
   try {
     const res = await axios.get("/country-lists");
     const country = res.data.countries.find((el) => el.id == countryId);
+    if(countryId.value === undefined){
     faqs.value = country?.faqs?.length ? country.faqs : fallbackFaqs;
+    }
+    faqs.value = country?.faqs?.length ? country.faqs : [];
   } catch (error) {
     faqs.value = fallbackFaqs;
   }

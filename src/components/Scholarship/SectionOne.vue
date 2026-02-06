@@ -33,20 +33,22 @@
           </div>
         </div>
         <div class="flex flex-col justify-center mt-[200px]">
-          <p
-            class="text-center lg:text-[32px] text-[20px] font-[520] md:text-[28px] text-black uppercase md:font-[510] lg:font-[700] shadow-title md:mt-[80px] ssm:mt-[20px] md:mb-[15px] mb-[10px] lg:mb-[15px]"
-          style="margin-right:5rem;"
-            >
-            GENERAL tIPS TO APPLY SCHOLARSHIP
-          </p>
+         <p
+  class="text-center mx-auto lg:text-[32px] text-[20px] font-[520] md:text-[28px] text-black uppercase md:font-[510] lg:font-[700] shadow-title 
+         md:mt-[80px] ssm:mt-[20px] md:mb-[15px] mb-[10px] lg:mb-[15px]"
+>
+  GENERAL TIPS TO APPLY SCHOLARSHIP
+</p>
+
           <div
-            class="flex flex-wrap justify-end lg:max-w-[1200px] md:min-w-[800px] z-40 lg:gap-4 md:gap-1 md:gap-y- gap-y-3 md:mx-4"
-          >
-            <!-- loop -->
-            <div class="" v-for="course in courses" :key="course">
-              <CountryCourseCard :course="course" />
-            </div>
-          </div>
+  class="flex flex-wrap justify-center items-center lg:max-w-[1200px] md:min-w-[800px] z-40 lg:gap-4 md:gap-4 gap-3 mx-auto"
+>
+  <!-- loop -->
+  <div class="flex justify-center" v-for="course in courses" :key="course">
+    <CountryCourseCard :course="course" />
+  </div>
+</div>
+
           <!-- end loop -->
         </div>
       </div>

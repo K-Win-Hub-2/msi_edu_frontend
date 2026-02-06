@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section  class="pt-0 lg:pt-20 sm:pt-7 ssm:pt-5">
     <Hero />
   </section>
 

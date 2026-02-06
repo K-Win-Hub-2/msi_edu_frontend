@@ -1,11 +1,13 @@
 <script setup>
-import axios from "axios";
-import { onMounted, ref } from "vue";
+import { computed } from "vue";
 
 const props = defineProps(["data"]);
-const studentImage = ref("");
-studentImage.value =
-  "http://adminpanel.msieducation.edu.mm/postImage/" + props.data.student_image;
+
+// Use computed so it updates automatically when props.data arrives
+const studentImage = computed(() => {
+  if (!props.data?.student_image) return ""; // Safety check
+  return "https://adminpanel.msieducation.edu.mm/postImage/" + props.data.student_image;
+});
 </script>
 <template>
   <div
@@ -15,8 +17,8 @@ studentImage.value =
       <div class="w-[131px] h-[131px]">
         <img
           class="rounded-full w-[100%] h-[100%]"
-          src=""
-          alt=""
+          :src="studentImage"
+          alt="Student Photo"
         />
       </div>
       <div class="md:ml-[35px] ssm:ml-4">

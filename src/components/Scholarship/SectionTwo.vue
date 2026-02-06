@@ -16,8 +16,8 @@
               </h1>
             </div>
                 <h1
-      class="md:mt-[24px] lg:mt-[20px] mt-[16px] lg:text-[32px] md:text-[24px] text-[20px] shadow-title text-[#FE005F] text-center lg:mb-[50px] md:mb-[20px] ssm:mb-[5px] uppercase font-semibold"
-    >
+              class="md:mt-[24px] lg:mt-[20px] mt-[16px] lg:text-[32px] md:text-[24px] text-[20px] shadow-title text-[#FE005F] text-center lg:mb-[50px] md:mb-[20px] ssm:mb-[5px] uppercase font-semibold"
+            >
       100 % SCHOLARSHIP ACHIEVERS
     </h1>
     <!-- <h1
@@ -84,19 +84,18 @@ import { Pagination, Navigation } from "swiper";
 import SliderScho from "./SliderScho.vue";
 import { onMounted, ref } from "vue";
 const modules = [Navigation, Pagination];
-import MinKhantTinImg from "../../assets/img/scholarship/Min Khant Tin (Webster).jpg";
-import kyiImg from "../../assets/img/scholarship/kyi.jpg";
-import KhinImg from "../../assets/img/scholarship/hnin.jpg";
-import HninImg from "../../assets/img/scholarship/Hnin A Kery (SIM).jpg";
-import EiNgonImg from "../../assets/img/scholarship/Ei Ngon Phoo (SIM).jpg";
-import ZayaImg from "../../assets/img/scholarship/Zay Ya Min Yin (SIM).jpg";
-import ZawLinImg from "../../assets/img/scholarship/zinLin.jpg";
+// import MinKhantTinImg from "../../assets/img/scholarship/Min Khant Tin (Webster).jpg";
+// import kyiImg from "../../assets/img/scholarship/kyi.jpg";
+// import KhinImg from "../../assets/img/scholarship/hnin.jpg";
+// import HninImg from "../../assets/img/scholarship/Hnin A Kery (SIM).jpg";
+// import EiNgonImg from "../../assets/img/scholarship/Ei Ngon Phoo (SIM).jpg";
+// import ZayaImg from "../../assets/img/scholarship/Zay Ya Min Yin (SIM).jpg";
+// import ZawLinImg from "../../assets/img/scholarship/zinLin.jpg";
 import axios from "axios";
 
 const start = ref(true);
 const end = ref(false);
 const props = defineProps(["scholarships"]);
-console.log("scholarships in section two ", props.scholarships);
 
 const onSlideChange = (event) => {
   if (event.isEnd) {
@@ -113,36 +112,36 @@ const onSlideChange = (event) => {
 };
 
 
-const data = ref([
-  {
-    name: "Min Khant Tin",
-    image: MinKhantTinImg,
-  },
-  {
-    name: "Kyi Phyu Maung ",
-    image: kyiImg,
-  },
-  {
-    name: "Khin Thuzar Thant",
-    image: KhinImg,
-  },
-  {
-    name: "Hnin A Kery",
-    image: HninImg,
-  },
-  {
-    name: "Ei Ngon Phoo",
-    image: EiNgonImg,
-  },
-  {
-    name: "Zay Ya Min Yin",
-    image: ZayaImg,
-  },
-  {
-    name: "Zaw Lin Htike",
-    image: ZawLinImg,
-  },
-]);
+// const data = ref([
+//   {
+//     name: "Min Khant Tin",
+//     image: MinKhantTinImg,
+//   },
+//   {
+//     name: "Kyi Phyu Maung ",
+//     image: kyiImg,
+//   },
+//   {
+//     name: "Khin Thuzar Thant",
+//     image: KhinImg,
+//   },
+//   {
+//     name: "Hnin A Kery",
+//     image: HninImg,
+//   },
+//   {
+//     name: "Ei Ngon Phoo",
+//     image: EiNgonImg,
+//   },
+//   {
+//     name: "Zay Ya Min Yin",
+//     image: ZayaImg,
+//   },
+//   {
+//     name: "Zaw Lin Htike",
+//     image: ZawLinImg,
+//   },
+// ]);
 
 const swiperOptions = {
   loop: true,
