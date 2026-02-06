@@ -3,11 +3,11 @@ import { RouterLink } from "vue-router";
 
 const urls = [
   { name: "Home", url: "home" },
-  { name: "About us", url: "about-us" },
+  { name: "About MSI", url: "about-us" },
   { name: "Services", url: "services" },
   { name: "Study Pathway", url: "study-pathway" },
   { name: "Events", url: "events" },
-  { name: "Contact Us", url: "contact-us" },
+  { name: "Contact MSI", url: "contact-us" },
 ];
 </script>
 
@@ -62,15 +62,15 @@ const urls = [
                 <div>
                   <div class="font-semibold">Yangon Office (Head)</div>
                   <p>
-                    No.234, 2nd Floor (Right), Shwebontha Street
-                    <span class="whitespace-nowrap">(Middle Block),</span>
+                    No.234, 2nd Floor (Right), 
+                    <span class="whitespace-nowrap">Shwebontha Street (Middle Block),</span>
                   </p>
                   <p>Pabedan Township, Yangon, Myanmar</p>
                 </div>
 
                 <div>
                   <div class="font-semibold">Mandalay Office (Branch)</div>
-                  <p>No. 31/3, Between 79 St × 80 Street,</p>
+                  <p>No. 31/3, Between 79 Street × 80 Street,</p>
                   <p>38th Street, Mahar Aung Myay Township,</p>
                   <p>Mandalay, Myanmar </p>
                 </div>
@@ -86,7 +86,7 @@ const urls = [
               <ul class="space-y-3 text-sm">
                 <li>
                   <span class="font-semibold whitespace-nowrap"
-                    >Yangon (Head) Office</span
+                    >Yangon Office (Head)</span
                   >
                   <div>+95 1 838 991 5</div>
                   <div>+95 1 838 140 8</div>
@@ -96,7 +96,7 @@ const urls = [
 
                 <li>
                   <span class="block font-semibold whitespace-nowrap"
-                    >Mandalay (Branch) Office</span
+                    >Mandalay Office (Branch)</span
                   >
                   <div>+95 9 444 443 916</div>
                   <div>+95 9 444 443 917</div>

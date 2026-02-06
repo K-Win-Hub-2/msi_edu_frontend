@@ -228,7 +228,7 @@ const isActive = (url) => {
             <img
               v-if="logoUrl"
               :src="logoUrl"
-              class="object-cover h-24 lg:h-28"
+              class="object-cover h-28 lg:h-31"
               alt="Logo"
               loading="lazy"
             />

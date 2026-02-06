@@ -24,7 +24,7 @@
               ]"
               class="px-5 py-3 mx-4 font-bold cursor-pointer bg-gradient-to-r from-cus-primary to-cus-secondary cus-standout"
             >
-              Mandalay Branch Office
+              Mandalay Office (Branch)
             </button>
           </div>
         </li>

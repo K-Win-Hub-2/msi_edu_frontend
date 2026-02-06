@@ -58,7 +58,7 @@
         >
           {{ currentCard.title }}
         </h1>
-        <h2 class="mb-3 cus-paragraph-subTitle" style="font-size: 1.24rem !important;">
+        <h2 class="mb-3 font-bold text-cus-primary" style="font-size: 1.2rem !important;">
           <template v-for="eachLine in currentCard.subTitle" :key="eachLine">
             {{ eachLine }} <br />
           </template>
