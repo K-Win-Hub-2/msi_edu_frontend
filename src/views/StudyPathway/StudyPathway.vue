@@ -79,19 +79,17 @@
     </section>
  <section id="mission">
   <div class="container flex justify-center"> <div
-      class="bg-gradient-to-r from-cus-primary/80 to-cus-secondary/80 
-             text-white 
+      class="bg-gradient-to-r from-cus-primary/100 to-cus-secondary/100 
+             text-white
+             font-semibold 
              py-12 px-10 md:py-20 md:px-16 
              rounded-lg 
              max-w-5xl 
              mx-auto 
              text-center" 
     >
-      <p class="text-[18px] md:text-[20px] leading-relaxed">
-        MSI always provides student applications and visa process along with our
-        One-Stop Quality Services to universities, institutes, and colleges in
-        non-partner countries, including the Czech Republic, Italy, Japan, and
-        Korea, under fair and standardized service fee arrangements.
+      <p class="text-[25px] md:text-[25px] leading-relaxed">
+       MSI always provides student applications and visa process along with our One-Stop Quality Services to universities, institutes, and colleges in non-partner countries, including Czech Republic, Italy, Japan, Korea, France and so on.
       </p>
     </div>
   </div>

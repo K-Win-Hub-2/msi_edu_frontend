@@ -339,9 +339,9 @@ watch(
             </button>
           </div>
         </template>
-        <div v-else class="py-10 text-center text-white">
+        <!-- <div v-else class="py-10 text-center text-white">
           No University Found!
-        </div>
+        </div> -->
       </template>
     </div>
   </template>

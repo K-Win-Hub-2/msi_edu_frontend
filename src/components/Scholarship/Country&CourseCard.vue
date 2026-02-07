@@ -13,7 +13,7 @@
         />
       </div>
     </div>
-    <div class="card rounded-xl px-[9px] py-6 mt-[95px] bg-[#D6ECFF] hover:bg-white">
+    <div class="card rounded-xl px-[9px] py-6 mt-[95px] bg-[#61b4fc] hover:bg-white">
       <p class="text-center ssm:text-[14px] md:text-[16px]">
         {{ props.course.name }}
       </p>

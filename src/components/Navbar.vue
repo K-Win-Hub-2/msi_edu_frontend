@@ -346,11 +346,7 @@ const isActive = (url) => {
                 class="hidden p-3 bg-white absolute top-[85px] shadow border cus-standout group-hover:block"
               >
                 <ul v-if="data" class="space-y-2">
-                  <li
-                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90 w-60"
-                  >
-                    <a href="/study-pathway#mission">More Countries</a>
-                  </li>
+                  
                   
                   <li
                     v-for="data in data.countries"
@@ -365,6 +361,11 @@ const isActive = (url) => {
                     >
                       {{ data.name }}
                     </router-link>
+                  </li>
+                  <li
+                    class="px-2 text-cus-primary text-base font-semibold disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90 w-60"
+                  >
+                    <a href="/study-pathway#mission">More Countries</a>
                   </li>
                 </ul>
                 <!-- <template

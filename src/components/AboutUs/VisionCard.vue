@@ -4,7 +4,7 @@
   >
     <div class="space-y-6">
       <h3
-        class="md:text-4xl ssm:text-md text-cus-secondary px-5 capitalize text font-bold text-shadow-sm cus-shadow-color"
+        class="md:text-4xl ssm:text-md text-white px-5 capitalize text font-bold text-shadow-sm cus-shadow-color"
       >
         {{ props.vision.title }}
       </h3>

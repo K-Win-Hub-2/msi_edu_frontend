@@ -83,9 +83,9 @@
 <script setup>
 // import phyuphyuThant from "@/assets/img/AboutUs/OurTeam/23.jpg";
 
-import tas from "@/assets/img/leaders/tas.jpg";
-import twn from "@/assets/img/leaders/twn.jpg";
-import ssh from "@/assets/img/leaders/ssh.jpg";
+import tas from "@/assets/img/leaders/tas2.png";
+import twn from "@/assets/img/leaders/twn2.png";
+import ssh from "@/assets/img/leaders/ssh2.png";
 import { ref } from "vue";
 
 import Button from "../partials/Button.vue";

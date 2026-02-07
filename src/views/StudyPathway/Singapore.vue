@@ -56,7 +56,7 @@ const videoLink = (val) => {
 
 <template>
   <section>
-    <div class="relative lg:mt-36 ssm:mt-4" v-if="bannerImage">
+    <div class="relative lg:mt-24 ssm:mt-4" v-if="bannerImage">
       <img :src="bannerImage" class="object-cover w-full lg:h-[800px]" alt="" />
     </div>
   </section>

@@ -15,6 +15,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import 'swiper/css/effect-coverflow';
 import PrizeCard from '../../components/Home/PrizeCard.vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const start = ref(true);
 const end = ref(false);
 const scholarshipOffer = ref();
@@ -156,6 +158,9 @@ const scholarship = async () => {
   const res = await axios.get(`scholarship-type-list/university/${props.id}`);
   scholarshipOffer.value = res.data.scholarshipTypeLists;
 };
+const toGetAppointment = () => {
+  router.push({ name: "appointment-form" });
+};
 
 onBeforeRouteUpdate(() => {
   fetchData();
@@ -231,6 +236,7 @@ onMounted(() => {
             </ul>
             <div class="flex items-end">
               <Button
+                @click="toGetAppointment"
                 class="lg:px-[50px] lg:py-[16px] lg:text-[15px] md:px-[40px] md:py-[8px] md:text-[10px] px-[30px] py-[8px] rounded-[20px] text-[10px]"
                 type="gradient"
                 data-te-ripple-color="light"

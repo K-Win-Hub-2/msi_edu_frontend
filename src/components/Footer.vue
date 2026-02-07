@@ -5,7 +5,8 @@ const urls = [
   { name: "Home", url: "home" },
   { name: "About MSI", url: "about-us" },
   { name: "Services", url: "services" },
-  { name: "Study Pathway", url: "study-pathway" },
+  { name: "Study Pathways", url: "study-pathway" },
+  { name: "Scholarships", url:"scholarship"},
   { name: "Events", url: "events" },
   { name: "Contact MSI", url: "contact-us" },
 ];
@@ -13,8 +14,9 @@ const urls = [
 
 <template>
   <footer
-    class="text-white bg-[url('@/assets/img/home/footer.png')] bg-no-repeat bg-bottom bg-cover bg-[size:100%_auto] pt-40 sm:pt-60 lg:pt-80 relative"
-  >
+  class="text-black sm:text-white bg-[url('@/assets/img/home/footer.png')] bg-no-repeat bg-bottom bg-cover bg-[size:100%_auto] pt-40 sm:pt-60 lg:pt-80 relative"
+>
+
     <div class="pt-20">
       <div class="container mx-auto">
         <div

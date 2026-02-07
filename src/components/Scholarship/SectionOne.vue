@@ -18,9 +18,9 @@
             ></div> -->
             <div>
               <h1
-                class="text-center lg:text-[48px] md:text-[32px] ssm:text-[20px] z-40 shadow-title text-white uppercase lg:font-[700] font-[550] md:font-[600]"
+                class="text-center lg:text-[40px] md:text-[32px] ssm:text-[20px] z-40 shadow-title text-white uppercase lg:font-[700] font-[550] md:font-[600]"
               >
-                MSI always supports students in applying for university scholarships from 10% up to 100%, subject to the scholarship schemes provided by each respective university
+                MSI always supports students in applying for university scholarships from 10% up to 100%, subject to the scholarship schemes provided by each respective university.
               </h1>
               <!-- <h1
                 class="text-center lg:text-[48px] md:text-[28px] ssm:text-[20px] md:font-[530] font-[520] text-white yuppercase my-4 shadow-title"
