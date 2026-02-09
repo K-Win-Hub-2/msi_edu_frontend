@@ -1,28 +1,5 @@
 <template>
   <div class="relative z-30">
-    <!-- <div class="flex items-center justify-around mb-11 mx-11">
-      <div class="">
-        <h1 class="text-cus-secondary font-bold text-[20px] uppercase text-shadow-sm cus-shadow-color">Our Services</h1>
-        <p class="text-cus-secondary text-[20px]  font-bold text-xl uppercase text-shadow-sm cus-shadow-color">FOr your education</p>
-      </div>
-      <div class="">
-        <a class="w-[300px] bg-gray-200 border cus-rounded  flex items-center justify-between whitespace-nowrap px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-cus-primary transition duration-75 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
-          href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
-          data-te-ripple-init data-te-ripple-color="light">
-          <p class="pr-11 text-black font-bold text-[15px]">Service</p>
-          <span class="w-2 ml-2">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-              <path fill-rule="evenodd"
-                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                clip-rule="evenodd" />
-            </svg>
-          </span>
-        </a>
-      </div>
-      <div class="">
-        <Button class="px-6" type="gradient">Search</Button>
-      </div>
-    </div> -->
     <div class="text-3xl text-center mb-11">
       <h1
         class="font-bold uppercase text-cus-secondary md:cus-heading text-shadow-sm cus-shadow-color"
@@ -30,50 +7,84 @@
         Leaders' Speeches
       </h1>
     </div>
+
     <div
-      class="flex items-center justify-between gap-6 md:flex-row ssm:flex-col"
+      class="flex gap-8 md:flex-row ssm:flex-col md:items-start ssm:items-center justify-center"
     >
-      <div class="">
-        <img
-          :src="currentCard.image"
-          alt=""
-          class="md:h-[400px] md:w-[700px] ssm:h-[200px] ssm:w-[500px] ssm:px-5 md:px-0 rounded-lg mb-3 object-cover"
-        />
-        <div class="flex justify-center gap-3">
-          <template v-for="(card, index) in cards">
-            <div @click="updateCurrentCard(index)">
+      <div class="flex flex-col items-center">
+        <div
+          class="relative flex items-center justify-center px-2 py-2 shadow-xl rounded-xl bg-black/40 backdrop-blur-sm"
+        >
+          <button
+            class="absolute left-0 flex items-center justify-center text-xl transition-colors -translate-x-1/2 rounded-full shadow-lg cursor-pointer w-11 h-11 bg-white/90 hover:bg-cus-primary hover:text-white z-10"
+            @click="prevCard"
+            aria-label="Previous speech"
+          >
+            ‹
+          </button>
+
+          <div class="bg-gray-200/10 rounded-lg overflow-hidden aspect-square w-[300px] md:w-[400px]">
+            <img
+              :src="currentCard.image"
+              alt="Leader Image"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <button
+            class="absolute right-0 flex items-center justify-center text-xl transition-colors translate-x-1/2 rounded-full shadow-lg cursor-pointer w-11 h-11 bg-white/90 hover:bg-cus-primary hover:text-white z-10"
+            @click="nextCard"
+            aria-label="Next speech"
+          >
+            ›
+          </button>
+        </div>
+
+        <div class="flex justify-center gap-3 mt-4">
+          <template v-for="(card, index) in cards" :key="index">
+            <button
+              type="button"
+              @click="updateCurrentCard(index)"
+              class="focus:outline-none"
+            >
               <img
                 :src="card.image"
-                class="object-cover overflow-hidden rounded shadow-2xl cursor-pointer ssm:w-16 ssn:h-16"
-                alt="Avatar"
+                :class="[
+                  'object-cover overflow-hidden rounded-lg shadow-md cursor-pointer w-14 h-14 md:w-16 md:h-16 border border-transparent transition-all',
+                  index === currentIndex
+                    ? 'ring-2 ring-cus-primary border-cus-primary scale-105'
+                    : 'hover:ring-1 hover:ring-cus-primary/60',
+                ]"
+                alt="Thumbnail"
               />
-            </div>
+            </button>
           </template>
         </div>
       </div>
 
-      <div class="ssm:max-w-[320px] ssm:px-3 md:px-0 md:max-w-[1000px]">
+      <div class="ssm:max-w-[320px] ssm:px-3 md:px-0 md:max-w-[520px]">
         <h1
-          class="mb-3 text-white cus-paragraph-title text-shadow-sm cus-shadow-color"
+          class="mb-3 text-white cus-paragraph-title text-shadow-sm cus-shadow-color uppercase font-bold"
         >
           {{ currentCard.title }}
         </h1>
-        <h2 class="mb-3 font-bold text-cus-primary" style="font-size: 1.2rem !important;">
-          <template v-for="eachLine in currentCard.subTitle" :key="eachLine">
+
+        <h2 
+          class="mb-3 font-bold text-cus-primary" 
+          style="font-size: 1.2rem !important;"
+        >
+          <template v-for="(eachLine, idx) in currentCard.subTitle" :key="idx">
             {{ eachLine }} <br />
           </template>
         </h2>
-        <p class="text-justify mb-3 md:w-[500px] font-semibold">
-          <template v-for="eachPara in currentCard.para">
+
+        <p class="text-justify mb-3 font-semibold leading-relaxed">
+          <template v-for="(eachPara, idx) in currentCard.para" :key="idx">
             {{ eachPara }}
-            <template v-if="currentCard.para.length > 1">
-              <br />
-              <br />
+            <template v-if="idx !== currentCard.para.length - 1">
+              <br /><br />
             </template>
           </template>
-          <!-- <div class="text-right">
-          <Button class="px-6 " type="gradient">Next</Button>
-        </div> -->
         </p>
       </div>
     </div>
@@ -81,21 +92,13 @@
 </template>
 
 <script setup>
-// import phyuphyuThant from "@/assets/img/AboutUs/OurTeam/23.jpg";
+import { ref, computed } from "vue";
 
 import tas from "@/assets/img/leaders/tas2.png";
 import twn from "@/assets/img/leaders/twn2.png";
 import ssh from "@/assets/img/leaders/ssh2.png";
-import { ref } from "vue";
 
-import Button from "../partials/Button.vue";
-
-const updateCurrentCard = (cardIndex) => {
-  console.log("updating card");
-  currentCard.value = cards.value.filter(
-    (card, index) => index === cardIndex
-  )[0];
-};
+const currentIndex = ref(0);
 
 const cards = ref([
   {
@@ -118,26 +121,37 @@ const cards = ref([
       "• To achieve human and business empowerment, it is crucial to invest in human resources.",
       "• Our aim is to foster international investment and facilitate transformation.",
       "• We strive to advance educational pathways while adapting to the ever-changing global landscape.",
-      `• Our commitment is to collaborate and contribute to the growth and enlightenment of Myanmar's exceptional students, guided by the principles of Dedication, Passion, and Sacrifice.`,
+      "• Our commitment is to collaborate and contribute to the growth and enlightenment of Myanmar's exceptional students, guided by the principles of Dedication, Passion, and Sacrifice.",
     ],
     image: twn,
   },
   {
-    title: "principle speech",
+    title: "PRINCIPLE SPEECH",
     subTitle: ["Su Su Hlaing", "Managing Director"],
     para: [
-      "I have cherished education throughout my life. Studying abroad should not merely be about obtaining a degree or seeking recognition from society.It also entails making sacrifices such as being away from loved ones, leaving the comfort of home, and taking financial risks.Therefore, it should be seen as a significant achievement.I sincerely hope that students in Myanmar can give their best efforts in their educational journeys, not only to acquire a foreign degree but also to apply the insights and opportunities gained internationally.",
-
-      "Our primary objective is to provide international pathways to all prospective students in Myanmar, and we are fully dedicated to this mission.We have expanded the MSI Academy education center to offer services for study grant applications, catering to those who have achieved specific marks in their exams.Additionally, we provide scholarship application assistance for students who have excelled in their studies.We also offer courses in GED(American high school education), academic English for university entrance requirements, IT and Engineering courses, and study abroad preparation.",
+      "I have cherished education throughout my life. Studying abroad should not merely be about obtaining a degree or seeking recognition from society. It also entails making sacrifices such as being away from loved ones, leaving the comfort of home, and taking financial risks. Therefore, it should be seen as a significant achievement. I sincerely hope that students in Myanmar can give their best efforts in their educational journeys, not only to acquire a foreign degree but also to apply the insights and opportunities gained internationally.",
+      "Our primary objective is to provide international pathways to all prospective students in Myanmar, and we are fully dedicated to this mission. We have expanded the MSI Academy education center to offer services for study grant applications, catering to those who have achieved specific marks in their exams. Additionally, we provide scholarship application assistance for students who have excelled in their studies. We also offer courses in GED (American high school education), academic English for university entrance requirements, IT and Engineering courses, and study abroad preparation.",
     ],
     image: ssh,
   },
 ]);
 
-const currentCard = ref({
-  ...cards.value[0],
-});
+const currentCard = computed(() => cards.value[currentIndex.value]);
+
+const updateCurrentCard = (cardIndex) => {
+  currentIndex.value = cardIndex;
+};
+
+const prevCard = () => {
+  currentIndex.value = (currentIndex.value - 1 + cards.value.length) % cards.value.length;
+};
+
+const nextCard = () => {
+  currentIndex.value = (currentIndex.value + 1) % cards.value.length;
+};
 </script>
+
+
 
 <style lang="scss" scoped>
 </style>

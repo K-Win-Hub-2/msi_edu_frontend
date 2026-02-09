@@ -2,32 +2,24 @@
   <div class="relative bg-no-repeat bg-contain">
     <div class="pb-12 my-12 mt-[130px]">
       <ul class="flex justify-center gap-3 ml-3">
-        <li class="md:flex ssm:space-y-3 md:space-y-0">
-          <div>
-            <button
-              @click="selectLocation('yangon')"
-              class="px-5 py-3 mx-4 font-bold cursor-pointer bg-gradient-to-r from-cus-primary to-cus-secondary cus-standout"
-              :class="[
-                formData.location === 'yangon' ? ' text-white' : 'text-white',
-              ]"
-            >
-              Yangon Office (Head) 
-            </button>
-          </div>
-          <div>
-            <button
-              @click="selectLocation('mandalay')"
-              :class="[
-                formData.location === 'mandalay'
-                  ? 'text-white'
-                  : 'text-white',
-              ]"
-              class="px-5 py-3 mx-4 font-bold cursor-pointer bg-gradient-to-r from-cus-primary to-cus-secondary cus-standout"
-            >
-              Mandalay Office (Branch)
-            </button>
-          </div>
-        </li>
+        <li class="md:flex ssm:space-y-3 md:space-y-0 items-center">
+  <div>
+    <button
+      @click="selectLocation('yangon')"
+      class="w-72 py-3 mx-2 font-bold cursor-pointer bg-gradient-to-r from-cus-primary to-cus-secondary cus-standout rounded-xl text-white"
+    >
+      Yangon Office (Head)
+    </button>
+  </div>
+  <div>
+    <button
+      @click="selectLocation('mandalay')"
+      class="w-72 py-3 mx-2 font-bold cursor-pointer bg-gradient-to-r from-cus-primary to-cus-secondary cus-standout rounded-xl text-white"
+    >
+      Mandalay Office (Branch)
+    </button>
+  </div>
+</li>
       </ul>
     </div>
 

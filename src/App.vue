@@ -23,7 +23,7 @@ const serviceDropdown = ref(false);
 const studyDropdown = ref(false);
 
 onMounted(() => {
-  // fetchData(url.value);
+  fetchData(url.value);
   let navbar = document.getElementById("navbar");
   let mainView = main.value;
   let sticky = navbar.offsetTop;
@@ -71,7 +71,7 @@ onMounted(() => {
     <div class="relative">
       <div
         v-if="navbar"
-        class="md:w-[300px] flex animate__animated ssm:w-[300px] fixed top-0 left-0 transition-all duration-900 h-screen bottom-0 rounded-r-[50px] z-50 0"
+        class="bg-white shadow-2xl fixed top-0 left-0 transition-all duration-900 h-screen bottom-0 w-full  z-50 flex animate__animated"
         :class="[
           navbar == true ? 'animate__fadeInLeft' : 'animate__fadeInRight',
         ]"
@@ -94,68 +94,8 @@ onMounted(() => {
                 'text-cus-secondary font-semibold': $route.name == 'about-us',
               }"
               @click="navbar = !navbar"
-              >About
-              <!-- <i
-                v-if="aboutDropdown"
-                @click="aboutDropdown = !aboutDropdown"
-                class="fa-solid fa-angle-up"
-              ></i>
-              <i
-                v-else
-                class="fa-solid fa-angle-down"
-                @click="aboutDropdown = !aboutDropdown"
-              ></i> -->
-              <!-- <ul
-                class="ml-4 animate__animated animate__fadeIn"
-                v-if="aboutDropdown"
-              >
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Our Office</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Who we are</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Speech</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Mission</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Our Partner</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Our Team</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Testimonial</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Why MSI</router-link
-                  >
-                </li>
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Roadmap</router-link
-                  >
-                </li>
-              </ul> -->
-            </router-link>
+              >About MSI</router-link
+            >
           </li>
           <li>
             <router-link
@@ -164,90 +104,58 @@ onMounted(() => {
               :class="{
                 'text-cus-secondary font-semibold': $route.name == 'services',
               }"
-              >Services
-              <!-- <i
-                v-if="serviceDropdown"
-                @click="serviceDropdown = !serviceDropdown"
-                class="fa-solid fa-angle-up"
-              ></i>
-              <i
-                v-else
-                class="fa-solid fa-angle-down"
-                @click="serviceDropdown = !serviceDropdown"
-              ></i> -->
-              <!-- <ul
-                class="ml-4 animate__animated animate__fadeIn"
-                v-if="serviceDropdown"
-              >
-                <li>
-                  <router-link :to="{ name: 'home' }" class="text-slate-600"
-                    >Our Services</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    :to="{ name: 'services#faq' }"
-                    class="text-slate-600"
-                    >Faq</router-link
-                  >
-                </li>
-              </ul> -->
-            </router-link>
+              >Services</router-link
+            >
           </li>
-          <li>
+          <li class="relative">
             <router-link
-              @click="navbar = !navbar"
+              @click="studyDropdown = !studyDropdown"
               :to="{ name: 'study-pathway' }"
               :class="{
-                'text-cus-secondary font-semibold relative mb-4':
-                  $route.name == 'study-pathway',
+                'text-cus-secondary font-semibold': $route.name == 'study-pathway',
               }"
-              >StudyPathway
-            </router-link>
-            <div class="absolute right-28 top-[250px]">
+              >Study Pathways
               <i
                 v-if="studyDropdown"
-                @click="studyDropdown = !studyDropdown"
-                class="fa-solid fa-angle-up"
+                class="fa-solid fa-angle-up ml-2"
               ></i>
               <i
                 v-else
-                class="fa-solid fa-angle-down"
-                @click="studyDropdown = !studyDropdown"
+                class="fa-solid fa-angle-down ml-2"
               ></i>
-            </div>
+            </router-link>
             <ul
-              class="mt-2 ml-2 animate__animated animate__fadeIn"
-              v-if="(data, studyDropdown)"
+              class="mt-2 ml-4 animate__animated animate__fadeIn"
+              v-if="data && studyDropdown"
             >
               <li
-                v-for="data in data.countries"
-                :key="data.id"
+                v-for="country in data.countries"
+                :key="country.id"
                 @click="navbar = !navbar"
               >
                 <router-link
                   :to="{
                     name: 'study-pathway.country',
-                    params: { id: data.id },
+                    params: { id: country.id },
                   }"
-                  >{{ data.name }}</router-link
+                  >{{ country.name }}</router-link
                 >
+              </li>
+              <li @click="navbar = !navbar">
+                <a href="/study-pathway#mission">More Countries</a>
               </li>
             </ul>
           </li>
           <li>
-            <router-link :to="{ name: 'scholarship' }" @click="navbar = !navbar"
-              >Scholarship</router-link
-            >
-          </li>
-          <!-- <li class="relative flex items-center lg:pr-2" data-te-nav-item-ref>
             <router-link
               :to="{ name: 'scholarship' }"
-              class="text-base disabled:text-black/30lg:px-2 hover:text-cus-secondary [&.active]:text-black/90"
-              data-te-nav-link-ref
-              >Scholarship</router-link
+              @click="navbar = !navbar"
+              :class="{
+                'text-cus-secondary font-semibold': $route.name == 'scholarship',
+              }"
+              >Scholarships</router-link
             >
-          </li> -->
+          </li>
           <li>
             <router-link
               @click="navbar = !navbar"
@@ -255,7 +163,7 @@ onMounted(() => {
               :class="{
                 'text-cus-secondary font-semibold': $route.name == 'events',
               }"
-              >Event</router-link
+              >Events</router-link
             >
           </li>
           <li>
@@ -265,7 +173,7 @@ onMounted(() => {
               :class="{
                 'text-cus-secondary font-semibold': $route.name == 'contact-us',
               }"
-              >Contact Us</router-link
+              >Contact MSI</router-link
             >
           </li>
         </ul>
