@@ -76,7 +76,8 @@ onMounted(() => {
         <!-- Current Achiever -->
         <div
           v-if="currentScholarshipAchiever"
-          class="flex flex-col items-center justify-center py-2 md:gap-3"
+          class="flex flex-col items-center justify-center py-2 md:gap-3 min-h-[300px]"
+          style="padding: 0 3rem;"
         >
           <h1
             class="mb-4 text-sm font-semibold text-center capitalize sm:mb-6 text-cus-secondary text-shadow-sm sm:text-base md:text-lg"
@@ -84,10 +85,12 @@ onMounted(() => {
             Scholarship Achievers
           </h1>
 
-          <ScholarshipAchieverCard
-            :data="currentScholarshipAchiever"
-            class="pb-4 sm:pb-6"
-          />
+          <div class="flex-grow w-full flex items-center justify-center">
+            <ScholarshipAchieverCard
+              :data="currentScholarshipAchiever"
+              class="pb-4 sm:pb-6"
+            />
+          </div>
         </div>
 
         <!-- Next Button -->

@@ -19,7 +19,7 @@
         <img
           :src="currentEvent.imageURL"
           alt=""
-          class="xl:w-full md:w-full sm:w-full md:h-[500px] xl:h-[800px] xl:mt-40 md:mt-20"
+          class="xl:w-full md:w-full sm:w-full md:h-[500px] xl:h-[800px]"
         />
       </div>
       <div class="relative w-full pb-10 overflow-hidden">
@@ -51,7 +51,7 @@
               </h1>
               <h1
                 class="md:text-md ssm:text-sm ssm:mr-5"
-                v-html="currentEvent.description.replace(/\n/g, '<br>')"
+                v-html="currentEvent.description ? currentEvent.description.replace(/\n/g, '<br>') : ''"
               ></h1>
             </div>
           </div>
@@ -61,27 +61,27 @@
             <div
               class="bg-[#EDF7FF] rounded-2xl flex items-center md:h-[436px] md:mt-14"
             >
-              <div class="md:ml-20 ssm:mx-5 ssm:py-5">
-                <h1 class="md:text-md ssm:text-[16px] sm:text-[18px] flex">
-                  <p class="md:min-w-[230px] ssm:min-w-[110px]">Event Date</p>
-                  <p>: {{ currentEvent.start_date }}</p>
-                </h1>
-                <h1
-                  class="md:text-md ssm:text-[16px] sm:text-[18px] flex md:my-7 ssm:my-4"
-                >
-                  <p class="md:min-w-[230px] ssm:min-w-[110px]">Event Time</p>
-                  <p>
-                    : {{ currentEvent.start_time }} to
-                    {{ currentEvent.end_time }}
-                  </p>
-                </h1>
-                <h1
-                  class="md:text-md ssm:text-[16px] sm:text-[18px] flex md:my-7"
-                >
-                  <span class="md:min-w-[230px] ssm:min-w-[110px]">Venue</span>
-                  <span>: {{ currentEvent.venue }}</span>
-                </h1>
+             <div class="md:ml-20 ssm:mx-5 ssm:py-5 text-left">
+              <div class="md:text-md ssm:text-[16px] sm:text-[18px] flex items-start">
+                <p class="md:min-w-[230px] ssm:min-w-[110px] shrink-0 font-medium">Event Date</p>
+                <p class="px-2">:</p>
+                <p>{{ currentEvent.start_date }}</p>
               </div>
+
+              <div class="md:text-md ssm:text-[16px] sm:text-[18px] flex items-start md:my-7 ssm:my-4">
+                <p class="md:min-w-[230px] ssm:min-w-[110px] shrink-0 font-medium">Event Time</p>
+                <p class="px-2">:</p>
+                <p>{{ currentEvent.start_time }} to {{ currentEvent.end_time }}</p>
+              </div>
+
+              <div class="md:text-md ssm:text-[16px] sm:text-[18px] flex items-start md:my-7 ssm:my-4">
+                <p class="md:min-w-[230px] ssm:min-w-[110px] shrink-0 font-medium">Venue</p>
+                <p class="px-2">:</p>
+                <p class="flex-1 text-left">
+                  {{ currentEvent.venue }}
+                </p>
+              </div>
+            </div>
             </div>
             <Button
               @click="toRegisterForm"
@@ -232,7 +232,7 @@ import Button from "../components/partials/Button.vue";
 import Link from "@/components/partials/Link.vue";
 import MySwiper from "@/components/MySwiper.vue";
 import EventSwiper from "@/components/Events/EventSwiper.vue";
-import { onBeforeRouteUpdate, useRouter } from "vue-router";
+import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
 import { onMounted, ref } from "vue";
 import EventCard from "../components/general/EventCard.vue";
 import axios from "axios";
@@ -244,24 +244,32 @@ import upcomingImg from "../assets/img/events/upcomingEvent.png";
 const props = defineProps(["id"]);
 
 const router = useRouter();
+const route = useRoute();
 const currentEvent = ref({});
 const moreEvents = ref([]);
 
 const fetchData = async () => {
+  const eventId = props.id || route.params.id;
+  console.log('Fetching data for event id:', eventId);
+  
   const res = await eventStore.fetchEvent();
   events.value = res.data.latestEvent;
-  res.data.latestEvent.map((event) => {
-    if (props.id == event.id) {
-      currentEvent.value = event;
-    } else {
-      const existingEvent = moreEvents.value.find(
-        (existingEvent) => existingEvent.id === event.id
-      );
-      if (!existingEvent) {
-        moreEvents.value.push(event);
+  
+  if (events.value && events.value.length > 0) {
+    events.value.map((event) => {
+      if (eventId == event.id) {
+        console.log('Found matching event:', event);
+        currentEvent.value = event;
+      } else {
+        const existingEvent = moreEvents.value.find(
+          (existingEvent) => existingEvent.id === event.id
+        );
+        if (!existingEvent) {
+          moreEvents.value.push(event);
+        }
       }
-    }
-  });
+    });
+  }
 };
 
 // const fetchData = async () => {

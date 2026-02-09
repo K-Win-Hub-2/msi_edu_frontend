@@ -47,7 +47,7 @@ const goToScholarshipPage = () => {
         <div
           class="flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:gap-6"
         >
-          <div class="relative shrink-0">
+          <div class="relative shrink-0 flex-shrink-0">
             <img
               :src="studentImage"
               class="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[160px] md:h-[160px] z-10 select-none rounded-full object-cover shadow-lg"
@@ -57,40 +57,41 @@ const goToScholarshipPage = () => {
 
           <div
             class="flex flex-col w-full text-center break-words whitespace-normal sm:text-left"
+            style="min-height: 200px; max-height: 200px; display: flex; flex-direction: column; justify-content: center;"
           >
-            <div>
+            <div class="flex-grow space-y-1 overflow-hidden">
               <h3
-                class="mb-1 text-base font-bold capitalize sm:text-lg text-cus-primary text-shadow-sm cus-shadow-color"
+                class="text-base font-bold capitalize sm:text-lg text-cus-primary text-shadow-sm cus-shadow-color line-clamp-1"
               >
                 {{ data.title }}
               </h3>
 
               <h3
-                class="mb-1 capitalize text-sm sm:text-[18px] text-cus-primary text-shadow-sm cus-shadow-color"
+                class="capitalize text-sm sm:text-[18px] text-cus-primary text-shadow-sm cus-shadow-color line-clamp-1"
               >
                 {{ data.student_name }}
               </h3>
 
               <h4
-                class="text-sm capitalize sm:text-base text-cus-primary text-shadow-sm cus-shadow-color"
+                class="text-sm capitalize sm:text-base text-cus-primary text-shadow-sm cus-shadow-color line-clamp-2"
               >
                 {{ data.course_name }}
               </h4>
 
               <h4
-                class="mt-1 text-sm capitalize text-shadow-sm cus-shadow-color"
+                class="text-sm capitalize text-shadow-sm cus-shadow-color line-clamp-1"
               >
                 {{ data.scholar_type.scholar_name }}
               </h4>
 
               <h4
-                class="mt-1 text-xs capitalize text-shadow-sm cus-shadow-color"
+                class="text-xs capitalize text-shadow-sm cus-shadow-color line-clamp-1"
               >
                 {{ data.country.name }}
               </h4>
             </div>
 
-            <div class="flex justify-center mt-5 sm:justify-start">
+            <div class="flex justify-center mt-3 sm:justify-start">
               <Button
                 class="px-6 py-2 text-sm"
                 type="gradient"
