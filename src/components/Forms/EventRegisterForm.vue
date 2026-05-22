@@ -318,7 +318,7 @@ const fetchData = async () => {
 
 const registerList = async () => {
   const res = await axios.get(
-    "https://adminpanel.msieducation.edu.mm/api/student/event/register/list"
+    `${import.meta.env.VITE_BASE_URL}student/event/register/list`
   );
   if (res) {
     registeredEvents.value = res.data.data.filter((d) => {
@@ -339,7 +339,7 @@ const handleRegister = async () => {
     try {
       loading.value = true;
       const res = await axios.post(
-        "https://adminpanel.msieducation.edu.mm/api/student/event/register",
+        `${import.meta.env.VITE_BASE_URL}student/event/register`,
         {
           name: name.value,
           phone: phone.value,

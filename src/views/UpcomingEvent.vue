@@ -58,7 +58,7 @@ const { data, fetchData } = getData();
 
 // const fetchEvent = async () => {
 //   const res = await axios.get(
-//     "https://adminpanel.msieducation.edu.mm/api/latestEventList"
+//     `${import.meta.env.VITE_BASE_URL}latestEventList`
 //   );
 //   if (res) {
 //     events.value = res.data.latestEvent;

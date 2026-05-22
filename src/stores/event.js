@@ -20,7 +20,7 @@ export const useEventStore = defineStore("event", {
     // fetchUniversity(payload) {
     //   return getAxiosClient()
     //     .get(
-    //       `https://adminpanel.msieducation.edu.mm/api/universityList/${payload}`
+    //       `universityList/${payload}`
     //     )
 
     //     .then((res) => {

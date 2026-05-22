@@ -125,7 +125,7 @@ const swiperOptions = {
 const fetchData = async () => {
   try {
     const res = await axios.get(
-      "https://adminpanel.msieducation.edu.mm/api/scholarship-achievers/scholar-type/4"
+      `${import.meta.env.VITE_BASE_URL}scholarship-achievers/scholar-type/4`
     );
     console.log(res);
     return res.data.scholarAchiever;
