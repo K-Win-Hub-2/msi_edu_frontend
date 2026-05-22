@@ -64,7 +64,7 @@ const videoLink = (val) => {
     <div class="font-[400] md:text-md ssm:text-[15px] ssm:mx-2">
       <p>{{ currentCountry.introduction }}</p>
       <div class="text-center md:mt-20 ssm:mt-5">
-        <router-link :to="{ name: 'inquiry' }">
+        <router-link :to="{ name: 'inquiry', query: { country_id: props.id } }">
           <Button
             class="lg:px-[45px] md:px-[30px] ssm:px-[20px] ssm:py-[10px] md:py-[24px] lg:py-[10px]"
             type="gradient"
