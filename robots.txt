@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://msieducation.edu.mm/sitemap.xml
