@@ -181,10 +181,14 @@ const router = createRouter({
       component: ContactUs,
     },
     {
-      path: "/event-register-form/:id",
+      path: "/register/:id",
       name: "event-register-form",
       component: EventRegisterForm,
       props: true,
+    },
+    {
+      path: "/event-register-form/:id",
+      redirect: "/register/:id",
     },
     {
       path: "/event-register-form-SEG",
