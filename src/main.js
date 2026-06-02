@@ -48,4 +48,13 @@ app.use(ToastPlugin); //notification
 app.use(createPinia());
 app.use(router);
 
+import { createGtag } from "vue-gtag";
+
+app.use(createGtag({
+  tagId: "G-807MKLCH3J",
+  pageTracker: {
+    router
+  }
+}));
+
 app.mount("#app");
