@@ -181,10 +181,14 @@ const router = createRouter({
       component: ContactUs,
     },
     {
-      path: "/event-register-form/:id",
+      path: "/register/:id",
       name: "event-register-form",
       component: EventRegisterForm,
       props: true,
+    },
+    {
+      path: "/event-register-form/:id",
+      redirect: "/register/:id",
     },
     {
       path: "/event-register-form-SEG",
@@ -235,6 +239,16 @@ const router = createRouter({
     // 	component: () => import("../views/AboutView.vue"),
     // },import { AboutView } from '@';
   ],
+});
+
+router.afterEach((to) => {
+  const baseTitle = "MSI EDUCATION";
+  if (to.name && typeof to.name === "string") {
+    const pageName = to.name.split(/[-#.]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+    document.title = `${pageName} - ${baseTitle}`;
+  } else {
+    document.title = baseTitle;
+  }
 });
 
 export default router;
