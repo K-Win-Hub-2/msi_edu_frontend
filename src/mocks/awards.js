@@ -52,6 +52,7 @@ import img23 from "@/assets/img/home/Awards3/23.png";
 import img24 from "@/assets/img/home/Awards3/24.png";
 import img25 from "@/assets/img/home/Awards3/25.png";
 import img26 from "@/assets/img/home/Awards3/26.png";
+import img27 from "@/assets/img/home/Awards3/27.png";
 
 
 
@@ -331,6 +332,16 @@ export const awards = [
     year: "2024-2025",
     photo: img26,
     order: "26",
+    show_on_website: "yes",
+  },
+  {
+    title: "Valued Partner Appreciation Award",
+    description: "Asia Pacific University (Malaysia)",
+    university: "Asia Pacific University",
+    country: "Malaysia",
+    year: "2026",
+    photo: img27,
+    order: "27",
     show_on_website: "yes",
   }
 ];

@@ -19,6 +19,14 @@
       Mandalay Office (Branch)
     </button>
   </div>
+  <div class="mt-3 md:mt-0">
+    <button
+      @click="selectLocation('taunggyi')"
+      class="w-72 py-3 mx-2 font-bold cursor-pointer bg-gradient-to-r from-cus-primary to-cus-secondary cus-standout rounded-xl text-white"
+    >
+      Taunggyi Office (Branch)
+    </button>
+  </div>
 </li>
       </ul>
     </div>
@@ -36,8 +44,18 @@
       ></iframe>
 
       <iframe
-        v-else
+        v-else-if="formData.location === 'mandalay'"
         src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d925.0554564396675!2d96.0841645!3d21.9644479!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDU3JzUyLjEiTiA5NsKwMDUnMDIuOCJF!5e0!3m2!1sen!2smm!4v1706451947017!5m2!1sen!2smm"
+        height="450"
+        class="w-full shadow-lg"
+        style="border: 0"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+
+      <iframe
+        v-else-if="formData.location === 'taunggyi'"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3730.3573846042136!2d97.0331688!3d20.7768247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ce87248b18bec1%3A0xa1d02258e377c2cb!2sMSI%20Taunggyi%20Overseas%20Education%20Consultancy!5e0!3m2!1sen!2sin!4v1782895261610!5m2!1sen!2sin"
         height="450"
         class="w-full shadow-lg"
         style="border: 0"
@@ -65,7 +83,9 @@
                 {{
                   formData.location === "yangon"
                     ? "+95 1 8389915, +95 1 8381 408"
-                    : " +95 9 444 443 916 , +95 9 444 443 917"
+                    : formData.location === "mandalay"
+                    ? " +95 9 444 443 916 , +95 9 444 443 917"
+                    : "+95 9 401 852 599, +95 9 401 852 589"
                 }}
               </p>
             </div>
@@ -88,7 +108,9 @@
                 v-html="
                   formData.location === 'yangon'
                     ? `No.234, 2nd Floor (Right), <br/> Shwebontha Street. (Middle Block), Pabedan Township, Yangon, Myanmar`
-                    : `No. 31/3, Between 79 St × 80 Street,<br/>38th Street, Mahar Aung Myay Township, Mandalay, Myanmar`
+                    : formData.location === 'mandalay'
+                    ? `No. 31/3, Between 79 St × 80 Street,<br/>38th Street, Mahar Aung Myay Township, Mandalay, Myanmar`
+                    : `Room (A), 4th Floor, Lwin Condominium (8-Story Building),<br/>West Circular Road, Myoma Quarter, Taunggyi, Shan State, Myanmar.`
                 "
               ></p>
             </div>

@@ -64,7 +64,7 @@ const urls = [
                 <div>
                   <div class="font-semibold">Yangon Office (Head)</div>
                   <p>
-                    No.234, 2nd Floor (Right), 
+                    No.234, 2nd Floor (Right),
                     <span class="whitespace-nowrap">Shwebontha Street (Middle Block),</span>
                   </p>
                   <p>Pabedan Township, Yangon, Myanmar</p>
@@ -74,7 +74,14 @@ const urls = [
                   <div class="font-semibold">Mandalay Office (Branch)</div>
                   <p>No. 31/3, Between 79 Street × 80 Street,</p>
                   <p>38th Street, Mahar Aung Myay Township,</p>
-                  <p>Mandalay, Myanmar </p>
+                  <p>Mandalay, Myanmar</p>
+                </div>
+
+                <div>
+                  <div class="font-semibold">Taunggyi Office (Branch)</div>
+                  <p>Room (A), 4th Floor, Lwin Condominium (8-Story Building),</p>
+                  <p>West Circular Road, Myoma Quarter,</p>
+                  <p>Taunggyi, Shan State, Myanmar.</p>
                 </div>
               </div>
             </div>
@@ -102,6 +109,14 @@ const urls = [
                   >
                   <div>+95 9 444 443 916</div>
                   <div>+95 9 444 443 917</div>
+                </li>
+
+                <li>
+                  <span class="block font-semibold whitespace-nowrap"
+                    >Taunggyi Office (Branch)</span
+                  >
+                  <div>+95 9 401 852 599</div>
+                  <div>+95 9 401 852 589</div>
                 </li>
 
                 <li class="flex flex-col items-center space-y-1 sm:items-start">
